@@ -19,10 +19,10 @@ class Dashboard extends Component {
         this.state = {
             collapsed: false
         }
-        // this.toggle = this.toggle.bind(this);
+        this.toggle = this.toggle.bind(this);
         this.routerList = this.routerList.bind(this);
     }
-    toggle=()=> {
+    toggle() {
         this.setState({
             collapsed: !this.state.collapsed,
         });
@@ -128,7 +128,7 @@ class Dashboard extends Component {
                     </Menu>
                 </Sider>
                 <Layout className="layout-header">
-                    <Header style={{ background: '#fff', padding: 0, borderBottom: '1px solid #e6eaee' }}>
+                    <Header style={{ background: '#fff', padding: 0, borderBottom: '1px solid #e6eaee',zIndex:9999 }}>
                         <Icon
                             className="trigger"
                             type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
