@@ -1,19 +1,26 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Switch, Redirect, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Dashboard from '../pages/Dashboard/basicLayout';
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
+    componentDidMount() {
+        window._hmt = window._hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?dcfa96faf5ee69ddda4993204aa24544";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    }
+    render() {
+        return <Router>
+            <div className="App">
+                <Switch>
+                    <Route path="/dashboard" component={Dashboard} />
+                </Switch>
+            </div>
+        </Router>
+    }
 }
 
 export default App;
