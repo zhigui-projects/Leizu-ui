@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import Dashboard from '../pages/Dashboard/basicLayout';
 
 class App extends Component {
@@ -17,6 +17,7 @@ class App extends Component {
             <div className="App">
                 <Switch>
                     <Route path="/dashboard" component={Dashboard} />
+                    <Route path="/*" render={(props) => <Redirect to='/dashboard' />} />
                 </Switch>
             </div>
         </Router>
