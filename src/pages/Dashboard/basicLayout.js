@@ -19,10 +19,10 @@ class Dashboard extends Component {
         this.state = {
             collapsed: false
         }
-        this.toggle = this.toggle.bind(this);
+        // this.toggle = this.toggle.bind(this);
         this.routerList = this.routerList.bind(this);
     }
-    toggle() {
+    toggle=()=> {
         this.setState({
             collapsed: !this.state.collapsed,
         });
