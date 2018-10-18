@@ -108,7 +108,16 @@
     .passCaptchaBox ::after{
         display: none;
     }
-
+}
+.ant-tooltip{
+    .ant-tooltip-content{
+        .ant-tooltip-inner{
+            span{
+                opacity:1!important;
+                margin-left:5px;
+            }
+        }
+    }
 }
 .dashboard_layout{
     min-width: 1000px;
@@ -199,7 +208,9 @@
             }
             .ant-menu-item-selected{
                 background:rgba(90, 170, 250, 0.1);
-                color:red;
+                span{
+                    color:#5aaafa;
+                }
             }
         }
         .ant-layout-sider-trigger{
@@ -252,7 +263,6 @@
         }
         .content{
             margin:24px;
-            background:#f0f2f5;
         }
     }
 

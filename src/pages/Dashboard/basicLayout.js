@@ -2,7 +2,20 @@ import React, { Component } from 'react';
 import { Layout, Menu, Breadcrumb, Icon, Modal,Popover,Form,Input } from 'antd';
 import { Switch, Redirect, Route } from 'react-router-dom';
 // import logo from '../../images/logo.svg';
-import peer from '../../images/api.svg';
+import overview from '../../images/slider/overview.svg';
+import block from '../../images/slider/blockchain.svg';
+import chain from '../../images/slider/chaincode.svg';
+import channel from '../../images/slider/channel.svg';
+import log from '../../images/slider/log.svg';
+import organization from '../../images/slider/organization.svg';
+import peer from '../../images/slider/peer.svg';
+import unoverview from '../../images/slider/unoverview.svg';
+import unblock from '../../images/slider/unblockchain.svg';
+import unchain from '../../images/slider/unchaincode.svg';
+import unchannel from '../../images/slider/unchannel.svg';
+import unlog from '../../images/slider/unlog.svg';
+import unorganization from '../../images/slider/unorganization.svg';
+import unpeer from '../../images/slider/unpeer.svg';
 import './basicLayout.less';
 import BlockChain from './components/BlockChain/index';
 import ChainCode from './components/ChainCode/index';
@@ -26,12 +39,17 @@ class Dashboard extends Component {
             visible: false,
             passConfirmTip:"",
             passTip:"",
-            passErrorTip:""
+            passErrorTip:"",
+            overview: true,
+            block: false,
+            organization: false,
+            channel: false,
+            peer: false,
+            log: false,
+            code: false
         }
-        // this.toggle = this.toggle.bind(this);
-        this.routerList = this.routerList.bind(this);
     }
-    toggle=()=> {
+    toggle = () => {
         this.setState({
             collapsed: !this.state.collapsed,
         });
@@ -170,36 +188,99 @@ class Dashboard extends Component {
         return;
     }
 
-    routerList({ item, key, keyPath }) {
+    routerList = ({ item, key, keyPath }) => {
         switch (key) {
             case "overview":
                 this.props.history.push({
                     pathname: "/dashboard/overview"
+                })
+                this.setState({
+                    overview: true,
+                    block: false,
+                    organization: false,
+                    channel: false,
+                    peer: false,
+                    log: false,
+                    code: false
                 })
                 break;
             case "blockchain_browser":
                 this.props.history.push({
                     pathname: "/dashboard/blockchain_browser"
                 })
+                this.setState({
+                    overview: false,
+                    block: true,
+                    organization: false,
+                    channel: false,
+                    peer: false,
+                    log: false,
+                    code: false
+                })
                 break;
             case "organization_management":
                 this.props.history.push({
                     pathname: "/dashboard/organization_management"
+                })
+                this.setState({
+                    overview: false,
+                    block: false,
+                    organization: true,
+                    channel: false,
+                    peer: false,
+                    log: false,
+                    code: false
                 })
                 break;
             case "channel_management":
                 this.props.history.push({
                     pathname: "/dashboard/channel_management"
                 })
+                this.setState({
+                    overview: false,
+                    block: false,
+                    organization: false,
+                    channel: true,
+                    peer: false,
+                    log: false,
+                    code: false
+                })
                 break;
             case "peer_management":
                 this.props.history.push('/dashboard/peer_management')
+                this.setState({
+                    overview: false,
+                    block: false,
+                    organization: false,
+                    channel: false,
+                    peer: true,
+                    log: false,
+                    code: false
+                })
                 break;
             case "chaincode_management":
                 this.props.history.push("/dashboard/chaincode_management")
+                this.setState({
+                    overview: false,
+                    block: false,
+                    organization: false,
+                    channel: false,
+                    peer: false,
+                    log: false,
+                    code: true
+                })
                 break;
             case "log_management":
                 this.props.history.push("/dashboard/log_management")
+                this.setState({
+                    overview: false,
+                    block: false,
+                    organization: false,
+                    channel: false,
+                    peer: false,
+                    log: true,
+                    code: false
+                })
                 break;
             default:
                 this.props.history.push({
