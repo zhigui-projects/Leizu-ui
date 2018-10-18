@@ -1,0 +1,206 @@
+.user-name-drop{
+  .drop-item{
+    line-height: 28px;
+    a{
+      font-size: 14px;
+    }
+  }
+}
+.layout{
+  width: 100%;
+  min-height: 100%;
+  background: #f0f2f5;
+  min-width: 760px;
+  display: flex;
+  flex-direction: column;
+  .ant-modal-confirm-btns{
+    button{
+      float: right;
+    }
+    button:nth-of-type(2){
+      margin-right: 16px;
+      background: #3d70b1;
+    }
+  }
+  .delectContractTit{
+    font-size: 16px;
+    font-weight: normal;
+    color: #ffffff;
+  }
+  .ant-modal-close{
+    color: #ffffff !important;
+  }
+  .ant-modal-header{
+    background: #152935;
+  }
+  .resetPassModalForm{
+    input{
+      height: 32px;
+    }
+    .ant-form-item-label{
+      text-align: left;
+    }
+    .ant-form-item{
+      font-size: 12px !important;
+    }
+    input::-webkit-input-placeholder{
+      color:rgba(0,0,0,0.25);
+      font-size: 14px;
+    }
+    input::-moz-placeholder{   /* Mozilla Firefox 19+ */
+      color:rgba(0,0,0,0.25);
+      font-size: 14px;
+    }
+    input:-moz-placeholder{    /* Mozilla Firefox 4 to 18 */
+      color:rgba(0,0,0,0.25);
+      font-size: 14px;
+    }
+    input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
+      color:rgba(0,0,0,0.25)!important;
+      font-size: 14px;
+    }
+
+  }
+  .ant-modal-footer{
+    background: #f6f8fa;
+    height: 53px;
+    button{
+      float: right;
+      width: 96px;
+      height: 32px;
+    }
+    button:nth-of-type(2){
+      margin-right: 16px;
+      background: #3d70b1;
+    }
+  }
+  .ant-breadcrumb{
+    .ant-breadcrumb-link{
+      font-size: 12px;
+      color: #7f8fa4;
+    }
+    .ant-breadcrumb-link:nth-child(1){
+      color: #354052;
+      font-size: 14px;
+    }
+    .ant-breadcrumb-link:nth-child(2){
+      color: #3d70b1;
+    }
+  }
+  .ant-modal-footer{
+    border-top: none !important;
+  }
+  header{
+    height: 64px;
+    background: #ffffff;
+    padding: 0 24px;
+    border-bottom: 1px solid #eff3f6;
+    .headerImg{
+      float: left;
+      height: 100%;
+      line-height: 64px;
+      img{
+        width: 114px;
+        height: auto;
+      }
+    }
+
+    .headerRight{
+      height: 100%;
+      float: right;
+      display: flex;
+      align-items: center;
+      a{
+        height: 100%;
+        line-height: 64px;
+        color: #354052;
+        font-size: 14px;
+      }
+      ul{
+        height: 100%;
+        display: flex;
+        align-items: center;
+        margin-bottom: 0px;
+        margin-right: 48px;
+        li a{
+          text-decoration: none;
+          margin: 0 12px ;
+          color:  #7f8fa4;
+          font-size: 16px;
+        }
+        li a:hover{
+          color: #4285f4;
+        }
+      }
+    }
+  }
+  .servicePart{
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1 auto;
+    background: #eff3f6;
+    margin: 24px;
+    min-height:530px;
+    position: relative;
+    .ant-list-grid .ant-list-item{
+      margin-bottom: 0;
+    }
+    .ant-avatar{
+      width: 64px;
+      height: 64px;
+    }
+    .pagePart{
+      //position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .ant-card-actions{
+      li{
+        display: flex;
+        padding: 0 24px;
+        span{
+          width: 100%;
+          display: flex;justify-content: space-between;
+        }
+      }
+
+    }
+  }
+  .passCaptchaBox{
+    width:100%;
+    margin-top:8px;
+    position: relative;
+    margin-bottom: 8px;
+    span{
+      height: 5px;
+    }
+
+    .passTip{
+      position: absolute;
+      width: 100%;
+      left: 0;
+      height:18px;
+      color: #4f5f82;
+      text-align: center;
+      margin-top: 5px;
+      font-size: 12px;
+    }
+  }
+  .passCaptchaBox ::after{
+    display: none;
+  }
+  .resetPassFormItem + code{
+    padding-left: 20.8%;
+    padding-right:12.5% ;
+    position: relative;
+    top: -12px;
+    text-align: center;
+    width: 100%;
+    color: #f13640;
+    font-size: 12px;
+    display: inline-block;
+  }
+}
+

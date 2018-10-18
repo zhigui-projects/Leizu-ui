@@ -1,6 +1,127 @@
+.dom_dashboard{
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -ms-flex: auto;
+    flex: auto;
+    background: #f0f2f5;
+    min-height: 0;
+    position: relative;
+    .ant-modal-mask{
+        position: absolute;
+    }
+    .ant-modal-wrap{
+        position: absolute;
+    }
+    .ant-modal-confirm-btns{
+        button{
+            float: right;
+        }
+        button:nth-of-type(2){
+            margin-right: 16px;
+            background: #3d70b1;
+        }
+    }
+    .delectContractTit{
+        font-size: 16px;
+        font-weight: normal;
+        color: #ffffff;
+    }
+    .ant-modal-close{
+        color: #ffffff !important;
+    }
+    .ant-modal-header{
+        background: #152935;
+    }
+    .ant-modal-footer{
+        background: #f6f8fa;
+        height: 53px;
+        button{
+            float: right;
+            width: 96px;
+            height: 32px;
+        }
+        button:nth-of-type(2){
+            margin-right: 16px;
+            background: #3d70b1;
+        }
+    }
+    .resetPassModalForm{
+        input{
+            height: 32px;
+        }
+        .ant-form-item-label{
+            text-align: left;
+        }
+        .ant-form-item{
+            font-size: 12px !important;
+        }
+        input::-webkit-input-placeholder{
+            color:rgba(0,0,0,0.25);
+            font-size: 14px;
+        }
+        input::-moz-placeholder{   /* Mozilla Firefox 19+ */
+            color:rgba(0,0,0,0.25);
+            font-size: 14px;
+        }
+        input:-moz-placeholder{    /* Mozilla Firefox 4 to 18 */
+            color:rgba(0,0,0,0.25);
+            font-size: 14px;
+        }
+        input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
+            color:rgba(0,0,0,0.25)!important;
+            font-size: 14px;
+        }
+
+    }
+    .resetPassFormItem + code{
+        padding-left: 20.8%;
+        padding-right:12.5% ;
+        position: relative;
+        top: -12px;
+        text-align: center;
+        width: 100%;
+        color: #f13640;
+        font-size: 12px;
+        display: inline-block;
+    }
+    .passCaptchaBox{
+        width:100%;
+        margin-top:8px;
+        position: relative;
+        margin-bottom: 8px;
+        span{
+            height: 5px;
+        }
+
+        .passTip{
+            position: absolute;
+            width: 100%;
+            left: 0;
+            height:18px;
+            color: #4f5f82;
+            text-align: center;
+            margin-top: 5px;
+            font-size: 12px;
+        }
+    }
+    .passCaptchaBox ::after{
+        display: none;
+    }
+
+}
 .dashboard_layout{
     min-width: 1000px;
     height: 100%;
+    .ant-modal-confirm-btns{
+        button{
+            float: right;
+        }
+        button:nth-of-type(2){
+            margin-right: 16px;
+            background: #3d70b1;
+        }
+    }
     .modalBtnStyle{
         .ant-btn{
             padding: 0 38px;
@@ -127,12 +248,12 @@
             height:48px;
             background:#ffffff;
             position:relative;
-            
+
         }
         .content{
             margin:24px;
             background:#f0f2f5;
         }
     }
-   
+
 }

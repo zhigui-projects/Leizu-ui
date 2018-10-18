@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import Dashboard from '../pages/Dashboard/basicLayout';
-
+import Project from '../pages/Project/index'
 class App extends Component {
     componentDidMount() {
         window._hmt = window._hmt || [];
@@ -17,7 +17,8 @@ class App extends Component {
             <div className="App">
                 <Switch>
                     <Route path="/dashboard" component={Dashboard} />
-                    <Route path="/*" render={(props) => <Redirect to='/dashboard' />} />
+                    <Route path="/project" component={Project} />
+                    <Route path="/*" render={(props) => <Redirect to='/project' />} />
                 </Switch>
             </div>
         </Router>
