@@ -2,7 +2,20 @@ import React, { Component } from 'react';
 import { Layout, Menu, Breadcrumb, Icon, Button, Modal } from 'antd';
 import { Switch, Redirect, Route } from 'react-router-dom';
 // import logo from '../../images/logo.svg';
-import peer from '../../images/api.svg';
+import overview from '../../images/slider/overview.svg';
+import block from '../../images/slider/blockchain.svg';
+import chain from '../../images/slider/chaincode.svg';
+import channel from '../../images/slider/channel.svg';
+import log from '../../images/slider/log.svg';
+import organization from '../../images/slider/organization.svg';
+import peer from '../../images/slider/peer.svg';
+import unoverview from '../../images/slider/unoverview.svg';
+import unblock from '../../images/slider/unblockchain.svg';
+import unchain from '../../images/slider/unchaincode.svg';
+import unchannel from '../../images/slider/unchannel.svg';
+import unlog from '../../images/slider/unlog.svg';
+import unorganization from '../../images/slider/unorganization.svg';
+import unpeer from '../../images/slider/unpeer.svg';
 import './basicLayout.less';
 import BlockChain from './components/BlockChain/index';
 import ChainCode from './components/ChainCode/index';
@@ -17,46 +30,114 @@ class Dashboard extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            collapsed: false
+            collapsed: false,
+            overview: true,
+            block: false,
+            organization: false,
+            channel: false,
+            peer: false,
+            log: false,
+            code: false
         }
-        this.toggle = this.toggle.bind(this);
-        this.routerList = this.routerList.bind(this);
     }
-    toggle() {
+    toggle = () => {
         this.setState({
             collapsed: !this.state.collapsed,
         });
     }
-    routerList({ item, key, keyPath }) {
+    routerList = ({ item, key, keyPath }) => {
         switch (key) {
             case "overview":
                 this.props.history.push({
                     pathname: "/dashboard/overview"
+                })
+                this.setState({
+                    overview: true,
+                    block: false,
+                    organization: false,
+                    channel: false,
+                    peer: false,
+                    log: false,
+                    code: false
                 })
                 break;
             case "blockchain_browser":
                 this.props.history.push({
                     pathname: "/dashboard/blockchain_browser"
                 })
+                this.setState({
+                    overview: false,
+                    block: true,
+                    organization: false,
+                    channel: false,
+                    peer: false,
+                    log: false,
+                    code: false
+                })
                 break;
             case "organization_management":
                 this.props.history.push({
                     pathname: "/dashboard/organization_management"
+                })
+                this.setState({
+                    overview: false,
+                    block: false,
+                    organization: true,
+                    channel: false,
+                    peer: false,
+                    log: false,
+                    code: false
                 })
                 break;
             case "channel_management":
                 this.props.history.push({
                     pathname: "/dashboard/channel_management"
                 })
+                this.setState({
+                    overview: false,
+                    block: false,
+                    organization: false,
+                    channel: true,
+                    peer: false,
+                    log: false,
+                    code: false
+                })
                 break;
             case "peer_management":
                 this.props.history.push('/dashboard/peer_management')
+                this.setState({
+                    overview: false,
+                    block: false,
+                    organization: false,
+                    channel: false,
+                    peer: true,
+                    log: false,
+                    code: false
+                })
                 break;
             case "chaincode_management":
                 this.props.history.push("/dashboard/chaincode_management")
+                this.setState({
+                    overview: false,
+                    block: false,
+                    organization: false,
+                    channel: false,
+                    peer: false,
+                    log: false,
+                    code: true
+                })
                 break;
             case "log_management":
                 this.props.history.push("/dashboard/log_management")
+                this.setState({
+                    overview: false,
+                    block: false,
+                    organization: false,
+                    channel: false,
+                    peer: false,
+                    log: true,
+                    code: false
+                })
                 break;
             default:
                 this.props.history.push({
@@ -79,7 +160,6 @@ class Dashboard extends Component {
                     breakpoint="lg"
                     collapsed={this.state.collapsed}
                     onCollapse={this.onCollapse}
-                    width='256px'
                 >
                     <li className="logo" to='/index' target="_blank">
                         <img src={require('../../images/logo_en.svg')} alt="" />
@@ -98,37 +178,37 @@ class Dashboard extends Component {
                         selectedKeys={this.getCurrentMenuSelectedKeys()}>
                         <Menu.Item className="list-item" key="overview">
                             <p className="fill-in"></p>
-                            <img src={peer} alt=" " />
+                            <img src={this.state.overview ? overview : unoverview} alt=" " />
                             <span style={{ opacity: (this.state.collapsed ? 0 : 1) }}>概览</span>
                         </Menu.Item>
                         <Menu.Item className="list-item" key="blockchain_browser">
-                            <img src={peer} alt=" " />
+                            <img src={this.state.block ? block : unblock} alt=" " />
                             <span style={{ opacity: (this.state.collapsed ? 0 : 1) }}>区块链浏览器</span>
                         </Menu.Item>
                         <Menu.Item className="list-item" key="organization_management">
-                            <img src={peer} alt=" " />
+                            <img src={this.state.organization ? organization : unorganization} alt=" " />
                             <span style={{ opacity: (this.state.collapsed ? 0 : 1) }}>组织管理</span>
                         </Menu.Item>
                         <Menu.Item className="list-item" key="channel_management">
-                            <img src={peer} alt=" " />
+                            <img src={this.state.channel ? channel : unchannel} alt=" " />
                             <span style={{ opacity: (this.state.collapsed ? 0 : 1) }}>通道管理</span>
                         </Menu.Item>
                         <Menu.Item className="list-item" key="peer_management">
-                            <img src={peer} alt=" " />
+                            <img src={this.state.peer ? peer : unpeer} alt=" " />
                             <span style={{ opacity: (this.state.collapsed ? 0 : 1) }}>节点管理</span>
                         </Menu.Item>
                         <Menu.Item className="list-item" key="chaincode_management">
-                            <img src={peer} alt=" " />
+                            <img src={this.state.code ? chain : unchain} alt=" " />
                             <span style={{ opacity: (this.state.collapsed ? 0 : 1) }}>链码管理</span>
                         </Menu.Item>
                         <Menu.Item className="list-item" key="log_management">
-                            <img src={peer} alt=" " />
+                            <img src={this.state.log ? log : unlog} alt=" " />
                             <span style={{ opacity: (this.state.collapsed ? 0 : 1) }}>日志管理</span>
                         </Menu.Item>
                     </Menu>
                 </Sider>
                 <Layout className="layout-header">
-                    <Header style={{ background: '#fff', padding: 0, borderBottom: '1px solid #e6eaee',zIndex:9999 }}>
+                    <Header style={{ background: '#fff', padding: 0, borderBottom: '1px solid #e6eaee', zIndex: 9999 }}>
                         <Icon
                             className="trigger"
                             type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
@@ -174,7 +254,7 @@ class Dashboard extends Component {
                             {/* {breadcrumbItems} */}
                         </Breadcrumb>
                     </div>
-                    <Content className="content" style={{ borderRadius: "3px", background: "#ffffff", position: "relative" }}>
+                    <Content className="content" style={{ borderRadius: "3px", position: "relative", background: '#f0f2f5' }}>
                         <Switch>
                             <Route path="/dashboard/overview" component={OverView} />
                             <Redirect exact from="/dashboard" to="/dashboard/overview" />
