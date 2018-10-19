@@ -398,31 +398,31 @@ class Dashboard extends Component {
                                 selectedKeys={this.getCurrentMenuSelectedKeys()}>
                                 <Menu.Item className="list-item" key="overview">
                                     <p className="fill-in"></p>
-                                    <img src={peer} alt=" " />
+                                    <img src={this.state.overview?overview:unoverview} alt=" " />
                                     <span style={{ opacity: (this.state.collapsed ? 0 : 1) }}>概览</span>
                                 </Menu.Item>
                                 <Menu.Item className="list-item" key="blockchain_browser">
-                                    <img src={peer} alt=" " />
+                                    <img src={this.state.block?block:unblock} alt=" " />
                                     <span style={{ opacity: (this.state.collapsed ? 0 : 1) }}>区块链浏览器</span>
                                 </Menu.Item>
                                 <Menu.Item className="list-item" key="organization_management">
-                                    <img src={peer} alt=" " />
+                                    <img src={this.state.organization?organization:unorganization} alt=" " />
                                     <span style={{ opacity: (this.state.collapsed ? 0 : 1) }}>组织管理</span>
                                 </Menu.Item>
                                 <Menu.Item className="list-item" key="channel_management">
-                                    <img src={peer} alt=" " />
+                                    <img src={this.state.channel?channel:unchannel} alt=" " />
                                     <span style={{ opacity: (this.state.collapsed ? 0 : 1) }}>通道管理</span>
                                 </Menu.Item>
                                 <Menu.Item className="list-item" key="peer_management">
-                                    <img src={peer} alt=" " />
+                                    <img src={this.state.peer?peer:unpeer} alt=" " />
                                     <span style={{ opacity: (this.state.collapsed ? 0 : 1) }}>节点管理</span>
                                 </Menu.Item>
                                 <Menu.Item className="list-item" key="chaincode_management">
-                                    <img src={peer} alt=" " />
+                                    <img src={this.state.code?chain:unchain} alt=" " />
                                     <span style={{ opacity: (this.state.collapsed ? 0 : 1) }}>链码管理</span>
                                 </Menu.Item>
                                 <Menu.Item className="list-item" key="log_management">
-                                    <img src={peer} alt=" " />
+                                    <img src={this.state.log?log:unlog} alt=" " />
                                     <span style={{ opacity: (this.state.collapsed ? 0 : 1) }}>日志管理</span>
                                 </Menu.Item>
                             </Menu>
@@ -456,7 +456,7 @@ class Dashboard extends Component {
                                         {/* {breadcrumbItems} */}
                                     </Breadcrumb>
                                 </div>
-                                <Content className="content" style={{ borderRadius: "3px", background: "#ffffff", position: "relative" }}>
+                                <Content className="content" style={{ borderRadius: "3px", background: "#f0f2f5", position: "relative" }}>
                                     <Switch>
                                         <Route path="/dashboard/overview" component={OverView} />
                                         <Redirect exact from="/dashboard" to="/dashboard/overview" />

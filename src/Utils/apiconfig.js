@@ -10,6 +10,9 @@ module.exports = {
         user: {
             login : `${API}/user/login`,
         },
-        channel: `${API}/channel`
+        channel: `${API}/channel`,
+        chain: {
+            chainList: `${API}/consortium`
+        }
     },
 }

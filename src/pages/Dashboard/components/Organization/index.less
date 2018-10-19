@@ -1,12 +1,12 @@
-.organization_management{
+.organization-management{
     position:absolute;
     width:100%;
     height:100%;
-    .organization_wrapper{
-        .create_organization{
+    .organization-wrapper{
+        .create-organization{
             height:32px;
             position:relative;
-            .create_plus{
+            .create-plus{
                 position:absolute;
                 right:0;
                 font-size:14px;
@@ -39,6 +39,7 @@
                     color:#ffffff;
                     border:none;
                 }
+                
             }
             .ant-table-wrapper{
                 background:#f6f8fa;
@@ -50,29 +51,53 @@
             float:right;
             margin-bottom:26px;
         }
-        .ant-modal{
-            .ant-modal-close{
-                color:#ffffff;
-            }
-            .ant-modal-header{
-                height:48px;
-                background:#152935;
-                .ant-modal-title{
-                    color:#ffffff;
-                    font-size:16px;
-                    font-weight:400;
-                    text-align:left;
-                    line-height:16px;
-                }
-                .ant-modal-close-x{
-                    height:48px;
-                    line-height:48px;
-                }
-            }
-            .ant-modal-body{
-                height:184px;
-            }
-        }
+        
         
     }
+}
+.create-modal{
+        .ant-modal-close{
+            color:#ffffff;
+            &:hover{
+                color:#ffffff;
+            }
+            .ant-modal-close-x{
+                height:48px;
+                line-height:48px;
+            }
+        }
+        .ant-modal-header{
+            height:48px;
+            background:#152935;
+            .ant-modal-title{
+                color:#ffffff;
+                font-size:16px;
+                font-weight:400;
+                text-align:left;
+                line-height:16px;
+            }
+        }
+        .ant-modal-body{
+            height:184px;
+            .ant-form-item{
+                margin-top:10px;
+            }
+        }
+        .ant-modal-footer{
+            background:#f6f8fa;
+             button{
+                 width:96px;
+                 height:32px;
+                 border:1px solid #e4ebf1;
+                 &:first-child{
+                     background:#3d70b1;
+                     color:#ffffff;
+                     font-size:14px;
+                 }
+                 &:last-child{
+                     background:#e4ebf1;
+                     color:rgba(61,112,177,0.85);
+                 }
+             }
+        }
 }
