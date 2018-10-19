@@ -9,6 +9,7 @@ module.exports = {
     api: {
         user: {
             login : `${API}/user/login`,
-        }
+        },
+        channel: `${API}/channel`
     },
 }

@@ -1,4 +1,8 @@
 import React , {Component} from 'react';
+import request from '../../../../Utils/Axios'
+import apiconfig from '../../../../Utils/apiconfig'
+
+const {api:{channel}} = apiconfig;
 
 class Channel extends Component{
     constructor(props){
@@ -6,6 +10,11 @@ class Channel extends Component{
         this.state={
 
         }
+    }
+    componentDidMount(){
+        request().get(channel).then(res=>{
+            console.log(res)
+        })
     }
     render(){
         return(
