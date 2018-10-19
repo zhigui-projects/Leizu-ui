@@ -9,6 +9,9 @@ module.exports = {
     api: {
         user: {
             login : `${API}/user/login`,
+        },
+        chain: {
+            chainList: `${API}/consortium`
         }
     },
 }

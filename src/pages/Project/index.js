@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './index.less';
 // import '../../styles/reset.less'
-import { Icon,Breadcrumb, Modal,Form,Input,message, Popover,Card, Avatar,List } from 'antd';
+import { Icon,Breadcrumb, Modal,Form,Input,message, Popover,Card, Avatar,List,Spin } from 'antd';
 import Cookies from 'js-cookie'
 import { NavLink } from 'react-router-dom';
 import config from "../../Utils/apiconfig";
@@ -9,7 +9,7 @@ import request from '../../Utils/Axios'
 const { Meta } = Card;
 const FormItem = Form.Item;
 const confirm = Modal.confirm;
-const {api:{user}} = config
+const {api:{user,chain}} = config
 
 
 class Project extends Component {
@@ -24,52 +24,58 @@ class Project extends Component {
             passConfirmTip:"",
             visible: false,
             currentUserName:"",
-            chainlistArr:[
-                {
-                    name:"aaa",
-                    type:"Zig-ledger",
-                    time:"2018-10-16"
-                },
-                {
-                    name:"bbb",
-                    type:"fabric",
-                    time:"2018-10-16"
-                },
-                {
-                    name:"ccc",
-                    type:"Zig-ledger",
-                    time:"2018-10-16"
-                },
-                {
-                    name:"ddd",
-                    type:"Zig-ledger",
-                    time:"2018-10-16"
-                },
-                {
-                    name:"eee",
-                    type:"fabric",
-                    time:"2018-10-16"
-                },
-                {
-                    name:"fff",
-                    type:"Zig-ledger",
-                    time:"2018-10-16"
-                },
-                {
-                    name:"ggg",
-                    type:"Zig-ledger",
-                    time:"2018-10-16"
-                },
-                {
-                    name:"hhh",
-                    type:"Zig-ledger",
-                    time:"2018-10-16"
-                },
-
-            ]
+            chainListLoading:false,
+            chainlistArr:[],
+            // chainlistArr:[
+            //     {
+            //         name:"aaa",
+            //         type:"Zig-ledger",
+            //         time:"2018-10-16"
+            //     },
+            //     {
+            //         name:"bbb",
+            //         type:"fabric",
+            //         time:"2018-10-16"
+            //     },
+            //     {
+            //         name:"ccc",
+            //         type:"Zig-ledger",
+            //         time:"2018-10-16"
+            //     },
+            //     {
+            //         name:"ddd",
+            //         type:"Zig-ledger",
+            //         time:"2018-10-16"
+            //     },
+            //     {
+            //         name:"eee",
+            //         type:"fabric",
+            //         time:"2018-10-16"
+            //     },
+            //     {
+            //         name:"fff",
+            //         type:"Zig-ledger",
+            //         time:"2018-10-16"
+            //     },
+            //     {
+            //         name:"ggg",
+            //         type:"Zig-ledger",
+            //         time:"2018-10-16"
+            //     },
+            //     {
+            //         name:"hhh",
+            //         type:"Zig-ledger",
+            //         time:"2018-10-16"
+            //     },
+            //
+            // ]
         }
     }
     componentDidMount(){
+
+        this.setState({
+            chainListLoading:true
+        })
         request().post(user.login,{
             "name": "admin",
             "password": "pasw0rd"
@@ -80,11 +86,28 @@ class Project extends Component {
                         this.setState({
                             currentUserName: "admin"
                         })
-                        Cookies.set('token', response.token, { expires: new Date(new Date().getTime() +( 24*60*60*1000)),path:"/"});
+                        Cookies.set('token', response.data.token, { expires: new Date(new Date().getTime() +( 24*60*60*1000)),path:"/"});
                         Cookies.set('userNameInfo', "admin", { expires: new Date(new Date().getTime() +( 24*60*60*1000)),path:"/"});
                         // if(window._hmt){
                         //     window._hmt.push(["_trackEvent", "证明文件验证", "验证按钮" ])
                         // }
+
+                        request().get(chain.chainList).then((chainListRes)=>{
+                            console.log(chainListRes)
+                            if(chainListRes){
+                                switch(response.status){
+                                    case 200:
+                                        console.log(chainListRes.data)
+                                        this.setState({
+                                            chainListLoading:false,
+                                            chainlistArr:chainListRes.data
+                                        })
+                                        break;
+                                    default:message.error("链列表查询失败")
+                                }
+                            }
+
+                        })
                         break;
                     case 401:
                         Cookies.remove('token');
@@ -399,7 +422,7 @@ class Project extends Component {
     }
     render() {
         const userName = Cookies.get('userNameInfo') || this.state.currentUserName
-        const {chainlistArr} = this.state
+        const {chainlistArr,chainListLoading} = this.state
         const {form: {getFieldDecorator}} = this.props;
         const formItemLayout = {
             labelCol: {
@@ -447,6 +470,7 @@ class Project extends Component {
                 </Breadcrumb>
 
                 <div className="servicePart">
+                    { chainListLoading && <Spin className="chainCodeListSpin" size="large"> </Spin>}
                     <List
                         grid={{ gutter: 24, xs: 1, sm: 2, md: 2, lg: 3, xl: 4, xxl: 4 }}
                         dataSource={chainlistArr}
