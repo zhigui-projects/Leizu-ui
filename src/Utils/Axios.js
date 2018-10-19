@@ -3,6 +3,7 @@ import Cookies from 'js-cookie'
 
 function getData(){
     let token = Cookies.get("token")
+    console.log(token)
     var fetch = axios.create({
         headers: {
             'Content-Type': 'application/json; charset=utf-8',
