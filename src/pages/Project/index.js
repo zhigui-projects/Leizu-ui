@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './index.less';
+import moment from "moment"
 // import '../../styles/reset.less'
 import { Icon,Breadcrumb, Modal,Form,Input,message, Popover,Card, Avatar,List,Spin } from 'antd';
 import Cookies from 'js-cookie'
@@ -93,14 +94,13 @@ class Project extends Component {
                         // }
 
                         request().get(chain.chainList).then((chainListRes)=>{
-                            console.log(chainListRes)
+                            console.log(chainListRes.data.data)
                             if(chainListRes){
                                 switch(response.status){
                                     case 200:
-                                        console.log(chainListRes.data)
                                         this.setState({
                                             chainListLoading:false,
-                                            chainlistArr:chainListRes.data
+                                            chainlistArr:chainListRes.data.data
                                         })
                                         break;
                                     default:message.error("链列表查询失败")
@@ -472,8 +472,9 @@ class Project extends Component {
                 <div className="servicePart">
                     { chainListLoading && <Spin className="chainCodeListSpin" size="large"> </Spin>}
                     <List
+                        style={{width:"100%"}}
                         grid={{ gutter: 24, xs: 1, sm: 2, md: 2, lg: 3, xl: 4, xxl: 4 }}
-                        dataSource={chainlistArr}
+                        dataSource={chainlistArr || []}
                         renderItem={item => (
                             <List.Item>
                                 <Card
@@ -486,13 +487,13 @@ class Project extends Component {
                                         title={item.name}
                                         description={<div>
                                             <p><code>类型:</code><span>{item.type}</span></p>
-                                            <p><code>时间:</code><span>{item.time}</span></p>
+                                            <p><code>时间:</code><span>{moment(item.date).format('YYYY-MM-DD HH:mm:ss')}</span></p>
                                         </div>}
                                     />
                                 </Card>
                             </List.Item>
                         )}
-                    />,
+                    />
                 </div>
                 {
                     this.state.resetPasswordVisible ? <Modal
