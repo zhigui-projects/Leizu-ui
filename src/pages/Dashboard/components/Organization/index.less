@@ -34,16 +34,28 @@
                 }
             }
             .ant-table-tbody{
+                tr{
+                    td{
+                        .ant-table-row-expanded{
+                            margin-right:21px;
+                        }
+                        .indent-level-1{
+                            padding-left:0!important;
+                            color:#3d70b1;
+                            &:after{
+                                content:'L';
+                                margin-left:4px;
+                                padding-left:0!important;
+                            }
+                        }
+                    }
+                }
                 .ant-table-row-expand-icon{
                     background:#3d70b1;
                     color:#ffffff;
                     border:none;
                 }
                 
-            }
-            .ant-table-wrapper{
-                background:#f6f8fa;
-                margin-top:0;
             }
         }
         .ant-pagination{
