@@ -1,4 +1,5 @@
 import React , {Component} from 'react';
+import intl from "react-intl-universal";
 import request from '../../../../Utils/Axios'
 import apiconfig from '../../../../Utils/apiconfig'
 
@@ -18,7 +19,7 @@ class Channel extends Component{
     }
     render(){
         return(
-            <div>channel</div>
+            <div>{intl.get('Home')}</div>
         )
     }
 }

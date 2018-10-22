@@ -48,6 +48,33 @@ class Dashboard extends Component {
             log: false,
             code: false
         }
+        this.defaultLang = ''
+    }
+    componentWillMount() {
+        if (!Cookies.get('lang')) {
+            let lang = window.navigator.language;
+            if (lang === 'zh') lang = 'zh-CN';
+            Cookies.set("lang", lang, { expires: 7 });
+        }
+        const lang = Cookies.get('lang');
+        switch (lang) {
+            case 'zh-CN':
+            case 'zh': this.defaultLang = '简体中文'; break;
+            case 'en-US': this.defaultLang = 'English'; break;
+            default: this.defaultLang = 'English';
+        }
+    }
+    changeLanguage = (e) => {
+        Cookies.set('lang', e, { expires: 7 });
+        window.location.reload();
+    }
+    renderLang = () => {
+        return (
+            <ul style={{ minWidth: 30 }}>
+                <li className='language-item'><a onClick={() => this.changeLanguage('zh-CN')}><span className='language-item-span'>简体中文</span></a></li>
+                <li className='language-item'><a onClick={() => this.changeLanguage('en-US')}><span className='language-item-span'>English</span></a></li>
+            </ul>
+        )
     }
     toggle = () => {
         this.setState({
@@ -435,6 +462,19 @@ class Dashboard extends Component {
                                         onClick={this.toggle}
                                     />
                                     <div className="header-list">
+                                        <div className="language-box">
+                                            <div className="language-box" ref="languageBox">
+                                                <Popover
+                                                    placement="bottom"
+                                                    content={this.renderLang()}
+                                                    trigger="hover"
+                                                    // getPopupContainer={() => this.refs.navBox}
+                                                    mouseLeaveDelay={0.3}
+                                                >
+                                                    <span className='current-lang'>{this.defaultLang}</span><Icon type="down" />
+                                                </Popover>
+                                            </div>
+                                        </div>
                                         <div className='user-name-box dropDown-link'>
                                             <Popover
                                                 visible={this.state.visible}
