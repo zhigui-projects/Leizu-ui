@@ -24,89 +24,22 @@ class Project extends Component {
             passTip:'',
             passConfirmTip:"",
             visible: false,
-            currentUserName:"",
             chainListLoading:false,
             chainlistArr:[],
-            // chainlistArr:[
-            //     {
-            //         name:"aaa",
-            //         type:"Zig-ledger",
-            //         time:"2018-10-16"
-            //     },
-            //     {
-            //         name:"bbb",
-            //         type:"fabric",
-            //         time:"2018-10-16"
-            //     },
-            //     {
-            //         name:"ccc",
-            //         type:"Zig-ledger",
-            //         time:"2018-10-16"
-            //     },
-            //     {
-            //         name:"ddd",
-            //         type:"Zig-ledger",
-            //         time:"2018-10-16"
-            //     },
-            //     {
-            //         name:"eee",
-            //         type:"fabric",
-            //         time:"2018-10-16"
-            //     },
-            //     {
-            //         name:"fff",
-            //         type:"Zig-ledger",
-            //         time:"2018-10-16"
-            //     },
-            //     {
-            //         name:"ggg",
-            //         type:"Zig-ledger",
-            //         time:"2018-10-16"
-            //     },
-            //     {
-            //         name:"hhh",
-            //         type:"Zig-ledger",
-            //         time:"2018-10-16"
-            //     },
-            //
-            // ]
         }
     }
     componentDidMount(){
-
         this.setState({
             chainListLoading:true
         })
-        request().post(user.login,{
-            "name": "admin",
-            "password": "pasw0rd"
-        }).then(response=>{
-            if(response){
-                switch(response.status){
+        request().get(chain.chainList).then((chainListRes)=>{
+            console.log(chainListRes.data.data)
+            if(chainListRes){
+                switch(chainListRes.status){
                     case 200:
                         this.setState({
-                            currentUserName: "admin"
-                        })
-                        Cookies.set('token', response.data.token, { expires: new Date(new Date().getTime() +( 24*60*60*1000)),path:"/"});
-                        Cookies.set('userNameInfo', "admin", { expires: new Date(new Date().getTime() +( 24*60*60*1000)),path:"/"});
-                        // if(window._hmt){
-                        //     window._hmt.push(["_trackEvent", "证明文件验证", "验证按钮" ])
-                        // }
-
-                        request().get(chain.chainList).then((chainListRes)=>{
-                            console.log(chainListRes.data.data)
-                            if(chainListRes){
-                                switch(response.status){
-                                    case 200:
-                                        this.setState({
-                                            chainListLoading:false,
-                                            chainlistArr:chainListRes.data.data
-                                        })
-                                        break;
-                                    default:message.error("链列表查询失败")
-                                }
-                            }
-
+                            chainListLoading:false,
+                            chainlistArr:chainListRes.data.data
                         })
                         break;
                     case 401:
@@ -118,14 +51,7 @@ class Project extends Component {
                             pathname:"/login"
                         })
                         break;
-                    case 500:
-                        message.error("网络错误，请重试");
-                        this.setState({
-                            validateBtnLoading: false
-                        })
-                        break;
-                    default:
-                        return ''
+                    default:message.error("链列表查询失败")
                 }
             }
         })
@@ -421,7 +347,7 @@ class Project extends Component {
         })
     }
     render() {
-        const userName = Cookies.get('userNameInfo') || this.state.currentUserName
+        const userName = Cookies.get('userNameInfo')
         const {chainlistArr,chainListLoading} = this.state
         const {form: {getFieldDecorator}} = this.props;
         const formItemLayout = {

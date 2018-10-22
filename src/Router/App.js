@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-d
 import { LocaleProvider } from 'antd'
 import Cookies from 'js-cookie'
 import Dashboard from '../pages/Dashboard/basicLayout';
+import Login from '../pages/Login/login'
 import Project from '../pages/Project/index'
 
 // react-intl-universal国际化配置
@@ -79,7 +80,8 @@ class App extends Component {
                     <Switch>
                         <Route path="/dashboard" component={Dashboard} />
                         <Route path="/project" component={Project} />
-                        <Route path="/*" render={(props) => <Redirect to='/project' />} />
+                        <Route path="/login" component={Login} />
+                        <Route path="/*" render={(props) => <Redirect to='/login' />} />
                     </Switch>
                 </Router>
             </LocaleProvider>
