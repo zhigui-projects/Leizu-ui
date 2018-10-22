@@ -379,7 +379,6 @@ class Dashboard extends Component {
                                breakpoint="lg"
                                collapsed={this.state.collapsed}
                                onCollapse={this.onCollapse}
-                               width='256px'
                         >
                             <li className="logo" to='/index' target="_blank">
                                 <img src={require('../../images/logo_en.svg')} alt="" />
