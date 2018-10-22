@@ -51,7 +51,7 @@ class Organization extends Component {
             dataIndex: 'operation',
             key: 'operation',
             render: (text, record) => (
-                <span onClick={this.handlePeer.bind(this,record)} style={{ color: '#3d70b1' }}>{record.operation}</span>
+                <span onClick={this.handlePeer.bind(this,record)} style={{ color: '#3d70b1',cursor:'pointer' }}>{record.operation}</span>
             )
         }];
         
