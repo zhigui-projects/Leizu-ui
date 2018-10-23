@@ -84,7 +84,7 @@ class Channel extends Component{
         if (cancel) {
             cancel();
         }
-        this.setState = (state, callback) => {
+        this.setState = () => {
             return;
         };
     }
