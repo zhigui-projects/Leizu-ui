@@ -25,9 +25,9 @@ class Login extends Component {
         }
         const userName = Cookies.get('userName');
         const token = Cookies.get('token');
-        if(userName && token){
-            this.props.history.push("/service/project")
-        }
+        // if(userName && token){
+        //     this.props.history.push("/project")
+        // }
     }
     handleSubmit = (e) => {
         const _this = this

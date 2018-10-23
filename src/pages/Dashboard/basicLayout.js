@@ -50,6 +50,7 @@ class Dashboard extends Component {
         }
         this.defaultLang = ''
     }
+
     componentWillMount() {
         if (!Cookies.get('lang')) {
             let lang = window.navigator.language;
