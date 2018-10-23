@@ -13,6 +13,9 @@ module.exports = {
         channel: `${API}/channel`,
         chain: {
             chainList: `${API}/consortium`
+        },
+        organize: {
+            organization: `${API}/organization`
         }
     },
 }
