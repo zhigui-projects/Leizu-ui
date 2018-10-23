@@ -23,10 +23,10 @@ class Login extends Component {
         if(window._hmt){
             window._hmt.push(['_trackPageview', "/login"]);
         }
-        // const userName = Cookies.get('userName');
-        // const token = Cookies.get('token');
+        const userName = Cookies.get('userName');
+        const token = Cookies.get('token');
         // if(userName && token){
-        //     this.props.history.push("/service/project")
+        //     this.props.history.push("/project")
         // }
     }
     handleSubmit = (e) => {
