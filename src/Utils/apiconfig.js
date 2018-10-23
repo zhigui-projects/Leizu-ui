@@ -14,6 +14,13 @@ module.exports = {
         chain: {
             chainList: `${API}/consortium`
         },
+        peer:{
+            peerList:`${API}/peer`,
+            peerDetail:`${API}/peer?{id}`
+        },
+        organization:{
+            orgList:`${API}/organization`
+        },
         organize: {
             organization: `${API}/organization`
         }
