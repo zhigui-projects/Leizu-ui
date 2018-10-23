@@ -20,7 +20,8 @@ import './basicLayout.less';
 import BlockChain from './components/BlockChain/index';
 import ChainCode from './components/ChainCode/index';
 import Channel from './components/Channel/index';
-import ChannelOrg from './components/Channel/components/ChannelOrg'
+import ChannelOrg from './components/Channel/components/ChannelOrg/ChannelOrg'
+import CreateChannel from './components/Channel/components/CreateChannel/CreateChannel'
 import Log from './components/Log/index';
 import Organization from './components/Organization/index';
 import OverView from './components/OverView/index';
@@ -437,6 +438,7 @@ class Dashboard extends Component {
                                         <Route path="/dashboard/organization_management" component={Organization} />
                                         <Route exact path="/dashboard/channel_management" component={Channel} />
                                         <Route path="/dashboard/channel_management/org/:id" component={ChannelOrg} />
+                                        <Route path="/dashboard/channel_management/createChannel" component={CreateChannel} />
                                         <Route path="/dashboard/peer_management" component={Peer} />
                                         <Route path="/dashboard/chaincode_management" component={ChainCode} />
                                         <Route path="/dashboard/log_management" component={Log} />

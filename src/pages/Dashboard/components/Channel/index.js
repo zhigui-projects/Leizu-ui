@@ -77,6 +77,9 @@ class Channel extends Component{
             }
         })
     }
+    createChannel = ()=>{
+        this.props.history.push('/dashboard/channel_management/createChannel')
+    }
     componentDidMount(){
         this.getData();
     }
@@ -92,7 +95,7 @@ class Channel extends Component{
         return(
             <div className='channel-page'>
                 <div className="create-channel-box">
-                    <Button className="create-channel-btn">
+                    <Button onClick={this.createChannel} className="create-channel-btn">
                         创建通道<Icon type="plus-circle" theme="outlined" />
                     </Button>
                 </div>
