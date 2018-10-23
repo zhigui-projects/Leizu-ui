@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { Table, Pagination, Badge, Progress } from 'antd';
+import { Table, Pagination, Badge, Progress, Spin } from 'antd';
 import './index.less';
 import apiconfig from '../../../../Utils/apiconfig';
 import request from '../../../../Utils/Axios';
+import Cookies from 'js-cookie'
 
-const {api:{peer:{peerList}}} = apiconfig;
+const { api: { peer: { peerList } } } = apiconfig;
 const columns = [{
     title: '节点名称',
     dataIndex: 'name',
@@ -53,7 +54,7 @@ const columns = [{
     key: 'cpu',
     render: (text, record) => (
         <span>
-            <Progress strokeColor="#1890ff" strokeWidth={4} percent={parseInt((record.cpu*100).toFixed())} />
+            <Progress strokeColor="#1890ff" strokeWidth={4} percent={parseInt((record.cpu * 100).toFixed())} />
         </span>
     ),
     defaultSortOrder: 'descend',
@@ -64,7 +65,7 @@ const columns = [{
     key: 'ram',
     render: (text, record) => (
         <span>
-            <Progress strokeColor="#52c41a" strokeWidth={4} percent={parseInt((record.memory*100).toFixed())} />
+            <Progress strokeColor="#52c41a" strokeWidth={4} percent={parseInt((record.memory * 100).toFixed())} />
         </span>
     ),
     sorter: (a, b) => a.ram - b.ram
@@ -74,17 +75,24 @@ class Peer extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            peerData:[]
+            peerData: [],
+            loading: true
         }
     }
-    getPeerData=()=>{
+    getPeerData = () => {
         request().get(peerList).then(res => {
             if (res) {
                 switch (res.status) {
                     case 200:
                         this.setState({
-                            peerData: res.data.data
+                            peerData: res.data.data,
+                            loading: false
                         })
+                        break;
+                    case 401:
+                        Cookies.remove('userName')
+                        Cookies.remove('token')
+                        this.props.history.push('/login')
                         break;
                     default:
                         return ''
@@ -93,22 +101,24 @@ class Peer extends Component {
             }
         })
     }
-    componentDidMount(){
+    componentDidMount() {
         this.getPeerData()
     }
     render() {
         return (
             <div className="peer_management">
                 <div className="peer_wrapper">
-                    <Table
-                        columns={columns}
-                        dataSource={this.state.peerData}
-                        pagination={false}
-                        rowKey = {record=>record._id}
-                    />
+                    <Spin spinning={this.state.loading}>
+                        <Table
+                            columns={columns}
+                            dataSource={this.state.peerData}
+                            pagination={false}
+                            rowKey={record => record._id}
+                        />
+                    </Spin>
                 </div>
                 <Pagination total={50} showSizeChanger showQuickJumper />
-            </div>
+            </div >
         )
     }
 }
