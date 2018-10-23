@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { Table, Pagination, Badge, Progress } from 'antd';
 import './index.less';
-import apiconfig from '../../../../Utils/apiconfig';
-import request from '../../../../Utils/Axios';
+import apiconfig from '../../../../../../Utils/apiconfig';
+import request from '../../../../../../Utils/Axios';
+import Peer from '../../../Peer/index';
 
-const {api:{peer:{peerList}}} = apiconfig;
+const {api:{peer}} = apiconfig;
 const columns = [{
     title: '节点名称',
     dataIndex: 'name',
@@ -24,7 +25,7 @@ const columns = [{
     title: '通道名',
     key: 'channel',
     width: '16%',
-    dataIndex: 'channel',
+    dataIndex: 'channelNames',
 }, {
     title: '节点类型',
     key: 'type',
@@ -70,15 +71,16 @@ const columns = [{
     sorter: (a, b) => a.ram - b.ram
 }
 ];
-class Peer extends Component {
+class PeerManagement extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            peerData:[]
+            peerData:[],
+            id:this.props.match.params.id
         }
     }
     getPeerData=()=>{
-        request().get(peerList).then(res => {
+        request().get(`${peer.peerDetail.format({id:this.state.id})}`).then(res => {
             if (res) {
                 switch (res.status) {
                     case 200:
@@ -112,4 +114,4 @@ class Peer extends Component {
         )
     }
 }
-export default Peer;
+export default PeerManagement;

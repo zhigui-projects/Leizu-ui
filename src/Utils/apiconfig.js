@@ -13,6 +13,13 @@ module.exports = {
         channel: `${API}/channel`,
         chain: {
             chainList: `${API}/consortium`
+        },
+        peer:{
+            peerList:`${API}/peer`,
+            peerDetail:`${API}/peer?{id}`
+        },
+        organization:{
+            orgList:`${API}/organization`
         }
     },
 }
