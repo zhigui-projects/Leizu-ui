@@ -76,7 +76,8 @@ class Log extends Component {
                 if (intervalId) {
                     clearInterval(intervalId)
                 }
-                intervalId = setInterval(_that.queryLog, intervalTime);
+                //请求
+                // intervalId = setInterval(_that.queryLog, intervalTime);
                 _that.setState({
                     intervalId
                 })

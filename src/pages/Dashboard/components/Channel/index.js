@@ -1,17 +1,26 @@
 import React , {Component} from 'react';
-import { Button, Icon, Table } from 'antd'
+import { Button, Icon, Table, Pagination, Spin } from 'antd'
+import Cookies from 'js-cookie'
 import intl from "react-intl-universal";
+import axios from 'axios'
 import request from '../../../../Utils/Axios'
 import apiconfig from '../../../../Utils/apiconfig'
 
 const {api:{channel}} = apiconfig;
 
+const CancelToken = axios.CancelToken;
+let cancel;
+
 class Channel extends Component{
     constructor(props){
         super(props)
         this.state={
-            tableArr: []
+            tableArr: [],
+            loading: true
         }
+    }
+    toOrganization = (id)=>{
+        this.props.history.push(`channel_management/org/${id}`)
     }
     columns = [
         {
@@ -23,63 +32,43 @@ class Channel extends Component{
             dataIndex: 'orgs',
             key: 'orgs',
             render: arr => arr.length
-            // render: (text,record) => {
-            //     'a'
-            // }
         }, {
             title: '节点数量',
             dataIndex: 'peers',
             key: 'peers',
             render: arr => arr.length
-            // render: (text, record) => {
-            //     'a'
-            // }
         }, {
             title: '操作',
-            key: 'operate',
+            dataIndex: '_id',
+            key: '_id',
             render: (text,record) => (
-                <span className='table-item-btn'>
+                <span onClick={()=>this.toOrganization(text)} className='table-item-btn'>
                     组织管理
                 </span>
             ),
         }
     ]
-    // columns = [
-    //     {
-    //         title: '通道名',
-    //         dataIndex: 'name',
-    //         key: 'name',
-    //     }, {
-    //         title: '组织数量',
-    //         dataIndex: '__v',
-    //         key: '__v',
-    //         // render: arr => arr.length
-            
-    //     }, {
-    //         title: '节点数量',
-    //         dataIndex: 'consortium_id',
-    //         key: 'consortium_id',
-    //         // render: arr => arr.length
-            
-    //     }, {
-    //         title: '操作',
-    //         key: 'operate',
-    //         render: (text,record) => (
-    //             <span>
-    //                 组织管理
-    //             </span>
-    //         ),
-    //     }
-    // ]
+    
     getData = ()=>{
-        request().get(channel).then(res => {
+        request().get(channel,{
+            cancelToken: new CancelToken(function executor(c) {
+                // An executor function receives a cancel function as a parameter
+                cancel = c;
+            })
+        }).then(res => {
             if (res) {
                 console.log(res.data)
                 switch (res.status) {
                     case 200:
                         this.setState({
-                            tableArr: res.data.data
+                            tableArr: res.data.data,
+                            loading: false
                         })
+                        break;
+                    case 401: 
+                        Cookies.remove('userName')
+                        Cookies.remove('token')
+                        this.props.history.push('/login')
                         break;
                     default:
                         return ''
@@ -91,6 +80,14 @@ class Channel extends Component{
     componentDidMount(){
         this.getData();
     }
+    componentWillUnmount() {
+        if (cancel) {
+            cancel();
+        }
+        this.setState = (state, callback) => {
+            return;
+        };
+    }
     render(){
         return(
             <div className='channel-page'>
@@ -100,11 +97,17 @@ class Channel extends Component{
                     </Button>
                 </div>
                 <div className="table-box">
-                    <Table 
-                        columns= {this.columns}
-                        dataSource = {this.state.tableArr}
-                        rowKey = {record=>record.uuid}
-                    />
+                    <Spin spinning={this.state.loading}>
+                        <Table 
+                            columns= {this.columns}
+                            dataSource = {this.state.tableArr}
+                            rowKey = {record=>record.uuid}
+                            pagination={false}
+                        />
+                    </Spin>
+                </div>
+                <div className="pagination-box clearfix">
+                    <Pagination defaultCurrent={6} total={500} />
                 </div>
             </div>
         )

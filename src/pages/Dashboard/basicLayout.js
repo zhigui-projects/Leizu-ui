@@ -20,6 +20,7 @@ import './basicLayout.less';
 import BlockChain from './components/BlockChain/index';
 import ChainCode from './components/ChainCode/index';
 import Channel from './components/Channel/index';
+import ChannelOrg from './components/Channel/components/ChannelOrg'
 import Log from './components/Log/index';
 import Organization from './components/Organization/index';
 import OverView from './components/OverView/index';
@@ -50,6 +51,7 @@ class Dashboard extends Component {
         }
         this.defaultLang = ''
     }
+
     componentWillMount() {
         if (!Cookies.get('lang')) {
             let lang = window.navigator.language;
@@ -501,7 +503,8 @@ class Dashboard extends Component {
                                         <Redirect exact from="/dashboard" to="/dashboard/overview" />
                                         <Route path="/dashboard/blockchain_browser" component={BlockChain} />
                                         <Route path="/dashboard/organization_management" component={Organization} />
-                                        <Route path="/dashboard/channel_management" component={Channel} />
+                                        <Route exact path="/dashboard/channel_management" component={Channel} />
+                                        <Route path="/dashboard/channel_management/org/:id" component={ChannelOrg} />
                                         <Route path="/dashboard/peer_management" component={Peer} />
                                         <Route path="/dashboard/chaincode_management" component={ChainCode} />
                                         <Route path="/dashboard/log_management" component={Log} />

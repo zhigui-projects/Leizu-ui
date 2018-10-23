@@ -20,6 +20,9 @@ module.exports = {
         },
         organization:{
             orgList:`${API}/organization`
+        },
+        organize: {
+            organization: `${API}/organization`
         }
     },
 }

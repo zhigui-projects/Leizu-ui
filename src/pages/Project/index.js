@@ -341,9 +341,10 @@ class Project extends Component {
     }
 
     enterDashboard = (item)=>{
+        let ConsortiumInfo = JSON.stringify(item);
+        sessionStorage.setItem('ConsortiumInfo', ConsortiumInfo);
         this.props.history.push({
-            pathname:"/dashboard",
-            query:item
+            pathname:"/dashboard"
         })
     }
     render() {
@@ -371,7 +372,7 @@ class Project extends Component {
         return (
             <div id="dom" className="layout">
                 <header>
-                    <NavLink className="headerImg" to="/index" target="_blank">
+                    <NavLink className="headerImg" to="/project" target="_blank">
                         <img src={require("../../images/zig-baas.svg")} alt=""/>
                     </NavLink>
 
