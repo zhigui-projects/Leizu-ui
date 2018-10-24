@@ -71,6 +71,9 @@ class Channel extends Component{
                         this.props.history.push('/login')
                         break;
                     default:
+                        this.setState({
+                            loading: false
+                        })
                         return ''
 
                 }
