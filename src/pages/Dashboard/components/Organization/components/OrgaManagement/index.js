@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import { Icon, Button, Table, Pagination, Modal, Form, Input, Spin } from 'antd';
 import './index.less';
 import request from '../../../../../../Utils/Axios';
+import axios from 'axios';
 import apiconfig from '../../../../../../Utils/apiconfig';
 import Cookies from 'js-cookie'
 const FormItem = Form.Item;
 const { api: { organization: { orgList } } } = apiconfig;
 const { api: { peer } } = apiconfig;
-
+const CancelToken = axios.CancelToken;
+let cancel;
 
 class OrgaManagement extends Component {
     constructor(props) {
@@ -38,7 +40,12 @@ class OrgaManagement extends Component {
         this.props.history.push('/dashboard/organization_management/peer/' + record.id);
     }
     getOrgData = () => {
-        request().get(orgList).then(res => {
+        request().get(orgList, {
+            cancelToken: new CancelToken(function executor(c) {
+                // An executor function receives a cancel function as a parameter
+                cancel = c;
+            })
+        }).then(res => {
             if (res) {
                 switch (res.status) {
                     case 200:
@@ -61,6 +68,14 @@ class OrgaManagement extends Component {
     }
     componentDidMount() {
         this.getOrgData()
+    }
+    componentWillUnmount() {
+        if (cancel) {
+            cancel();
+        }
+        this.setState = () => {
+            return;
+        };
     }
     render() {
         const columns = [{
