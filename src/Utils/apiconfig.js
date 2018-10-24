@@ -23,6 +23,9 @@ module.exports = {
         },
         organize: {
             organization: `${API}/organization`
+        },
+        consortium: {
+            overview: `${API}/consortium`
         }
     },
 }

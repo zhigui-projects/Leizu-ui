@@ -71,11 +71,17 @@ class Channel extends Component{
                         this.props.history.push('/login')
                         break;
                     default:
+                        this.setState({
+                            loading: false
+                        })
                         return ''
 
                 }
             }
         })
+    }
+    createChannel = ()=>{
+        this.props.history.push('/dashboard/channel_management/createChannel')
     }
     componentDidMount(){
         this.getData();
@@ -84,7 +90,7 @@ class Channel extends Component{
         if (cancel) {
             cancel();
         }
-        this.setState = (state, callback) => {
+        this.setState = () => {
             return;
         };
     }
@@ -92,7 +98,7 @@ class Channel extends Component{
         return(
             <div className='channel-page'>
                 <div className="create-channel-box">
-                    <Button className="create-channel-btn">
+                    <Button onClick={this.createChannel} className="create-channel-btn">
                         创建通道<Icon type="plus-circle" theme="outlined" />
                     </Button>
                 </div>
