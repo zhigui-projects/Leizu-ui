@@ -314,7 +314,7 @@ class Dashboard extends Component {
     }
     render() {
         let pathArr = this.props.location.pathname.split('/');
-        let path = pathArr[pathArr.length-1];
+        let path = pathArr[2];
         const userName = Cookies.get('userNameInfo')
         const {form: {getFieldDecorator}} = this.props;
         const formItemLayout = {
@@ -357,31 +357,37 @@ class Dashboard extends Component {
                                 onClick={this.routerList}
                                 selectedKeys={this.getCurrentMenuSelectedKeys()}>
                                 <Menu.Item className="list-item" key="overview">
-                                    <p className="fill-in"></p>
+                                    <p className="fill-in" style={{visibility:path==="overview"?"":"hidden"}}></p>
                                     <img src={path==="overview"?overview:unoverview} alt=" " />
                                     <span style={{ opacity: (this.state.collapsed ? 0 : 1) }}>概览</span>
                                 </Menu.Item>
                                 <Menu.Item className="list-item" key="blockchain_browser">
+                                    <p className="fill-in" style={{visibility:path==="blockchain_browser"?"":"hidden"}}></p>
                                     <img src={path==="blockchain_browser"?block:unblock} alt=" " />
                                     <span style={{ opacity: (this.state.collapsed ? 0 : 1) }}>区块链浏览器</span>
                                 </Menu.Item>
                                 <Menu.Item className="list-item" key="organization_management">
-                                    <img src={(path==="organization"||pathArr[pathArr.length-2]==="peer")?organization:unorganization} alt=" " />
+                                    <p className="fill-in" style={{visibility:(path==="organization"||path==="organization_management")?"":"hidden"}}></p>
+                                    <img src={(path==="organization"||path==="organization_management")?organization:unorganization} alt=" " />
                                     <span style={{ opacity: (this.state.collapsed ? 0 : 1) }}>组织管理</span>
                                 </Menu.Item>
                                 <Menu.Item className="list-item" key="channel_management">
+                                    <p className="fill-in" style={{visibility:path==="channel_management"?"":"hidden"}}></p>
                                     <img src={path==="channel_management"?channel:unchannel} alt=" " />
                                     <span style={{ opacity: (this.state.collapsed ? 0 : 1) }}>通道管理</span>
                                 </Menu.Item>
                                 <Menu.Item className="list-item" key="peer_management">
+                                    <p className="fill-in" style={{visibility:path==="peer_management"?"":"hidden"}}></p>
                                     <img src={path==="peer_management"?peer:unpeer} alt=" " />
                                     <span style={{ opacity: (this.state.collapsed ? 0 : 1) }}>节点管理</span>
                                 </Menu.Item>
                                 <Menu.Item className="list-item" key="chaincode_management">
+                                    <p className="fill-in" style={{visibility:path==="chaincode_management"?"":"hidden"}}></p>
                                     <img src={path==="chaincode_management"?chain:unchain} alt=" " />
                                     <span style={{ opacity: (this.state.collapsed ? 0 : 1) }}>链码管理</span>
                                 </Menu.Item>
                                 <Menu.Item className="list-item" key="log_management">
+                                    <p className="fill-in" style={{visibility:path==="log_management"?"":"hidden"}}></p>
                                     <img src={path==="log_management"?log:unlog} alt=" " />
                                     <span style={{ opacity: (this.state.collapsed ? 0 : 1) }}>日志管理</span>
                                 </Menu.Item>
