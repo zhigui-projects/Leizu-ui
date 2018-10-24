@@ -32,7 +32,7 @@ const columns = [{
 }, {
     title: '节点类型',
     key: 'type',
-    width: '10%',
+    width: '9%',
     dataIndex: 'type',
     sorter: (a, b) => {
 
@@ -40,7 +40,7 @@ const columns = [{
 },
 {
     title: '状态',
-    width: '8%',
+    width: '9%',
     key: 'status',
     render: (text, record) => (
         <span>

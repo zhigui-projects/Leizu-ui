@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Layout, Menu, Breadcrumb, Icon, Modal,Popover,Form,Input } from 'antd';
-import { Switch, Redirect, Route } from 'react-router-dom';
+import { Switch, Redirect, Route , Link} from 'react-router-dom';
 // import logo from '../../images/logo.svg';
 import overview from '../../images/slider/overview.svg';
 import block from '../../images/slider/blockchain.svg';
@@ -333,7 +333,35 @@ class Dashboard extends Component {
                 lg: { span: 16 },
             },
         };
+        const breadcrumbNameMap={
+            '/dashboard':"控制台",
+            '/dashboard/overview':"概览",
+            '/dashboard/blockchain_browser':"区块链浏览器",
+            '/dashboard/channel_management':"通道管理",
+            '/dashboard/peer_management':"节点管理",
+            '/dashboard/chaincode_management':"链码管理",
+            '/dashboard/log_management':"日志管理",
+            '/dashboard/organization_management':"组织管理",
+            '/dashboard/organization_management/organization':"组织信息",
+            '/dashboard/organization_management/peer':"节点信息"
+        }
+        let breadcrumbItems = null
+        const location = this.props.location || window.location;
+        if (location && location.pathname) {
+            const pathSnippets = location.pathname.split('/').filter(i => i);
+            const extraBreadcrumbItems = pathSnippets.map((_, index) => {
+                const url = `/${pathSnippets.slice(0, index + 1).join('/')}`;
+                return (
+                    <Breadcrumb.Item className="breadcrumb-section" key={url}>
+                        <Link to={url}>
+                            {breadcrumbNameMap[url]}
+                        </Link>
+                    </Breadcrumb.Item>
+               )
+            });
 
+            breadcrumbItems = [].concat(extraBreadcrumbItems);
+        }
         return (
                 <Layout className="dashboard_layout" >
                         <Sider className="slider"
@@ -432,7 +460,7 @@ class Dashboard extends Component {
                                 </Header>
                                 <div className="breadcrumb">
                                     <Breadcrumb style={{ padding: "0 24px", background: '#ffffff', height: "48px", lineHeight: "48px", color: "#7f8fa4", float: "left" }} >
-                                        {/* {breadcrumbItems} */}
+                                        {breadcrumbItems}
                                     </Breadcrumb>
                                 </div>
                                 <Content className="content" style={{ borderRadius: "3px", background: "#f0f2f5", position: "relative" }}>
