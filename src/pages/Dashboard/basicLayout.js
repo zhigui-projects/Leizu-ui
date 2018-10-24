@@ -41,13 +41,6 @@ class Dashboard extends Component {
             passConfirmTip:"",
             passTip:"",
             passErrorTip:"",
-            overview: true,
-            block: false,
-            organization: false,
-            channel: false,
-            peer: false,
-            log: false,
-            code: false
         }
         this.defaultLang = ''
     }
@@ -223,93 +216,30 @@ class Dashboard extends Component {
                 this.props.history.push({
                     pathname: "/dashboard/overview"
                 })
-                this.setState({
-                    overview: true,
-                    block: false,
-                    organization: false,
-                    channel: false,
-                    peer: false,
-                    log: false,
-                    code: false
-                })
                 break;
             case "blockchain_browser":
                 this.props.history.push({
                     pathname: "/dashboard/blockchain_browser"
-                })
-                this.setState({
-                    overview: false,
-                    block: true,
-                    organization: false,
-                    channel: false,
-                    peer: false,
-                    log: false,
-                    code: false
                 })
                 break;
             case "organization_management":
                 this.props.history.push({
                     pathname: "/dashboard/organization_management"
                 })
-                this.setState({
-                    overview: false,
-                    block: false,
-                    organization: true,
-                    channel: false,
-                    peer: false,
-                    log: false,
-                    code: false
-                })
                 break;
             case "channel_management":
                 this.props.history.push({
                     pathname: "/dashboard/channel_management"
                 })
-                this.setState({
-                    overview: false,
-                    block: false,
-                    organization: false,
-                    channel: true,
-                    peer: false,
-                    log: false,
-                    code: false
-                })
                 break;
             case "peer_management":
                 this.props.history.push('/dashboard/peer_management')
-                this.setState({
-                    overview: false,
-                    block: false,
-                    organization: false,
-                    channel: false,
-                    peer: true,
-                    log: false,
-                    code: false
-                })
                 break;
             case "chaincode_management":
                 this.props.history.push("/dashboard/chaincode_management")
-                this.setState({
-                    overview: false,
-                    block: false,
-                    organization: false,
-                    channel: false,
-                    peer: false,
-                    log: false,
-                    code: true
-                })
                 break;
             case "log_management":
                 this.props.history.push("/dashboard/log_management")
-                this.setState({
-                    overview: false,
-                    block: false,
-                    organization: false,
-                    channel: false,
-                    peer: false,
-                    log: true,
-                    code: false
-                })
                 break;
             default:
                 this.props.history.push({
@@ -383,6 +313,8 @@ class Dashboard extends Component {
         })
     }
     render() {
+        let pathArr = this.props.location.pathname.split('/');
+        let path = pathArr[pathArr.length-1];
         const userName = Cookies.get('userNameInfo')
         const {form: {getFieldDecorator}} = this.props;
         const formItemLayout = {
@@ -426,31 +358,31 @@ class Dashboard extends Component {
                                 selectedKeys={this.getCurrentMenuSelectedKeys()}>
                                 <Menu.Item className="list-item" key="overview">
                                     <p className="fill-in"></p>
-                                    <img src={this.state.overview?overview:unoverview} alt=" " />
+                                    <img src={path==="overview"?overview:unoverview} alt=" " />
                                     <span style={{ opacity: (this.state.collapsed ? 0 : 1) }}>概览</span>
                                 </Menu.Item>
                                 <Menu.Item className="list-item" key="blockchain_browser">
-                                    <img src={this.state.block?block:unblock} alt=" " />
+                                    <img src={path==="blockchain_browser"?block:unblock} alt=" " />
                                     <span style={{ opacity: (this.state.collapsed ? 0 : 1) }}>区块链浏览器</span>
                                 </Menu.Item>
                                 <Menu.Item className="list-item" key="organization_management">
-                                    <img src={this.state.organization?organization:unorganization} alt=" " />
+                                    <img src={(path==="organization"||pathArr[pathArr.length-2]==="peer")?organization:unorganization} alt=" " />
                                     <span style={{ opacity: (this.state.collapsed ? 0 : 1) }}>组织管理</span>
                                 </Menu.Item>
                                 <Menu.Item className="list-item" key="channel_management">
-                                    <img src={this.state.channel?channel:unchannel} alt=" " />
+                                    <img src={path==="channel_management"?channel:unchannel} alt=" " />
                                     <span style={{ opacity: (this.state.collapsed ? 0 : 1) }}>通道管理</span>
                                 </Menu.Item>
                                 <Menu.Item className="list-item" key="peer_management">
-                                    <img src={this.state.peer?peer:unpeer} alt=" " />
+                                    <img src={path==="peer_management"?peer:unpeer} alt=" " />
                                     <span style={{ opacity: (this.state.collapsed ? 0 : 1) }}>节点管理</span>
                                 </Menu.Item>
                                 <Menu.Item className="list-item" key="chaincode_management">
-                                    <img src={this.state.code?chain:unchain} alt=" " />
+                                    <img src={path==="chaincode_management"?chain:unchain} alt=" " />
                                     <span style={{ opacity: (this.state.collapsed ? 0 : 1) }}>链码管理</span>
                                 </Menu.Item>
                                 <Menu.Item className="list-item" key="log_management">
-                                    <img src={this.state.log?log:unlog} alt=" " />
+                                    <img src={path==="log_management"?log:unlog} alt=" " />
                                     <span style={{ opacity: (this.state.collapsed ? 0 : 1) }}>日志管理</span>
                                 </Menu.Item>
                             </Menu>

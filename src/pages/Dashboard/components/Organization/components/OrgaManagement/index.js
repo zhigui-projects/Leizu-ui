@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import { Icon, Button, Table, Pagination, Modal, Form ,Input } from 'antd';
+import { Icon, Button, Table, Pagination, Modal, Form, Input, Spin } from 'antd';
 import './index.less';
 import request from '../../../../../../Utils/Axios';
 import apiconfig from '../../../../../../Utils/apiconfig';
+import Cookies from 'js-cookie'
 const FormItem = Form.Item;
-const {api:{organization:{orgList}}}=apiconfig;
-const {api:{peer}}=apiconfig;
+const { api: { organization: { orgList } } } = apiconfig;
+const { api: { peer } } = apiconfig;
 
 
 class OrgaManagement extends Component {
@@ -13,7 +14,8 @@ class OrgaManagement extends Component {
         super(props)
         this.state = {
             visible: false,
-            orgData:[]
+            orgData: [],
+            loading: true
         }
     }
     showModal = () => {
@@ -32,17 +34,23 @@ class OrgaManagement extends Component {
             visible: false,
         });
     }
-    handlePeer=(record)=>{
-        this.props.history.push('/dashboard/organization_management/peer/'+record.id);
+    handlePeer = (record) => {
+        this.props.history.push('/dashboard/organization_management/peer/' + record.id);
     }
-    getOrgData=()=>{
+    getOrgData = () => {
         request().get(orgList).then(res => {
             if (res) {
                 switch (res.status) {
                     case 200:
                         this.setState({
-                            orgData: res.data.data
+                            orgData: res.data.data,
+                            loading: false
                         })
+                        break;
+                    case 401:
+                        Cookies.remove('userName')
+                        Cookies.remove('token')
+                        this.props.history.push('/login')
                         break;
                     default:
                         return ''
@@ -51,7 +59,7 @@ class OrgaManagement extends Component {
             }
         })
     }
-    componentDidMount(){
+    componentDidMount() {
         this.getOrgData()
     }
     render() {
@@ -75,7 +83,7 @@ class OrgaManagement extends Component {
             dataIndex: 'operation',
             key: 'operation',
             render: (text, record) => (
-                <span onClick={this.handlePeer.bind(this,record)} style={{ color: '#3d70b1',cursor:'pointer' }}>节点管理</span>
+                <span onClick={this.handlePeer.bind(this, record)} style={{ color: '#3d70b1', cursor: 'pointer' }}>节点管理</span>
             )
         }];
         const { getFieldDecorator } = this.props.form;
@@ -83,11 +91,11 @@ class OrgaManagement extends Component {
             labelCol: {
                 xs: { span: 24 },
                 sm: { span: 4 },
-              },
-              wrapperCol: {
+            },
+            wrapperCol: {
                 xs: { span: 24 },
                 sm: { span: 16 },
-              },
+            },
         }
         return (
             <div className="organization-management">
@@ -95,12 +103,15 @@ class OrgaManagement extends Component {
                     <p className="create-organization">
                         <Button id="create" onClick={this.showModal} className="create-plus">创建组织<Icon type="plus-circle" theme="outlined" /></Button>
                     </p>
-                    <Table
-                        columns={columns}
-                        dataSource={this.state.orgData}
-                        pagination={false}
-                        rowKey = {record=>record.id}
-                    />
+                    <Spin spinning={this.state.loading}>
+
+                        <Table
+                            columns={columns}
+                            dataSource={this.state.orgData}
+                            pagination={false}
+                            rowKey={record => record.id}
+                        />
+                    </Spin>
                     <Pagination total={50} showSizeChanger showQuickJumper />
                     <Modal
                         className='create-modal'
@@ -136,5 +147,5 @@ class OrgaManagement extends Component {
         )
     }
 }
-OrgaManagement=Form.create()(OrgaManagement);
+OrgaManagement = Form.create()(OrgaManagement);
 export default OrgaManagement;
