@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Table, Pagination, Spin } from 'antd'
-import request from '../../../../../Utils/Axios'
+import request from '../../../../../../Utils/Axios'
 import axios from 'axios'
 import Cookies from 'js-cookie'
-import apiconfig from '../../../../../Utils/apiconfig'
+import apiconfig from '../../../../../../Utils/apiconfig'
 import './channelOrg.less'
 
 
