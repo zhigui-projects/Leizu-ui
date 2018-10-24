@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
-import { Table, Pagination, Badge, Progress ,Spin} from 'antd';
+import { Table, Pagination, Badge, Progress, Spin } from 'antd';
 import './index.less';
 import apiconfig from '../../../../../../Utils/apiconfig';
 import request from '../../../../../../Utils/Axios';
-import Peer from '../../../Peer/index';
+import axios from 'axios'
 import Cookies from 'js-cookie'
+const CancelToken = axios.CancelToken;
+let cancel;
 
 const { api: { peer } } = apiconfig;
 const columns = [{
@@ -30,7 +32,7 @@ const columns = [{
 }, {
     title: '节点类型',
     key: 'type',
-    width: '10%',
+    width: '9%',
     dataIndex: 'type',
     sorter: (a, b) => {
 
@@ -38,7 +40,7 @@ const columns = [{
 },
 {
     title: '状态',
-    width: '8%',
+    width: '9%',
     key: 'status',
     render: (text, record) => (
         <span>
@@ -81,13 +83,18 @@ class PeerManagement extends Component {
         }
     }
     getPeerData = () => {
-        request().get(`${peer.peerDetail.format({ id: this.state.id })}`).then(res => {
+        request().get(`${peer.peerDetail.format({ id: this.state.id })}`, {
+            cancelToken: new CancelToken(function executor(c) {
+                // An executor function receives a cancel function as a parameter
+                cancel = c;
+            })
+        }).then(res => {
             if (res) {
                 switch (res.status) {
                     case 200:
                         this.setState({
                             peerData: res.data.data,
-                            loading:false
+                            loading: false
                         })
                         break;
                     case 401:
@@ -104,6 +111,14 @@ class PeerManagement extends Component {
     }
     componentDidMount() {
         this.getPeerData()
+    }
+    componentWillUnmount() {
+        if (cancel) {
+            cancel();
+        }
+        this.setState = () => {
+            return;
+        };
     }
     render() {
         return (

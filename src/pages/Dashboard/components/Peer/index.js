@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import { Table, Pagination, Badge, Progress, Spin } from 'antd';
 import './index.less';
+import axios from 'axios';
 import apiconfig from '../../../../Utils/apiconfig';
 import request from '../../../../Utils/Axios';
-import Cookies from 'js-cookie'
+import Cookies from 'js-cookie';
+const CancelToken = axios.CancelToken;
+let cancel;
 
 const { api: { peer: { peerList } } } = apiconfig;
 const columns = [{
@@ -29,7 +32,7 @@ const columns = [{
 }, {
     title: '节点类型',
     key: 'type',
-    width: '10%',
+    width: '9%',
     dataIndex: 'type',
     sorter: (a, b) => {
 
@@ -37,7 +40,7 @@ const columns = [{
 },
 {
     title: '状态',
-    width: '8%',
+    width: '9%',
     key: 'status',
     render: (text, record) => (
         <span>
@@ -80,7 +83,12 @@ class Peer extends Component {
         }
     }
     getPeerData = () => {
-        request().get(peerList).then(res => {
+        request().get(peerList,{
+            cancelToken: new CancelToken(function executor(c) {
+                // An executor function receives a cancel function as a parameter
+                cancel = c;
+            })
+        }).then(res => {
             if (res) {
                 switch (res.status) {
                     case 200:
@@ -103,6 +111,14 @@ class Peer extends Component {
     }
     componentDidMount() {
         this.getPeerData()
+    }
+    componentWillUnmount() {
+        if (cancel) {
+            cancel();
+        }
+        this.setState = () => {
+            return;
+        };
     }
     render() {
         return (
