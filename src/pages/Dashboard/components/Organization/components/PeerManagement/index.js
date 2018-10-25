@@ -23,7 +23,7 @@ const columns = [{
     title: '组织名',
     dataIndex: '',
     width: '16%',
-    key: 'organization',
+    key: 'organizationName',
 }, {
     title: '通道名',
     key: 'channel',
@@ -34,9 +34,7 @@ const columns = [{
     key: 'type',
     width: '9%',
     dataIndex: 'type',
-    sorter: (a, b) => {
-
-    }
+    sorter: (a, b) => a.type-b.type
 },
 {
     title: '状态',
@@ -128,12 +126,11 @@ class PeerManagement extends Component {
                         <Table
                             columns={columns}
                             dataSource={this.state.peerData}
-                            pagination={false}
                             rowKey={record => record._id}
                         />
                     </Spin>
                 </div>
-                <Pagination total={50} showSizeChanger showQuickJumper />
+                {/* <Pagination total={50} showSizeChanger showQuickJumper /> */}
             </div>
         )
     }

@@ -28,7 +28,11 @@ const columns = [{
     title: '通道名',
     key: 'channel',
     width: '16%',
-    dataIndex: 'channel',
+    render: (text, record) => (
+        record.channelNames.map((item, index) => {
+            return <span key={index}>{item}</span>
+        })
+    )
 }, {
     title: '节点类型',
     key: 'type',
@@ -83,13 +87,14 @@ class Peer extends Component {
         }
     }
     getPeerData = () => {
-        request().get(peerList,{
+        request().get(peerList, {
             cancelToken: new CancelToken(function executor(c) {
                 // An executor function receives a cancel function as a parameter
                 cancel = c;
             })
         }).then(res => {
             if (res) {
+                console.log(res);
                 switch (res.status) {
                     case 200:
                         this.setState({
@@ -128,12 +133,11 @@ class Peer extends Component {
                         <Table
                             columns={columns}
                             dataSource={this.state.peerData}
-                            pagination={false}
                             rowKey={record => record._id}
                         />
                     </Spin>
                 </div>
-                <Pagination total={50} showSizeChanger showQuickJumper />
+                {/* <Pagination total={50} showSizeChanger showQuickJumper /> */}
             </div >
         )
     }

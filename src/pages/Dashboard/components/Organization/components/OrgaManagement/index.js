@@ -37,6 +37,7 @@ class OrgaManagement extends Component {
         });
     }
     handlePeer = (record) => {
+        console.log(record);
         this.props.history.push('/dashboard/organization_management/peer/' + record.id);
     }
     getOrgData = () => {
@@ -81,17 +82,12 @@ class OrgaManagement extends Component {
         const columns = [{
             title: '组织名',
             dataIndex: 'name',
-            width: '33%',
+            width: '43%',
             key: 'name',
-        }, {
-            title: '域名',
-            dataIndex: 'domain',
-            width: '31%',
-            key: 'domain',
         }, {
             title: '节点数量',
             dataIndex: 'peer_count',
-            width: '18%',
+            width: '28%',
             key: 'number',
         }, {
             title: '操作',
@@ -115,20 +111,19 @@ class OrgaManagement extends Component {
         return (
             <div className="organization-management">
                 <div className="organization-wrapper">
-                    <p className="create-organization">
+                    {/* <p className="create-organization">
                         <Button id="create" onClick={this.showModal} className="create-plus">创建组织<Icon type="plus-circle" theme="outlined" /></Button>
-                    </p>
+                    </p> */}
                     <Spin spinning={this.state.loading}>
 
                         <Table
                             columns={columns}
                             dataSource={this.state.orgData}
-                            pagination={false}
                             rowKey={record => record.id}
                         />
                     </Spin>
-                    <Pagination total={50} showSizeChanger showQuickJumper />
-                    <Modal
+                    {/* <Pagination total={this.state.orgData.length} showSizeChanger showQuickJumper /> */}
+                    {/* <Modal
                         className='create-modal'
                         title="新建组织"
                         cancelText="确认"
@@ -156,7 +151,7 @@ class OrgaManagement extends Component {
                                 )}
                             </FormItem>
                         </Form>
-                    </Modal>
+                    </Modal> */}
                 </div>
             </div>
         )
