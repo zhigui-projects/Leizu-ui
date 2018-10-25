@@ -403,11 +403,11 @@ class Dashboard extends Component {
                                     <img src={path==="overview"?overview:unoverview} alt=" " />
                                     <span style={{ opacity: (this.state.collapsed ? 0 : 1) }}>概览</span>
                                 </Menu.Item>
-                                <Menu.Item className="list-item" key="blockchain_browser">
+                                {/* <Menu.Item className="list-item" key="blockchain_browser">
                                     <p className="fill-in" style={{visibility:path==="blockchain_browser"?"":"hidden"}}></p>
                                     <img src={path==="blockchain_browser"?block:unblock} alt=" " />
                                     <span style={{ opacity: (this.state.collapsed ? 0 : 1) }}>区块链浏览器</span>
-                                </Menu.Item>
+                                </Menu.Item> */}
                                 <Menu.Item className="list-item" key="organization_management">
                                     <p className="fill-in" style={{visibility:(path==="organization"||path==="organization_management")?"":"hidden"}}></p>
                                     <img src={(path==="organization"||path==="organization_management")?organization:unorganization} alt=" " />
@@ -423,11 +423,11 @@ class Dashboard extends Component {
                                     <img src={path==="peer_management"?peer:unpeer} alt=" " />
                                     <span style={{ opacity: (this.state.collapsed ? 0 : 1) }}>节点管理</span>
                                 </Menu.Item>
-                                <Menu.Item className="list-item" key="chaincode_management">
+                                {/* <Menu.Item className="list-item" key="chaincode_management">
                                     <p className="fill-in" style={{visibility:path==="chaincode_management"?"":"hidden"}}></p>
                                     <img src={path==="chaincode_management"?chain:unchain} alt=" " />
                                     <span style={{ opacity: (this.state.collapsed ? 0 : 1) }}>链码管理</span>
-                                </Menu.Item>
+                                </Menu.Item> */}
                                 <Menu.Item className="list-item" key="log_management">
                                     <p className="fill-in" style={{visibility:path==="log_management"?"":"hidden"}}></p>
                                     <img src={path==="log_management"?log:unlog} alt=" " />
@@ -444,7 +444,7 @@ class Dashboard extends Component {
                                         onClick={this.toggle}
                                     />
                                     <div className="header-list">
-                                        <div className="language-box">
+                                        {/* <div className="language-box">
                                             <div className="language-box" ref="languageBox">
                                                 <Popover
                                                     placement="bottom"
@@ -456,7 +456,7 @@ class Dashboard extends Component {
                                                     <span className='current-lang'>{this.defaultLang}</span><Icon type="down" />
                                                 </Popover>
                                             </div>
-                                        </div>
+                                        </div> */}
                                         <div className='user-name-box dropDown-link'>
                                             <Popover
                                                 visible={this.state.visible}
