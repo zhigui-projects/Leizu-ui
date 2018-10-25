@@ -26,7 +26,8 @@ module.exports = {
             organization: `${API}/organization`
         },
         consortium: {
-            overview: `${API}/consortium`
+            overview: `${API}/consortium/{consortiumId}`
+
         }
     },
 }
