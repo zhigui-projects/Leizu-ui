@@ -12,17 +12,17 @@ const { api: { peer } } = apiconfig;
 const columns = [{
     title: '节点名称',
     dataIndex: 'name',
-    width: '16%',
+    width: '15%',
     key: 'name',
 }, {
     title: '节点域名',
     dataIndex: 'location',
-    width: '12%',
+    width: '15%',
     key: 'domain',
 }, {
     title: '组织名',
-    dataIndex: '',
-    width: '16%',
+    dataIndex: 'organizationName',
+    width: '14%',
     key: 'organizationName',
 }, {
     title: '通道名',

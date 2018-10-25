@@ -12,17 +12,17 @@ const { api: { peer: { peerList } } } = apiconfig;
 const columns = [{
     title: '节点名称',
     dataIndex: 'name',
-    width: '16%',
+    width: '15%',
     key: 'name',
 }, {
     title: '节点域名',
     dataIndex: 'location',
-    width: '12%',
+    width: '15%',
     key: 'domain',
 }, {
     title: '组织名',
-    dataIndex: '',
-    width: '16%',
+    dataIndex: 'organizationName',
+    width: '14%',
     key: 'organization',
 }, {
     title: '通道名',
@@ -94,7 +94,6 @@ class Peer extends Component {
             })
         }).then(res => {
             if (res) {
-                console.log(res);
                 switch (res.status) {
                     case 200:
                         this.setState({

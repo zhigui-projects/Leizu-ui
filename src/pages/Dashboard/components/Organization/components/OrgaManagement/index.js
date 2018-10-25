@@ -37,7 +37,6 @@ class OrgaManagement extends Component {
         });
     }
     handlePeer = (record) => {
-        console.log(record);
         this.props.history.push('/dashboard/organization_management/peer/' + record.id);
     }
     getOrgData = () => {
@@ -97,17 +96,17 @@ class OrgaManagement extends Component {
                 <span onClick={this.handlePeer.bind(this, record)} style={{ color: '#3d70b1', cursor: 'pointer' }}>节点管理</span>
             )
         }];
-        const { getFieldDecorator } = this.props.form;
-        const FormItemLayout = {
-            labelCol: {
-                xs: { span: 24 },
-                sm: { span: 4 },
-            },
-            wrapperCol: {
-                xs: { span: 24 },
-                sm: { span: 16 },
-            },
-        }
+        // const { getFieldDecorator } = this.props.form;
+        // const FormItemLayout = {
+        //     labelCol: {
+        //         xs: { span: 24 },
+        //         sm: { span: 4 },
+        //     },
+        //     wrapperCol: {
+        //         xs: { span: 24 },
+        //         sm: { span: 16 },
+        //     },
+        // }
         return (
             <div className="organization-management">
                 <div className="organization-wrapper">

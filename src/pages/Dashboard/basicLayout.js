@@ -370,9 +370,22 @@ class Dashboard extends Component {
                                collapsed={this.state.collapsed}
                                onCollapse={this.onCollapse}
                         >
-                            <li className="logo" to='/index' target="_blank">
-                                <img src={require('../../images/logo_en.svg')} alt="" />
-                            </li>
+                            {
+                                this.state.collapsed
+                                ?
+                                (
+                                    <li className="logo-side" to='/index' target="_blank">
+                                        <img src={require('../../images/logo_side.svg')} alt="" />
+                                    </li>
+                                )
+                                :
+                                (
+                                    <li className="logo" to='/index' target="_blank">
+                                        <img src={require('../../images/logo.svg')} alt="" />
+                                    </li>
+                                )
+                            }
+                            
                             {/* <NavLink className="logo" to='/index' target="_blank">
                             {
                                 this.props.intl.locale === "en" ? <img src={require('../../images/logo_en_dash.svg')} alt="" /> : <img src={logo} alt="" />
