@@ -1,5 +1,5 @@
 const API = 'http://59.110.164.211:7066/api/v1';
-const elasticSearchUrl = "https://staging-elk.baas.ziggurat.cn/"
+const elasticSearchUrl = "http://47.94.224.229/query"
 const format = require('string-format');
 format.extend(String.prototype);
 
@@ -9,6 +9,7 @@ module.exports = {
     api: {
         user: {
             login : `${API}/user/login`,
+            resetPassword: `${API}/user/password/reset`
         },
         channel: `${API}/channel`,
         chain: {
