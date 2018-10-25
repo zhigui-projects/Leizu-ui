@@ -1,4 +1,5 @@
-const API = 'http://59.110.164.211:7066/api/v1';
+// const API = 'http://59.110.164.211:7066/api/v1';
+const API = 'http://192.168.2.6:8081/api/v1';
 const elasticSearchUrl = "https://staging-elk.baas.ziggurat.cn/"
 const format = require('string-format');
 format.extend(String.prototype);
@@ -25,7 +26,8 @@ module.exports = {
             organization: `${API}/organization`
         },
         consortium: {
-            overview: `${API}/consortium`
+            overview: `${API}/consortium/{consortiumId}`
+
         }
     },
 }
