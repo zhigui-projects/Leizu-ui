@@ -204,8 +204,8 @@ class Project extends Component {
 
     okResetPassword = (e)=>{
         const {form: {getFieldValue}} = this.props
-        // const userName = Cookies.get('userNameInfo')
-        // const _this = this
+        const userName = Cookies.get('userNameInfo')
+        const _this = this
         e.preventDefault();
         this.props.form.validateFieldsAndScroll((err, values) => {
             if(!err){
@@ -214,65 +214,68 @@ class Project extends Component {
                         passConfirmTip: "两次输入密码必须一致"
                     })
                 }else{
-                    // request(user.resetPassword,{
-                    //     method:'PUT',
-                    //     body:{
-                    //         "userName": userName,
-                    //         "password": values.password,
-                    //         "newPassword": values.newPassword
-                    //     }
-                    // }).then((response)=>{
-                    //     if(typeof response === 'number'){
-                    //
-                    //         switch(response){
-                    //             case 404:
-                    //                 message.error(intlData.service_resetPass_userNoExit)
-                    //                 _this.setState({
-                    //                     resetPasswordVisible:false,
-                    //                     passConfirmTip:"",
-                    //                     passTip:"",
-                    //                     passErrorTip:""
-                    //                 })
-                    //                 break;
-                    //             case 406:
-                    //                 _this.setState({
-                    //                     passErrorTip:intlData.service_resetPass_oldPassErr
-                    //                 })
-                    //                 break;
-                    //             case 401:
-                    //                 Cookies.remove('token');
-                    //                 Cookies.remove('userName');
-                    //                 sessionStorage.removeItem('projectData');
-                    //                 sessionStorage.removeItem('consortiumType');
-                    //                 this.props.history.push({
-                    //                     pathname:"/login"
-                    //                 })
-                    //                 break;
-                    //             case 500:
-                    //                 message.error(intlData.service_resetPass_networkErr)
-                    //                 _this.setState({
-                    //                     resetPasswordVisible:false,
-                    //                     passConfirmTip:"",
-                    //                     passTip:"",
-                    //                     passErrorTip:""
-                    //                 })
-                    //                 break;
-                    //             default:
-                    //                 message.error(intlData.service_resetPass_resetPassFail)
-                    //         }
-                    //     }else{
-                    //         _this.setState({
-                    //             passErrorTip:'',
-                    //             resetPasswordVisible:false,
-                    //             passConfirmTip:"",
-                    //             passTip:"",
-                    //         })
-                    //         message.success(intlData.service_resetPass_resetPassSuccess,1)
-                    //         setTimeout(()=>{
-                    //             _this.okloginOut()
-                    //         },1000)
-                    //     }
-                    // })
+                    request().post(user.resetPassword,{
+                        "username": userName,
+                        "password": values.password,
+                        "newPassword": values.newPassword
+                    }).then((response)=>{
+                        if(response){
+                            switch(response.status){
+                                case 200:
+                                    _this.setState({
+                                        passErrorTip:'',
+                                        resetPasswordVisible:false,
+                                        passConfirmTip:"",
+                                        passTip:"",
+                                    })
+                                    message.success("密码修改成功,请重新登录",1)
+                                    setTimeout(()=>{
+                                        _this.okloginOut()
+                                    },1000)
+                                    break;
+                                // case 404:
+                                //     message.error("用户名不存在")
+                                //     _this.setState({
+                                //         resetPasswordVisible:false,
+                                //         passConfirmTip:"",
+                                //         passTip:"",
+                                //         passErrorTip:""
+                                //     })
+                                //     break;
+                                // case 406:
+                                //     _this.setState({
+                                //         passErrorTip:"旧密码不正确"
+                                //     })
+                                //     break;
+                                case 401:
+                                    Cookies.remove('token');
+                                    Cookies.remove('userName');
+                                    sessionStorage.removeItem('projectData');
+                                    sessionStorage.removeItem('consortiumType');
+                                    this.props.history.push({
+                                        pathname:"/login"
+                                    })
+                                    break;
+                                case 500:
+                                    message.error("网络出错")
+                                    _this.setState({
+                                        resetPasswordVisible:false,
+                                        passConfirmTip:"",
+                                        passTip:"",
+                                        passErrorTip:""
+                                    })
+                                    break;
+                                default:
+                                    message.error("密码修改失败")
+                                    _this.setState({
+                                        resetPasswordVisible:false,
+                                        passConfirmTip:"",
+                                        passTip:"",
+                                        passErrorTip:""
+                                    })
+                            }
+                        }
+                    })
                 }
             }else{
                 console.log("err")
@@ -393,7 +396,7 @@ class Project extends Component {
                     </div>
                 </header>
                 <Breadcrumb style={{padding:"0 24px",background:'#ffffff',height:"48px",lineHeight:"48px"}} >
-                    <Breadcrumb.Item>我的项目</Breadcrumb.Item>
+                    <Breadcrumb.Item>我的联盟</Breadcrumb.Item>
                 </Breadcrumb>
 
                 <div className="servicePart">
@@ -407,7 +410,7 @@ class Project extends Component {
                                 <Card
                                     className="chainliatItem"
                                     style={{marginBottom:"24px",height:"165px"}}
-                                    actions={[<span onClick={()=>{this.enterDashboard(item)}}>进入项目<Icon type="right" theme="outlined" /></span>]}
+                                    actions={[<span onClick={()=>{this.enterDashboard(item)}}>管理联盟<Icon type="right" theme="outlined" /></span>]}
                                 >
                                     <Meta
                                         avatar={<Avatar src={require("../../images/invalid-name.svg")} />}
