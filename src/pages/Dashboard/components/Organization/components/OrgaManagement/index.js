@@ -81,17 +81,12 @@ class OrgaManagement extends Component {
         const columns = [{
             title: '组织名',
             dataIndex: 'name',
-            width: '33%',
+            width: '43%',
             key: 'name',
-        }, {
-            title: '域名',
-            dataIndex: 'domain',
-            width: '31%',
-            key: 'domain',
         }, {
             title: '节点数量',
             dataIndex: 'peer_count',
-            width: '18%',
+            width: '28%',
             key: 'number',
         }, {
             title: '操作',
@@ -101,34 +96,33 @@ class OrgaManagement extends Component {
                 <span onClick={this.handlePeer.bind(this, record)} style={{ color: '#3d70b1', cursor: 'pointer' }}>节点管理</span>
             )
         }];
-        const { getFieldDecorator } = this.props.form;
-        const FormItemLayout = {
-            labelCol: {
-                xs: { span: 24 },
-                sm: { span: 4 },
-            },
-            wrapperCol: {
-                xs: { span: 24 },
-                sm: { span: 16 },
-            },
-        }
+        // const { getFieldDecorator } = this.props.form;
+        // const FormItemLayout = {
+        //     labelCol: {
+        //         xs: { span: 24 },
+        //         sm: { span: 4 },
+        //     },
+        //     wrapperCol: {
+        //         xs: { span: 24 },
+        //         sm: { span: 16 },
+        //     },
+        // }
         return (
             <div className="organization-management">
                 <div className="organization-wrapper">
-                    <p className="create-organization">
+                    {/* <p className="create-organization">
                         <Button id="create" onClick={this.showModal} className="create-plus">创建组织<Icon type="plus-circle" theme="outlined" /></Button>
-                    </p>
+                    </p> */}
                     <Spin spinning={this.state.loading}>
 
                         <Table
                             columns={columns}
                             dataSource={this.state.orgData}
-                            pagination={false}
                             rowKey={record => record.id}
                         />
                     </Spin>
-                    <Pagination total={50} showSizeChanger showQuickJumper />
-                    <Modal
+                    {/* <Pagination total={this.state.orgData.length} showSizeChanger showQuickJumper /> */}
+                    {/* <Modal
                         className='create-modal'
                         title="新建组织"
                         cancelText="确认"
@@ -156,7 +150,7 @@ class OrgaManagement extends Component {
                                 )}
                             </FormItem>
                         </Form>
-                    </Modal>
+                    </Modal> */}
                 </div>
             </div>
         )
