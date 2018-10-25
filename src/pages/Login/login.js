@@ -40,7 +40,7 @@ class Login extends Component {
                 })
 
                 request().post(user.login,{
-                    "name": values.name,
+                    "username": values.username,
                     "password": values.password
                 }).then(response=>{
                     if(response){
@@ -141,14 +141,14 @@ class Login extends Component {
                             style={{marginBottom:"8px"}}
                             className="loginFormItem"
                         >
-                            {getFieldDecorator('name', {
+                            {getFieldDecorator('username', {
                                 rules: [{
-                                    required: true, message: "请输入邮箱",
+                                    required: true, message: "请输入用户名",
                                 },{
                                     validator: this.email_loginValidator,
                                 }],
                             })(
-                                <Input placeholder="邮箱地址" size="large"/>
+                                <Input placeholder="用户名" size="large"/>
                             )}
                         </FormItem>
                         <code style={{position:"relactive",top:'-10px'}}>{this.state.emailTip}</code>
