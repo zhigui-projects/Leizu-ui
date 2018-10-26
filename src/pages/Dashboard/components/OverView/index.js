@@ -29,7 +29,7 @@ class OverView extends Component{
                 cancel = c;
             })
         }).then(res=>{
-            console.log(res)
+            // console.log(res)
             if(res){
                 switch(res.status){
                     case 200: 
@@ -106,7 +106,6 @@ class OverView extends Component{
         if(temp){
             temp = JSON.parse(temp)
         }
-        console.log(temp)
         this.getData(temp._id)
     }
     componentWillUnmount() {

@@ -484,7 +484,7 @@ class Dashboard extends Component {
                                         <Route path="/dashboard/blockchain_browser" component={BlockChain} />
                                         <Route path="/dashboard/organization_management" component={Organization} />
                                         <Route exact path="/dashboard/channel_management" component={Channel} />
-                                        <Route path="/dashboard/channel_management/org/:id" component={ChannelOrg} />
+                                        <Route path="/dashboard/channel_management/org" component={ChannelOrg} />
                                         <Route path="/dashboard/channel_management/createChannel" component={CreateChannel} />
                                         <Route path="/dashboard/peer_management" component={Peer} />
                                         <Route path="/dashboard/chaincode_management" component={ChainCode} />
