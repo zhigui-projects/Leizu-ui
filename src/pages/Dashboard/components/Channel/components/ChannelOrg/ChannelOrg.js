@@ -48,9 +48,8 @@ class ChannelOrg extends Component {
                 cancel = c;
             })
         }).then(res=>{
-            console.log(res)
+            // console.log(res)
             if(res){
-                console.log(res.data)
                 switch(res.status){
                     case 200: 
                         this.setState({
@@ -71,7 +70,7 @@ class ChannelOrg extends Component {
         })
     }
     componentDidMount(){
-        this.getData(this.props.match.params.id)
+        this.getData(this.props.location.query)
     }
     componentWillUnmount() {
         if (cancel) {
@@ -95,7 +94,7 @@ class ChannelOrg extends Component {
                     </Spin>
                 </div>
                 <div className="pagination-box clearfix">
-                    <Pagination defaultCurrent={6} total={500} />
+                    {/* <Pagination defaultCurrent={6} total={500} /> */}
                 </div>
             </div>
         );
