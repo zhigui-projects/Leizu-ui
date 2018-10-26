@@ -1,0 +1,11 @@
+version: "2"
+services:
+    web:
+        build: .
+        image: dashboard-ui
+        container_name: dashboard-ui
+        restart: always
+        volumes:
+            - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+        ports:
+            - "80:80"
