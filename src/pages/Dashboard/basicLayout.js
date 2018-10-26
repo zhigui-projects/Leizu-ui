@@ -4,6 +4,7 @@ import { Switch, Redirect, Route , Link} from 'react-router-dom';
 import Loadable from 'react-loadable';
 import Tip from '../../Utils/Tip'
 // import logo from '../../images/logo.svg';
+import { NavLink } from 'react-router-dom'
 import overview from '../../images/slider/overview.svg';
 import block from '../../images/slider/blockchain.svg';
 import chain from '../../images/slider/chaincode.svg';
@@ -603,6 +604,7 @@ class Dashboard extends Component {
                                                 </Popover>
                                             </div>
                                         </div> */}
+                                        <div><NavLink to="/project" style={{cursor:"pointer"}}>我的联盟</NavLink></div>
                                         <div className='user-name-box dropDown-link'>
                                             <Popover
                                                 visible={this.state.visible}
@@ -613,7 +615,7 @@ class Dashboard extends Component {
                                                 overlayClassName='user-name-drop'
                                                 mouseLeaveDelay={0.3}
                                             >
-                                                <span style={{marginRight:'8px'}}><img style={{marginRight:"8px"}} src={require("../../images/ic-user.svg")} alt=""/>{userName}</span><Icon type="down" />
+                                                <span style={{marginRight:'8px',cursor:"pointer"}}><img style={{marginRight:"8px"}} src={require("../../images/ic-user.svg")} alt=""/>{userName}</span><Icon type="down" />
                                             </Popover>
                                         </div>
                                     </div>
