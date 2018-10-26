@@ -63,12 +63,28 @@ class Project extends Component {
     }
 
     okloginOut = ()=>{
-        Cookies.remove('token');
-        Cookies.remove('userNameInfo');
-        sessionStorage.removeItem('projectData');
-        sessionStorage.removeItem('consortiumType');
-        this.props.history.push({
-            pathname:"/login"
+        request().post(user.logout).then((response)=>{
+            if(response){
+                switch(response.status){
+                    case 200:
+                        Cookies.remove('token');
+                        Cookies.remove('userNameInfo');
+                        sessionStorage.removeItem('projectData');
+                        sessionStorage.removeItem('consortiumType');
+                        this.props.history.push({
+                            pathname:"/login"
+                        })
+                        break;
+                    default:
+                        Cookies.remove('token');
+                        Cookies.remove('userNameInfo');
+                        sessionStorage.removeItem('projectData');
+                        sessionStorage.removeItem('consortiumType');
+                        this.props.history.push({
+                            pathname:"/login"
+                        })
+                }
+            }
         })
     }
 

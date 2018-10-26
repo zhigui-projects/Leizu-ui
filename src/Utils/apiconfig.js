@@ -9,11 +9,13 @@ module.exports = {
     api: {
         user: {
             login : `${API}/user/login`,
-            resetPassword: `${API}/user/password/reset`
+            resetPassword: `${API}/user/password/reset`,
+            logout: `${API}/user/logout`
         },
         channel: `${API}/channel`,
         chain: {
-            chainList: `${API}/consortium`
+            chainList: `${API}/consortium`,
+            container:`${API}/container`
         },
         peer:{
             peerList:`${API}/peer`,
