@@ -3,15 +3,15 @@ import { Layout, Menu, Breadcrumb, Icon, Modal,Popover,Form,Input } from 'antd';
 import { Switch, Redirect, Route , Link} from 'react-router-dom';
 // import logo from '../../images/logo.svg';
 import overview from '../../images/slider/overview.svg';
-import block from '../../images/slider/blockchain.svg';
-import chain from '../../images/slider/chaincode.svg';
+// import block from '../../images/slider/blockchain.svg';
+// import chain from '../../images/slider/chaincode.svg';
 import channel from '../../images/slider/channel.svg';
 import log from '../../images/slider/log.svg';
 import organization from '../../images/slider/organization.svg';
 import peer from '../../images/slider/peer.svg';
 import unoverview from '../../images/slider/unoverview.svg';
-import unblock from '../../images/slider/unblockchain.svg';
-import unchain from '../../images/slider/unchaincode.svg';
+// import unblock from '../../images/slider/unblockchain.svg';
+// import unchain from '../../images/slider/unchaincode.svg';
 import unchannel from '../../images/slider/unchannel.svg';
 import unlog from '../../images/slider/unlog.svg';
 import unorganization from '../../images/slider/unorganization.svg';
@@ -374,13 +374,13 @@ class Dashboard extends Component {
                                 this.state.collapsed
                                 ?
                                 (
-                                    <li className="logo-side" to='/index' target="_blank">
+                                    <li className="logo-side">
                                         <img src={require('../../images/logo_side.svg')} alt="" />
                                     </li>
                                 )
                                 :
                                 (
-                                    <li className="logo" to='/index' target="_blank">
+                                    <li className="logo">
                                         <img src={require('../../images/logo.svg')} alt="" />
                                     </li>
                                 )
