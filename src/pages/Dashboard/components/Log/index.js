@@ -21,7 +21,7 @@ class Log extends Component {
         this.state = {
             containers:null,
             currentPage: 1,
-            perPage: 100,
+            perPage: 50,
             esClient: null,
             log: [],
             containerId: "",
@@ -33,8 +33,7 @@ class Log extends Component {
         }
     }
     getContainerLog = (containerId) => {
-        console.log(containerId)
-        const {esClient, intervalTime} = this.state
+        const {esClient, intervalTime, perPage} = this.state
         let {intervalId} = this.state;
         const _that = this;
         this.setState({
@@ -45,7 +44,7 @@ class Log extends Component {
             esClient.search({
                 index: "docker-logs*",
                 type: 'doc',
-                size: 100,
+                size: perPage,
                 body: {
                     sort: [{
                         "@timestamp": "desc"
@@ -55,7 +54,7 @@ class Log extends Component {
                             must: [
                                 {
                                     query_string: {
-                                        fields : ["source"],
+                                        fields : ["docker.container.name"],
                                         query: `*${containerId}*`
                                     }
                                 }
@@ -90,11 +89,11 @@ class Log extends Component {
                 console.error(err.message);
             });
         }
-        // setTimeout(function(){
-        //     if(log.length === 0 && window.location.pathname === "/dashboard/log"){
-        //         message.error("网络错误,日志加载失败")
-        //     }
-        // },5000)
+        setTimeout(function(){
+            if(log.length === 0 && window.location.pathname === "/dashboard/log_management"){
+                message.error("网络错误,日志加载失败")
+            }
+        },5000)
 
     }
     queryLog = () => {
@@ -115,7 +114,7 @@ class Log extends Component {
                             must: [
                                 {
                                     query_string: {
-                                        fields : ["source"],
+                                        // fields : ["source"],
                                         query: `*${containerId}*`
                                     }
                                 },
@@ -158,18 +157,10 @@ class Log extends Component {
         }
     }
     componentDidMount() {
-        // if(window._hmt){
-        //     window._hmt.push(['_trackPageview', "/dashboard/log"]);
-        // }
-        // const intlData=this.props.intl.messages;
-        // const dataId = sessionStorage.getItem("projectData") ? JSON.parse(sessionStorage.getItem("projectData")).id : ""
-        // const _this  = this
         request().get(chain.container).then((response)=>{
             if(response){
                 switch(response.status){
                     case 200:
-                        console.log(response.data)
-                        console.log(response.data.data)
                         this.setState({
                             containers:response.data.data
                             })
@@ -184,8 +175,6 @@ class Log extends Component {
                             esClient: client,
                             containerId: defaultContainer
                         }, function () {
-                            console.log("90909090")
-                            console.log(containers.length > 0 ? containers[0].name : "")
                             if (defaultContainer) {
                                 _this.getContainerLog(defaultContainer)
                             }
@@ -223,21 +212,6 @@ class Log extends Component {
     }
     render() {
         const {containerId,log,loadingLog, containers} = this.state
-        //     : [
-        //     {
-        //         "id": "5182aefd8df79d68501a92bd4949a4c6def79668404ee82260ce15390960c86d",
-        //         "name": "peer0.org1.example.com"
-        //     },
-        //     {
-        //         "id": "3a02b9cf91b758c081c04b7cd9082be7db1051732318422c855501707676cc81",
-        //         "name": "ca.peerOrg1"
-        //     },
-        //     {
-        //         "id": "fb14f453451ed192ec29ae73ae1305be78e3654da3c1978e107f17ac09e04fb9",
-        //         "name": "orderer.example.com"
-        //     }
-        // ]
-        console.log(containers)
         const containerOptions = containers && containers.length ?containers.map((container, index) =>
             <Option key={index} value={container.name}>{container.name}</Option>
         ):""
