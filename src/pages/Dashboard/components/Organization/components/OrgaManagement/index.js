@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
-import { Icon, Button, Table, Pagination, Modal, Form, Input, Spin } from 'antd';
+import { Table, Form, Spin } from 'antd';
 import './index.less';
 import request from '../../../../../../Utils/Axios';
 import axios from 'axios';
 import apiconfig from '../../../../../../Utils/apiconfig';
 import Cookies from 'js-cookie'
-const FormItem = Form.Item;
+// const FormItem = Form.Item;
 const { api: { organization: { orgList } } } = apiconfig;
-const { api: { peer } } = apiconfig;
 const CancelToken = axios.CancelToken;
 let cancel;
 
@@ -37,7 +36,10 @@ class OrgaManagement extends Component {
         });
     }
     handlePeer = (record) => {
-        this.props.history.push('/dashboard/organization_management/peer/' + record.id);
+        this.props.history.push({
+            pathname:'/dashboard/organization_management/peer',
+            state:record.id
+        });
     }
     getOrgData = () => {
         request().get(orgList, {
