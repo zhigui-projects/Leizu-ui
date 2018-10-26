@@ -33,7 +33,9 @@ const columns = [{
     title: '节点类型',
     key: 'type',
     width: '9%',
-    dataIndex: 'type',
+    render:(text,record)=>(
+        <span>{record.type==0?"peer":(record.type==1?"orderer":"")}</span>
+    ),
     sorter: (a, b) => a.type-b.type
 },
 {
