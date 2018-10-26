@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import { Layout, Menu, Breadcrumb, Icon, Modal,Popover,Form,Input } from 'antd';
+import { Layout, Menu, Breadcrumb, Icon, Modal,Popover,Form,Input, Spin } from 'antd';
 import { Switch, Redirect, Route , Link} from 'react-router-dom';
+import Loadable from 'react-loadable';
+import Tip from '../../Utils/Tip'
 // import logo from '../../images/logo.svg';
 import { NavLink } from 'react-router-dom'
 import overview from '../../images/slider/overview.svg';
@@ -20,17 +22,52 @@ import unpeer from '../../images/slider/unpeer.svg';
 import './basicLayout.less';
 import BlockChain from './components/BlockChain/index';
 import ChainCode from './components/ChainCode/index';
-import Channel from './components/Channel/index';
+// import Channel from './components/Channel/index';
 import ChannelOrg from './components/Channel/components/ChannelOrg/ChannelOrg'
 import CreateChannel from './components/Channel/components/CreateChannel/CreateChannel'
-import Log from './components/Log/index';
-import Organization from './components/Organization/index';
-import OverView from './components/OverView/index';
-import Peer from './components/Peer/index';
+// import Log from './components/Log/index';
+// import Organization from './components/Organization/index';
+// import OverView from './components/OverView/index';
+// import Peer from './components/Peer/index';
 import Cookies from "js-cookie";
 import request from "../../Utils/Axios";
 import {message} from "antd/lib/index";
 import config from "../../Utils/apiconfig";
+
+const MyLoadingComponent = ({ isLoading, error }) => {
+    if (isLoading) {
+        return <div style={{ width: "100%", height: "100%", display: "flex", justifyContent: "center", alignItems: "center" }}><Spin size="large" /></div>;
+    }
+    else if (error) {
+        return <Tip />;
+    }
+    else {
+        return null;
+    }
+};
+
+
+const OverView = Loadable({
+    loader: () => import('./components/OverView/index'),
+    loading: MyLoadingComponent
+})
+const Organization = Loadable({
+    loader: () => import('./components/Organization/index'),
+    loading: MyLoadingComponent
+})
+const Channel = Loadable({
+    loader: () => import('./components/Channel/index'),
+    loading: MyLoadingComponent
+})
+const Peer = Loadable({
+    loader: () => import('./components/Peer/index'),
+    loading: MyLoadingComponent
+})
+const Log = Loadable({
+    loader: () => import('./components/Log/index'),
+    loading: MyLoadingComponent
+})
+
 const {api:{user}} = config
 const FormItem = Form.Item;
 const confirm = Modal.confirm;

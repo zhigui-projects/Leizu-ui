@@ -40,7 +40,7 @@ class ChannelOrg extends Component {
     getData = (id)=>{
         request().get(organize.organization,{
             params: {
-                organizationId: id
+                channelId: id
             }
         },{
             cancelToken: new CancelToken(function executor(c) {
@@ -48,7 +48,7 @@ class ChannelOrg extends Component {
                 cancel = c;
             })
         }).then(res=>{
-            // console.log(res)
+            console.log(res)
             if(res){
                 switch(res.status){
                     case 200: 
@@ -70,6 +70,7 @@ class ChannelOrg extends Component {
         })
     }
     componentDidMount(){
+        // console.log(this.props)
         this.getData(this.props.location.query)
     }
     componentWillUnmount() {
