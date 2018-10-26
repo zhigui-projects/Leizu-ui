@@ -63,15 +63,15 @@ class Login extends Component {
                                     });
                                 })
                                 break;
-                            case 401:
-                                Cookies.remove('token');
-                                Cookies.remove('userNameInfo');
-                                sessionStorage.removeItem('projectData');
-                                sessionStorage.removeItem('consortiumType');
-                                this.props.history.push({
-                                    pathname:"/login"
-                                })
-                                break;
+                            // case 401:
+                            //     Cookies.remove('token');
+                            //     Cookies.remove('userNameInfo');
+                            //     sessionStorage.removeItem('projectData');
+                            //     sessionStorage.removeItem('consortiumType');
+                            //     this.props.history.push({
+                            //         pathname:"/login"
+                            //     })
+                            //     break;
                             case 500:
                                 message.error("网络错误，请重试");
                                 break;
