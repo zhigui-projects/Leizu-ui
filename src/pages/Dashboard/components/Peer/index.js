@@ -5,6 +5,7 @@ import axios from 'axios';
 import apiconfig from '../../../../Utils/apiconfig';
 import request from '../../../../Utils/Axios';
 import Cookies from 'js-cookie';
+import { pbkdf2 } from 'crypto';
 const CancelToken = axios.CancelToken;
 let cancel;
 
@@ -37,10 +38,10 @@ const columns = [{
     title: '节点类型',
     key: 'type',
     width: '9%',
-    dataIndex: 'type',
-    sorter: (a, b) => {
-
-    }
+    render:(text,record)=>(
+        <span>{record.type==0?"peer":(record.type==1?"orderer":"")}</span>
+    ),
+    sorter: (a,b) => a.type-b.type
 },
 {
     title: '状态',

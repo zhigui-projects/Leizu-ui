@@ -20,7 +20,10 @@ class Channel extends Component{
         }
     }
     toOrganization = (id)=>{
-        this.props.history.push(`channel_management/org/${id}`)
+        this.props.history.push({
+            pathname: "channel_management/org",
+            query: id
+        })
     }
     columns = [
         {
@@ -57,7 +60,7 @@ class Channel extends Component{
             })
         }).then(res => {
             if (res) {
-                console.log(res.data)
+                // console.log(res.data)
                 switch (res.status) {
                     case 200:
                         this.setState({
@@ -113,7 +116,7 @@ class Channel extends Component{
                     </Spin>
                 </div>
                 <div className="pagination-box clearfix">
-                    <Pagination defaultCurrent={6} total={500} />
+                    {/* <Pagination defaultCurrent={6} total={500} /> */}
                 </div>
             </div>
         )
