@@ -406,7 +406,7 @@ class Project extends Component {
                                 overlayClassName='user-name-drop'
                                 mouseLeaveDelay={0.3}
                             >
-                                <span style={{marginRight:'8px'}}><img style={{marginRight:"8px"}} src={require("../../images/ic-user.svg")} alt=""/>{userName}</span><Icon type="down" />
+                                <span style={{marginRight:'8px',cursor:"pointer"}}><img style={{marginRight:"8px"}} src={require("../../images/ic-user.svg")} alt=""/>{userName}</span><Icon type="down" />
                             </Popover>
                         </div>
                     </div>
@@ -419,7 +419,7 @@ class Project extends Component {
                     { chainListLoading && <Spin className="chainCodeListSpin" size="large"> </Spin>}
                     <List
                         style={{width:"100%"}}
-                        grid={{ gutter: 24, xs: 1, sm: 2, md: 2, lg: 3, xl: 4, xxl: 4 }}
+                        grid={{ gutter: 24, xs: 1, sm: 2, md: 2, lg: 2, xl: 3, xxl: 4 }}
                         dataSource={chainlistArr || []}
                         renderItem={item => (
                             <List.Item>
