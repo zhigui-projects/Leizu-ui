@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { Table, Pagination, Badge, Progress, Spin } from 'antd';
+import { Table, Badge, Progress, Spin } from 'antd';
 import './index.less';
 import axios from 'axios';
 import apiconfig from '../../../../Utils/apiconfig';
 import request from '../../../../Utils/Axios';
 import Cookies from 'js-cookie';
-import { pbkdf2 } from 'crypto';
+// import { pbkdf2 } from 'crypto';
 const CancelToken = axios.CancelToken;
 let cancel;
 
@@ -39,9 +39,9 @@ const columns = [{
     key: 'type',
     width: '9%',
     render:(text,record)=>(
-        <span>{record.type==0?"peer":(record.type==1?"orderer":"")}</span>
+        <span>{record.type===0?"peer":(record.type===1?"orderer":"")}</span>
     ),
-    sorter: (a,b) => a.type-b.type
+    // sorter: (a,b) => a.type-b.type
 },
 {
     title: '状态',
@@ -52,9 +52,9 @@ const columns = [{
             <Badge status="success" text={record.status} />
         </span>
     ),
-    sorter: (a, b) => {
+    // sorter: (a, b) => {
 
-    }
+    // }
 },
 {
     title: 'CPU占用',
@@ -62,10 +62,9 @@ const columns = [{
     key: 'cpu',
     render: (text, record) => (
         <span>
-            <Progress strokeColor="#1890ff" strokeWidth={4} percent={parseInt((record.cpu * 100).toFixed())} />
+            <Progress strokeColor="#1890ff" strokeWidth={4} percent={parseInt((record.cpu * 100).toFixed(),10)} />
         </span>
     ),
-    defaultSortOrder: 'descend',
     sorter: (a, b) => a.cpu - b.cpu
 },
 {
@@ -73,7 +72,7 @@ const columns = [{
     key: 'ram',
     render: (text, record) => (
         <span>
-            <Progress strokeColor="#52c41a" strokeWidth={4} percent={parseInt((record.memory * 100).toFixed())} />
+            <Progress strokeColor="#52c41a" strokeWidth={4} percent={parseInt((record.memory * 100).toFixed(),10)} />
         </span>
     ),
     sorter: (a, b) => a.ram - b.ram
