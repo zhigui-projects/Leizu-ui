@@ -27,6 +27,10 @@ import Organization from './components/Organization/index';
 import OverView from './components/OverView/index';
 import Peer from './components/Peer/index';
 import Cookies from "js-cookie";
+import request from "../../Utils/Axios";
+import {message} from "antd/lib/index";
+import config from "../../Utils/apiconfig";
+const {api:{user}} = config
 const FormItem = Form.Item;
 const confirm = Modal.confirm;
 const { Header, Content, Sider } = Layout;
@@ -248,21 +252,40 @@ class Dashboard extends Component {
                 })
         }
     }
+
     resetPasswordVisibleFn = ()=>{
         this.setState({
             resetPasswordVisible:true,
             visible: false
         })
     }
+
     okloginOut = ()=>{
-        Cookies.remove('token');
-        Cookies.remove('userNameInfo');
-        sessionStorage.removeItem('projectData');
-        sessionStorage.removeItem('consortiumType');
-        this.props.history.push({
-            pathname:"/login"
+        request().post(user.logout).then((response)=>{
+            if(response){
+                switch(response.status){
+                    case 200:
+                        Cookies.remove('token');
+                        Cookies.remove('userNameInfo');
+                        sessionStorage.removeItem('projectData');
+                        sessionStorage.removeItem('consortiumType');
+                        this.props.history.push({
+                            pathname:"/login"
+                        })
+                        break;
+                    default:
+                        Cookies.remove('token');
+                        Cookies.remove('userNameInfo');
+                        sessionStorage.removeItem('projectData');
+                        sessionStorage.removeItem('consortiumType');
+                        this.props.history.push({
+                            pathname:"/login"
+                        })
+                }
+            }
         })
     }
+
     logoutTip = ()=>{
         let _this = this;
         this.setState({
@@ -283,6 +306,88 @@ class Dashboard extends Component {
             },
         });
     }
+
+    okResetPassword = (e)=>{
+        const {form: {getFieldValue}} = this.props
+        const userName = Cookies.get('userNameInfo')
+        const _this = this
+        e.preventDefault();
+        this.props.form.validateFieldsAndScroll((err, values) => {
+            if(!err){
+                if(getFieldValue('newPassword') !== getFieldValue('confirmPassword')) {
+                    this.setState({
+                        passConfirmTip: "两次输入密码必须一致"
+                    })
+                }else{
+                    request().post(user.resetPassword,{
+                        "username": userName,
+                        "password": values.password,
+                        "newPassword": values.newPassword
+                    }).then((response)=>{
+                        if(response){
+                            switch(response.status){
+                                case 200:
+                                    _this.setState({
+                                        passErrorTip:'',
+                                        resetPasswordVisible:false,
+                                        passConfirmTip:"",
+                                        passTip:"",
+                                    })
+                                    message.success("密码修改成功,请重新登录",1)
+                                    setTimeout(()=>{
+                                        _this.okloginOut()
+                                    },1000)
+                                    break;
+                                // case 404:
+                                //     message.error("用户名不存在")
+                                //     _this.setState({
+                                //         resetPasswordVisible:false,
+                                //         passConfirmTip:"",
+                                //         passTip:"",
+                                //         passErrorTip:""
+                                //     })
+                                //     break;
+                                // case 406:
+                                //     _this.setState({
+                                //         passErrorTip:"旧密码不正确"
+                                //     })
+                                //     break;
+                                case 401:
+                                    Cookies.remove('token');
+                                    Cookies.remove('userName');
+                                    sessionStorage.removeItem('projectData');
+                                    sessionStorage.removeItem('consortiumType');
+                                    this.props.history.push({
+                                        pathname:"/login"
+                                    })
+                                    break;
+                                case 500:
+                                    message.error("网络出错")
+                                    _this.setState({
+                                        resetPasswordVisible:false,
+                                        passConfirmTip:"",
+                                        passTip:"",
+                                        passErrorTip:""
+                                    })
+                                    break;
+                                default:
+                                    message.error("密码修改失败")
+                                    _this.setState({
+                                        resetPasswordVisible:false,
+                                        passConfirmTip:"",
+                                        passTip:"",
+                                        passErrorTip:""
+                                    })
+                            }
+                        }
+                    })
+                }
+            }else{
+                console.log("err")
+            }
+        })
+    }
+
     renderDropdown = () => {
         return  (
             <ul style={{minWidth: 60 }}>
@@ -291,11 +396,13 @@ class Dashboard extends Component {
             </ul>
         )
     }
+
     changeVisible = (a)=>{
         this.setState({
             visible: a
         })
     }
+
     getCurrentMenuSelectedKeys(props) {
         const { location: { pathname } } = props || this.props;
         const keys = pathname.split('/').slice(1);
@@ -304,6 +411,7 @@ class Dashboard extends Component {
         }
         return keys;
     }
+
     CancelResetPassword = ()=>{
         this.setState({
             resetPasswordVisible:false,
@@ -313,6 +421,7 @@ class Dashboard extends Component {
 
         })
     }
+
     render() {
         let pathArr = this.props.location.pathname.split('/');
         let path = pathArr[2];
