@@ -1,3 +1,109 @@
 .overview-page {
-    
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    .basic-info-box {
+        .basic-info-title {
+            margin-bottom: 24px;
+            color: rgba(0, 0, 0, 0.85);
+        }
+        .ant-list-item {
+            .ant-card {
+                .ant-card-body {
+                    padding-left: 32px;
+                    .card-title {
+                        font-size: 18px;
+                        color: rgba(0, 0, 0, 0.85);
+                    }
+                    .card-desc {
+                        color: rgba(0, 0, 0, 0.5);
+                    }
+                    .card-text {
+                        margin-top: 27px;
+                        font-size: 16px;
+                        color: #3d70b1;
+                        font-family: "PingFangSC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+                        .ant-badge-status-text {
+                            font-size: 16px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .organization-info-box {
+        margin-bottom: 12px;
+        .organization-info-title {
+            margin: 16px 0 24px 0;
+            color: rgba(0, 0, 0, 0.85);
+        }
+        .ant-list-item {
+            .ant-card {
+                .ant-card-body {
+                    padding-left: 32px;
+                    .card-title {
+                        font-size: 18px;
+                        color: rgba(0, 0, 0, 0.85);
+                    }
+                    .card-desc {
+                        color: rgba(0, 0, 0, 0.5);
+                    }
+                    .card-text {
+                        margin-top: 27px;
+                        color: rgba(0, 0, 0, 0.65);
+                        font-family: "PingFangSC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+                        .card-number{
+                            color: #3d70b1;
+                            font-size: 24px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .error>span:nth-child(1):after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        border: 1px solid #ee4117;
+        content: '';
+        -webkit-animation: antStatusProcessing 1.2s infinite ease-in-out;
+        animation: antStatusProcessing 1.2s infinite ease-in-out;
+    }
+    .error span:nth-child(2) {
+        color: #ea2e2e;
+    }
+    .success>span:nth-child(1):after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        border: 1px solid #52c41a;
+        content: '';
+        -webkit-animation: antStatusProcessing 1.2s infinite ease-in-out;
+        animation: antStatusProcessing 1.2s infinite ease-in-out;
+    }
+    .success span:nth-child(2) {
+        color: #5fb333;
+    }
+    .loadding>span:nth-child(1):after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        border: 1px solid #d9d9d9;
+        content: '';
+        -webkit-animation: antStatusProcessing 1.2s infinite ease-in-out;
+        animation: antStatusProcessing 1.2s infinite ease-in-out;
+    }
+    .loadding span:nth-child(2) {
+        color: #d9d9d9;
+    }
 }
