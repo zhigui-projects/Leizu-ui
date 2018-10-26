@@ -21,6 +21,7 @@ class Organization extends Component {
                     <Route path="/dashboard/organization_management/organization" component={OrgaManagement} />
                     <Redirect exact from="/dashboard/organization_management" to="/dashboard/organization_management/organization" />
                     <Route path="/dashboard/organization_management/peer" component={PeerManagement} />
+                    <Route path="/dashboard/organization_management/*" render={(props) => <Redirect to='/dashboard/organization_management/organization' />} />
                 </Switch>
             </div>
         )

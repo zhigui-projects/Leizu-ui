@@ -637,8 +637,8 @@ class Dashboard extends Component {
                                         <Route path="/dashboard/peer_management" component={Peer} />
                                         <Route path="/dashboard/chaincode_management" component={ChainCode} />
                                         <Route path="/dashboard/log_management" component={Log} />
-                                        <Route path="/dashboard/lost" component={Channel} />
-                                        <Route path="/dashboard/*" render={(props) => <Redirect to='/dashboard/lost' />} />
+                                        {/* <Route path="/dashboard/lost" component={Channel} /> */}
+                                        <Route path="/dashboard/*" render={(props) => <Redirect to='/dashboard/overview' />} />
                                     </Switch>
                                 </Content>
                                 {
