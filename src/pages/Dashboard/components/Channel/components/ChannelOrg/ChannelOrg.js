@@ -4,7 +4,7 @@ import request from '../../../../../../Utils/Axios'
 import axios from 'axios'
 import Cookies from 'js-cookie'
 import apiconfig from '../../../../../../Utils/apiconfig'
-import './channelOrg.less'
+// import './channelOrg.less'
 
 
 const {api: { organize }} = apiconfig;

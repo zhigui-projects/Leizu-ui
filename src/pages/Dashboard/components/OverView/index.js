@@ -6,7 +6,7 @@ import moment from 'moment'
 import request from '../../../../Utils/Axios'
 
 import apiconfig from '../../../../Utils/apiconfig'
-import './index.less'
+// import './index.less'
 
 const {api: {consortium}} = apiconfig;
 const CancelToken = axios.CancelToken;
