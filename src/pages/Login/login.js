@@ -126,7 +126,7 @@ class Login extends Component {
         return (
             <div className="userOpreate_login">
                 <div className="opreateImg">
-                    <div className="opreateLogo"><img onClick={()=>{this.props.history.push({pathname:"/index"})}} style={{cursor:"pointer"}} src={require('../../images/logo.svg')} alt=""/></div>
+                    <div className="opreateLogo"><img src={require('../../images/logo.svg')} alt=""/></div>
                     <div className="opreateLetter">
                         <h2>欢迎</h2>
                         <p>帮助开发者快速构建区块链基础设施，提供区块链应用开发、部署、测试和监控的整套解决方案。</p>

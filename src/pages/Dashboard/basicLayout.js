@@ -19,7 +19,6 @@ import unchannel from '../../images/slider/unchannel.svg';
 import unlog from '../../images/slider/unlog.svg';
 import unorganization from '../../images/slider/unorganization.svg';
 import unpeer from '../../images/slider/unpeer.svg';
-import './basicLayout.less';
 import BlockChain from './components/BlockChain/index';
 import ChainCode from './components/ChainCode/index';
 // import Channel from './components/Channel/index';

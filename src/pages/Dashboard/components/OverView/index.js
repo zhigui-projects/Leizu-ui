@@ -1,12 +1,12 @@
 import React , {Component} from 'react';
 import axios from 'axios'
-import { List, Card, Badge } from 'antd'
+import { Spin, List, Card, Badge } from 'antd'
 import Cookies from 'js-cookie'
 import moment from 'moment'
 import request from '../../../../Utils/Axios'
 
 import apiconfig from '../../../../Utils/apiconfig'
-// import './index.less'
+import './index.less'
 
 const {api: {consortium}} = apiconfig;
 const CancelToken = axios.CancelToken;

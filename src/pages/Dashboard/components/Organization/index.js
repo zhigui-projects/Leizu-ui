@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 // import { Icon, Button, Table, Pagination, Modal, Form, Input } from 'antd';
-import './index.less';
 import OrgaManagement from './components/OrgaManagement/index';
 import PeerManagement from './components/PeerManagement/index';
 import { Switch, Redirect, Route } from 'react-router-dom';

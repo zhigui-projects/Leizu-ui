@@ -100,11 +100,11 @@ class Channel extends Component{
     render(){
         return(
             <div className='channel-page'>
-                <div className="create-channel-box">
+                {/* <div className="create-channel-box">
                     <Button onClick={this.createChannel} className="create-channel-btn">
                         创建通道<Icon type="plus-circle" theme="outlined" />
                     </Button>
-                </div>
+                </div> */}
                 <div className="table-box">
                     <Spin spinning={this.state.loading}>
                         <Table 

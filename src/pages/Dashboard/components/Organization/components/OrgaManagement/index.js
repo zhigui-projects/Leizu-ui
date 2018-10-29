@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Table, Form, Spin } from 'antd';
-import './index.less';
 import request from '../../../../../../Utils/Axios';
 import axios from 'axios';
 import apiconfig from '../../../../../../Utils/apiconfig';
