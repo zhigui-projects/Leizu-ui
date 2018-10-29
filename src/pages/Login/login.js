@@ -23,7 +23,7 @@ class Login extends Component {
         if(window._hmt){
             window._hmt.push(['_trackPageview', "/login"]);
         }
-        const userName = Cookies.get('userName');
+        const userName = Cookies.get('userNameInfo');
         const token = Cookies.get('token');
         // if(userName && token){
         //     this.props.history.push("/project")
@@ -50,10 +50,10 @@ class Login extends Component {
                         switch(response.status){
                             case 200:
                                 this.setState({
-                                    currentUserName: "admin"
+                                    currentUserName: values.username
                                 })
                                 Cookies.set('token', response.data.token, { expires: new Date(new Date().getTime() +( 24*60*60*1000)),path:"/"});
-                                Cookies.set('userNameInfo', "admin", { expires: new Date(new Date().getTime() +( 24*60*60*1000)),path:"/"});
+                                Cookies.set('userNameInfo', values.username, { expires: new Date(new Date().getTime() +( 24*60*60*1000)),path:"/"});
                                 _this.setState({
                                     emailTip:"",
                                     passwordTip:""

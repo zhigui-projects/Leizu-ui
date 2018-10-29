@@ -391,7 +391,7 @@ class Dashboard extends Component {
                                 //     break;
                                 case 401:
                                     Cookies.remove('token');
-                                    Cookies.remove('userName');
+                                    Cookies.remove('userNameInfo');
                                     sessionStorage.removeItem('projectData');
                                     sessionStorage.removeItem('consortiumType');
                                     this.props.history.push({
