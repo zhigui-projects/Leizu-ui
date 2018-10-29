@@ -97,7 +97,7 @@ class PeerManagement extends Component {
                         })
                         break;
                     case 401:
-                        Cookies.remove('userName')
+                        Cookies.remove('userNameInfo')
                         Cookies.remove('token')
                         this.props.history.push('/login')
                         break;
