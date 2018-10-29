@@ -7,12 +7,15 @@ import './index.less'
 import config from "../../../../Utils/apiconfig";
 import request from '../../../../Utils/Axios'
 import Cookies from "js-cookie";
+import axios from "axios/index";
 const {api:{chain}} = config
 
 // const {api:{chain}}  = config
 const elasticsearch = require('elasticsearch');
 const Option = Select.Option;
 const {elasticSearchUrl} = config
+const CancelToken = axios.CancelToken;
+let cancel;
 
 class Log extends Component {
     constructor(props){
@@ -155,9 +158,20 @@ class Log extends Component {
         if (intervalId) {
             clearInterval(intervalId)
         }
+        if (cancel) {
+            cancel();
+        }
+        this.setState = () => {
+            return;
+        };
     }
     componentDidMount() {
-        request().get(chain.container).then((response)=>{
+        request().get(chain.container,{
+            cancelToken: new CancelToken(function executor(c) {
+                // An executor function receives a cancel function as a parameter
+                cancel = c;
+            })
+        }).then((response)=>{
             if(response){
                 switch(response.status){
                     case 200:
