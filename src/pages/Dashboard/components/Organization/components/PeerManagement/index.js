@@ -103,7 +103,6 @@ class PeerManagement extends Component {
                         break;
                     default:
                         return ''
-
                 }
             }
         })
