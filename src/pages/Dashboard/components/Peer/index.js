@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Table, Badge, Progress, Spin } from 'antd';
-import './index.less';
 import axios from 'axios';
 import apiconfig from '../../../../Utils/apiconfig';
 import request from '../../../../Utils/Axios';
@@ -75,7 +74,7 @@ const columns = [{
             <Progress strokeColor="#52c41a" strokeWidth={4} percent={parseInt((record.memory * 100).toFixed(),10)} />
         </span>
     ),
-    sorter: (a, b) => a.ram - b.ram
+    sorter: (a, b) => a.memory - b.memory
 }
 ];
 class Peer extends Component {

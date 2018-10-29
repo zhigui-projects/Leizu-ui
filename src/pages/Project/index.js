@@ -391,9 +391,9 @@ class Project extends Component {
         return (
             <div id="dom" className="layout">
                 <header>
-                    <NavLink className="headerImg" to="/project" target="_blank">
+                    <li className="headerImg">
                         <img src={require("../../images/zig-baas.svg")} alt=""/>
-                    </NavLink>
+                    </li>
 
                     <div className="headerRight">
                         <div className='user-name-box dropDown-link'>
