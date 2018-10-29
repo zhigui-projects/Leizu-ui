@@ -1,14 +1,41 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
-import { LocaleProvider } from 'antd'
+import { LocaleProvider, Spin } from 'antd'
+import Tip from '../Utils/Tip'
+import Loadable from 'react-loadable';
 import Cookies from 'js-cookie'
-import Dashboard from '../pages/Dashboard/basicLayout';
-import Login from '../pages/Login/login'
-import Project from '../pages/Project/index'
+// import Dashboard from '../pages/Dashboard/basicLayout';
+// import Login from '../pages/Login/login'
+// import Project from '../pages/Project/index'
 
 // react-intl-universal国际化配置
 import intl from "react-intl-universal";
 import IntlPolyfill from "intl";
+
+const MyLoadingComponent = ({ isLoading, error }) => {
+    if (isLoading) {
+        return <div style={{ width: "100%", height: "100%", display: "flex", justifyContent: "center", alignItems: "center" }}><Spin size="large" /></div>;
+    }
+    else if (error) {
+        return <Tip />;
+    }
+    else {
+        return null;
+    }
+};
+
+const Dashboard = Loadable({
+    loader: () => import('../pages/Dashboard/basicLayout'),
+    loading: MyLoadingComponent
+})
+const Login = Loadable({
+    loader: () => import('../pages/Login/login'),
+    loading: MyLoadingComponent
+})
+const Project = Loadable({
+    loader: () => import('../pages/Project/index'),
+    loading: MyLoadingComponent
+})
 //universal国际化文件
 const intl_locales = {
     "en-US": require("../locales/en_US.json"),
@@ -81,7 +108,7 @@ class App extends Component {
                         <Route path="/dashboard" component={Dashboard} />
                         <Route path="/project" component={Project} />
                         <Route path="/login" component={Login} />
-                        <Route path="/*" render={(props) => <Redirect to='/login' />} />
+                        <Route path="/*" render={(props) => <Redirect to='/project' />} />
                     </Switch>
                 </Router>
             </LocaleProvider>

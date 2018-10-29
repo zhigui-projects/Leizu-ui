@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
-import { Layout, Menu, Breadcrumb, Icon, Modal,Popover,Form,Input } from 'antd';
+import { Layout, Menu, Breadcrumb, Icon, Modal,Popover,Form,Input, Spin } from 'antd';
 import { Switch, Redirect, Route , Link} from 'react-router-dom';
+import Loadable from 'react-loadable';
+import Tip from '../../Utils/Tip'
 // import logo from '../../images/logo.svg';
+import { NavLink } from 'react-router-dom'
 import overview from '../../images/slider/overview.svg';
 // import block from '../../images/slider/blockchain.svg';
 // import chain from '../../images/slider/chaincode.svg';
@@ -19,17 +22,52 @@ import unpeer from '../../images/slider/unpeer.svg';
 import './basicLayout.less';
 import BlockChain from './components/BlockChain/index';
 import ChainCode from './components/ChainCode/index';
-import Channel from './components/Channel/index';
+// import Channel from './components/Channel/index';
 import ChannelOrg from './components/Channel/components/ChannelOrg/ChannelOrg'
 import CreateChannel from './components/Channel/components/CreateChannel/CreateChannel'
-import Log from './components/Log/index';
-import Organization from './components/Organization/index';
-import OverView from './components/OverView/index';
-import Peer from './components/Peer/index';
+// import Log from './components/Log/index';
+// import Organization from './components/Organization/index';
+// import OverView from './components/OverView/index';
+// import Peer from './components/Peer/index';
 import Cookies from "js-cookie";
 import request from "../../Utils/Axios";
 import {message} from "antd/lib/index";
 import config from "../../Utils/apiconfig";
+
+const MyLoadingComponent = ({ isLoading, error }) => {
+    if (isLoading) {
+        return <div style={{ width: "100%", height: "100%", display: "flex", justifyContent: "center", alignItems: "center" }}><Spin size="large" /></div>;
+    }
+    else if (error) {
+        return <Tip />;
+    }
+    else {
+        return null;
+    }
+};
+
+
+const OverView = Loadable({
+    loader: () => import('./components/OverView/index'),
+    loading: MyLoadingComponent
+})
+const Organization = Loadable({
+    loader: () => import('./components/Organization/index'),
+    loading: MyLoadingComponent
+})
+const Channel = Loadable({
+    loader: () => import('./components/Channel/index'),
+    loading: MyLoadingComponent
+})
+const Peer = Loadable({
+    loader: () => import('./components/Peer/index'),
+    loading: MyLoadingComponent
+})
+const Log = Loadable({
+    loader: () => import('./components/Log/index'),
+    loading: MyLoadingComponent
+})
+
 const {api:{user}} = config
 const FormItem = Form.Item;
 const confirm = Modal.confirm;
@@ -566,6 +604,7 @@ class Dashboard extends Component {
                                                 </Popover>
                                             </div>
                                         </div> */}
+                                        <div><NavLink to="/project" style={{cursor:"pointer"}}>我的联盟</NavLink></div>
                                         <div className='user-name-box dropDown-link'>
                                             <Popover
                                                 visible={this.state.visible}
@@ -576,7 +615,7 @@ class Dashboard extends Component {
                                                 overlayClassName='user-name-drop'
                                                 mouseLeaveDelay={0.3}
                                             >
-                                                <span style={{marginRight:'8px'}}><img style={{marginRight:"8px"}} src={require("../../images/ic-user.svg")} alt=""/>{userName}</span><Icon type="down" />
+                                                <span style={{marginRight:'8px',cursor:"pointer"}}><img style={{marginRight:"8px"}} src={require("../../images/ic-user.svg")} alt=""/>{userName}</span><Icon type="down" />
                                             </Popover>
                                         </div>
                                     </div>
@@ -598,8 +637,8 @@ class Dashboard extends Component {
                                         <Route path="/dashboard/peer_management" component={Peer} />
                                         <Route path="/dashboard/chaincode_management" component={ChainCode} />
                                         <Route path="/dashboard/log_management" component={Log} />
-                                        <Route path="/dashboard/lost" component={Channel} />
-                                        <Route path="/dashboard/*" render={(props) => <Redirect to='/dashboard/lost' />} />
+                                        {/* <Route path="/dashboard/lost" component={Channel} /> */}
+                                        <Route path="/dashboard/*" render={(props) => <Redirect to='/dashboard/overview' />} />
                                     </Switch>
                                 </Content>
                                 {
