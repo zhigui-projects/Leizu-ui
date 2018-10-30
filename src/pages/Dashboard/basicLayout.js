@@ -35,7 +35,7 @@ import config from "../../Utils/apiconfig";
 
 const MyLoadingComponent = ({ isLoading, error }) => {
     if (isLoading) {
-        return <div style={{ width: "100%", height: "100%", display: "flex", justifyContent: "center", alignItems: "center" }}><Spin size="large" /></div>;
+        return <div style={{position:"absolute", width: "100%", height: "100%", display: "flex", justifyContent: "center", alignItems: "center" }}><Spin size="large" /></div>;
     }
     else if (error) {
         return <Tip />;
