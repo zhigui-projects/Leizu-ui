@@ -24,6 +24,7 @@ import ChainCode from './components/ChainCode/index';
 // import Channel from './components/Channel/index';
 import ChannelOrg from './components/Channel/components/ChannelOrg/ChannelOrg'
 import CreateChannel from './components/Channel/components/CreateChannel/CreateChannel'
+import PeerManagement from './components/Organization/components/PeerManagement/index';
 // import Log from './components/Log/index';
 // import Organization from './components/Organization/index';
 // import OverView from './components/OverView/index';
@@ -489,8 +490,8 @@ class Dashboard extends Component {
             '/dashboard/chaincode_management':"链码管理",
             '/dashboard/log_management':"日志管理",
             '/dashboard/organization_management':"组织管理",
-            '/dashboard/organization_management/organization':"组织信息",
-            '/dashboard/organization_management/peer':"节点信息"
+            '/dashboard/organization_management/peer':"节点信息",
+            '/dashboard/channel_management/org':"组织信息"
         }
         let breadcrumbItems = null
         const location = this.props.location || window.location;
@@ -629,11 +630,12 @@ class Dashboard extends Component {
                                         <Route path="/dashboard/overview" component={OverView} />
                                         <Redirect exact from="/dashboard" to="/dashboard/overview" />
                                         <Route path="/dashboard/blockchain_browser" component={BlockChain} />
-                                        <Route path="/dashboard/organization_management" component={Organization} />
+                                        <Route exact path="/dashboard/organization_management" component={Organization} />
                                         <Route exact path="/dashboard/channel_management" component={Channel} />
                                         <Route path="/dashboard/channel_management/org" component={ChannelOrg} />
                                         <Route path="/dashboard/channel_management/createChannel" component={CreateChannel} />
                                         <Route path="/dashboard/peer_management" component={Peer} />
+                                        <Route path="/dashboard/organization_management/peer" component={PeerManagement} />
                                         <Route path="/dashboard/chaincode_management" component={ChainCode} />
                                         <Route path="/dashboard/log_management" component={Log} />
                                         {/* <Route path="/dashboard/lost" component={Channel} /> */}
