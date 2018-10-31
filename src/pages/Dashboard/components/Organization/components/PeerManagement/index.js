@@ -56,7 +56,7 @@ const columns = [{
     key: 'cpu',
     render: (text, record) => (
         <span>
-            <Progress strokeColor="#1890ff" strokeWidth={4} percent={parseInt((record.cpu * 100).toFixed(),10)} />
+            <Progress strokeColor="#1890ff" strokeWidth={4} percent={parseFloat((record.cpu * 1).toFixed(2),10)} />
         </span>
     ),
     sorter: (a, b) => a.cpu - b.cpu
@@ -66,7 +66,7 @@ const columns = [{
     key: 'ram',
     render: (text, record) => (
         <span>
-            <Progress strokeColor="#52c41a" strokeWidth={4} percent={parseInt((record.memory * 100).toFixed(),10)} />
+            <Progress strokeColor="#52c41a" strokeWidth={4} percent={parseFloat((record.memory * 1).toFixed(2),10)} />
         </span>
     ),
     sorter: (a, b) => a.memory - b.memory
