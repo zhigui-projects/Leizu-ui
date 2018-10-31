@@ -63,15 +63,21 @@ class Login extends Component {
                                     });
                                 })
                                 break;
-                            // case 401:
-                            //     Cookies.remove('token');
-                            //     Cookies.remove('userNameInfo');
-                            //     sessionStorage.removeItem('projectData');
-                            //     sessionStorage.removeItem('consortiumType');
-                            //     this.props.history.push({
-                            //         pathname:"/login"
-                            //     })
-                            //     break;
+                            case 401:
+                                console.log(response.data.code)
+                                let code = response.data.code
+                                if(code){
+                                    code === 10001 ? _this.setState({emailTip:"用户名不存在"}) : ( code === 10002 ? _this.setState({passwordTip:"密码不正确"}) : "")
+                                }else{
+                                    Cookies.remove('token');
+                                    Cookies.remove('userNameInfo');
+                                    sessionStorage.removeItem('projectData');
+                                    sessionStorage.removeItem('consortiumType');
+                                    this.props.history.push({
+                                        pathname:"/login"
+                                    })
+                                }
+                                break;
                             case 500:
                                 message.error("网络错误，请重试");
                                 break;
