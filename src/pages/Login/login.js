@@ -64,7 +64,6 @@ class Login extends Component {
                                 })
                                 break;
                             case 401:
-                                console.log(response.data.code)
                                 let code = response.data.code
                                 if(code){
                                     code === 10001 ? _this.setState({emailTip:"用户名不存在"}) : ( code === 10002 ? _this.setState({passwordTip:"密码不正确"}) : "")
