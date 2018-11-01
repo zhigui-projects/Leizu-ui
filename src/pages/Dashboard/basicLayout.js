@@ -376,28 +376,19 @@ class Dashboard extends Component {
                                         _this.okloginOut()
                                     },1000)
                                     break;
-                                // case 404:
-                                //     message.error("用户名不存在")
-                                //     _this.setState({
-                                //         resetPasswordVisible:false,
-                                //         passConfirmTip:"",
-                                //         passTip:"",
-                                //         passErrorTip:""
-                                //     })
-                                //     break;
-                                // case 406:
-                                //     _this.setState({
-                                //         passErrorTip:"旧密码不正确"
-                                //     })
-                                //     break;
                                 case 401:
-                                    Cookies.remove('token');
-                                    Cookies.remove('userNameInfo');
-                                    sessionStorage.removeItem('projectData');
-                                    sessionStorage.removeItem('consortiumType');
-                                    this.props.history.push({
-                                        pathname:"/login"
-                                    })
+                                    let code = response.data.code
+                                    if(code){
+                                        code === 10002 ? message.error("重置密码失败，旧密码输入不正确") : ""
+                                    }else{
+                                        Cookies.remove('token');
+                                        Cookies.remove('userNameInfo');
+                                        sessionStorage.removeItem('projectData');
+                                        sessionStorage.removeItem('consortiumType');
+                                        this.props.history.push({
+                                            pathname:"/login"
+                                        })
+                                    }
                                     break;
                                 case 500:
                                     message.error("网络出错")
