@@ -27,7 +27,11 @@ const columns = [{
     title: '通道名',
     key: 'channel',
     width: '16%',
-    dataIndex: 'channelNames',
+    render: (text, record) => (
+        record.channelNames.map((item, index) => {
+            return <p key={index}>{item}</p>
+        })
+    )
 }, {
     title: '节点类型',
     key: 'type',
