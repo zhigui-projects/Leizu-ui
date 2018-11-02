@@ -30,7 +30,7 @@ const columns = [{
     width: '16%',
     render: (text, record) => (
         record.channelNames.map((item, index) => {
-            return <span key={index}>{item}</span>
+            return <p key={index}>{item}</p>
         })
     )
 }, {
@@ -92,7 +92,6 @@ class Peer extends Component {
                 cancel = c;
             })
         }).then(res => {
-            console.log(res)
             if (res) {
                 switch (res.status) {
                     case 200:
