@@ -147,7 +147,7 @@ class OverView extends Component{
                     />
                 </div>
                 <div className="organization-info-box">
-                    <div className="organization-info-title">组织信息</div>
+                    <div className="organization-info-title">网络配置</div>
                     <List
                         loading={this.state.detailLoading}
                         className='ant-list-box'
