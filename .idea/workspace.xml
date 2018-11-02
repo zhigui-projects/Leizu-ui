@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d87179aa-dbd5-4593-9855-3a697c2e5ec2" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/pages/Dashboard/basicLayout.js" afterPath="$PROJECT_DIR$/src/pages/Dashboard/basicLayout.js" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Login/login.js" afterPath="$PROJECT_DIR$/src/pages/Login/login.js" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Project/index.js" afterPath="$PROJECT_DIR$/src/pages/Project/index.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -27,28 +27,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/pages/Project/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="232" column="35" lean-forward="false" selection-start-line="232" selection-start-column="35" selection-end-line="232" selection-end-column="35" />
+            <state relative-caret-position="429">
+              <caret line="253" column="45" lean-forward="true" selection-start-line="253" selection-start-column="45" selection-end-line="253" selection-end-column="45" />
               <folding>
                 <element signature="n#!!block;n#componentDidMount#0;n#Project#0" expanded="false" />
                 <element signature="n#!!block;n#componentWillUnmount#0;n#Project#0" expanded="false" />
                 <element signature="e#3128#3610#0" expanded="false" />
                 <element signature="e#3650#3867#0" expanded="false" />
                 <element signature="e#4401#6955#0" expanded="false" />
-                <element signature="e#10838#11004#0" expanded="false" />
+                <element signature="e#10401#10567#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="basicLayout.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="basicLayout.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/Dashboard/basicLayout.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="361">
-              <caret line="377" column="42" lean-forward="false" selection-start-line="377" selection-start-column="42" selection-end-line="377" selection-end-column="42" />
+            <state relative-caret-position="39">
+              <caret line="353" column="21" lean-forward="true" selection-start-line="353" selection-start-column="21" selection-end-line="353" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -58,7 +58,7 @@
         <entry file="file://$PROJECT_DIR$/src/pages/Login/login.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="236">
-              <caret line="58" column="36" lean-forward="true" selection-start-line="58" selection-start-column="36" selection-end-line="58" selection-end-column="36" />
+              <caret line="58" column="36" lean-forward="false" selection-start-line="58" selection-start-column="36" selection-end-line="58" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -68,7 +68,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>getContainerLog</find>
       <find>okResetPassword</find>
       <find>CancelResetPassword</find>
       <find>inputPassword</find>
@@ -97,6 +96,7 @@
       <find>spin</find>
       <find>logPage</find>
       <find>emailTip</find>
+      <find>resetPassword</find>
       <find>user.resetPassword</find>
     </findStrings>
     <dirStrings>
@@ -114,13 +114,13 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/Router/App.js" />
         <option value="$PROJECT_DIR$/src/Utils/apiconfig.js" />
-        <option value="$PROJECT_DIR$/src/pages/Project/index.js" />
         <option value="$PROJECT_DIR$/src/pages/Project/index.less" />
         <option value="$PROJECT_DIR$/src/index.less" />
         <option value="$PROJECT_DIR$/src/pages/Dashboard/components/Log/index.js" />
         <option value="$PROJECT_DIR$/src/pages/Dashboard/components/Log/index.less" />
         <option value="$PROJECT_DIR$/src/pages/Login/login.js" />
         <option value="$PROJECT_DIR$/src/pages/Dashboard/basicLayout.js" />
+        <option value="$PROJECT_DIR$/src/pages/Project/index.js" />
       </list>
     </option>
   </component>
@@ -258,7 +258,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="57947000" />
+    <option name="totallyTimeSpent" value="58000000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -387,8 +387,8 @@
             <element signature="e#3128#3610#0" expanded="false" />
             <element signature="e#3650#3867#0" expanded="false" />
             <element signature="e#4401#6955#0" expanded="false" />
-            <element signature="e#6984#10806#0" expanded="false" />
-            <element signature="e#10838#11004#0" expanded="false" />
+            <element signature="e#6984#10369#0" expanded="false" />
+            <element signature="e#10401#10567#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -413,8 +413,8 @@
             <element signature="e#3128#3610#0" expanded="false" />
             <element signature="e#3650#3867#0" expanded="false" />
             <element signature="e#4401#6955#0" expanded="false" />
-            <element signature="e#6984#10806#0" expanded="false" />
-            <element signature="e#10838#11004#0" expanded="false" />
+            <element signature="e#6984#10369#0" expanded="false" />
+            <element signature="e#10401#10567#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -567,8 +567,8 @@
             <element signature="e#3128#3610#0" expanded="false" />
             <element signature="e#3650#3867#0" expanded="false" />
             <element signature="e#4401#6955#0" expanded="false" />
-            <element signature="e#6984#10806#0" expanded="false" />
-            <element signature="e#10838#11004#0" expanded="false" />
+            <element signature="e#6984#10369#0" expanded="false" />
+            <element signature="e#10401#10567#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -748,7 +748,7 @@
         <state relative-caret-position="357">
           <caret line="97" column="43" lean-forward="true" selection-start-line="97" selection-start-column="43" selection-end-line="97" selection-end-column="43" />
           <folding>
-            <element signature="e#454#494#0" expanded="true" />
+            <element signature="e#454#494#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -761,34 +761,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/Project/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="232" column="35" lean-forward="false" selection-start-line="232" selection-start-column="35" selection-end-line="232" selection-end-column="35" />
-          <folding>
-            <element signature="n#!!block;n#componentDidMount#0;n#Project#0" expanded="false" />
-            <element signature="n#!!block;n#componentWillUnmount#0;n#Project#0" expanded="false" />
-            <element signature="e#3128#3610#0" expanded="false" />
-            <element signature="e#3650#3867#0" expanded="false" />
-            <element signature="e#4401#6955#0" expanded="false" />
-            <element signature="e#10838#11004#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/Login/login.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="236">
-          <caret line="58" column="36" lean-forward="true" selection-start-line="58" selection-start-column="36" selection-end-line="58" selection-end-column="36" />
+          <caret line="58" column="36" lean-forward="false" selection-start-line="58" selection-start-column="36" selection-end-line="58" selection-end-column="36" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/Dashboard/basicLayout.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="377" column="42" lean-forward="false" selection-start-line="377" selection-start-column="42" selection-end-line="377" selection-end-column="42" />
+        <state relative-caret-position="39">
+          <caret line="353" column="21" lean-forward="true" selection-start-line="353" selection-start-column="21" selection-end-line="353" selection-end-column="21" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/Project/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="429">
+          <caret line="253" column="45" lean-forward="true" selection-start-line="253" selection-start-column="45" selection-end-line="253" selection-end-column="45" />
+          <folding>
+            <element signature="n#!!block;n#componentDidMount#0;n#Project#0" expanded="false" />
+            <element signature="n#!!block;n#componentWillUnmount#0;n#Project#0" expanded="false" />
+            <element signature="e#3128#3610#0" expanded="false" />
+            <element signature="e#3650#3867#0" expanded="false" />
+            <element signature="e#4401#6955#0" expanded="false" />
+            <element signature="e#10401#10567#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
