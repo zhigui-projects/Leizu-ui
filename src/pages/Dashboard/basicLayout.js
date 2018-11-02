@@ -595,7 +595,7 @@ class Dashboard extends Component {
                                                 </Popover>
                                             </div>
                                         </div> */}
-                                        <div><NavLink to="/project" style={{cursor:"pointer"}}>我的联盟</NavLink></div>
+                                        <div className="consortiumJump"><NavLink to="/project" style={{cursor:"pointer"}}>我的联盟</NavLink></div>
                                         <div className='user-name-box dropDown-link'>
                                             <Popover
                                                 visible={this.state.visible}

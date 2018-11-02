@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './index.less';
+// import './index.less';
 import moment from "moment"
 // import '../../styles/reset.less'
 import { Icon,Breadcrumb, Modal,Form,Input,message, Popover,Card, Avatar,List,Spin } from 'antd';
@@ -33,7 +33,6 @@ class Project extends Component {
             chainListLoading:true
         })
         request().get(chain.chainList).then((chainListRes)=>{
-            console.log(chainListRes.data.data)
             if(chainListRes){
                 switch(chainListRes.status){
                     case 200:
