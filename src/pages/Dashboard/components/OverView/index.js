@@ -44,7 +44,7 @@ class OverView extends Component{
                                 {
                                     title: '类型',
                                     desc: '区块链类型',
-                                    text: res.data.data.name,
+                                    text: res.data.data.type,
                                     display: false
                                 },
                                 {
