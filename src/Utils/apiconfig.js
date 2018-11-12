@@ -1,5 +1,5 @@
 const API = 'http://59.110.164.211:7066/api/v1';
-const elasticSearchUrl = "http://47.94.224.229/query"
+const elasticSearchUrl = "http://47.106.121.33/query"
 const format = require('string-format');
 format.extend(String.prototype);
 
