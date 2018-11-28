@@ -1,7 +1,6 @@
 const API = 'http://39.106.198.16:8080/api/v1';
-
-// const API = "http://192.168.2.38:8080/api/v1"
-const elasticSearchUrl = "http://47.94.224.229/query"
+// 192.168.2.38:8080
+const elasticSearchUrl = "http://47.106.121.33/query"
 const format = require('string-format');
 format.extend(String.prototype);
 
@@ -26,6 +25,7 @@ module.exports = {
         },
         organization:{
             orgList:`${API}/organization`,
+            createOrg:`${API}/channel/update`
         },
         organize: {
             organization: `${API}/organization`

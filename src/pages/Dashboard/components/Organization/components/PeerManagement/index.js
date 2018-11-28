@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Table, Badge, Progress, Spin } from 'antd';
+import { Table, Badge, Progress, Spin, Button, Icon } from 'antd';
 import apiconfig from '../../../../../../Utils/apiconfig';
 import request from '../../../../../../Utils/Axios';
 import axios from 'axios'
@@ -36,8 +36,8 @@ const columns = [{
     title: '节点类型',
     key: 'type',
     width: '9%',
-    render:(text,record)=>(
-        <span>{record.type===0?"peer":(record.type===1?"orderer":"")}</span>
+    render: (text, record) => (
+        <span>{record.type === 0 ? "peer" : (record.type === 1 ? "orderer" : "")}</span>
     ),
     // sorter: (a, b) => a.type-b.type
 },
@@ -60,7 +60,7 @@ const columns = [{
     key: 'cpu',
     render: (text, record) => (
         <span>
-            <Progress strokeColor="#1890ff" strokeWidth={4} percent={parseFloat((record.cpu * 1).toFixed(2),10)} />
+            <Progress strokeColor="#1890ff" strokeWidth={4} percent={parseFloat((record.cpu * 1).toFixed(2), 10)} />
         </span>
     ),
     sorter: (a, b) => a.cpu - b.cpu
@@ -70,7 +70,7 @@ const columns = [{
     key: 'ram',
     render: (text, record) => (
         <span>
-            <Progress strokeColor="#52c41a" strokeWidth={4} percent={parseFloat((record.memory * 1).toFixed(2),10)} />
+            <Progress strokeColor="#52c41a" strokeWidth={4} percent={parseFloat((record.memory * 1).toFixed(2), 10)} />
         </span>
     ),
     sorter: (a, b) => a.memory - b.memory
@@ -121,9 +121,18 @@ class PeerManagement extends Component {
             return;
         };
     }
+    CreatePeer = () => {
+        this.props.history.push({
+            pathname:'peer/create',
+            state:this.state.id
+        });
+    }
     render() {
         return (
             <div className="peer_management">
+                <p className="create-organization">
+                    <Button id="create" onClick={this.CreatePeer} className="create-plus">创建节点<Icon type="plus-circle" theme="outlined" /></Button>
+                </p>
                 <div className="peer_wrapper">
                     <Spin spinning={this.state.loading}>
                         <Table
