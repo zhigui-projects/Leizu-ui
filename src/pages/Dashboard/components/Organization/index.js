@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Table, Form, Spin } from 'antd';
+import { Table, Form, Spin, Button, Icon } from 'antd';
 import request from '../../../../Utils/Axios';
 import axios from 'axios';
 import apiconfig from '../../../../Utils/apiconfig';
@@ -13,31 +13,18 @@ class OrgaManagement extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            visible: false,
             orgData: [],
             loading: true
         }
     }
-    showModal = () => {
-        this.setState({
-            visible: true
-        })
-    }
-    handleOk = () => {
-        this.setState({
-            visible: false,
-        });
-    }
-
-    handleCancel = () => {
-        this.setState({
-            visible: false,
-        });
+    createOrganization=()=>{
+        this.props.history.push('organization_management/create');
     }
     handlePeer = (record) => {
+        localStorage.setItem('orgName',record.name);
         this.props.history.push({
-            pathname:'organization_management/peer',
-            state:record.id
+            pathname: 'organization_management/peer',
+            state: record.id
         });
     }
     getOrgData = () => {
@@ -111,9 +98,9 @@ class OrgaManagement extends Component {
         return (
             <div className="organization-management">
                 <div className="organization-wrapper">
-                    {/* <p className="create-organization">
-                        <Button id="create" onClick={this.showModal} className="create-plus">创建组织<Icon type="plus-circle" theme="outlined" /></Button>
-                    </p> */}
+                    <p className="create-organization">
+                        <Button id="create" onClick={this.createOrganization} className="create-plus">创建组织<Icon type="plus-circle" theme="outlined" /></Button>
+                    </p>
                     <Spin spinning={this.state.loading}>
 
                         <Table
@@ -123,35 +110,6 @@ class OrgaManagement extends Component {
                         />
                     </Spin>
                     {/* <Pagination total={this.state.orgData.length} showSizeChanger showQuickJumper /> */}
-                    {/* <Modal
-                        className='create-modal'
-                        title="新建组织"
-                        cancelText="确认"
-                        okText="取消"
-                        visible={this.state.visible}
-                        onOk={this.handleOk}
-                        onCancel={this.handleCancel}
-                        width={504}
-                        bodyStyle={{ height: 184 }}
-                    >
-                        <Form
-                            onSubmit={this.handleSubmit}
-                        >
-                            <FormItem label='组织名称'  {...FormItemLayout}>
-                                {getFieldDecorator('telephone', {
-                                    rules: [
-                                        {
-                                            required: true,
-                                            message: '',
-                                        },
-
-                                    ],
-                                })(
-                                    <Input placeholder='请输入字符串' />
-                                )}
-                            </FormItem>
-                        </Form>
-                    </Modal> */}
                 </div>
             </div>
         )

@@ -25,6 +25,9 @@ import ChainCode from './components/ChainCode/index';
 import ChannelOrg from './components/Channel/components/ChannelOrg/ChannelOrg'
 import CreateChannel from './components/Channel/components/CreateChannel/CreateChannel'
 import PeerManagement from './components/Organization/components/PeerManagement/index';
+import CreateOrganization from './components/Organization/components/CreateOrganization/index';
+import CreatePeer from './components/Peer/components/CreatePeer/index';
+import createPeer from './components/Organization/components/PeerManagement/createPeer/createPeer';
 // import Log from './components/Log/index';
 // import Organization from './components/Organization/index';
 // import OverView from './components/OverView/index';
@@ -482,7 +485,10 @@ class Dashboard extends Component {
             '/dashboard/log_management':"日志管理",
             '/dashboard/organization_management':"组织管理",
             '/dashboard/organization_management/peer':"节点信息",
-            '/dashboard/channel_management/org':"组织信息"
+            '/dashboard/channel_management/org':"组织信息",
+            '/dashboard/organization_management/create':"新建组织",
+            '/dashboard/peer_management/create':"新建节点",
+            '/dashboard/organization_management/peer/create':'新建节点'
         }
         let breadcrumbItems = null
         const location = this.props.location || window.location;
@@ -625,8 +631,11 @@ class Dashboard extends Component {
                                         <Route exact path="/dashboard/channel_management" component={Channel} />
                                         <Route path="/dashboard/channel_management/org" component={ChannelOrg} />
                                         <Route path="/dashboard/channel_management/createChannel" component={CreateChannel} />
-                                        <Route path="/dashboard/peer_management" component={Peer} />
-                                        <Route path="/dashboard/organization_management/peer" component={PeerManagement} />
+                                        <Route exact path="/dashboard/peer_management" component={Peer} />
+                                        <Route exact path="/dashboard/organization_management/peer" component={PeerManagement} />
+                                        <Route path="/dashboard/organization_management/peer/create" component={createPeer} />
+                                        <Route path="/dashboard/organization_management/create" component={CreateOrganization} />
+                                        <Route path="/dashboard/peer_management/create" component={CreatePeer} />
                                         <Route path="/dashboard/chaincode_management" component={ChainCode} />
                                         <Route path="/dashboard/log_management" component={Log} />
                                         {/* <Route path="/dashboard/lost" component={Channel} /> */}

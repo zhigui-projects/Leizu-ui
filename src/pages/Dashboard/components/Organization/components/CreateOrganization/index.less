@@ -1,0 +1,312 @@
+.create-organization {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 0px;
+    .create-wrapper {
+        height: 100%;
+        background: #ffffff;
+        .organization-wrapper {
+            overflow: hidden;
+            min-height: 476px;
+            background: #ffffff;
+            .confirm-wrapper {
+                height: 70px;
+                background: #ffffff;
+                line-height: 70px;
+                margin-top: 100px;
+                .confirm-btn {
+                    width: 96px;
+                    height: 31px;
+                    background: #3d70b2;
+                    border-radius: 1px;
+                    font-size: 14px;
+                    color: #ffffff;
+                    letter-spacing: normal;
+                    border: none;
+                    margin-left: 157px;
+                }
+                .cancel-btn {
+                    width: 96px;
+                    height: 31px;
+                    background: #ffffff;
+                    border-radius: 1px;
+                    border-color: #3d70b2;
+                    color: #3d70b1;
+                    margin-left: 16px;
+                }
+            }
+            .organization-name {
+                font-size: 14px;
+                color: #888888;
+                margin-left: 40px;
+            }
+            .wrapper-input {
+                position:relative;
+                margin-top: 40px;
+                .organization-input {
+                    width: 186px;
+                    height: 32px;
+                    margin-left: 60px;
+                }
+                .tip{
+                    position:absolute;
+                    top:35px;
+                    color:#f5222d;
+                    left:155px;
+                    font-size:12px;
+                }
+            }
+            .wrapper-peer {
+                margin-top: 28px;
+                .peer {
+                    margin-left: 32px;
+                    font-size: 14px;
+                    color: #152935;
+                }
+            }
+            .chaincode-mark {
+                margin-top: 28px;
+                .mark {
+                    margin-left: 40px;
+                    font-size: 14px;
+                    color: #888888;
+                }
+                .form-wrapper {
+                    margin-left: 156px;
+                    margin-right: 99px;
+                    position: relative;
+                    background: #f0f5f5;
+                    padding-bottom: 20px;
+                    margin-top: -15px;
+                    .ant-form-explain{
+                        font-size:12px;
+                    }
+                    .form-user {
+                        .dot {
+                            display: inline-block;
+                            margin-top: 59px;
+                        }
+                        .ant-form-item-label {
+                            text-align: left;
+                            color: #152935;
+                            font-size: 14px;
+                            ::after {
+                                content: "";
+                            }
+                        }
+                        .ant-form-item {
+                            display: inline-block;
+                            margin: 10px;
+                            .ant-form-item-required:before {
+                                content: '';
+                            }
+                        }
+                        .ca-peer {
+                            width: 100px;
+                        }
+                        .ip-peer {
+                            margin: 0;
+                            margin-top: 49px;
+                            &:nth-child(2) {
+                                margin-left: 10px;
+                            }
+                            &:nth-child(8) {
+                                margin-right: 10px;
+                            }
+                            input {
+                                width: 60px;
+                                ::after {
+                                    content: "·";
+                                    margin: 4px;
+                                }
+                            }
+                        }
+                        .peer-first {
+                            margin-top: 10px;
+                        }
+                        .ssh-user {
+                            width: 140px;
+                        }
+                        .ssh-password {
+                            width: 140px;
+                        }
+                    }
+                    .icon-plus {
+                        margin-left: 10px;
+                        margin-top: 15px;
+                        padding-bottom: 20px;
+                        color: #3d70b1;
+                        font-size: 14px;
+                        cursor: pointer;
+                        width: 230px;
+                        .icon {
+                            background: #3d70b1;
+                            border: none;
+                            color: #ffffff;
+                            margin-right: 8px;
+                        }
+                        span {
+                            color: rgba(53, 64, 82, 0.5);
+                            margin-left: 13px;
+                            font-size: 14px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width:1280px){
+    .create-organization {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        margin-bottom: 0px;
+        .create-wrapper {
+            height: 100%;
+            background: #ffffff;
+            .organization-wrapper {
+                overflow: hidden;
+                min-height: 476px;
+                background: #ffffff;
+                .confirm-wrapper {
+                    height: 70px;
+                    background: #ffffff;
+                    line-height: 70px;
+                    margin-top: 100px;
+                    .confirm-btn {
+                        width: 96px;
+                        height: 31px;
+                        background: #3d70b2;
+                        border-radius: 1px;
+                        font-size: 14px;
+                        color: #ffffff;
+                        letter-spacing: normal;
+                        border: none;
+                        margin-left: 157px;
+                    }
+                    .cancel-btn {
+                        width: 96px;
+                        height: 31px;
+                        background: #ffffff;
+                        border-radius: 1px;
+                        border-color: #3d70b2;
+                        color: #3d70b1;
+                        margin-left: 16px;
+                    }
+                }
+                .organization-name {
+                    font-size: 14px;
+                    color: #888888;
+                    margin-left: 40px;
+                }
+                .wrapper-input {
+                    margin-top: 40px;
+                    .organization-input {
+                        width: 186px;
+                        height: 32px;
+                        margin-left: 60px;
+                    }
+                }
+                .wrapper-peer {
+                    margin-top: 28px;
+                    .peer {
+                        margin-left: 32px;
+                        font-size: 14px;
+                        color: #152935;
+                    }
+                }
+                .chaincode-mark {
+                    margin-top: 28px;
+                    .mark {
+                        margin-left: 40px;
+                        font-size: 14px;
+                        color: #888888;
+                    }
+                    .form-wrapper {
+                        margin-left: 156px;
+                        margin-right: 99px;
+                        position: relative;
+                        background: #f0f5f5;
+                        padding-bottom: 20px;
+                        margin-top: -15px;
+                        .ant-form-explain{
+                            font-size:12px;
+                        }
+                        .form-user {
+                            .dot {
+                                display: inline-block;
+                                margin-top: 59px;
+                            }
+                            .ant-form-item-label {
+                                text-align: left;
+                                color: #152935;
+                                font-size: 14px;
+                                ::after {
+                                    content: "";
+                                }
+                            }
+                            .ant-form-item {
+                                display: inline-block;
+                                margin: 10px;
+                                .ant-form-item-required:before {
+                                    content: '';
+                                }
+                            }
+                            .ca-peer {
+                                width: 80px;
+                            }
+                            .ip-peer {
+                                margin: 0;
+                                margin-top: 49px;
+                                &:nth-child(2) {
+                                    margin-left: 10px;
+                                }
+                                &:nth-child(8) {
+                                    margin-right: 10px;
+                                }
+                                input {
+                                    width: 45px;
+                                    ::after {
+                                        content: "·";
+                                        margin: 4px;
+                                    }
+                                }
+                            }
+                            .peer-first {
+                                margin-top: 10px;
+                            }
+                            .ssh-user {
+                                width: 110px;
+                            }
+                            .ssh-password {
+                                width: 110px;
+                            }
+                        }
+                        .icon-plus {
+                            margin-left: 10px;
+                            margin-top: 15px;
+                            padding-bottom: 20px;
+                            color: #3d70b1;
+                            font-size: 14px;
+                            cursor: pointer;
+                            width: 230px;
+                            .icon {
+                                background: #3d70b1;
+                                border: none;
+                                color: #ffffff;
+                                margin-right: 8px;
+                            }
+                            span {
+                                color: rgba(53, 64, 82, 0.5);
+                                margin-left: 13px;
+                                font-size: 14px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
