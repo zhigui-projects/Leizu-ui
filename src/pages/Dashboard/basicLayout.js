@@ -458,6 +458,9 @@ class Dashboard extends Component {
         let pathArr = this.props.location.pathname.split('/');
         let path = pathArr[2];
         const userName = Cookies.get('userNameInfo')
+        if (!sessionStorage.getItem('ConsortiumInfo')) {
+            this.props.history.push('/project')
+        }
         const {form: {getFieldDecorator}} = this.props;
         const formItemLayout = {
             labelCol: {
