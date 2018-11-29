@@ -105,8 +105,8 @@ class OverView extends Component{
         let temp = sessionStorage.getItem('ConsortiumInfo')
         if(temp){
             temp = JSON.parse(temp)
+            this.getData(temp._id)
         }
-        this.getData(temp._id)
     }
     componentWillUnmount() {
         if (cancel) {
