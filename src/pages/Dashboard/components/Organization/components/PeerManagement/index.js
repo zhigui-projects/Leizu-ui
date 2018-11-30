@@ -81,11 +81,12 @@ class PeerManagement extends Component {
         super(props)
         this.state = {
             peerData: [],
-            id: this.props.location.state
+            id: this.props.location.state ? this.props.location.state : localStorage.getItem('_id')
         }
     }
     getPeerData = () => {
-        request().get(`${peer.peerDetail.format({ id: this.state.id })}`, {
+        let _id = localStorage.getItem('_id');
+        request().get(`${peer.peerDetail.format({ id: this.state.id ? this.state.id : _id })}`, {
             cancelToken: new CancelToken(function executor(c) {
                 // An executor function receives a cancel function as a parameter
                 cancel = c;
@@ -110,6 +111,10 @@ class PeerManagement extends Component {
             }
         })
     }
+    componentWillMount() {
+        const { id } = this.state;
+        localStorage.setItem('_id', id);
+    }
     componentDidMount() {
         this.getPeerData()
     }
@@ -123,8 +128,8 @@ class PeerManagement extends Component {
     }
     CreatePeer = () => {
         this.props.history.push({
-            pathname:'peer/create',
-            state:this.state.id
+            pathname: 'peer/create',
+            state: this.state.id
         });
     }
     render() {
