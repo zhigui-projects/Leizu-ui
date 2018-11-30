@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Form, Icon, Input, Button, Select, message } from 'antd'
+import intl from 'react-intl-universal'
 import Cookies from 'js-cookie'
 import axios from 'axios'
 
@@ -33,12 +34,9 @@ class CreateChannelContent extends Component {
                     loading: true
                 })
                 console.log('Received values of form: ', values);
-                // let [id, consortiumId] = ['','']
-                // [id, consortiumId] = values.consortiumId.split('_')
                 let id = values.id
                 request().post(channel, {
                     name: values.name,
-                    // consortiumId: consortiumId,
                     organizationIds: [values.id]
                 },{
                     cancelToken: new CancelToken(function executor(c) {
@@ -67,7 +65,8 @@ class CreateChannelContent extends Component {
                                     if(res){
                                         switch(res.status){
                                             case 200:
-                                                message.info("创建成功")
+                                                // message.info("创建成功")
+                                                this.props.history.push("/dashboard/channel_management")
                                                 break;
                                             case 401: 
                                                 Cookies.remove('userNameInfo')
@@ -127,7 +126,9 @@ class CreateChannelContent extends Component {
             }
         })
     }
-
+    goBack = ()=>{
+        this.props.history.push('/dashboard/channel_management')
+    }
     componentDidMount(){
         this.getOrgList();
     }
@@ -138,6 +139,9 @@ class CreateChannelContent extends Component {
         if(cancel2){
             cancel2()
         }
+        if(cancel3){
+            cancel3()
+        }
     }
     render() { 
         const { getFieldDecorator } = this.props.form;
@@ -146,7 +150,7 @@ class CreateChannelContent extends Component {
                 <div className="form-box">
                     <Form className='ant-form-custom' onSubmit={this.handleSubmit}>
                         <FormItem
-                            label="通道名称"
+                            label={intl.get("Channel_Name_Long")}
                             labelCol={{ span: 3 }}
                             wrapperCol={{ span: 4 }}
                         >
@@ -157,7 +161,7 @@ class CreateChannelContent extends Component {
                             )}
                         </FormItem>
                         <FormItem
-                            label="选择组织"
+                            label={intl.get("Select_Org")}
                             labelCol={{ span: 3 }}
                             wrapperCol={{ span: 8 }}
                         >
@@ -182,9 +186,9 @@ class CreateChannelContent extends Component {
                             className='bottom-btn-content'
                             >
                                 <Button className='submit' type="primary" htmlType="submit" loading={this.state.loading}>
-                                    确认
+                                    {intl.get("Confirm")}
                                 </Button>
-                                <Button className='cancel'>取消</Button>
+                                <Button onClick={this.goBack} className='cancel'>{intl.get("Cancel")}</Button>
                             </FormItem>
                         </div>
                     </Form>

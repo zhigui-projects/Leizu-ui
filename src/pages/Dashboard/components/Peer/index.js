@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Table, Badge, Progress, Spin, Button, Icon } from 'antd';
+import intl from 'react-intl-universal'
 import axios from 'axios';
 import apiconfig from '../../../../Utils/apiconfig';
 import request from '../../../../Utils/Axios';
@@ -10,22 +11,22 @@ let cancel;
 
 const { api: { peer: { peerList } } } = apiconfig;
 const columns = [{
-    title: '节点名称',
+    title: intl.get("Node_Name"),
     dataIndex: 'name',
     width: '15%',
     key: 'name',
 }, {
-    title: '节点域名',
+    title: intl.get("Node_Domain"),
     dataIndex: 'location',
     width: '15%',
     key: 'domain',
 }, {
-    title: '组织名',
+    title: intl.get("Org_Name"),
     dataIndex: 'organizationName',
     width: '14%',
     key: 'organization',
 }, {
-    title: '通道名',
+    title: intl.get("Channel_Name"),
     key: 'channel',
     width: '16%',
     render: (text, record) => (
@@ -34,7 +35,7 @@ const columns = [{
         })
     )
 }, {
-    title: '节点类型',
+    title: intl.get("Node_Type"),
     key: 'type',
     width: '9%',
     render: (text, record) => (
@@ -43,7 +44,7 @@ const columns = [{
     // sorter: (a,b) => a.type-b.type
 },
 {
-    title: '状态',
+    title: intl.get("Type"),
     width: '9%',
     key: 'status',
     render: (text, record) => (
@@ -56,7 +57,7 @@ const columns = [{
     // }
 },
 {
-    title: 'CPU占用',
+    title: intl.get("CPU_Occupy"),
     width: '11%',
     key: 'cpu',
     render: (text, record) => (
@@ -67,7 +68,7 @@ const columns = [{
     sorter: (a, b) => a.cpu - b.cpu
 },
 {
-    title: '内存占用',
+    title: intl.get("Memory_Occupy"),
     key: 'ram',
     render: (text, record) => (
         <span>
@@ -130,7 +131,7 @@ class Peer extends Component {
         return (
             <div className="peer_management">
                 <p className="create-organization">
-                    <Button id="create" onClick={this.createPeer} className="create-plus">创建节点<Icon type="plus-circle" theme="outlined" /></Button>
+                    <Button id="create" onClick={this.createPeer} className="create-plus">{intl.get("Create_Node")}<Icon type="plus-circle" theme="outlined" /></Button>
                 </p>
                 <div className="peer_wrapper">
                     <Spin spinning={this.state.loading}>

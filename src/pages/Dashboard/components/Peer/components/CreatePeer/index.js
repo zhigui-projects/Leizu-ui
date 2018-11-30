@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Button, Input, Form, Icon, Select, message } from 'antd';
+import intl from 'react-intl-universal'
 import apiconfig from '../../../../../../Utils/apiconfig';
 import request from '../../../../../../Utils/Axios';
 import axios from 'axios';
@@ -139,13 +140,13 @@ class CreateOrganization extends Component {
             <div className="create-peer">
                 <div className="create-wrapper">
                     <div className="organization-wrapper">
-                        <div className="wrapper-input" id="wrapper-input"><span className="organization-name">组织名称</span>
+                        <div className="wrapper-input" id="wrapper-input"><span className="organization-name">{intl.get("Org_Name")}</span>
                             <span ref="selectBox">
                                 <Select
                                     showSearch
                                     getPopupContainer={() => this.refs.selectBox}
-                                    style={{ width: 192, height: 32, marginLeft: 18 }}
-                                    placeholder="请选择组织"
+                                    style={{ width: 192, height: 32, marginLeft: 60 }}
+                                    placeholder={intl.get("Please_Select_Org")}
                                     optionFilterProp="children"
                                     onSelect={(value) => this.setState({
                                         organizationId: value,
@@ -160,13 +161,13 @@ class CreateOrganization extends Component {
                                     }
                                 </Select>
                             </span>
-                            <span style={{ display: this.state.display ? '' : 'none' }} className="tip">请选择组织</span>
+                            <span style={{ display: this.state.display ? '' : 'none' }} className="tip">{intl.get("Please_Select_Org")}</span>
                         </div>
-                        <p className="wrapper-peer"><span className="organization-name">节点组织类型</span><span className="peer">peer</span></p>
+                        <p className="wrapper-peer"><span className="organization-name">{intl.get("New_Node_Node_Type")}</span><span className="peer">peer</span></p>
                         <div className="chaincode-mark">
-                            <span className="mark">链码标识</span>
+                            <span className="mark">{intl.get("Add_Node")}</span>
                             <div className="form-wrapper">
-                                <div className="title"><span>Peer节点</span><span>节点IP</span><span>SSH用户名</span><span>SSH密码</span></div>
+                                <div className="title"><span>{intl.get("Peer_Node")}</span><span>{intl.get("Node_Ip")}</span><span>{intl.get("SSH_Account")}</span><span>{intl.get("SSH_Password")}</span></div>
                                 {
                                     this.state.formArr.length > 0 && this.state.formArr.map((item, index) => {
                                         return (
@@ -175,7 +176,7 @@ class CreateOrganization extends Component {
                                                     {getFieldDecorator(item.id1, {
                                                         rules: [{
                                                             required: true,
-                                                            pattern: /^[\w\?%&=\-+_]+$/,
+                                                            pattern: /^[\w?%&=\-+_]+$/,
                                                             message: '数字、字母或字符组合',
                                                         }],
                                                     })(
@@ -243,7 +244,7 @@ class CreateOrganization extends Component {
                                                     {getFieldDecorator(item.id3, {
                                                         rules: [{
                                                             required: true,
-                                                            pattern: /^[\w\?%&=\-+_]+$/,
+                                                            pattern: /^[\w?%&=\-+_]+$/,
                                                             message: '数字、字母或字符组合',
                                                         }],
                                                     })(
@@ -254,26 +255,26 @@ class CreateOrganization extends Component {
                                                     {getFieldDecorator(item.id4, {
                                                         rules: [{
                                                             required: true,
-                                                            pattern: /^[\w\?%&=\-+_]+$/,
+                                                            pattern: /^[\w?%&=\-+_]+$/,
                                                             message: '数字、字母或字符组合',
                                                         }],
                                                     })(
                                                         <Input />
                                                     )}
                                                 </FormItem>
-                                                <Icon style={{ display: index == 0 ? 'none' : '' }} className="close" onClick={this.deletePeer.bind(this, index)} type="close" />
+                                                <Icon style={{ display: index === 0 ? 'none' : '' }} className="close" onClick={this.deletePeer.bind(this, index)} type="close" />
                                             </Form>
                                         )
                                     })
                                 }
-                                <p className="icon-plus" onClick={this.addPeer}><Icon className="icon" type="plus-square" />添加peer节点<span>最多添加5个节点</span></p>
+                                <p className="icon-plus" onClick={this.addPeer}><Icon className="icon" type="plus-square" />{intl.get("Add_Peer_Node")}<span>{intl.get("Add_Up_To_5_More")}</span></p>
                             </div>
-                            <p className="peer-desc"><span>节点由用户提供外网节点，需要在节点上安装docker并支持Https调用</span></p>
+                            <p className="peer-desc"><span>{intl.get("New_Node_Tip_Text")}</span></p>
                         </div>
                     </div>
                     <div className="confirm-wrapper">
-                        <Button onClick={this.handleSubmit} className="confirm-btn">确认</Button>
-                        <Button onClick={this.handleBack} className="cancel-btn">取消</Button>
+                        <Button onClick={this.handleSubmit} className="confirm-btn">{intl.get("Confirm")}</Button>
+                        <Button onClick={this.handleBack} className="cancel-btn">{intl.get("Cancel")}</Button>
                     </div>
                 </div>
             </div>
