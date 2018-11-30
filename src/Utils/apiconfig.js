@@ -14,6 +14,7 @@ module.exports = {
             logout: `${API}/user/logout`
         },
         channel: `${API}/channel`,
+        channelJoin: `${API}/channel/join`,
         chain: {
             chainList: `${API}/consortium`,
             container:`${API}/container`
