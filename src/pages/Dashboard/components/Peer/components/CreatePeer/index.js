@@ -129,7 +129,7 @@ class CreateOrganization extends Component {
             }
         })
     }
-    handleBack=()=>{
+    handleBack = () => {
         window.history.go(-1);
     }
     render() {
@@ -144,12 +144,12 @@ class CreateOrganization extends Component {
                                 <Select
                                     showSearch
                                     getPopupContainer={() => this.refs.selectBox}
-                                    style={{ width: 192, height: 32, marginLeft: 60 }}
+                                    style={{ width: 192, height: 32, marginLeft: 18 }}
                                     placeholder="请选择组织"
                                     optionFilterProp="children"
                                     onSelect={(value) => this.setState({
                                         organizationId: value,
-                                        display:false
+                                        display: false
                                     })}
                                     filterOption={(input, option) => option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}
                                 >
