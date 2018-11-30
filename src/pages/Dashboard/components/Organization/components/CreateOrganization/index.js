@@ -6,7 +6,7 @@ import request from '../../../../../../Utils/Axios';
 import axios from 'axios';
 import Cookies from 'js-cookie';
 const FormItem = Form.Item;
-const { api: { organization: { orgList, createOrg } } } = apiconfig;
+const { api: { organization: { orgList, createOrg, peerCheck } } } = apiconfig;
 
 class CreateOrganization extends Component {
     constructor(props) {
@@ -15,7 +15,10 @@ class CreateOrganization extends Component {
             formArr: [],
             count: 0,
             loading: false,
-            display: false
+            display: false,
+            checkResult: '',
+            peer: false,
+            paas: true
         }
     }
     componentDidMount() {
@@ -25,37 +28,63 @@ class CreateOrganization extends Component {
         e.preventDefault();
         this.props.form.validateFieldsAndScroll((err, values) => {
             let orgName = document.getElementById('org-name').value;
-            if (!orgName) {
-                this.setState({ display: true });
+            let ip = values.ippeer1 + '.' + values.ippeer2 + '.' + values.ippeer3 + '.' + values.ippeer4;
+            let check = {
+                'host': ip,
+                'username': values.sshuser,
+                'password': values.sshpassword
             }
-            else if (!err && orgName) {
-                this.setState({ loading: true });
-                let ip = values.ippeer1 + '.' + values.ippeer2 + '.' + values.ippeer3 + '.' + values.ippeer4;
-                let consortiumId = JSON.parse(sessionStorage.getItem('ConsortiumInfo'))._id;
-                let obj = {
-                    'name': orgName,
-                    'domainName': values.capeer,
-                    'host': ip,
-                    'username': values.sshuser,
-                    'password': values.sshpassword,
-                    'consortiumId': consortiumId,
-                }
-                request().post(orgList, obj).then((res) => {
-                    if (res) {
-                        let options = {};
-                        options.channelType = 1;
-                        options.organizationId = res.data.data._id;
-                        request().post(createOrg, options).then((res) => {
-                            if (res) {
-                                this.setState({ loading: false });
-                                switch (res.status) {
-                                    case 200:
-                                        message.success('组织创建成功');
-                                        break;
-                                    case 400:
-                                        message.warning('你已经创建了组织');
-                                        break;
-                                    case 401:
+            request().post(peerCheck, check).then((res) => {
+                if (res) {
+                    switch (res.status) {
+                        case 200:
+                            this.setState({ checkResult: '节点检测通过', paas: true });
+                            if (!orgName) {
+                                this.setState({ display: true });
+                            }
+                            else if (!err && orgName) {
+                                this.setState({ loading: true });
+                                let consortiumId = JSON.parse(sessionStorage.getItem('ConsortiumInfo'))._id;
+                                let obj = {
+                                    'name': orgName,
+                                    'domainName': values.capeer,
+                                    'host': ip,
+                                    'username': values.sshuser,
+                                    'password': values.sshpassword,
+                                    'consortiumId': consortiumId,
+                                }
+                                request().post(orgList, obj).then((res) => {
+                                    if (res.status == 200) {
+                                        let options = {};
+                                        options.channelType = 1;
+                                        options.organizationId = res.data.data._id;
+                                        request().post(createOrg, options).then((res) => {
+                                            if (res) {
+                                                this.setState({ loading: false });
+                                                switch (res.status) {
+                                                    case 200:
+                                                        message.success('组织创建成功');
+                                                        this.setState({ loading: false })
+                                                        break;
+                                                    case 400:
+                                                        message.error('创建失败');
+                                                        this.setState({ loading: false })
+                                                        break;
+                                                    case 401:
+                                                        Cookies.remove('token');
+                                                        Cookies.remove('userNameInfo');
+                                                        sessionStorage.removeItem('projectData');
+                                                        sessionStorage.removeItem('consortiumType');
+                                                        this.props.history.push({
+                                                            pathname: "/login"
+                                                        })
+                                                        break;
+                                                    default:
+                                                        break;
+                                                }
+                                            }
+                                        })
+                                    } else if (res.status == 401) {
                                         Cookies.remove('token');
                                         Cookies.remove('userNameInfo');
                                         sessionStorage.removeItem('projectData');
@@ -63,19 +92,37 @@ class CreateOrganization extends Component {
                                         this.props.history.push({
                                             pathname: "/login"
                                         })
-                                        break;
-                                    default:
-                                        break;
-                                }
+                                    } else {
+                                        message.warning(res.data.msg);
+                                        this.setState({ loading: false });
+                                    }
+                                })
                             }
-                        })
+                            break;
+                        case 400:
+                            this.setState({ checkResult: '检测未通过请重新填写', loading: false, paas: false });
+                            break;
+                        case 401:
+                            Cookies.remove('token');
+                            Cookies.remove('userNameInfo');
+                            sessionStorage.removeItem('projectData');
+                            sessionStorage.removeItem('consortiumType');
+                            this.props.history.push({
+                                pathname: "/login"
+                            })
+                            break;
                     }
-                })
-            }
+                }
+
+            })
+
         })
     }
     handleChange = () => {
         this.setState({ display: false });
+    }
+    handleBack = () => {
+        window.history.go(-1);
     }
     render() {
         const { display } = this.state;
@@ -94,8 +141,7 @@ class CreateOrganization extends Component {
                                         {getFieldDecorator('capeer', {
                                             rules: [{
                                                 required: true,
-                                                pattern: /^[0-9A-Za-z]{5,10}$/,
-                                                message: '5-10位数字或字母组合',
+                                                message: '请填写节点名称',
                                             }, {
                                                 validator: this.handlePeer
                                             }],
@@ -170,8 +216,7 @@ class CreateOrganization extends Component {
                                         {getFieldDecorator('sshuser', {
                                             rules: [{
                                                 required: true,
-                                                pattern: /^[0-9A-Za-z]{1,10}$/,
-                                                message: '5-10位数字或字母组合',
+                                                message: '请填写用户名',
                                             }, {
                                                 validator: this.handleAddress
                                             }],
@@ -183,8 +228,7 @@ class CreateOrganization extends Component {
                                         {getFieldDecorator('sshpassword', {
                                             rules: [{
                                                 required: true,
-                                                pattern: /^[\w\?%&=\-_]{6,20}$/,
-                                                message: '6-12位数字、字母或字符组合',
+                                                message: '请填写密码',
                                             }, {
                                                 validator: this.handleAddress
                                             }],
@@ -192,17 +236,17 @@ class CreateOrganization extends Component {
                                             <Input />
                                         )}
                                     </FormItem>
-                                    {/* <FormItem
+                                    <FormItem
                                         label='检测结果'
                                     >
-                                            <span onClick={()=>{this.peerCheck()}}></span>
-                                    </FormItem> */}
+                                        <span className={this.state.paas ? 'paas-check' : 'fail-check'}>{this.state.checkResult}</span>
+                                    </FormItem>
                                 </Form>
                             </div>
                         </div>
                         <FormItem className="confirm-wrapper">
                             <Button onClick={this.handleSubmit} loading={this.state.loading} className="confirm-btn">{intl.get("Confirm")}</Button>
-                            <Button className="cancel-btn">{intl.get("Cancel")}</Button>
+                            <Button onClick={this.handleBack} className="cancel-btn">{intl.get("Cancel")}</Button>
                         </FormItem>
                     </div>
 
