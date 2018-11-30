@@ -175,8 +175,7 @@ class CreateOrganization extends Component {
                                                     {getFieldDecorator(item.id1, {
                                                         rules: [{
                                                             required: true,
-                                                            pattern: /^[\w\?%&=\-+_]+$/,
-                                                            message: '数字、字母或字符组合',
+                                                            message: '请填写节点名称',
                                                         }],
                                                     })(
                                                         <Input onChange={(value) => {
@@ -243,8 +242,7 @@ class CreateOrganization extends Component {
                                                     {getFieldDecorator(item.id3, {
                                                         rules: [{
                                                             required: true,
-                                                            pattern: /^[\w\?%&=\-+_]+$/,
-                                                            message: '数字、字母或字符组合',
+                                                            message: '请填写用户名',
                                                         }],
                                                     })(
                                                         <Input />
@@ -254,8 +252,7 @@ class CreateOrganization extends Component {
                                                     {getFieldDecorator(item.id4, {
                                                         rules: [{
                                                             required: true,
-                                                            pattern: /^[\w\?%&=\-+_]+$/,
-                                                            message: '数字、字母或字符组合',
+                                                            message: '请填写密码',
                                                         }],
                                                     })(
                                                         <Input />
