@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Button, Input, Form, Icon, message } from 'antd';
+import intl from 'react-intl-universal'
 import apiconfig from '../../../../../../Utils/apiconfig';
 import request from '../../../../../../Utils/Axios';
 import axios from 'axios';
@@ -83,13 +84,13 @@ class CreateOrganization extends Component {
             <div className="create-organization">
                 <div className="create-wrapper">
                     <div className="organization-wrapper">
-                        <p className="wrapper-input"><span className="organization-name">组织名称</span><Input onChange={this.handleChange} id="org-name" className="organization-input" /><span style={{ display: display ? '' : 'none' }} className="tip">请输入组织名称</span></p>
-                        <p className="wrapper-peer"><span className="organization-name">节点组织类型</span><span className="peer">peer</span></p>
+                        <p className="wrapper-input"><span className="organization-name">{intl.get("Org_Name")}</span><Input onChange={this.handleChange} id="org-name" className="organization-input" /><span style={{ display: display ? '' : 'none' }} className="tip">请输入组织名称</span></p>
+                        <p className="wrapper-peer"><span className="organization-name">{intl.get("New_Node_Node_Type")}</span><span className="peer">peer</span></p>
                         <div className="chaincode-mark">
-                            <span className="mark">链码标识</span>
+                            <span className="mark">{intl.get("Add_Node")}</span>
                             <div className="form-wrapper">
                                 <Form className="form-user" onSubmit={this.handleSubmit}>
-                                    <FormItem className="ca-peer" label="CA节点"  >
+                                    <FormItem className="ca-peer" label={intl.get("CA_Node")}  >
                                         {getFieldDecorator('capeer', {
                                             rules: [{
                                                 required: true,
@@ -102,7 +103,7 @@ class CreateOrganization extends Component {
                                             <Input />
                                         )}
                                     </FormItem>
-                                    <FormItem className="ip-peer peer-first" label="节点IP" >
+                                    <FormItem className="ip-peer peer-first" label={intl.get("Node_Ip")} >
                                         {getFieldDecorator('ippeer1', {
                                             rules: [{
                                                 required: true,
@@ -165,7 +166,7 @@ class CreateOrganization extends Component {
                                             </div>
                                         )}
                                     </FormItem>
-                                    <FormItem className="ssh-user" label="SSH用户名" >
+                                    <FormItem className="ssh-user" label={intl.get("SSH_Account")} >
                                         {getFieldDecorator('sshuser', {
                                             rules: [{
                                                 required: true,
@@ -178,7 +179,7 @@ class CreateOrganization extends Component {
                                             <Input />
                                         )}
                                     </FormItem>
-                                    <FormItem className="ssh-password" label="SSH密码" >
+                                    <FormItem className="ssh-password" label={intl.get("SSH_Password")} >
                                         {getFieldDecorator('sshpassword', {
                                             rules: [{
                                                 required: true,
@@ -200,8 +201,8 @@ class CreateOrganization extends Component {
                             </div>
                         </div>
                         <FormItem className="confirm-wrapper">
-                            <Button onClick={this.handleSubmit} loading={this.state.loading} className="confirm-btn">确认</Button>
-                            <Button className="cancel-btn">取消</Button>
+                            <Button onClick={this.handleSubmit} loading={this.state.loading} className="confirm-btn">{intl.get("Confirm")}</Button>
+                            <Button className="cancel-btn">{intl.get("Cancel")}</Button>
                         </FormItem>
                     </div>
 
