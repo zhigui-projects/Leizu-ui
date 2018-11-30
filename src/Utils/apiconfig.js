@@ -24,7 +24,8 @@ module.exports = {
         },
         organization:{
             orgList:`${API}/organization`,
-            createOrg:`${API}/channel/update`
+            createOrg:`${API}/channel/update`,
+            peerCheck:`${API}/peer/check`
         },
         organize: {
             organization: `${API}/organization`

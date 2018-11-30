@@ -5,7 +5,7 @@ import request from '../../../../../../Utils/Axios';
 import axios from 'axios';
 import Cookies from 'js-cookie';
 const FormItem = Form.Item;
-const { api: { organization: { orgList, createOrg } } } = apiconfig;
+const { api: { organization: { orgList, createOrg,peerCheck } } } = apiconfig;
 
 class CreateOrganization extends Component {
     constructor(props) {
@@ -14,7 +14,9 @@ class CreateOrganization extends Component {
             formArr: [],
             count: 0,
             loading: false,
-            display: false
+            display: false,
+            check:'noCheck',
+            peer:false
         }
     }
     componentDidMount() {
@@ -40,7 +42,7 @@ class CreateOrganization extends Component {
                     'consortiumId': consortiumId,
                 }
                 request().post(orgList, obj).then((res) => {
-                    if (res) {
+                    if (res.status==200) {
                         let options = {};
                         options.channelType = 1;
                         options.organizationId = res.data.data._id;
@@ -76,6 +78,21 @@ class CreateOrganization extends Component {
     handleChange = () => {
         this.setState({ display: false });
     }
+    peerCheck=(arr)=>{
+        const {getFieldValue}=this.props.form;
+        let obj={
+
+        }
+        obj.host=getFieldValue(arr[0])+getFieldValue(arr[1])+getFieldValue(arr[2])+getFieldValue(arr[3]);
+        obj.username=getFieldValue(arr[4]);
+        obj.password=getFieldValue(arr[5]);
+        // request().post(peerCheck,obj).then((res)=>{
+        //     console.log(res);
+        // })
+    }
+    handleBack=()=>{
+        window.history.go(-1);
+    }
     render() {
         const { display } = this.state;
         const { getFieldDecorator } = this.props.form;
@@ -93,8 +110,8 @@ class CreateOrganization extends Component {
                                         {getFieldDecorator('capeer', {
                                             rules: [{
                                                 required: true,
-                                                pattern: /^[0-9A-Za-z]{5,10}$/,
-                                                message: '5-10位数字或字母组合',
+                                                pattern: /^[\w\?%&=\-+_]+$/,
+                                                message: '数字、字母或字符组合',
                                             }, {
                                                 validator: this.handlePeer
                                             }],
@@ -169,8 +186,8 @@ class CreateOrganization extends Component {
                                         {getFieldDecorator('sshuser', {
                                             rules: [{
                                                 required: true,
-                                                pattern: /^[0-9A-Za-z]{1,10}$/,
-                                                message: '5-10位数字或字母组合',
+                                                pattern: /^[\w\?%&=\-_]+$/,
+                                                message: '数字、字母或字符组合',
                                             }, {
                                                 validator: this.handleAddress
                                             }],
@@ -182,8 +199,8 @@ class CreateOrganization extends Component {
                                         {getFieldDecorator('sshpassword', {
                                             rules: [{
                                                 required: true,
-                                                pattern: /^[\w\?%&=\-_]{6,20}$/,
-                                                message: '6-12位数字、字母或字符组合',
+                                                pattern: /^[\w\?%&=\-+_]+$/,
+                                                message: '数字、字母或字符组合',
                                             }, {
                                                 validator: this.handleAddress
                                             }],
@@ -194,14 +211,14 @@ class CreateOrganization extends Component {
                                     {/* <FormItem
                                         label='检测结果'
                                     >
-                                            <span onClick={()=>{this.peerCheck()}}></span>
+                                            <span onClick={()=>{this.peerCheck(['ippeer1','ippeer2','ippeer3','ippeer4','sshuser','sshpassword'])}}>{this.state.check==='noCheck'?'点击检测':(this.state.check==='error'?'检测未通过请重新填写':"检测通过")}</span>
                                     </FormItem> */}
                                 </Form>
                             </div>
                         </div>
                         <FormItem className="confirm-wrapper">
                             <Button onClick={this.handleSubmit} loading={this.state.loading} className="confirm-btn">确认</Button>
-                            <Button className="cancel-btn">取消</Button>
+                            <Button onClick={this.handleBack} className="cancel-btn">取消</Button>
                         </FormItem>
                     </div>
 

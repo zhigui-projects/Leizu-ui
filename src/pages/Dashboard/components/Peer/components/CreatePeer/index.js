@@ -129,6 +129,9 @@ class CreateOrganization extends Component {
             }
         })
     }
+    handleBack=()=>{
+        window.history.go(-1);
+    }
     render() {
         const { getFieldDecorator } = this.props.form;
         const { dataOptions, organizationId } = this.state;
@@ -172,8 +175,8 @@ class CreateOrganization extends Component {
                                                     {getFieldDecorator(item.id1, {
                                                         rules: [{
                                                             required: true,
-                                                            pattern: /^[0-9A-Za-z]{5,10}$/,
-                                                            message: '5-10位数字或字母组合',
+                                                            pattern: /^[\w\?%&=\-+_]+$/,
+                                                            message: '数字、字母或字符组合',
                                                         }],
                                                     })(
                                                         <Input onChange={(value) => {
@@ -240,8 +243,8 @@ class CreateOrganization extends Component {
                                                     {getFieldDecorator(item.id3, {
                                                         rules: [{
                                                             required: true,
-                                                            pattern: /^[0-9A-Za-z]{1,10}$/,
-                                                            message: '5-10位数字或字母组合',
+                                                            pattern: /^[\w\?%&=\-+_]+$/,
+                                                            message: '数字、字母或字符组合',
                                                         }],
                                                     })(
                                                         <Input />
@@ -251,8 +254,8 @@ class CreateOrganization extends Component {
                                                     {getFieldDecorator(item.id4, {
                                                         rules: [{
                                                             required: true,
-                                                            pattern: /^[\w\?%&=\-_]{6,20}$/,
-                                                            message: '6-12位数字、字母或字符组合',
+                                                            pattern: /^[\w\?%&=\-+_]+$/,
+                                                            message: '数字、字母或字符组合',
                                                         }],
                                                     })(
                                                         <Input />
@@ -270,7 +273,7 @@ class CreateOrganization extends Component {
                     </div>
                     <div className="confirm-wrapper">
                         <Button onClick={this.handleSubmit} className="confirm-btn">确认</Button>
-                        <Button className="cancel-btn">取消</Button>
+                        <Button onClick={this.handleBack} className="cancel-btn">取消</Button>
                     </div>
                 </div>
             </div>
