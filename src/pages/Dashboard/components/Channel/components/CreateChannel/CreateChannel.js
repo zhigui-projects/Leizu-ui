@@ -180,18 +180,18 @@ class CreateChannelContent extends Component {
                                 </Select>
                             )}
                         </FormItem>
-                        <div className="bottom-btn-box">
-                            <FormItem
-                            // wrapperCol={{ span: 12, offset: 5 }}
-                            className='bottom-btn-content'
-                            >
-                                <Button className='submit' type="primary" htmlType="submit" loading={this.state.loading}>
-                                    {intl.get("Confirm")}
-                                </Button>
-                                <Button onClick={this.goBack} className='cancel'>{intl.get("Cancel")}</Button>
-                            </FormItem>
-                        </div>
                     </Form>
+                </div>
+                <div className="bottom-btn-box">
+                    <FormItem
+                    // wrapperCol={{ span: 12, offset: 5 }}
+                    className='bottom-btn-content'
+                    >
+                        <Button onClick={this.handleSubmit} className='submit' type="primary" htmlType="submit" loading={this.state.loading}>
+                            {intl.get("Confirm")}
+                        </Button>
+                        <Button onClick={this.goBack} className='cancel'>{intl.get("Cancel")}</Button>
+                    </FormItem>
                 </div>
             </div>
         );
