@@ -1,6 +1,6 @@
 import React , {Component} from 'react';
 import axios from 'axios'
-import { Spin, List, Card, Badge } from 'antd'
+import { List, Card, Badge } from 'antd'
 import Cookies from 'js-cookie'
 import moment from 'moment'
 import intl from 'react-intl-universal'
@@ -63,7 +63,7 @@ class OverView extends Component{
                                 {
                                     title: intl.get("Status"),
                                     desc: intl.get("Blockchain_Create_Time"),
-                                    text: res.data.data.status === 0 ? "运行停止" : "运行正常",
+                                    text: res.data.data.status === 0 ? intl.get("Stop_Running") : intl.get("Operating_Normally"),
                                     display: true
                                 }
                             ],
