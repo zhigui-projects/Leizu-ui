@@ -29,7 +29,6 @@ class OverView extends Component{
                 cancel = c;
             })
         }).then(res=>{
-            // console.log(res)
             if(res){
                 switch(res.status){
                     case 200: 

@@ -28,14 +28,6 @@ const Dashboard = Loadable({
     loader: () => import('../pages/Dashboard/basicLayout'),
     loading: MyLoadingComponent
 })
-const Login = Loadable({
-    loader: () => import('../pages/Login/login'),
-    loading: MyLoadingComponent
-})
-const Project = Loadable({
-    loader: () => import('../pages/Project/index'),
-    loading: MyLoadingComponent
-})
 //universal国际化文件
 const intl_locales = {
     "en-US": require("../locales/en_US.json"),
@@ -106,9 +98,7 @@ class App extends Component {
                 <Router>
                     <Switch>
                         <Route path="/dashboard" component={Dashboard} />
-                        <Route path="/project" component={Project} />
-                        <Route path="/login" component={Login} />
-                        <Route path="/*" render={(props) => <Redirect to='/project' />} />
+                        <Route path="/*" render={(props) => <Redirect to='/dashboard' />} />
                     </Switch>
                 </Router>
             </LocaleProvider>

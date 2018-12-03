@@ -32,7 +32,6 @@ class CreateChannelContent extends Component {
                 this.setState({
                     loading: true
                 })
-                console.log('Received values of form: ', values);
                 // let [id, consortiumId] = ['','']
                 // [id, consortiumId] = values.consortiumId.split('_')
                 let id = values.id
@@ -46,7 +45,6 @@ class CreateChannelContent extends Component {
                         cancel1 = c;
                     })
                 }).then(res=>{
-                    console.log(res)
                     if(res){
                         switch(res.status){
                             case 200:
@@ -60,7 +58,6 @@ class CreateChannelContent extends Component {
                                         cancel3 = c;
                                     })
                                 }).then(res=>{
-                                    console.log(res)
                                     this.setState({
                                         loading: false
                                     })
@@ -107,7 +104,6 @@ class CreateChannelContent extends Component {
             })
         }).then(res => {
             if (res) {
-                console.log(res)
                 switch (res.status) {
                     case 200:
                         this.setState({

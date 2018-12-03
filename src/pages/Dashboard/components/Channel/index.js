@@ -60,7 +60,6 @@ class Channel extends Component{
             })
         }).then(res => {
             if (res) {
-                // console.log(res.data)
                 switch (res.status) {
                     case 200:
                         this.setState({

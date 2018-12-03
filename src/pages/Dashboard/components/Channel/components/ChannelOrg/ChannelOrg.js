@@ -69,7 +69,6 @@ class ChannelOrg extends Component {
         })
     }
     componentDidMount(){
-        // console.log(this.props)
         this.getData(this.props.location.query)
     }
     componentWillUnmount() {

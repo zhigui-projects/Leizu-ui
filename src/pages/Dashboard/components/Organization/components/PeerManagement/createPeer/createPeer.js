@@ -61,7 +61,6 @@ class CreateOrganization extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         this.props.form.validateFieldsAndScroll((err, values) => {
-            console.log(values);
             if (!err) {
                 let obj = {
                     ...values

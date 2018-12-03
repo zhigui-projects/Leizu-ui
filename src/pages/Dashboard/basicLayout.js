@@ -475,7 +475,7 @@ class Dashboard extends Component {
     render() {
         let pathArr = this.props.location.pathname.split('/');
         let path = pathArr[2];
-        const userName = Cookies.get('userNameInfo')
+        // const userName = Cookies.get('userNameInfo')
         // if (!sessionStorage.getItem('ConsortiumInfo')) {
         //     this.props.history.push('/project')
         // }
@@ -535,10 +535,6 @@ class Dashboard extends Component {
             for (var i = 0; i < search.length; i++) {
                 request[search[i].split("=")[0]] = this.decode(search[i].split("=")[1]);
             }
-            console.log(request)
-            // const link = search[search.length-1]
-            // console.log(this.decode(this.encode(link)));//怪诞咖啡
-            // let ConsortiumInfo = JSON.stringify(item);
             sessionStorage.setItem('ConsortiumInfo', JSON.stringify(request));
         }
         return (
@@ -635,20 +631,7 @@ class Dashboard extends Component {
                                                 </Popover>
                                             </div>
                                         </div> */}
-                                        <div className="consortiumJump"><NavLink to="/project" style={{cursor:"pointer"}}>我的联盟</NavLink></div>
-                                        <div className='user-name-box dropDown-link'>
-                                            <Popover
-                                                visible={this.state.visible}
-                                                onVisibleChange={this.changeVisible}
-                                                placement="bottom"
-                                                content={this.renderDropdown()}
-                                                trigger="hover"
-                                                overlayClassName='user-name-drop'
-                                                mouseLeaveDelay={0.3}
-                                            >
-                                                <span style={{marginRight:'8px',cursor:"pointer"}}><img style={{marginRight:"8px"}} src={require("../../images/ic-user.svg")} alt=""/>{userName}</span><Icon type="down" />
-                                            </Popover>
-                                        </div>
+                                        {/*<div className="consortiumJump"><NavLink to="/project" style={{cursor:"pointer"}}>我的联盟</NavLink></div>*/}
                                     </div>
                                 </Header>
                                 <div className="breadcrumb">
