@@ -1,4 +1,6 @@
 const API = 'http://39.106.198.16:8080/api/v1';
+const newAPI = sessionStorage.getItem('ConsortiumInfo') ? JSON.parse(sessionStorage.getItem('ConsortiumInfo'))["url"]+"/api/v1" : "";
+console.log(newAPI)
 // 192.168.2.38:8080
 const elasticSearchUrl = "http://47.106.121.33/query"
 const format = require('string-format');
@@ -9,29 +11,29 @@ module.exports = {
     elasticSearchUrl,
     api: {
         user: {
-            login : `${API}/user/login`,
-            resetPassword: `${API}/user/password/reset`,
-            logout: `${API}/user/logout`
+            login : `${newAPI}/user/login`,
+            resetPassword: `${newAPI}/user/password/reset`,
+            logout: `${newAPI}/user/logout`
         },
-        channel: `${API}/channel`,
-        channelJoin: `${API}/channel/join`,
+        channel: `${newAPI}/channel`,
+        channelJoin: `${newAPI}/channel/join`,
         chain: {
-            chainList: `${API}/consortium`,
-            container:`${API}/container`
+            chainList: `${newAPI}/consortium`,
+            container:`${newAPI}/container`
         },
         peer:{
-            peerList:`${API}/peer`,
-            peerDetail:`${API}/peer?organizationId={id}`
+            peerList:`${newAPI}/peer`,
+            peerDetail:`${newAPI}/peer?organizationId={id}`
         },
         organization:{
-            orgList:`${API}/organization`,
-            createOrg:`${API}/channel/update`
+            orgList:`${newAPI}/organization`,
+            createOrg:`${newAPI}/channel/update`
         },
         organize: {
-            organization: `${API}/organization`
+            organization: `${newAPI}/organization`
         },
         consortium: {
-            overview: `${API}/consortium/{consortiumId}`
+            overview: `${newAPI}/consortium/{consortiumId}`
 
         }
     },

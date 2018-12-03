@@ -91,6 +91,24 @@ class Dashboard extends Component {
         this.defaultLang = ''
     }
 
+    // base64转字符串
+    decode = (base64) =>{
+        // 对base64转编码
+        let decode = atob(base64);
+        // 编码转字符串
+        let str = decodeURI(decode);
+        return str;
+    }
+
+    // 字符串转base64
+    encode = (str) =>{
+        // 对字符串进行编码
+        let encode = encodeURI(str);
+        // 对编码的字符串转化base64
+        let base64 = btoa(encode);
+        return base64;
+    }
+
     componentWillMount() {
         if (!Cookies.get('lang')) {
             let lang = window.navigator.language;
@@ -458,9 +476,9 @@ class Dashboard extends Component {
         let pathArr = this.props.location.pathname.split('/');
         let path = pathArr[2];
         const userName = Cookies.get('userNameInfo')
-        if (!sessionStorage.getItem('ConsortiumInfo')) {
-            this.props.history.push('/project')
-        }
+        // if (!sessionStorage.getItem('ConsortiumInfo')) {
+        //     this.props.history.push('/project')
+        // }
         const {form: {getFieldDecorator}} = this.props;
         const formItemLayout = {
             labelCol: {
@@ -509,6 +527,19 @@ class Dashboard extends Component {
             });
 
             breadcrumbItems = [].concat(extraBreadcrumbItems);
+        }
+
+        if(window.location.search.indexOf("?") !== -1){
+            let request = new Object();
+            const search = window.location.search.substr(1).split("&")
+            for (var i = 0; i < search.length; i++) {
+                request[search[i].split("=")[0]] = this.decode(search[i].split("=")[1]);
+            }
+            console.log(request)
+            // const link = search[search.length-1]
+            // console.log(this.decode(this.encode(link)));//怪诞咖啡
+            // let ConsortiumInfo = JSON.stringify(item);
+            sessionStorage.setItem('ConsortiumInfo', JSON.stringify(request));
         }
         return (
                 <Layout className="dashboard_layout" >

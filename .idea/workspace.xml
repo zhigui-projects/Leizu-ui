@@ -3,7 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="d87179aa-dbd5-4593-9855-3a697c2e5ec2" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/src/Utils/Axios.js" afterPath="$PROJECT_DIR$/src/Utils/Axios.js" />
       <change beforePath="$PROJECT_DIR$/src/Utils/apiconfig.js" afterPath="$PROJECT_DIR$/src/Utils/apiconfig.js" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Dashboard/basicLayout.js" afterPath="$PROJECT_DIR$/src/pages/Dashboard/basicLayout.js" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Dashboard/components/OverView/index.js" afterPath="$PROJECT_DIR$/src/pages/Dashboard/components/OverView/index.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -17,12 +20,98 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="apiconfig.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Axios.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Utils/Axios.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="7" lean-forward="false" selection-start-line="0" selection-start-column="7" selection-end-line="0" selection-end-column="7" />
+              <folding>
+                <element signature="e#0#25#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="login.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pages/Login/login.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="61" column="58" lean-forward="false" selection-start-line="61" selection-start-column="51" selection-end-line="61" selection-end-column="58" />
+              <folding>
+                <element signature="e#0#41#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/pages/Project/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="482">
+              <caret line="363" column="23" lean-forward="false" selection-start-line="363" selection-start-column="23" selection-end-line="363" selection-end-column="23" />
+              <folding>
+                <element signature="e#4356#6910#0" expanded="false" />
+                <element signature="e#6939#10324#0" expanded="false" />
+                <element signature="e#10356#10522#0" expanded="false" />
+                <element signature="e#10569#10658#0" expanded="false" />
+                <element signature="e#10687#10986#0" expanded="false" />
+                <element signature="e#11013#11078#0" expanded="false" />
+                <element signature="e#11100#11560#0" expanded="false" />
+                <element signature="e#11595#11703#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="apiconfig.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Utils/apiconfig.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" column="22" lean-forward="false" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="22" />
+            <state relative-caret-position="60">
+              <caret line="4" column="22" lean-forward="false" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="22" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="basicLayout.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pages/Dashboard/basicLayout.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="541" column="78" lean-forward="false" selection-start-line="541" selection-start-column="12" selection-end-line="541" selection-end-column="78" />
+              <folding>
+                <element signature="e#6156#6303#0" expanded="false" />
+                <element signature="e#6344#6592#0" expanded="false" />
+                <element signature="e#6636#9190#0" expanded="false" />
+                <element signature="e#9237#10536#0" expanded="false" />
+                <element signature="e#10702#11690#0" expanded="false" />
+                <element signature="e#11712#12182#0" expanded="false" />
+                <element signature="e#12211#15596#0" expanded="false" />
+                <element signature="e#15625#15924#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pages/Dashboard/components/OverView/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="479">
+              <caret line="98" column="33" lean-forward="false" selection-start-line="98" selection-start-column="33" selection-end-line="98" selection-end-column="33" />
+              <folding>
+                <element signature="e#0#40#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pages/Dashboard/components/Organization/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="18" column="5" lean-forward="false" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
+              <folding>
+                <element signature="e#0#41#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -31,18 +120,10 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>scrollLogBottom</find>
-      <find>okloginOut</find>
-      <find>renderDropdown</find>
-      <find>navlink</find>
-      <find>oklogout</find>
-      <find>console</find>
-      <find>drop-item</find>
       <find>邮箱</find>
       <find>cancelToken</find>
       <find>CancelToken</find>
       <find>cancel</find>
-      <find>request</find>
       <find>key</find>
       <find>intervalId</find>
       <find>userName</find>
@@ -61,10 +142,20 @@
       <find>htmlWebpackPlugins</find>
       <find>consortiumJump</find>
       <find>47.94.224.229</find>
+      <find>overview</find>
+      <find>strs</find>
+      <find>ConsortiumInfo</find>
+      <find>getData</find>
+      <find>_id</find>
+      <find>decodeURI</find>
+      <find>enterDashboard</find>
+      <find>request</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/config</dir>
       <dir>$PROJECT_DIR$</dir>
+      <dir>$PROJECT_DIR$/src/pages/Dashboard</dir>
+      <dir>$PROJECT_DIR$/src/pages/Dashboard/components/Organization/components</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -80,12 +171,13 @@
         <option value="$PROJECT_DIR$/src/pages/Login/login.js" />
         <option value="$PROJECT_DIR$/src/pages/Dashboard/components/Peer/index.js" />
         <option value="$PROJECT_DIR$/src/Router/App.js" />
-        <option value="$PROJECT_DIR$/src/pages/Dashboard/basicLayout.js" />
         <option value="$PROJECT_DIR$/src/pages/Dashboard/basicLayout.less" />
         <option value="$PROJECT_DIR$/src/pages/Project/index.js" />
         <option value="$PROJECT_DIR$/src/pages/Dashboard/components/Log/index.js" />
+        <option value="$PROJECT_DIR$/src/pages/Dashboard/basicLayout.js" />
         <option value="$PROJECT_DIR$/src/pages/Dashboard/components/OverView/index.js" />
         <option value="$PROJECT_DIR$/src/Utils/apiconfig.js" />
+        <option value="$PROJECT_DIR$/src/Utils/Axios.js" />
       </list>
     </option>
   </component>
@@ -100,7 +192,7 @@
   <component name="NodeModulesDirectoryManager">
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
+  <component name="ProjectFrameBounds" extendedState="1">
     <option name="y" value="23" />
     <option name="width" value="1440" />
     <option name="height" value="797" />
@@ -157,6 +249,41 @@
               <item name="pages" type="462c0819:PsiDirectoryNode" />
               <item name="Dashboard" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dashboard-ui" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dashboard-ui" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="Dashboard" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="Organization" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dashboard-ui" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dashboard-ui" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="Dashboard" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="Organization" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dashboard-ui" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dashboard-ui" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="Dashboard" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="OverView" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dashboard-ui" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dashboard-ui" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="Login" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="dashboard-ui" type="b2602c69:ProjectViewProjectNode" />
@@ -230,10 +357,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="64072000" />
+    <option name="totallyTimeSpent" value="71428000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <frame x="0" y="23" width="1440" height="797" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20577872" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -270,13 +397,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/pages/Project/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="618">
-          <caret line="274" column="38" lean-forward="false" selection-start-line="274" selection-start-column="38" selection-end-line="274" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Utils/apiconfig.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -483,13 +603,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/Login/login.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="58" column="36" lean-forward="false" selection-start-line="58" selection-start-column="36" selection-end-line="58" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/registerServiceWorker.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -529,13 +642,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="7" lean-forward="true" selection-start-line="0" selection-start-column="7" selection-end-line="0" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Utils/Axios.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="26" column="23" lean-forward="true" selection-start-line="26" selection-start-column="23" selection-end-line="26" selection-end-column="23" />
         </state>
       </provider>
     </entry>
@@ -581,13 +687,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/Project/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="377">
-          <caret line="140" column="0" lean-forward="true" selection-start-line="140" selection-start-column="0" selection-end-line="140" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/Dashboard/components/Log/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -595,25 +694,85 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/Dashboard/components/OverView/index.js">
+    <entry file="file://$PROJECT_DIR$/src/pages/Login/login.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="20" lean-forward="true" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
+        <state relative-caret-position="323">
+          <caret line="61" column="58" lean-forward="false" selection-start-line="61" selection-start-column="51" selection-end-line="61" selection-end-column="58" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/Dashboard/basicLayout.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="346">
-          <caret line="603" column="71" lean-forward="false" selection-start-line="603" selection-start-column="71" selection-end-line="603" selection-end-column="71" />
+        <state relative-caret-position="210">
+          <caret line="541" column="78" lean-forward="false" selection-start-line="541" selection-start-column="12" selection-end-line="541" selection-end-column="78" />
+          <folding>
+            <element signature="e#6156#6303#0" expanded="false" />
+            <element signature="e#6344#6592#0" expanded="false" />
+            <element signature="e#6636#9190#0" expanded="false" />
+            <element signature="e#9237#10536#0" expanded="false" />
+            <element signature="e#10702#11690#0" expanded="false" />
+            <element signature="e#11712#12182#0" expanded="false" />
+            <element signature="e#12211#15596#0" expanded="false" />
+            <element signature="e#15625#15924#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/Dashboard/components/OverView/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="479">
+          <caret line="98" column="33" lean-forward="false" selection-start-line="98" selection-start-column="33" selection-end-line="98" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/Dashboard/components/Organization/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="5" lean-forward="false" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Utils/Axios.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="7" lean-forward="false" selection-start-line="0" selection-start-column="7" selection-end-line="0" selection-end-column="7" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Utils/apiconfig.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="22" lean-forward="false" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="22" />
+        <state relative-caret-position="60">
+          <caret line="4" column="22" lean-forward="false" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="22" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/Project/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="482">
+          <caret line="363" column="23" lean-forward="false" selection-start-line="363" selection-start-column="23" selection-end-line="363" selection-end-column="23" />
+          <folding>
+            <element signature="e#4356#6910#0" expanded="false" />
+            <element signature="e#6939#10324#0" expanded="false" />
+            <element signature="e#10356#10522#0" expanded="false" />
+            <element signature="e#10569#10658#0" expanded="false" />
+            <element signature="e#10687#10986#0" expanded="false" />
+            <element signature="e#11013#11078#0" expanded="false" />
+            <element signature="e#11100#11560#0" expanded="false" />
+            <element signature="e#11595#11703#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

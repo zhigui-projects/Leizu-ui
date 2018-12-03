@@ -8,7 +8,8 @@ function getData(){
             'Content-Type': 'application/json; charset=utf-8',
             'authorization': `Bearer ${token}`,
             'Content-Security-Policy': 'upgrade-insecure-requests',
-            'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+            'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+            'x-request-from':'BaaS'
         }
     })
     fetch.interceptors.response.use((response) => {
@@ -30,7 +31,8 @@ export function test() {
             'Content-Type': 'application/json; charset=utf-8',
             'authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjViZWNkNzcwY2ExODEzNjNlZTE0MTlhNSIsImlhdCI6MTU0MjI0ODUwNSwiZXhwIjoxNTQyMjg0NTA1fQ.mZbPk5mlMft0VG6qka3TwduO4JynldYDI-RMq_pafLQ`,
             'Content-Security-Policy': 'upgrade-insecure-requests',
-            'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+            'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+            'x-request-from':'BaaS'
         }
     })
     fetch.interceptors.response.use((response) => {
