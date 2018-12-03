@@ -39,7 +39,8 @@ class CreateOrganization extends Component {
                     'password': values.sshpassword,
                     'consortiumId': consortiumId,
                 }
-                request().post(orgList, obj).then((res) => {
+                const newApi = sessionStorage.getItem('ConsortiumInfo') ? JSON.parse(sessionStorage.getItem('ConsortiumInfo'))["url"]+"/api/v1":""
+                request().post(`${newApi}${orgList}`, obj).then((res) => {
                     if (res) {
                         let options = {};
                         options.channelType = 1;

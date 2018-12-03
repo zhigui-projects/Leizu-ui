@@ -11,30 +11,31 @@ module.exports = {
     elasticSearchUrl,
     api: {
         user: {
-            login : `${newAPI}/user/login`,
-            resetPassword: `${newAPI}/user/password/reset`,
-            logout: `${newAPI}/user/logout`
+            login : `/user/login`,
+            resetPassword: `/user/password/reset`,
+            logout: `/user/logout`
         },
-        channel: `${newAPI}/channel`,
-        channelJoin: `${newAPI}/channel/join`,
+        channel: `/channel`,
+        channelJoin: `/channel/join`,
         chain: {
-            chainList: `${newAPI}/consortium`,
-            container:`${newAPI}/container`
+            chainList: `/consortium`,
+            container:`/container`
         },
         peer:{
-            peerList:`${newAPI}/peer`,
-            peerDetail:`${newAPI}/peer?organizationId={id}`
+            peerList:`/peer`,
+            peerDetail:`/peer?organizationId={id}`
         },
         organization:{
-            orgList:`${newAPI}/organization`,
-            createOrg:`${newAPI}/channel/update`
+            orgList:`/organization`,
+            createOrg:`/channel/update`
         },
         organize: {
-            organization: `${newAPI}/organization`
+            organization: `/organization`
         },
         consortium: {
-            overview: `${newAPI}/consortium/{consortiumId}`
+            overview: `/consortium/{consortiumId}`
 
         }
     },
+    newAPI:""
 }

@@ -85,7 +85,8 @@ class CreateOrganization extends Component {
                 let options = {};
                 options.organizationId = orgId;
                 options.peers = ray;
-                request().post(peerList, options).then((res) => {
+                const newApi = sessionStorage.getItem('ConsortiumInfo') ? JSON.parse(sessionStorage.getItem('ConsortiumInfo'))["url"]+"/api/v1":""
+                request().post(`${newApi}${peerList}`, options).then((res) => {
                     if (res) {
                         switch (res.status) {
                             case 200:
@@ -120,7 +121,8 @@ class CreateOrganization extends Component {
         })
     }
     componentDidMount() {
-        request().get(orgList).then((res) => {
+        const newApi = sessionStorage.getItem('ConsortiumInfo') ? JSON.parse(sessionStorage.getItem('ConsortiumInfo'))["url"]+"/api/v1":""
+        request().get(`${newApi}${orgList}`).then((res) => {
             if (res.data.code == 200) {
                 let dataOptions = res.data.data;
                 this.setState({

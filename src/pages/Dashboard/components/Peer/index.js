@@ -86,7 +86,8 @@ class Peer extends Component {
         }
     }
     getPeerData = () => {
-        request().get(peerList, {
+        const newApi = sessionStorage.getItem('ConsortiumInfo') ? JSON.parse(sessionStorage.getItem('ConsortiumInfo'))["url"]+"/api/v1":""
+        request().get(`${newApi}${peerList}`, {
             cancelToken: new CancelToken(function executor(c) {
                 // An executor function receives a cancel function as a parameter
                 cancel = c;

@@ -320,7 +320,8 @@ class Dashboard extends Component {
     }
 
     okloginOut = ()=>{
-        request().post(user.logout).then((response)=>{
+        const newApi = sessionStorage.getItem('ConsortiumInfo') ? JSON.parse(sessionStorage.getItem('ConsortiumInfo'))["url"]+"/api/v1":""
+        request().post(`${newApi}${user.logout}`).then((response)=>{
             if(response){
                 switch(response.status){
                     case 200:
@@ -378,7 +379,8 @@ class Dashboard extends Component {
                         passConfirmTip: "两次输入密码必须一致"
                     })
                 }else{
-                    request().post(user.resetPassword,{
+                    const newApi = sessionStorage.getItem('ConsortiumInfo') ? JSON.parse(sessionStorage.getItem('ConsortiumInfo'))["url"]+"/api/v1":""
+                    request().post(`${newApi}${user.resetPassword}`,{
                         "username": userName,
                         "password": values.password,
                         "newPassword": values.newPassword
@@ -530,11 +532,14 @@ class Dashboard extends Component {
         }
 
         if(window.location.search.indexOf("?") !== -1){
+            console.log(config)
             let request = new Object();
             const search = window.location.search.substr(1).split("&")
             for (var i = 0; i < search.length; i++) {
                 request[search[i].split("=")[0]] = this.decode(search[i].split("=")[1]);
             }
+            config.newAPI = request["url"]
+            console.log(config)
             sessionStorage.setItem('ConsortiumInfo', JSON.stringify(request));
         }
         return (

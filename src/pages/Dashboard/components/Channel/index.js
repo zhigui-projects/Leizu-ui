@@ -53,7 +53,8 @@ class Channel extends Component{
     ]
     
     getData = ()=>{
-        request().get(channel,{
+        const newApi = sessionStorage.getItem('ConsortiumInfo') ? JSON.parse(sessionStorage.getItem('ConsortiumInfo'))["url"]+"/api/v1":""
+        request().get(`${newApi}${channel}`,{
             cancelToken: new CancelToken(function executor(c) {
                 // An executor function receives a cancel function as a parameter
                 cancel = c;

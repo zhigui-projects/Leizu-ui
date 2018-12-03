@@ -38,7 +38,8 @@ class ChannelOrg extends Component {
         }
     ]
     getData = (id)=>{
-        request().get(organize.organization,{
+        const newApi = sessionStorage.getItem('ConsortiumInfo') ? JSON.parse(sessionStorage.getItem('ConsortiumInfo'))["url"]+"/api/v1":""
+        request().get(`${newApi}${organize.organization}`,{
             params: {
                 channelId: id
             }
