@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Button, Input, Form, Icon, Select, message } from 'antd';
+import intl from 'react-intl-universal'
 import request from '../../../../../../../Utils/Axios';
 import axios from 'axios';
 import apiconfig from '../../../../../../../Utils/apiconfig';
@@ -92,10 +93,10 @@ class CreateOrganization extends Component {
                     if (res) {
                         switch (res.status) {
                             case 200:
-                                message.success('节点创建成功');
+                                message.success(intl.get("Create_Node_Successfully"));
                                 break;
                             case 400:
-                                message.warning('你已经创建了节点');
+                                message.warning(intl.get("Have_Already_Created_Node"));
                                 break;
                             case 401:
                                 Cookies.remove('token');
@@ -131,12 +132,12 @@ class CreateOrganization extends Component {
             <div className="create-sonpeer">
                 <div className="create-wrapper">
                     <div className="organization-wrapper">
-                        <div className="wrapper-input" id="wrapper-input"><span className="organization-name">组织名称</span><span className="org-name">{this.state.orgName}</span></div>
-                        <p className="wrapper-peer"><span className="organization-name">节点组织类型</span><span className="peer">peer</span></p>
+                        <div className="wrapper-input" id="wrapper-input"><span className="organization-name">{intl.get("Org_Name_Long")}</span><span className="org-name">{this.state.orgName}</span></div>
+                        <p className="wrapper-peer"><span className="organization-name">{intl.get("New_Node_Node_Type")}</span><span className="peer">peer</span></p>
                         <div className="chaincode-mark">
-                            <span className="mark">链码标识</span>
+                            <span className="mark">{intl.get("Add_Node")}</span>
                             <div className="form-wrapper">
-                                <div className="title"><span>Peer节点</span><span>节点IP</span><span>SSH用户名</span><span>SSH密码</span><span>检测结果</span></div>
+                                <div className="title"><span>{intl.get("Peer_Node")}</span><span>{intl.get("Node_Ip")}</span><span>{intl.get("SSH_Account")}</span><span>{intl.get("SSH_Password")}</span><span>{intl.get("Test_Result")}</span></div>
 
                                 {
                                     this.state.formArr.length > 0 && this.state.formArr.map((item, index) => {
@@ -147,7 +148,7 @@ class CreateOrganization extends Component {
                                                         rules: [{
                                                             required: true,
                                                             pattern: /^[\w\?%&=\-+_]+$/,
-                                                            message: '数字、字母或字符组合',
+                                                            message: intl.get("Number_Letter_Char"),
                                                         }, {
                                                             validator: this.handleAddress
                                                         }],
@@ -162,7 +163,7 @@ class CreateOrganization extends Component {
                                                         rules: [{
                                                             required: true,
                                                             pattern: /^(([0-9]|([1-9]\d)|(1\d\d)|(2([0-4]\d|5[0-5]))))$/,
-                                                            message: '格式错误',
+                                                            message: intl.get("Wrong_Format"),
                                                         }, {
                                                             validator: this.handleAddress
                                                         }],
@@ -178,7 +179,7 @@ class CreateOrganization extends Component {
                                                         rules: [{
                                                             required: true,
                                                             pattern: /^(([0-9]|([1-9]\d)|(1\d\d)|(2([0-4]\d|5[0-5]))))$/,
-                                                            message: '格式错误',
+                                                            message: intl.get("Wrong_Format"),
                                                         }, {
                                                             validator: this.handleAddress
                                                         }],
@@ -194,7 +195,7 @@ class CreateOrganization extends Component {
                                                         rules: [{
                                                             required: true,
                                                             pattern: /^(([0-9]|([1-9]\d)|(1\d\d)|(2([0-4]\d|5[0-5]))))$/,
-                                                            message: '格式错误',
+                                                            message: intl.get("Wrong_Format"),
                                                         }, {
                                                             validator: this.handleAddress
                                                         }],
@@ -210,7 +211,7 @@ class CreateOrganization extends Component {
                                                         rules: [{
                                                             required: true,
                                                             pattern: /^(([0-9]|([1-9]\d)|(1\d\d)|(2([0-4]\d|5[0-5]))))$/,
-                                                            message: '格式错误',
+                                                            message: intl.get("Wrong_Format"),
                                                         }, {
                                                             validator: this.handleAddress
                                                         }],
@@ -225,7 +226,7 @@ class CreateOrganization extends Component {
                                                         rules: [{
                                                             required: true,
                                                             pattern: /^[\w\?%&=\-+_]+$/,
-                                                            message: '数字、字母或字符组合',
+                                                            message: intl.get("Number_Letter_Char"),
                                                         }, {
                                                             validator: this.handleAddress
                                                         }],
@@ -238,7 +239,7 @@ class CreateOrganization extends Component {
                                                         rules: [{
                                                             required: true,
                                                             pattern: /^[\w\?%&=\-+_]+$/,
-                                                            message: '数字、字母或字符组合',
+                                                            message: intl.get("Number_Letter_Char"),
                                                         }, {
                                                             validator: this.handleAddress
                                                         }],
@@ -247,7 +248,7 @@ class CreateOrganization extends Component {
                                                     )}
                                                 </FormItem>
                                                 <FormItem>
-                                                    <span className="peer-check">节点检测</span>
+                                                    <span className="peer-check">{intl.get("Node_Detection")}</span>
                                                 </FormItem>
                                                 <Icon style={{ display: index == 0 ? 'none' : '' }} className="close" onClick={this.deletePeer.bind(this, index)} type="close" />
                                             </Form>
@@ -256,12 +257,12 @@ class CreateOrganization extends Component {
                                 }
                                 <p className="icon-plus" onClick={this.addPeer}><Icon className="icon" type="plus-square" />添加peer节点<span>最多添加5个节点</span></p>
                             </div>
-                            <p className="peer-desc"><span>节点由用户提供外网节点，需要在节点上安装docker并支持Https调用</span></p>
+                            <p className="peer-desc"><span>{intl.get("Node_Docker_Https")}</span></p>
                         </div>
                     </div>
                     <div className="confirm-wrapper">
-                        <Button onClick={this.handleSubmit} className="confirm-btn">确认</Button>
-                        <Button onClick={this.handleBack} className="cancel-btn">取消</Button>
+                        <Button onClick={this.handleSubmit} className="confirm-btn">{intl.get("Confirm")}</Button>
+                        <Button onClick={this.handleBack} className="cancel-btn">{intl.get("Cancel")}</Button>
                     </div>
                 </div>
             </div>

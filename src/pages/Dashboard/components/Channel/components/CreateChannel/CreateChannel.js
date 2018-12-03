@@ -74,7 +74,7 @@ class CreateChannelContent extends Component {
                                                 this.props.history.push('/login')
                                                 break;
                                             default: 
-                                                message.error("创建失败")
+                                                message.error(intl.get("Create_Failed"))
                                         }
                                     }
                                 })
@@ -88,7 +88,7 @@ class CreateChannelContent extends Component {
                             //     message.info('名字已占用，请重试')
                             //     break;
                             default: 
-                                message.error("创建失败")
+                                message.error(intl.get("Create_Failed"))
                                 this.setState({
                                     loading: false
                                 })
@@ -155,7 +155,7 @@ class CreateChannelContent extends Component {
                             wrapperCol={{ span: 4 }}
                         >
                             {getFieldDecorator('name', {
-                                rules: [{ required: true, message: '请输入名称!' }],
+                                rules: [{ required: true, message: intl.get("Please_Input_Name") }],
                             })(
                                 <Input />
                             )}
@@ -166,7 +166,7 @@ class CreateChannelContent extends Component {
                             wrapperCol={{ span: 8 }}
                         >
                             {getFieldDecorator('id', {
-                                rules: [{ required: true, message: '请选择组织!' }],
+                                rules: [{ required: true, message: intl.get("Please_Select_Org") }],
                             })(
                                 <Select
                                     placeholder="Select a option and change input text above"

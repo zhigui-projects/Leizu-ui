@@ -38,7 +38,7 @@ class CreateOrganization extends Component {
                 if (res) {
                     switch (res.status) {
                         case 200:
-                            this.setState({ checkResult: '节点检测通过', paas: true });
+                            this.setState({ checkResult: intl.get("Node_Detection_Passed"), paas: true });
                             if (!orgName) {
                                 this.setState({ display: true });
                             }
@@ -63,11 +63,11 @@ class CreateOrganization extends Component {
                                                 this.setState({ loading: false });
                                                 switch (res.status) {
                                                     case 200:
-                                                        message.success('组织创建成功');
+                                                        message.success(intl.get("Org_Created_Successfully"));
                                                         this.setState({ loading: false })
                                                         break;
                                                     case 400:
-                                                        message.error('创建失败');
+                                                        message.error(intl.get("Create_Failed"));
                                                         this.setState({ loading: false })
                                                         break;
                                                     case 401:
@@ -100,7 +100,7 @@ class CreateOrganization extends Component {
                             }
                             break;
                         case 400:
-                            this.setState({ checkResult: '检测未通过请重新填写', loading: false, paas: false });
+                            this.setState({ checkResult: intl.get("Not_Pass_Input_Again"), loading: false, paas: false });
                             break;
                         case 401:
                             Cookies.remove('token');
@@ -141,7 +141,7 @@ class CreateOrganization extends Component {
                                         {getFieldDecorator('capeer', {
                                             rules: [{
                                                 required: true,
-                                                message: '请填写节点名称',
+                                                message: intl.get("Please_Input_Node_Name"),
                                             }, {
                                                 validator: this.handlePeer
                                             }],
@@ -154,7 +154,7 @@ class CreateOrganization extends Component {
                                             rules: [{
                                                 required: true,
                                                 pattern: /^(([0-9]|([1-9]\d)|(1\d\d)|(2([0-4]\d|5[0-5]))))$/,
-                                                message: '格式错误',
+                                                message: intl.get("Wrong_Format"),
                                             }, {
                                                 validator: this.handleAddress
                                             }],
@@ -170,7 +170,7 @@ class CreateOrganization extends Component {
                                             rules: [{
                                                 required: true,
                                                 pattern: /^(([0-9]|([1-9]\d)|(1\d\d)|(2([0-4]\d|5[0-5]))))$/,
-                                                message: '格式错误',
+                                                message: intl.get("Wrong_Format"),
                                             }, {
                                                 validator: this.handleAddress
                                             }],
@@ -186,7 +186,7 @@ class CreateOrganization extends Component {
                                             rules: [{
                                                 required: true,
                                                 pattern: /^(([0-9]|([1-9]\d)|(1\d\d)|(2([0-4]\d|5[0-5]))))$/,
-                                                message: '格式错误',
+                                                message: intl.get("Wrong_Format"),
                                             }, {
                                                 validator: this.handleAddress
                                             }],
@@ -202,7 +202,7 @@ class CreateOrganization extends Component {
                                             rules: [{
                                                 required: true,
                                                 pattern: /^(([0-9]|([1-9]\d)|(1\d\d)|(2([0-4]\d|5[0-5]))))$/,
-                                                message: '格式错误',
+                                                message: intl.get("Wrong_Format"),
                                             }, {
                                                 validator: this.handleAddress
                                             }],
@@ -216,7 +216,7 @@ class CreateOrganization extends Component {
                                         {getFieldDecorator('sshuser', {
                                             rules: [{
                                                 required: true,
-                                                message: '请填写用户名',
+                                                message: intl.get("Please_Input_Username"),
                                             }, {
                                                 validator: this.handleAddress
                                             }],
@@ -228,7 +228,7 @@ class CreateOrganization extends Component {
                                         {getFieldDecorator('sshpassword', {
                                             rules: [{
                                                 required: true,
-                                                message: '请填写密码',
+                                                message: intl.get("Please_Input_Password"),
                                             }, {
                                                 validator: this.handleAddress
                                             }],
@@ -237,7 +237,7 @@ class CreateOrganization extends Component {
                                         )}
                                     </FormItem>
                                     <FormItem
-                                        label='检测结果'
+                                        label={intl.get("Test_Result")}
                                     >
                                         <span className={this.state.paas ? 'paas-check' : 'fail-check'}>{this.state.checkResult}</span>
                                     </FormItem>

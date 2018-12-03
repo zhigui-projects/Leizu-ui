@@ -5,6 +5,7 @@ import moment from "moment"
 import { Icon,Breadcrumb, Modal,Form,Input,message, Popover,Card, Avatar,List,Spin } from 'antd';
 import Cookies from 'js-cookie'
 import { NavLink } from 'react-router-dom';
+import intl from 'react-intl-universal'
 import config from "../../Utils/apiconfig";
 import request from '../../Utils/Axios'
 const { Meta } = Card;
@@ -50,7 +51,7 @@ class Project extends Component {
                             pathname:"/login"
                         })
                         break;
-                    default:message.error("链列表查询失败")
+                    default: message.error(intl.get("Chain_List_Query_Failed"))
                 }
             }
         })
@@ -95,7 +96,7 @@ class Project extends Component {
         if(getFieldValue('newPassword')){
             if (value && value !== getFieldValue('newPassword')) {
                 this.setState({
-                    passConfirmTip:"两次输入密码必须一致"
+                    passConfirmTip:intl.get("Password_Must_Match")
                 })
             }else{
                 this.setState({
@@ -158,7 +159,7 @@ class Project extends Component {
                 passTip:""
             })
         }else if(pwd.length <6){
-            callback("密码不能小于6位")
+            callback(intl.get("Password_Cannot_Be_Less_Than_6"))
             _this.setState({
                 passTip:""
             })
@@ -177,7 +178,7 @@ class Project extends Component {
                     Lcolor=L_color;
                     Mcolor=Hcolor=Dfault_color;
                     _this.setState({
-                        passTip:"密码强度：弱 请尝试添加符号（！＃@）和字母（AZ）"
+                        passTip: intl.get("Password_Weak")
                     })
                     break;
                 case 2:
@@ -185,7 +186,7 @@ class Project extends Component {
                     Mcolor=M_color;
                     Hcolor=Dfault_color;
                     _this.setState({
-                        passTip:"密码强度：中  请尝试添加符号（！＃@）和字母（AZ）"
+                        passTip: intl.get("Password_Medium")
                     })
                     break;
                 default:
@@ -193,7 +194,7 @@ class Project extends Component {
                     Mcolor=M_color
                     Hcolor=H_color;
                     _this.setState({
-                        passTip:"密码强度：强"
+                        passTip: intl.get("Password_Strong")
                     })
             }
             callback()
@@ -202,7 +203,7 @@ class Project extends Component {
             if(getFieldValue('confirmPassword')){
                 if (pwd && pwd !== getFieldValue('confirmPassword')) {
                     this.setState({
-                        passConfirmTip:"两次输入密码必须一致"
+                        passConfirmTip: intl.get("Password_Must_Match")
                     })
                 }else{
                     this.setState({
@@ -226,7 +227,7 @@ class Project extends Component {
             if(!err){
                 if(getFieldValue('newPassword') !== getFieldValue('confirmPassword')) {
                     this.setState({
-                        passConfirmTip: "两次输入密码必须一致"
+                        passConfirmTip: intl.get("Password_Must_Match")
                     })
                 }else{
                     request().post(user.resetPassword,{
@@ -243,7 +244,7 @@ class Project extends Component {
                                         passConfirmTip:"",
                                         passTip:"",
                                     })
-                                    message.success("密码修改成功,请重新登录",1)
+                                    message.success(intl.get("Password_Modify_Successfully"), 1)
                                     setTimeout(()=>{
                                         _this.okloginOut()
                                     },1000)
@@ -251,7 +252,7 @@ class Project extends Component {
                                 case 401:
                                     let code = response.data.code
                                     if(code){
-                                        code === 10002 ? message.error("重置密码失败，旧密码输入不正确") : ""
+                                        code === 10002 ? message.error(intl.get("Password_Reset_Failed")) : ""
                                     }else{
                                         Cookies.remove('token');
                                         Cookies.remove('userNameInfo');
@@ -263,7 +264,7 @@ class Project extends Component {
                                     }
                                     break;
                                 case 500:
-                                    message.error("网络出错")
+                                    message.error(intl.get("Network_Error"))
                                     _this.setState({
                                         resetPasswordVisible:false,
                                         passConfirmTip:"",
@@ -272,7 +273,7 @@ class Project extends Component {
                                     })
                                     break;
                                 default:
-                                    message.error("密码修改失败")
+                                    message.error(intl.get("Password_Modify_Failed"))
                                     _this.setState({
                                         resetPasswordVisible:false,
                                         passConfirmTip:"",
@@ -328,9 +329,9 @@ class Project extends Component {
         })
         confirm({
             getContainer:()=>document.getElementById("dom"),
-            title: "确认退出登录吗",
-            okText: "确认退出",
-            cancelText: "我再想想",
+            title: intl.get("Logout_Title"),
+            okText: intl.get("Logout_Confirm"),
+            cancelText: intl.get("Logout_Cancel"),
             className: "creatModalConfirm",
             width: '380px',
             onOk() {
@@ -363,11 +364,11 @@ class Project extends Component {
         const formItemLayout = {
             labelCol: {
                 xs: { span: 2},
-                sm: { span: 4,offset:1 },
-                md: { span: 4,offset:2 },
-                lg: { span: 4,offset:1 },
-                xl: { span: 4,offset:1 },
-                xxl: {span: 4,offset:1}
+                sm: { span: 6,offset:1 },
+                md: { span: 6,offset:1 },
+                lg: { span: 6,offset:1 },
+                xl: { span: 6,offset:1 },
+                xxl: {span: 6,offset:1}
             },
             wrapperCol: {
                 xs: { span: 22 },
@@ -402,7 +403,7 @@ class Project extends Component {
                     </div>
                 </header>
                 <Breadcrumb style={{padding:"0 24px",background:'#ffffff',height:"48px",lineHeight:"48px"}} >
-                    <Breadcrumb.Item>我的联盟</Breadcrumb.Item>
+                    <Breadcrumb.Item>{intl.get("My_League")}</Breadcrumb.Item>
                 </Breadcrumb>
 
                 <div className="servicePart">
@@ -416,14 +417,14 @@ class Project extends Component {
                                 <Card
                                     className="chainliatItem"
                                     style={{marginBottom:"24px",height:"165px"}}
-                                    actions={[<span onClick={()=>{this.enterDashboard(item)}}>管理联盟<Icon type="right" theme="outlined" /></span>]}
+                                    actions={[<span onClick={()=>{this.enterDashboard(item)}}>{intl.get("League_Manangement")}<Icon type="right" theme="outlined" /></span>]}
                                 >
                                     <Meta
                                         avatar={<Avatar src={require("../../images/invalid-name.svg")} />}
                                         title={item.name}
                                         description={<div>
-                                            <p><code>类型:</code><span>{item.type}</span></p>
-                                            <p><code>时间:</code><span>{moment(item.date).format('YYYY-MM-DD HH:mm:ss')}</span></p>
+                                            <p><code>{intl.get("Type")}:</code><span>{item.type}</span></p>
+                                            <p><code>{intl.get("Time")}:</code><span>{moment(item.date).format('YYYY-MM-DD HH:mm:ss')}</span></p>
                                         </div>}
                                     />
                                 </Card>
@@ -435,37 +436,37 @@ class Project extends Component {
                     this.state.resetPasswordVisible ? <Modal
                         centered={true}
                         getContainer={()=>document.getElementById("dom")}
-                        title={<h1 className="delectContractTit">修改密码</h1>}
+                        title={<h1 className="delectContractTit">{intl.get("Change_Password")}</h1>}
                         visible={this.state.resetPasswordVisible}
                         onOk={this.okResetPassword}
                         onCancel={this.CancelResetPassword}
-                        okText="确认"
-                        cancelText="取消"
+                        okText={intl.get("Confirm")}
+                        cancelText={intl.get("Cancel")}
                         bodyStyle={{textAlign:'center',fontSize:'16px',color:"#354052"}}
-                        width='521px'
+                        width='720px'
                     >
                         <Form
                             className="resetPassModalForm"
                             onSubmit={this.okResetPassword}
                             hideRequiredMark={true}
                         >
-                            <FormItem label="旧密码" {...formItemLayout} style={{marginBottom:"0px"}} className="resetPassFormItem">
+                            <FormItem label={intl.get("Old_Password")} {...formItemLayout} style={{marginBottom:"0px"}} className="resetPassFormItem">
                                 {getFieldDecorator('password', {
                                     rules: [
                                         {
                                             required: true,
-                                            message:"请输入旧密码",
+                                            message: intl.get("Please_Input_Old_Password"),
 
                                         },
                                         {
                                             validator: this.inputPassword,
                                         }
                                     ],
-                                })(<Input type="password" placeholder="请输入旧密码" size="large"/>)}
+                                })(<Input type="password" placeholder={intl.get("Please_Input_Old_Password")} size="large"/>)}
                             </FormItem>
                             <code style={{top:"0px"}}>{this.state.passErrorTip}</code>
                             <FormItem
-                                label="新密码"
+                                label={intl.get("New_Password")}
                                 {...formItemLayout}
                                 className="resetPassFormItem"
                                 style={{marginBottom:"20px"}}
@@ -473,13 +474,13 @@ class Project extends Component {
                                 {getFieldDecorator('newPassword', {
                                     rules: [
                                         {
-                                            required: true, message:"请输入新密码",
+                                            required: true, message:intl.get("Please_Input_New_Password"),
                                         },
                                         {
                                             validator: this.pwStrength,
                                         }],
                                 })(
-                                    <Input type="password" placeholder="请输入新密码" size="large"/>
+                                    <Input type="password" placeholder={intl.get("Please_Input_New_Password")} size="large"/>
                                 )}
                                 <div className="passCaptchaBox" style={{display:this.state.passVisible}}>
                                     <span style={{flex:"1"}} id="strength_L"> </span>
@@ -490,18 +491,18 @@ class Project extends Component {
                             </FormItem>
                             <FormItem
                                 {...formItemLayout}
-                                label="重复密码"
+                                label={intl.get("Confirm_New_Password")}
                                 className="resetPassFormItem"
                                 style={{marginBottom:"0px"}}
                             >
                                 {getFieldDecorator('confirmPassword', {
                                     rules: [{
-                                        required: true, message: "请输入新密码",
+                                        required: true, message: intl.get("Please_Input_New_Password"),
                                     }, {
                                         validator: this.validateConfirmPassword,
                                     }],
                                 })(
-                                    <Input type="password" placeholder="请确认新密码" size="large"/>
+                                    <Input type="password" placeholder={intl.get("Confirm_New_Password")} size="large"/>
                                 )}
                             </FormItem>
                             <code style={{top:"-9px"}}>{this.state.passConfirmTip}</code>

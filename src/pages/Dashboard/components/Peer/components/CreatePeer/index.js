@@ -90,10 +90,10 @@ class CreateOrganization extends Component {
                     if (res) {
                         switch (res.status) {
                             case 200:
-                                message.success('创建节点成功');
+                                message.success(intl.get("Create_Node_Successfully"));
                                 break;
                             case 400:
-                                message.warning('你已经创建了节点')
+                                message.warning(intl.get("Have_Already_Created_Node"))
                                 break;
                             case 401:
                                 Cookies.remove('token');
@@ -177,7 +177,7 @@ class CreateOrganization extends Component {
                                                         rules: [{
                                                             required: true,
                                                             pattern: /^[\w?%&=\-+_]+$/,
-                                                            message: '数字、字母或字符组合',
+                                                            message: intl.get("Number_Letter_Char"),
                                                         }],
                                                     })(
                                                         <Input onChange={(value) => {
@@ -190,7 +190,7 @@ class CreateOrganization extends Component {
                                                         rules: [{
                                                             required: true,
                                                             pattern: /^(([0-9]|([1-9]\d)|(1\d\d)|(2([0-4]\d|5[0-5]))))$/,
-                                                            message: '格式错误',
+                                                            message: intl.get("Wrong_Format"),
                                                         }],
                                                     })(
                                                         <div>
@@ -204,7 +204,7 @@ class CreateOrganization extends Component {
                                                         rules: [{
                                                             required: true,
                                                             pattern: /^(([0-9]|([1-9]\d)|(1\d\d)|(2([0-4]\d|5[0-5]))))$/,
-                                                            message: '格式错误',
+                                                            message: intl.get("Wrong_Format"),
                                                         }],
                                                     })(
                                                         <div>
@@ -218,7 +218,7 @@ class CreateOrganization extends Component {
                                                         rules: [{
                                                             required: true,
                                                             pattern: /^(([0-9]|([1-9]\d)|(1\d\d)|(2([0-4]\d|5[0-5]))))$/,
-                                                            message: '格式错误',
+                                                            message: intl.get("Wrong_Format"),
                                                         }],
                                                     })(
                                                         <div>
@@ -232,7 +232,7 @@ class CreateOrganization extends Component {
                                                         rules: [{
                                                             required: true,
                                                             pattern: /^(([0-9]|([1-9]\d)|(1\d\d)|(2([0-4]\d|5[0-5]))))$/,
-                                                            message: '格式错误',
+                                                            message: intl.get("Wrong_Format"),
                                                         }],
                                                     })(
                                                         <div>
@@ -245,7 +245,7 @@ class CreateOrganization extends Component {
                                                         rules: [{
                                                             required: true,
                                                             pattern: /^[\w?%&=\-+_]+$/,
-                                                            message: '数字、字母或字符组合',
+                                                            message: intl.get("Number_Letter_Char"),
                                                         }],
                                                     })(
                                                         <Input />
@@ -256,7 +256,7 @@ class CreateOrganization extends Component {
                                                         rules: [{
                                                             required: true,
                                                             pattern: /^[\w?%&=\-+_]+$/,
-                                                            message: '数字、字母或字符组合',
+                                                            message: intl.get("Number_Letter_Char"),
                                                         }],
                                                     })(
                                                         <Input />
