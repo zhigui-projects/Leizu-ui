@@ -1,4 +1,4 @@
-const API = 'http://39.106.198.16:8080/api/v1';
+const API = 'http://47.100.177.133:8080/api/v1';
 // 192.168.2.38:8080
 const elasticSearchUrl = "http://47.106.121.33/query"
 const format = require('string-format');
