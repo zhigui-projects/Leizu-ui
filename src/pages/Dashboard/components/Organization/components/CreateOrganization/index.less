@@ -7,14 +7,24 @@
         height: 100%;
         background: #ffffff;
         .organization-wrapper {
-            overflow: hidden;
-            min-height: 476px;
+            overflow: hidden; // min-height: 476px;
             background: #ffffff;
             .confirm-wrapper {
-                height: 70px;
-                background: #ffffff;
+                height: 80px;
                 line-height: 70px;
                 margin-top: 100px;
+                position: absolute;
+                bottom: -24px;
+                width: 100%;
+                overflow: hidden;
+                background: #f0f2f5;
+                margin-bottom: 0;
+                .ant-form-item-control{
+                    margin-top:20px;
+                    padding-bottom:30px;
+                    padding-top:10px;
+                    background:#ffffff;
+                }
                 .confirm-btn {
                     width: 96px;
                     height: 31px;
@@ -37,26 +47,26 @@
                 }
             }
             .organization-name {
-                display:inline-block;
-                width:120px;
+                display: inline-block;
+                width: 120px;
                 font-size: 14px;
                 color: #888888;
                 margin-left: 40px;
             }
             .wrapper-input {
-                position:relative;
+                position: relative;
                 margin-top: 40px;
                 .organization-input {
                     width: 186px;
                     height: 32px;
                     margin-left: 18px;
                 }
-                .tip{
-                    position:absolute;
-                    top:35px;
-                    color:#f5222d;
-                    left:175px;
-                    font-size:12px;
+                .tip {
+                    position: absolute;
+                    top: 35px;
+                    color: #f5222d;
+                    left: 175px;
+                    font-size: 12px;
                 }
             }
             .wrapper-peer {
@@ -76,25 +86,25 @@
                 }
                 .form-wrapper {
                     margin-left: 176px;
-                    min-width:890px;
+                    min-width: 890px;
                     margin-right: 99px;
                     position: relative;
                     background: #f0f5f5;
                     padding-bottom: 20px;
                     margin-top: -15px;
-                    .ant-form-explain{
-                        font-size:12px;
+                    .ant-form-explain {
+                        font-size: 12px;
                     }
                     .form-user {
                         .dot {
                             display: inline-block;
                             margin-top: 59px;
                         }
-                        .paas-check{
-                            color:#49b116;
+                        .paas-check {
+                            color: #49b116;
                         }
-                        .fail-check{
-                            color:#fa4747;
+                        .fail-check {
+                            color: #fa4747;
                         }
                         .ant-form-item-label {
                             text-align: left;
@@ -166,7 +176,8 @@
         }
     }
 }
-@media screen and (max-width:1280px){
+
+@media screen and (max-width:1280px) {
     .create-organization {
         position: absolute;
         width: 100%;
@@ -176,14 +187,24 @@
             height: 100%;
             background: #ffffff;
             .organization-wrapper {
-                overflow: hidden;
-                min-height: 476px;
+                overflow: hidden; // min-height: 476px;
                 background: #ffffff;
                 .confirm-wrapper {
-                    height: 70px;
-                    background: #ffffff;
+                    height: 80px;
                     line-height: 70px;
                     margin-top: 100px;
+                    margin-bottom: 0;
+                    position: absolute;
+                    bottom: -24px;
+                    width: 100%;
+                    overflow: hidden;
+                    background: #f0f2f5;
+                    .ant-form-item-control{
+                        margin-top:20px;
+                        padding-bottom:30px;
+                        padding-top:10px;
+                        background:#ffffff;
+                    }
                     .confirm-btn {
                         width: 96px;
                         height: 31px;
@@ -206,8 +227,8 @@
                     }
                 }
                 .organization-name {
-                    display:inline-block;
-                    width:120px;
+                    display: inline-block;
+                    width: 120px;
                     font-size: 14px;
                     color: #888888;
                     margin-left: 40px;
@@ -231,8 +252,8 @@
                 .chaincode-mark {
                     margin-top: 28px;
                     .mark {
-                        display:inline-block;
-                        width:120px;
+                        display: inline-block;
+                        width: 120px;
                         margin-left: 40px;
                         font-size: 14px;
                         color: #888888;
@@ -241,12 +262,12 @@
                         margin-left: 176px;
                         margin-right: 99px;
                         position: relative;
-                        min-width:750px;
+                        min-width: 750px;
                         background: #f0f5f5;
                         padding-bottom: 20px;
                         margin-top: -15px;
-                        .ant-form-explain{
-                            font-size:12px;
+                        .ant-form-explain {
+                            font-size: 12px;
                         }
                         .form-user {
                             .dot {
@@ -264,7 +285,7 @@
                             .ant-form-item {
                                 display: inline-block;
                                 margin: 10px;
-                                margin-bottom:0;
+                                margin-bottom: 0;
                                 .ant-form-item-required:before {
                                     content: '';
                                 }
@@ -277,6 +298,7 @@
                                 margin-top: 49px;
                                 &:nth-child(2) {
                                     margin-left: 10px;
+                                    margin-right: -17px;
                                 }
                                 &:nth-child(8) {
                                     margin-right: 10px;

@@ -145,7 +145,7 @@ class CreateOrganization extends Component {
                                 <Select
                                     showSearch
                                     getPopupContainer={() => this.refs.selectBox}
-                                    style={{ width: 192, height: 32, marginLeft: 60 }}
+                                    style={{ width: 192, height: 32, marginLeft: 18 }}
                                     placeholder={intl.get("Please_Select_Org")}
                                     optionFilterProp="children"
                                     onSelect={(value) => this.setState({
@@ -176,7 +176,6 @@ class CreateOrganization extends Component {
                                                     {getFieldDecorator(item.id1, {
                                                         rules: [{
                                                             required: true,
-                                                            pattern: /^[\w?%&=\-+_]+$/,
                                                             message: intl.get("Number_Letter_Char"),
                                                         }],
                                                     })(
@@ -244,7 +243,6 @@ class CreateOrganization extends Component {
                                                     {getFieldDecorator(item.id3, {
                                                         rules: [{
                                                             required: true,
-                                                            pattern: /^[\w?%&=\-+_]+$/,
                                                             message: intl.get("Number_Letter_Char"),
                                                         }],
                                                     })(
@@ -255,7 +253,6 @@ class CreateOrganization extends Component {
                                                     {getFieldDecorator(item.id4, {
                                                         rules: [{
                                                             required: true,
-                                                            pattern: /^[\w?%&=\-+_]+$/,
                                                             message: intl.get("Number_Letter_Char"),
                                                         }],
                                                     })(
@@ -267,14 +264,16 @@ class CreateOrganization extends Component {
                                         )
                                     })
                                 }
-                                <p className="icon-plus" onClick={this.addPeer}><Icon className="icon" type="plus-square" />{intl.get("Add_Peer_Node")}<span>{intl.get("Add_Up_To_5_More")}</span></p>
+                                <p className="icon-plus" onClick={this.addPeer} ><Icon className="icon"  type="plus-square" /><span>{intl.get("Add_Peer_Node")}</span>{intl.get("Add_Up_To_5_More")}</p>
                             </div>
-                            <p className="peer-desc"><span>{intl.get("New_Node_Tip_Text")}</span></p>
+                            <p className="peer-desc">{intl.get("New_Node_Tip_Text")}</p>
                         </div>
                     </div>
                     <div className="confirm-wrapper">
-                        <Button onClick={this.handleSubmit} className="confirm-btn">{intl.get("Confirm")}</Button>
-                        <Button onClick={this.handleBack} className="cancel-btn">{intl.get("Cancel")}</Button>
+                        <FormItem>
+                            <Button onClick={this.handleSubmit} className="confirm-btn">{intl.get("Confirm")}</Button>
+                            <Button onClick={this.handleBack} className="cancel-btn">{intl.get("Cancel")}</Button>
+                        </FormItem>
                     </div>
                 </div>
             </div>
