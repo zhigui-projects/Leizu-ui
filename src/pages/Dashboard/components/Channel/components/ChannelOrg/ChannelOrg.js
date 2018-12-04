@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Table, Pagination, Spin } from 'antd'
+import intl from 'react-intl-universal'
 import request from '../../../../../../Utils/Axios'
 import axios from 'axios'
 import Cookies from 'js-cookie'
@@ -21,7 +22,7 @@ class ChannelOrg extends Component {
     }
     columns = [
         {
-            title: '组织名',
+            title: intl.get("Org_Name"),
             dataIndex: 'name',
             key: 'name',
         }, 
@@ -32,7 +33,7 @@ class ChannelOrg extends Component {
             //     render: arr => arr.length
             // }, 
         {
-            title: '节点数量',
+            title: intl.get("Node_Count"),
             dataIndex: 'peer_count',
             key: 'peer_count',
         }

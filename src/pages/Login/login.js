@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom'
 import './login.less';
 import { Form, Input , Button,message } from 'antd';
+import intl from 'react-intl-universal'
 import request from '../../Utils/Axios'
 import config from "../../Utils/apiconfig";
 import Cookies from 'js-cookie'
@@ -66,7 +67,7 @@ class Login extends Component {
                             case 401:
                                 let code = response.data.code
                                 if(code){
-                                    code === 10001 ? _this.setState({emailTip:"用户名不存在"}) : ( code === 10002 ? _this.setState({passwordTip:"密码不正确"}) : "")
+                                    code === 10001 ? _this.setState({emailTip:intl.get("Username_Not_Exist")}) : ( code === 10002 ? _this.setState({passwordTip:intl.get("Password_Not_Correct")}) : "")
                                 }else{
                                     Cookies.remove('token');
                                     Cookies.remove('userNameInfo');
@@ -78,10 +79,10 @@ class Login extends Component {
                                 }
                                 break;
                             case 500:
-                                message.error("网络错误，请重试");
+                                message.error(intl.get("Network_Error_Try_Again"));
                                 break;
                             default:
-                                message.error("登录失败");
+                                message.error(intl.get("Login_Failed"));
                         }
                     }
                 })
@@ -133,14 +134,14 @@ class Login extends Component {
                 <div className="opreateImg">
                     <div className="opreateLogo"><img src={require('../../images/logo.svg')} alt=""/></div>
                     <div className="opreateLetter">
-                        <h2>欢迎</h2>
-                        <p>帮助开发者快速构建区块链基础设施，提供区块链应用开发、部署、测试和监控的整套解决方案。</p>
+                        <h2>{intl.get("Welcome")}</h2>
+                        <p>{intl.get("Welcome_Desc")}</p>
                     </div>
                     <img className="userOpreateImg" src={require('../../images/userOpreate.svg')} alt=""/>
                 </div>
                 <div  className="opreateForm" >
                     <Form onSubmit={this.handleSubmit}>
-                        <h5>登录</h5>
+                        <h5>{intl.get("Login")}</h5>
                         <FormItem
                             {...formItemLayout}
                             style={{marginBottom:"8px"}}
@@ -148,12 +149,12 @@ class Login extends Component {
                         >
                             {getFieldDecorator('username', {
                                 rules: [{
-                                    required: true, message: "请输入用户名",
+                                    required: true, message: intl.get("Please_Input_Username"),
                                 },{
                                     validator: this.email_loginValidator,
                                 }],
                             })(
-                                <Input placeholder="用户名" size="large"/>
+                                <Input placeholder={intl.get("Username")} size="large"/>
                             )}
                         </FormItem>
                         <code style={{position:"relactive",top:'-10px'}}>{this.state.emailTip}</code>
@@ -164,12 +165,12 @@ class Login extends Component {
                         >
                             {getFieldDecorator('password', {
                                 rules: [{
-                                    required: true, message: "请输入密码",
+                                    required: true, message: intl.get("Please_Input_Password"),
                                 }, {
                                     validator: this.validateToNextPassword,
                                 }],
                             })(
-                                <Input placeholder="密码" type="password" size="large"/>
+                                <Input placeholder={intl.get("Password")} type="password" size="large"/>
                             )}
                         </FormItem>
                         <code>{this.state.passwordTip}</code>
@@ -177,12 +178,12 @@ class Login extends Component {
                             {...formItemLayout}
                         >
                             <Button loading={loginLoading} style={{height:"40px"}} type="primary" htmlType="submit" size="large">
-                                登录
+                                {intl.get("Login")}
                             </Button>
                         </FormItem>
                     </Form>
 
-                    <h4>Copyright © 2018  | 西安纸贵互联网科技有限公司 | 陕ICP备16011266号</h4>
+                    <h4>Copyright © 2018  | {intl.get("Company_Name")} | {intl.get("Bei_An")}</h4>
                 </div>
             </div>
         );

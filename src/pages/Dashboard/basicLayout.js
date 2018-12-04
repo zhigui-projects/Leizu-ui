@@ -131,7 +131,7 @@ class Dashboard extends Component {
         if(getFieldValue('newPassword')){
             if (value && value !== getFieldValue('newPassword')) {
                 this.setState({
-                    passConfirmTip:"两次输入密码必须一致"
+                    passConfirmTip: intl.get("Password_Must_Match")
                 })
             }else{
                 this.setState({
@@ -198,7 +198,7 @@ class Dashboard extends Component {
                 passTip:""
             })
         }else if(pwd.length <6){
-            callback("密码不能小于6位")
+            callback(intl.get("Password_Cannot_Be_Less_Than_6"))
             _this.setState({
                 passTip:""
             })
@@ -217,7 +217,7 @@ class Dashboard extends Component {
                     Lcolor=L_color;
                     Mcolor=Hcolor=Dfault_color;
                     _this.setState({
-                        passTip:"密码强度：弱 请尝试添加符号（！＃@）和字母（AZ）"
+                        passTip: intl.get("Password_Weak")
                     })
                     break;
                 case 2:
@@ -225,7 +225,7 @@ class Dashboard extends Component {
                     Mcolor=M_color;
                     Hcolor=Dfault_color;
                     _this.setState({
-                        passTip:"密码强度：中  请尝试添加符号（！＃@）和字母（AZ）"
+                        passTip: intl.get("Password_Medium")
                     })
                     break;
                 default:
@@ -233,7 +233,7 @@ class Dashboard extends Component {
                     Mcolor=M_color
                     Hcolor=H_color;
                     _this.setState({
-                        passTip:"密码强度：强"
+                        passTip: intl.get("Password_Strong")
                     })
             }
             callback()
@@ -242,7 +242,7 @@ class Dashboard extends Component {
             if(getFieldValue('confirmPassword')){
                 if (pwd && pwd !== getFieldValue('confirmPassword')) {
                     this.setState({
-                        passConfirmTip:"两次输入密码必须一致"
+                        passConfirmTip: intl.get("Password_Must_Match")
                     })
                 }else{
                     this.setState({
@@ -335,9 +335,9 @@ class Dashboard extends Component {
         })
         confirm({
             getContainer:()=>document.getElementById("dom_dashboard"),
-            title: "确认退出登录吗",
-            okText: "确认退出",
-            cancelText: "我再想想",
+            title: intl.get("Logout_Title"),
+            okText: intl.get("Logout_Confirm"),
+            cancelText: intl.get("Logout_Cancel"),
             className: "creatModalConfirm",
             width: '380px',
             onOk() {
@@ -358,7 +358,7 @@ class Dashboard extends Component {
             if(!err){
                 if(getFieldValue('newPassword') !== getFieldValue('confirmPassword')) {
                     this.setState({
-                        passConfirmTip: "两次输入密码必须一致"
+                        passConfirmTip: intl.get("Password_Must_Match")
                     })
                 }else{
                     request().post(user.resetPassword,{
@@ -375,7 +375,7 @@ class Dashboard extends Component {
                                         passConfirmTip:"",
                                         passTip:"",
                                     })
-                                    message.success("密码修改成功,请重新登录",1)
+                                    message.success(intl.get("Password_Modify_Successfully"), 1)
                                     setTimeout(()=>{
                                         _this.okloginOut()
                                     },1000)
@@ -383,7 +383,7 @@ class Dashboard extends Component {
                                 case 401:
                                     let code = response.data.code
                                     if(code){
-                                        code === 10002 ? message.error("重置密码失败，旧密码输入不正确") : ""
+                                        code === 10002 ? message.error(intl.get("Password_Reset_Failed")) : ""
                                     }else{
                                         Cookies.remove('token');
                                         Cookies.remove('userNameInfo');
@@ -395,7 +395,7 @@ class Dashboard extends Component {
                                     }
                                     break;
                                 case 500:
-                                    message.error("网络出错")
+                                    message.error(intl.get("Network_Error"))
                                     _this.setState({
                                         resetPasswordVisible:false,
                                         passConfirmTip:"",
@@ -404,7 +404,7 @@ class Dashboard extends Component {
                                     })
                                     break;
                                 default:
-                                    message.error("密码修改失败")
+                                    message.error(intl.get("Password_Modify_Failed"))
                                     _this.setState({
                                         resetPasswordVisible:false,
                                         passConfirmTip:"",
@@ -424,8 +424,8 @@ class Dashboard extends Component {
     renderDropdown = () => {
         return  (
             <ul style={{minWidth: 60 }}>
-                <li key='dash' className='drop-item'><a onClick={this.resetPasswordVisibleFn}>修改密码</a></li>
-                <li key='loginout' className='drop-item'><a onClick={this.logoutTip}>注销</a></li>
+                <li key='dash' className='drop-item'><a onClick={this.resetPasswordVisibleFn}>{intl.get("Change_Password")}</a></li>
+                <li key='loginout' className='drop-item'><a onClick={this.logoutTip}>{intl.get("Logout")}</a></li>
             </ul>
         )
     }
@@ -488,8 +488,8 @@ class Dashboard extends Component {
             '/dashboard/chaincode_management':"链码管理",
             '/dashboard/log_management': intl.get("Log_Management"),
             '/dashboard/organization_management': intl.get("Orgnization_Management"),
-            '/dashboard/organization_management/peer':"节点信息",
-            '/dashboard/channel_management/org': "组织信息",
+            '/dashboard/organization_management/peer':intl.get("Node_Info"),
+            '/dashboard/channel_management/org': intl.get("Org_Info"),
             '/dashboard/channel_management/create_channel':intl.get("New_Channel"),
             '/dashboard/organization_management/create':intl.get("New_Org"),
             '/dashboard/peer_management/create':intl.get("New_Node"),
@@ -649,12 +649,12 @@ class Dashboard extends Component {
                                     this.state.resetPasswordVisible ? <Modal
                                         centered={true}
                                         getContainer={()=>document.getElementById("dom_dashboard")}
-                                        title={<h1 className="delectContractTit">修改密码</h1>}
+                                        title={<h1 className="delectContractTit">{intl.get("Change_Password")}</h1>}
                                         visible={this.state.resetPasswordVisible}
                                         onOk={this.okResetPassword}
                                         onCancel={this.CancelResetPassword}
-                                        okText="确认"
-                                        cancelText="取消"
+                                        okText={intl.get("Confirm")}
+                                        cancelText={intl.get("Cancel")}
                                         bodyStyle={{textAlign:'center',fontSize:'16px',color:"#354052"}}
                                         width='521px'
                                     >
@@ -663,23 +663,23 @@ class Dashboard extends Component {
                                             onSubmit={this.okResetPassword}
                                             hideRequiredMark={true}
                                         >
-                                            <FormItem label="旧密码" {...formItemLayout} style={{marginBottom:"0px"}} className="resetPassFormItem">
+                                            <FormItem label={intl.get("Old_Password")} {...formItemLayout} style={{marginBottom:"0px"}} className="resetPassFormItem">
                                                 {getFieldDecorator('password', {
                                                     rules: [
                                                         {
                                                             required: true,
-                                                            message:"请输入旧密码",
+                                                            message: intl.get("Please_Input_Old_Password"),
 
                                                         },
                                                         {
                                                             validator: this.inputPassword,
                                                         }
                                                     ],
-                                                })(<Input type="password" placeholder="请输入旧密码" size="large"/>)}
+                                                })(<Input type="password" placeholder={intl.get("Please_Input_Old_Password")} size="large"/>)}
                                             </FormItem>
                                             <code style={{top:"0px"}}>{this.state.passErrorTip}</code>
                                             <FormItem
-                                                label="新密码"
+                                                label={intl.get("New_Password")}
                                                 {...formItemLayout}
                                                 className="resetPassFormItem"
                                                 style={{marginBottom:"20px"}}
@@ -687,13 +687,13 @@ class Dashboard extends Component {
                                                 {getFieldDecorator('newPassword', {
                                                     rules: [
                                                         {
-                                                            required: true, message:"请输入新密码",
+                                                            required: true, message: intl.get("Please_Input_New_Password"),
                                                         },
                                                         {
                                                             validator: this.pwStrength,
                                                         }],
                                                 })(
-                                                    <Input type="password" placeholder="请输入新密码" size="large"/>
+                                                    <Input type="password" placeholder={intl.get("Please_Input_New_Password")} size="large"/>
                                                 )}
                                                 <div className="passCaptchaBox" style={{display:this.state.passVisible}}>
                                                     <span style={{flex:"1"}} id="strength_L"> </span>
@@ -704,18 +704,18 @@ class Dashboard extends Component {
                                             </FormItem>
                                             <FormItem
                                                 {...formItemLayout}
-                                                label="重复密码"
+                                                label={intl.get("Confirm_New_Password")}
                                                 className="resetPassFormItem"
                                                 style={{marginBottom:"0px"}}
                                             >
                                                 {getFieldDecorator('confirmPassword', {
                                                     rules: [{
-                                                        required: true, message: "请输入新密码",
+                                                        required: true, message: intl.get("Please_Input_New_Password"),
                                                     }, {
                                                         validator: this.validateConfirmPassword,
                                                     }],
                                                 })(
-                                                    <Input type="password" placeholder="请确认新密码" size="large"/>
+                                                    <Input type="password" placeholder={intl.get("Please_Input_New_Password")} size="large"/>
                                                 )}
                                             </FormItem>
                                             <code style={{top:"-9px"}}>{this.state.passConfirmTip}</code>

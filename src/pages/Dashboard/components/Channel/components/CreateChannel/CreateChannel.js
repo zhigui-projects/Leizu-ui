@@ -5,11 +5,11 @@ import Cookies from 'js-cookie'
 import axios from 'axios'
 
 import request from '../../../../../../Utils/Axios'
-import {test} from '../../../../../../Utils/Axios'
+import { test } from '../../../../../../Utils/Axios'
 import apiconfig from '../../../../../../Utils/apiconfig'
 import './createChannel.less'
 
-const { api: {organization, channel, channelJoin} } = apiconfig;
+const { api: { organization, channel, channelJoin } } = apiconfig;
 
 const CancelToken = axios.CancelToken;
 let cancel1;
@@ -21,7 +21,7 @@ const Option = Select.Option;
 class CreateChannelContent extends Component {
     constructor(props) {
         super(props);
-        this.state = {  
+        this.state = {
             orgList: [],
             loading: false
         }
@@ -38,68 +38,68 @@ class CreateChannelContent extends Component {
                 request().post(channel, {
                     name: values.name,
                     organizationIds: [values.id]
-                },{
-                    cancelToken: new CancelToken(function executor(c) {
-                        // An executor function receives a cancel function as a parameter
-                        cancel1 = c;
-                    })
-                }).then(res=>{
-                    console.log(res)
-                    if(res){
-                        switch(res.status){
-                            case 200:
-                                // message.info(res.data.msg)
-                                request().post(channelJoin, {
-                                    organizationId: id,
-                                    channelId: res.data.data._id
-                                },{
-                                    cancelToken: new CancelToken(function executor(c) {
-                                        // An executor function receives a cancel function as a parameter
-                                        cancel3 = c;
-                                    })
-                                }).then(res=>{
-                                    console.log(res)
+                }, {
+                        cancelToken: new CancelToken(function executor(c) {
+                            // An executor function receives a cancel function as a parameter
+                            cancel1 = c;
+                        })
+                    }).then(res => {
+                        console.log(res)
+                        if (res) {
+                            switch (res.status) {
+                                case 200:
+                                    // message.info(res.data.msg)
+                                    request().post(channelJoin, {
+                                        organizationId: id,
+                                        channelId: res.data.data._id
+                                    }, {
+                                            cancelToken: new CancelToken(function executor(c) {
+                                                // An executor function receives a cancel function as a parameter
+                                                cancel3 = c;
+                                            })
+                                        }).then(res => {
+                                            console.log(res)
+                                            this.setState({
+                                                loading: false
+                                            })
+                                            if (res) {
+                                                switch (res.status) {
+                                                    case 200:
+                                                        // message.info("创建成功")
+                                                        this.props.history.push("/dashboard/channel_management")
+                                                        break;
+                                                    case 401:
+                                                        Cookies.remove('userNameInfo')
+                                                        Cookies.remove('token')
+                                                        this.props.history.push('/login')
+                                                        break;
+                                                    default:
+                                                        message.error(intl.get("Create_Failed"))
+                                                }
+                                            }
+                                        })
+                                    break;
+                                case 401:
+                                    Cookies.remove('userNameInfo')
+                                    Cookies.remove('token')
+                                    this.props.history.push('/login')
+                                    break;
+                                // case 400:
+                                //     message.info('名字已占用，请重试')
+                                //     break;
+                                default:
+                                    message.error(intl.get("Create_Failed"))
                                     this.setState({
                                         loading: false
                                     })
-                                    if(res){
-                                        switch(res.status){
-                                            case 200:
-                                                // message.info("创建成功")
-                                                this.props.history.push("/dashboard/channel_management")
-                                                break;
-                                            case 401: 
-                                                Cookies.remove('userNameInfo')
-                                                Cookies.remove('token')
-                                                this.props.history.push('/login')
-                                                break;
-                                            default: 
-                                                message.error("创建失败")
-                                        }
-                                    }
-                                })
-                                break;
-                            case 401: 
-                                Cookies.remove('userNameInfo')
-                                Cookies.remove('token')
-                                this.props.history.push('/login')
-                                break;
-                            // case 400:
-                            //     message.info('名字已占用，请重试')
-                            //     break;
-                            default: 
-                                message.error("创建失败")
-                                this.setState({
-                                    loading: false
-                                })
+                            }
                         }
-                    }
-                })
+                    })
             }
         });
     }
     getOrgList = () => {
-        request().get(organization.orgList,{
+        request().get(organization.orgList, {
             cancelToken: new CancelToken(function executor(c) {
                 // An executor function receives a cancel function as a parameter
                 cancel2 = c;
@@ -114,7 +114,7 @@ class CreateChannelContent extends Component {
                             // loading: false
                         })
                         break;
-                    case 401: 
+                    case 401:
                         Cookies.remove('userNameInfo')
                         Cookies.remove('token')
                         this.props.history.push('/login')
@@ -126,26 +126,26 @@ class CreateChannelContent extends Component {
             }
         })
     }
-    goBack = ()=>{
+    goBack = () => {
         this.props.history.push('/dashboard/channel_management')
     }
-    componentDidMount(){
+    componentDidMount() {
         this.getOrgList();
     }
-    componentWillUnmount(){
-        if(cancel1){
+    componentWillUnmount() {
+        if (cancel1) {
             cancel1()
         }
-        if(cancel2){
+        if (cancel2) {
             cancel2()
         }
-        if(cancel3){
+        if (cancel3) {
             cancel3()
         }
     }
-    render() { 
+    render() {
         const { getFieldDecorator } = this.props.form;
-        return (  
+        return (
             <div className='create-channel-page'>
                 <div className="form-box">
                     <Form className='ant-form-custom' onSubmit={this.handleSubmit}>
@@ -155,7 +155,7 @@ class CreateChannelContent extends Component {
                             wrapperCol={{ span: 4 }}
                         >
                             {getFieldDecorator('name', {
-                                rules: [{ required: true, message: '请输入名称!' }],
+                                rules: [{ required: true, message: intl.get("Please_Input_Name") }],
                             })(
                                 <Input />
                             )}
@@ -166,32 +166,32 @@ class CreateChannelContent extends Component {
                             wrapperCol={{ span: 8 }}
                         >
                             {getFieldDecorator('id', {
-                                rules: [{ required: true, message: '请选择组织!' }],
+                                rules: [{ required: true, message: intl.get("Please_Select_Org") }],
                             })(
                                 <Select
                                     placeholder="Select a option and change input text above"
                                     onChange={this.handleSelectChange}
                                 >
                                     {
-                                        this.state.orgList.map((item,index)=>{
+                                        this.state.orgList.map((item, index) => {
                                             return <Option key={item.id} >{item.name}</Option>
                                         })
                                     }
                                 </Select>
                             )}
                         </FormItem>
-                        <div className="bottom-btn-box">
-                            <FormItem
-                            // wrapperCol={{ span: 12, offset: 5 }}
-                            className='bottom-btn-content'
-                            >
-                                <Button className='submit' type="primary" htmlType="submit" loading={this.state.loading}>
-                                    {intl.get("Confirm")}
-                                </Button>
-                                <Button onClick={this.goBack} className='cancel'>{intl.get("Cancel")}</Button>
-                            </FormItem>
-                        </div>
                     </Form>
+                </div>
+                <div className="bottom-btn-box">
+                    <FormItem
+                        // wrapperCol={{ span: 12, offset: 5 }}
+                        className='bottom-btn-content'
+                    >
+                        <Button onClick={this.handleSubmit} className='submit' type="primary" htmlType="submit" loading={this.state.loading}>
+                            {intl.get("Confirm")}
+                        </Button>
+                        <Button onClick={this.goBack} className='cancel'>{intl.get("Cancel")}</Button>
+                    </FormItem>
                 </div>
             </div>
         );
