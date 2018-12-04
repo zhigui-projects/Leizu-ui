@@ -160,7 +160,7 @@ class OverView extends Component{
                                     <div className="card-title">{item.title}</div>
                                     <div className="card-desc">{item.desc}</div>
                                     <div className="card-text">
-                                        <span className='card-number'>{item.text}</span> 个
+                                        <span className='card-number'>{item.text}</span>
                                     </div>
                                 </Card>
                             </List.Item>

@@ -255,7 +255,7 @@ class CreateOrganization extends Component {
                                         )
                                     })
                                 }
-                                <p className="icon-plus" onClick={this.addPeer}><Icon className="icon" type="plus-square" />添加peer节点<span>最多添加5个节点</span></p>
+                                <p className="icon-plus" onClick={this.addPeer}><Icon className="icon" type="plus-square" />{intl.get("Add_Peer_Node")}<span>{intl.get("Add_Up_To_5_More")}</span></p>
                             </div>
                             <p className="peer-desc"><span>{intl.get("Node_Docker_Https")}</span></p>
                         </div>

@@ -107,5 +107,7 @@
     "Number_Letter_Char": "数字、字母或字符组合",
     "Node_Docker_Https": "节点由用户提供外网节点，需要在节点上安装docker并支持Https调用",
     "Please_Input_Name": "请输入名称!",
-    "Log_Loading_Failed": "网络错误,日志加载失败"
+    "Log_Loading_Failed": "网络错误,日志加载失败",
+    "Node_Info": "节点信息",
+    "Org_Info": "组织信息"
 }
