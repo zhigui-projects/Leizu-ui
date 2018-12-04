@@ -107,5 +107,7 @@
     "Number_Letter_Char": "Number, letter or combination of characters",
     "Node_Docker_Https": "The node is provided by the user to the external network node, and the docker needs to be installed on the node and supports the Https call.",
     "Please_Input_Name": "Please input name",
-    "Log_Loading_Failed": "Network error, log loading failed"
+    "Log_Loading_Failed": "Network error, log loading failed",
+    "Node_Info": "Node Info",
+    "Org_Info": "Org Info"
 }
