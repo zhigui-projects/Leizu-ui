@@ -357,6 +357,9 @@ class Project extends Component {
             pathname:"/dashboard"
         })
     }
+    componentDidMount(){
+        console.log(intl)
+    }
     render() {
         const userName = Cookies.get('userNameInfo')
         const {chainlistArr,chainListLoading} = this.state
@@ -383,7 +386,9 @@ class Project extends Component {
             <div id="dom" className="layout">
                 <header>
                     <li className="headerImg">
-                        <img src={require("../../images/zig-baas.svg")} alt=""/>
+                        {
+                            intl.options.currentLocale === "zh-CN" ? <img src={require("../../images/zig-baas.svg")} alt=""/> : <img src={require("../../images/logo_en_blue.svg")} alt=""/>
+                        }
                     </li>
 
                     <div className="headerRight">
