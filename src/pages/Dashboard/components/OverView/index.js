@@ -3,6 +3,7 @@ import axios from 'axios'
 import { Spin, List, Card, Badge } from 'antd'
 import Cookies from 'js-cookie'
 import moment from 'moment'
+import intl from 'react-intl-universal'
 import request from '../../../../Utils/Axios'
 
 import apiconfig from '../../../../Utils/apiconfig'
@@ -36,50 +37,50 @@ class OverView extends Component{
                         this.setState({
                             basicInfo: [
                                 {
-                                    title: '名称',
-                                    desc: '区块链名称',
+                                    title: intl.get("Name"),
+                                    desc: intl.get("Blockchain_Name"),
                                     text: res.data.data.name,
                                     display: false
                                 },
                                 {
-                                    title: '类型',
-                                    desc: '区块链类型',
+                                    title: intl.get("Type"),
+                                    desc: intl.get("Blockchain_Type"),
                                     text: res.data.data.type,
                                     display: false
                                 },
                                 {
-                                    title: '算法',
-                                    desc: '共识算法',
+                                    title: intl.get("Algorithm"),
+                                    desc: intl.get("Consencus_Algorithm"),
                                     text: res.data.data.consensus_type === 0 ? "solo" : "kafka",
                                     display: false
                                 },
                                 {
-                                    title: '时间',
-                                    desc: '区块链创建时间',
+                                    title: intl.get("Time"),
+                                    desc: intl.get("Blockchain_Create_Time"),
                                     text: moment(res.data.data.create_time).format('YYYY-MM-DD HH:mm:ss'),
                                     display: false
                                 },
                                 {
-                                    title: '状态',
-                                    desc: '区块链运行状态',
+                                    title: intl.get("Status"),
+                                    desc: intl.get("Blockchain_Create_Time"),
                                     text: res.data.data.status === 0 ? "运行停止" : "运行正常",
                                     display: true
                                 }
                             ],
                             organizationInfo: [
                                 {
-                                    title: '通道',
-                                    desc: '全区块链通道个数',
+                                    title: intl.get("Channel"),
+                                    desc: intl.get("Blockchain_Channel"),
                                     text: res.data.data.channel_count
                                 },
                                 {
-                                    title: '组织',
-                                    desc: '全区块链组织个数',
+                                    title: intl.get("Orgnization"),
+                                    desc: intl.get("Blockchain_Orgnization"),
                                     text: res.data.data.org_count
                                 },
                                 {
-                                    title: '节点',
-                                    desc: '全区块链节点个数',
+                                    title: intl.get("Node"),
+                                    desc: intl.get("Blockchain_Node"),
                                     text: res.data.data.peer_count
                                 }
                             ],
@@ -120,7 +121,7 @@ class OverView extends Component{
         return(
             <div className='overview-page'>
                 <div className="basic-info-box">
-                    <div className="basic-info-title">基本信息</div>
+                    <div className="basic-info-title">{intl.get("Basic_Info")}</div>
                     <List
                         loading={this.state.detailLoading}
                         className='ant-list-box'
@@ -147,7 +148,7 @@ class OverView extends Component{
                     />
                 </div>
                 <div className="organization-info-box">
-                    <div className="organization-info-title">网络配置</div>
+                    <div className="organization-info-title">{intl.get("Network_Configuration")}</div>
                     <List
                         loading={this.state.detailLoading}
                         className='ant-list-box'

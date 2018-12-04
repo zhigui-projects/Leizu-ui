@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import intl from 'react-intl-universal'
 import { Layout, Menu, Breadcrumb, Icon, Modal,Popover,Form,Input, Spin } from 'antd';
 import { Switch, Redirect, Route , Link} from 'react-router-dom';
 import Loadable from 'react-loadable';
@@ -479,19 +480,20 @@ class Dashboard extends Component {
             },
         };
         const breadcrumbNameMap={
-            '/dashboard':"控制台",
-            '/dashboard/overview':"概览",
+            '/dashboard':intl.get("Dashboard"),
+            '/dashboard/overview': intl.get("Overview"),
             '/dashboard/blockchain_browser':"区块链浏览器",
-            '/dashboard/channel_management':"通道管理",
-            '/dashboard/peer_management':"节点管理",
+            '/dashboard/channel_management': intl.get("Channel_Management"),
+            '/dashboard/peer_management': intl.get("Node_Management"),
             '/dashboard/chaincode_management':"链码管理",
-            '/dashboard/log_management':"日志管理",
-            '/dashboard/organization_management':"组织管理",
+            '/dashboard/log_management': intl.get("Log_Management"),
+            '/dashboard/organization_management': intl.get("Orgnization_Management"),
             '/dashboard/organization_management/peer':"节点信息",
-            '/dashboard/channel_management/org':"组织信息",
-            '/dashboard/organization_management/create':"新建组织",
-            '/dashboard/peer_management/create':"新建节点",
-            '/dashboard/organization_management/peer/create':'新建节点'
+            '/dashboard/channel_management/org': "组织信息",
+            '/dashboard/channel_management/create_channel':intl.get("New_Channel"),
+            '/dashboard/organization_management/create':intl.get("New_Org"),
+            '/dashboard/peer_management/create':intl.get("New_Node"),
+            '/dashboard/organization_management/peer/create':intl.get("New_Node")
         }
         let breadcrumbItems = null
         const location = this.props.location || window.location;
@@ -548,7 +550,7 @@ class Dashboard extends Component {
                                 <Menu.Item className="list-item" key="overview">
                                     <p className="fill-in" style={{visibility:path==="overview"?"":"hidden"}}></p>
                                     <img src={path==="overview"?overview:unoverview} alt=" " />
-                                    <span style={{ opacity: (this.state.collapsed ? 0 : 1) }}>概览</span>
+                                    <span style={{ opacity: (this.state.collapsed ? 0 : 1) }}>{intl.get("Overview")}</span>
                                 </Menu.Item>
                                 {/* <Menu.Item className="list-item" key="blockchain_browser">
                                     <p className="fill-in" style={{visibility:path==="blockchain_browser"?"":"hidden"}}></p>
@@ -558,17 +560,17 @@ class Dashboard extends Component {
                                 <Menu.Item className="list-item" key="organization_management">
                                     <p className="fill-in" style={{visibility:(path==="organization"||path==="organization_management")?"":"hidden"}}></p>
                                     <img src={(path==="organization"||path==="organization_management")?organization:unorganization} alt=" " />
-                                    <span style={{ opacity: (this.state.collapsed ? 0 : 1) }}>组织管理</span>
+                                    <span style={{ opacity: (this.state.collapsed ? 0 : 1) }}>{intl.get("Orgnization_Management")}</span>
                                 </Menu.Item>
                                 <Menu.Item className="list-item" key="channel_management">
                                     <p className="fill-in" style={{visibility:path==="channel_management"?"":"hidden"}}></p>
                                     <img src={path==="channel_management"?channel:unchannel} alt=" " />
-                                    <span style={{ opacity: (this.state.collapsed ? 0 : 1) }}>通道管理</span>
+                                    <span style={{ opacity: (this.state.collapsed ? 0 : 1) }}>{intl.get("Channel_Management")}</span>
                                 </Menu.Item>
                                 <Menu.Item className="list-item" key="peer_management">
                                     <p className="fill-in" style={{visibility:path==="peer_management"?"":"hidden"}}></p>
                                     <img src={path==="peer_management"?peer:unpeer} alt=" " />
-                                    <span style={{ opacity: (this.state.collapsed ? 0 : 1) }}>节点管理</span>
+                                    <span style={{ opacity: (this.state.collapsed ? 0 : 1) }}>{intl.get("Node_Management")}</span>
                                 </Menu.Item>
                                 {/* <Menu.Item className="list-item" key="chaincode_management">
                                     <p className="fill-in" style={{visibility:path==="chaincode_management"?"":"hidden"}}></p>
@@ -578,7 +580,7 @@ class Dashboard extends Component {
                                 <Menu.Item className="list-item" key="log_management">
                                     <p className="fill-in" style={{visibility:path==="log_management"?"":"hidden"}}></p>
                                     <img src={path==="log_management"?log:unlog} alt=" " />
-                                    <span style={{ opacity: (this.state.collapsed ? 0 : 1) }}>日志管理</span>
+                                    <span style={{ opacity: (this.state.collapsed ? 0 : 1) }}>{intl.get("Log_Management")}</span>
                                 </Menu.Item>
                             </Menu>
                         </Sider>
@@ -591,20 +593,18 @@ class Dashboard extends Component {
                                         onClick={this.toggle}
                                     />
                                     <div className="header-list">
-                                        {/* <div className="language-box">
-                                            <div className="language-box" ref="languageBox">
-                                                <Popover
-                                                    placement="bottom"
-                                                    content={this.renderLang()}
-                                                    trigger="hover"
-                                                    // getPopupContainer={() => this.refs.navBox}
-                                                    mouseLeaveDelay={0.3}
-                                                >
-                                                    <span className='current-lang'>{this.defaultLang}</span><Icon type="down" />
-                                                </Popover>
-                                            </div>
-                                        </div> */}
-                                        <div className="consortiumJump"><NavLink to="/project" style={{cursor:"pointer"}}>我的联盟</NavLink></div>
+                                        <div className="language-box" ref="languageBox">
+                                            <Popover
+                                                placement="bottom"
+                                                content={this.renderLang()}
+                                                trigger="hover"
+                                                // getPopupContainer={() => this.refs.navBox}
+                                                mouseLeaveDelay={0.3}
+                                            >
+                                                <span className='current-lang'>{this.defaultLang}</span><Icon type="down" />
+                                            </Popover>
+                                        </div>
+                                        <div className="consortiumJump"><NavLink to="/project" style={{cursor:"pointer"}}>{intl.get("My_League")}</NavLink></div>
                                         <div className='user-name-box dropDown-link'>
                                             <Popover
                                                 visible={this.state.visible}
@@ -633,7 +633,7 @@ class Dashboard extends Component {
                                         <Route exact path="/dashboard/organization_management" component={Organization} />
                                         <Route exact path="/dashboard/channel_management" component={Channel} />
                                         <Route path="/dashboard/channel_management/org" component={ChannelOrg} />
-                                        <Route path="/dashboard/channel_management/createChannel" component={CreateChannel} />
+                                        <Route path="/dashboard/channel_management/create_channel" component={CreateChannel} />
                                         <Route exact path="/dashboard/peer_management" component={Peer} />
                                         <Route exact path="/dashboard/organization_management/peer" component={PeerManagement} />
                                         <Route path="/dashboard/organization_management/peer/create" component={createPeer} />
