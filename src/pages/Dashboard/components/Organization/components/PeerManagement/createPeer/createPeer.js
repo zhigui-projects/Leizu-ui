@@ -123,7 +123,7 @@ class CreateOrganization extends Component {
             count: count - 1
         })
     }
-    handleBack=()=>{
+    handleBack = () => {
         window.history.go(-1);
     }
     render() {
@@ -137,17 +137,16 @@ class CreateOrganization extends Component {
                         <div className="chaincode-mark">
                             <span className="mark">{intl.get("Add_Node")}</span>
                             <div className="form-wrapper">
-                                <div className="title"><span>{intl.get("Peer_Node")}</span><span>{intl.get("Node_Ip")}</span><span>{intl.get("SSH_Account")}</span><span>{intl.get("SSH_Password")}</span><span>{intl.get("Test_Result")}</span></div>
+                                <div className="title"><span>{intl.get("Peer_Node")}</span><span>{intl.get("Node_Ip")}</span><span>{intl.get("SSH_Account")}</span><span>{intl.get("SSH_Password")}</span></div>
 
                                 {
                                     this.state.formArr.length > 0 && this.state.formArr.map((item, index) => {
                                         return (
                                             <Form key={item.id1} className="form-user">
-                                                <FormItem className="ca-peer">
+                                                <FormItem className="ca-peer" >
                                                     {getFieldDecorator(item.id1, {
                                                         rules: [{
                                                             required: true,
-                                                            pattern: /^[\w\?%&=\-+_]+$/,
                                                             message: intl.get("Number_Letter_Char"),
                                                         }, {
                                                             validator: this.handleAddress
@@ -225,7 +224,6 @@ class CreateOrganization extends Component {
                                                     {getFieldDecorator(item.id3, {
                                                         rules: [{
                                                             required: true,
-                                                            pattern: /^[\w\?%&=\-+_]+$/,
                                                             message: intl.get("Number_Letter_Char"),
                                                         }, {
                                                             validator: this.handleAddress
@@ -238,7 +236,6 @@ class CreateOrganization extends Component {
                                                     {getFieldDecorator(item.id4, {
                                                         rules: [{
                                                             required: true,
-                                                            pattern: /^[\w\?%&=\-+_]+$/,
                                                             message: intl.get("Number_Letter_Char"),
                                                         }, {
                                                             validator: this.handleAddress
@@ -247,22 +244,24 @@ class CreateOrganization extends Component {
                                                         <Input />
                                                     )}
                                                 </FormItem>
-                                                <FormItem>
+                                                {/* <FormItem>
                                                     <span className="peer-check">{intl.get("Node_Detection")}</span>
-                                                </FormItem>
+                                                </FormItem> */}
                                                 <Icon style={{ display: index == 0 ? 'none' : '' }} className="close" onClick={this.deletePeer.bind(this, index)} type="close" />
                                             </Form>
                                         )
                                     })
                                 }
-                                <p className="icon-plus" onClick={this.addPeer}><Icon className="icon" type="plus-square" />{intl.get("Add_Peer_Node")}<span>{intl.get("Add_Up_To_5_More")}</span></p>
+                                <p className="icon-plus" onClick={this.addPeer}><Icon className="icon" type="plus-square" /><span>{intl.get("Add_Peer_Node")}</span>{intl.get("Add_Up_To_5_More")}</p>
                             </div>
-                            <p className="peer-desc"><span>{intl.get("Node_Docker_Https")}</span></p>
+                            <p className="peer-desc">{intl.get("Node_Docker_Https")}</p>
                         </div>
                     </div>
                     <div className="confirm-wrapper">
-                        <Button onClick={this.handleSubmit} className="confirm-btn">{intl.get("Confirm")}</Button>
-                        <Button onClick={this.handleBack} className="cancel-btn">{intl.get("Cancel")}</Button>
+                        <FormItem>
+                            <Button onClick={this.handleSubmit} className="confirm-btn">{intl.get("Confirm")}</Button>
+                            <Button onClick={this.handleBack} className="cancel-btn">{intl.get("Cancel")}</Button>
+                        </FormItem>
                     </div>
                 </div>
             </div>
