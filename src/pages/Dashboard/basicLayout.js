@@ -454,7 +454,9 @@ class Dashboard extends Component {
 
         })
     }
-
+    componentDidMount(){
+        console.log(intl.options)
+    }
     render() {
         let pathArr = this.props.location.pathname.split('/');
         let path = pathArr[2];
@@ -528,18 +530,18 @@ class Dashboard extends Component {
                                     </li>
                                 )
                                 :
-                                (
+                                    intl.options.currentLocale === "zh-CN" ? (
                                     <li className="logo">
                                         <img src={require('../../images/logo.svg')} alt="" />
                                     </li>
                                 )
+                                :
+                                (
+                                    <li className="logo">
+                                        <img src={require('../../images/logo_en.svg')} alt="" />
+                                    </li>
+                                )
                             }
-                            
-                            {/* <NavLink className="logo" to='/index' target="_blank">
-                            {
-                                this.props.intl.locale === "en" ? <img src={require('../../images/logo_en_dash.svg')} alt="" /> : <img src={logo} alt="" />
-                            }
-                        </NavLink> */}
                             <Menu
                                 className="List"
                                 theme="dark"
