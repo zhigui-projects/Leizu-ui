@@ -1,3 +1,7 @@
+# Copyright Zhigui.com. All Rights Reserved.
+#
+# SPDX-License-Identifier: Apache-2.0
+
 DASHBOARD-IMAGE := $(shell docker images -q dashboard-ui:latest)
 
 stop:

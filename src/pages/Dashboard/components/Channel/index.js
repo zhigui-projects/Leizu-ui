@@ -1,3 +1,9 @@
+/*
+Copyright Zhigui.com. All Rights Reserved.
+
+SPDX-License-Identifier: Apache-2.0
+*/
+
 import React , {Component} from 'react';
 import { Button, Icon, Table, Pagination, Spin } from 'antd'
 import Cookies from 'js-cookie'

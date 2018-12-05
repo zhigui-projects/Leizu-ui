@@ -1,3 +1,9 @@
+/*
+Copyright Zhigui.com. All Rights Reserved.
+
+SPDX-License-Identifier: Apache-2.0
+*/
+
 import React , {Component} from 'react';
 import axios from 'axios'
 import { List, Card, Badge } from 'antd'

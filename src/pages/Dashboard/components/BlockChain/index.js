@@ -1,3 +1,9 @@
+/*
+Copyright Zhigui.com. All Rights Reserved.
+
+SPDX-License-Identifier: Apache-2.0
+*/
+
 import React , {Component} from 'react';
 
 class BlockChain extends Component{
