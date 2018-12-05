@@ -132,7 +132,11 @@ class Login extends Component {
         return (
             <div className="userOpreate_login">
                 <div className="opreateImg">
-                    <div className="opreateLogo"><img src={require('../../images/logo.svg')} alt=""/></div>
+                    <div className="opreateLogo">
+                        {
+                            intl.options.currentLocale === "zh-CN" ? <img src={require('../../images/logo.svg')} alt=""/> : <img src={require('../../images/logo_en.svg')} alt=""/>
+                        }
+                    </div>
                     <div className="opreateLetter">
                         <h2>{intl.get("Welcome")}</h2>
                         <p>{intl.get("Welcome_Desc")}</p>
