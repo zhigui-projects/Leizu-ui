@@ -357,9 +357,6 @@ class Project extends Component {
             pathname:"/dashboard"
         })
     }
-    componentDidMount(){
-        console.log(intl)
-    }
     render() {
         const userName = Cookies.get('userNameInfo')
         const {chainlistArr,chainListLoading} = this.state
