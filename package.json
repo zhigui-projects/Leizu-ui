@@ -54,7 +54,7 @@
   },
   "scripts": {
     "start": "node scripts/start.js",
-    "build": "node scripts/build.js",
+    "build": "nodenv scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
     "lic": "license-check-and-add"
   },
@@ -112,7 +112,8 @@
     "babel-preset-env": "^1.7.0",
     "less": "^3.8.1",
     "less-loader": "^4.1.0",
-    "license-check-and-add": "^2.3.6"
+    "license-check-and-add": "^2.3.6",
+    "node-env-run": "^3.0.2"
   },
   "license-check-and-add-config": {
     "folder": ".",
