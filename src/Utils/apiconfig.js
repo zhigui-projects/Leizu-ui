@@ -3,8 +3,8 @@ Copyright Zhigui.com. All Rights Reserved.
 
 SPDX-License-Identifier: Apache-2.0
 */
-const API = process.env.API || '';
-const elasticSearchUrl = process.env.ELK_URL || '';
+const API = process.env.REACT_APP_API || '';
+const elasticSearchUrl = process.env.REACT_APP_ELK_URL || '';
 const format = require('string-format');
 format.extend(String.prototype);
 
