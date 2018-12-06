@@ -54,7 +54,7 @@
   },
   "scripts": {
     "start": "node scripts/start.js",
-    "build": "nodenv scripts/build.js",
+    "build": "nodenv -E .env scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
     "lic": "license-check-and-add"
   },
