@@ -1,3 +1,9 @@
+/*
+Copyright Zhigui.com. All Rights Reserved.
+
+SPDX-License-Identifier: Apache-2.0
+*/
+
 import React, { Component } from 'react';
 import intl from 'react-intl-universal'
 import { Layout, Menu, Breadcrumb, Icon, Modal,Popover,Form,Input, Spin } from 'antd';

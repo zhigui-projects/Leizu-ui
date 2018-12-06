@@ -1,3 +1,7 @@
+# Copyright Zhigui.com. All Rights Reserved.
+#
+# SPDX-License-Identifier: Apache-2.0
+
 # See https://help.github.com/ignore-files/ for more about ignoring files.
 
 # dependencies
@@ -10,7 +14,6 @@
 /build
 
 # misc
-/.idea
 .idea
 .DS_Store
 .env.local
