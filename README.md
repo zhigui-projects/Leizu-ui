@@ -1,4 +1,21 @@
-# dashboard-ui
+# Dashboard-UI
+
+## Quick start
+> **Before start the dashboard ui**
+>
+> Add an environment file called `.env` to the root folder of the project, with the required project settings and credentials. For a starter environment file, you can use this one:
+> ```
+> cp .env.dev .env
+> ```
+
+1. Setup the endpoint in the `.env` properly.
+
+2. Start the nginx server to host the static files:
+```
+make start
+```
+
+3. Visit the [localhost](http://localhost) to explore the variety of features. :D
 
 ## License
 
