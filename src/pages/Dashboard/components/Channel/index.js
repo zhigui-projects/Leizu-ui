@@ -1,3 +1,9 @@
+/*
+Copyright Zhigui.com. All Rights Reserved.
+
+SPDX-License-Identifier: Apache-2.0
+*/
+
 import React , {Component} from 'react';
 import { Button, Icon, Table, Pagination, Spin } from 'antd'
 import Cookies from 'js-cookie'
@@ -27,26 +33,26 @@ class Channel extends Component{
     }
     columns = [
         {
-            title: '通道名',
+            title: intl.get("Channel_Name"),
             dataIndex: 'name',
             key: 'name',
         }, {
-            title: '组织数量',
+            title: intl.get("Org_Count"),
             dataIndex: 'orgs',
             key: 'orgs',
             render: arr => arr.length
         }, {
-            title: '节点数量',
+            title: intl.get("Node_Count"),
             dataIndex: 'peers',
             key: 'peers',
             render: arr => arr.length
         }, {
-            title: '操作',
+            title: intl.get("Operation"),
             dataIndex: '_id',
             key: '_id',
             render: (text,record) => (
                 <span onClick={()=>this.toOrganization(text)} className='table-item-btn'>
-                    组织管理
+                    {intl.get("Org_Manage")}
                 </span>
             ),
         }
@@ -85,7 +91,7 @@ class Channel extends Component{
         })
     }
     createChannel = ()=>{
-        this.props.history.push('/dashboard/channel_management/createChannel')
+        this.props.history.push('/dashboard/channel_management/create_channel')
     }
     componentDidMount(){
         this.getData();
@@ -103,7 +109,7 @@ class Channel extends Component{
             <div className='channel-page'>
                 <div className="create-channel-box">
                     <Button onClick={this.createChannel} className="create-channel-btn">
-                        创建通道<Icon type="plus-circle" theme="outlined" />
+                        {intl.get("Create_Channel")}<Icon type="plus-circle" theme="outlined" />
                     </Button>
                 </div>
                 <div className="table-box">

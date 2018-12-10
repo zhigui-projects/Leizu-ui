@@ -1,5 +1,12 @@
+/*
+Copyright Zhigui.com. All Rights Reserved.
+
+SPDX-License-Identifier: Apache-2.0
+*/
+
 import React, { Component } from 'react';
 import { Card, Select, message } from 'antd';
+import intl from 'react-intl-universal'
 import ReactDOM from 'react-dom'
 // import Cookies from "js-cookie";
 // import request from '../../../../Utils/Axios'
@@ -94,7 +101,7 @@ class Log extends Component {
         }
         setTimeout(function(){
             if(log.length === 0 && window.location.pathname === "/dashboard/log_management"){
-                message.error("网络错误,日志加载失败")
+                message.error(intl.get("Log_Loading_Failed"))
             }
         },5000)
 
@@ -204,7 +211,7 @@ class Log extends Component {
                             pathname:"/login"
                         })
                         break;
-                    default:message.error("链列表查询失败")
+                    default:message.error(intl.get("Chain_List_Query_Failed"))
                 }
             }
         })

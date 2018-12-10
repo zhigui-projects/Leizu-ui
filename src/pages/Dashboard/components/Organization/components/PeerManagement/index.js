@@ -1,5 +1,12 @@
+/*
+Copyright Zhigui.com. All Rights Reserved.
+
+SPDX-License-Identifier: Apache-2.0
+*/
+
 import React, { Component } from 'react';
 import { Table, Badge, Progress, Spin, Button, Icon } from 'antd';
+import intl from 'react-intl-universal'
 import apiconfig from '../../../../../../Utils/apiconfig';
 import request from '../../../../../../Utils/Axios';
 import axios from 'axios'
@@ -9,22 +16,22 @@ let cancel;
 
 const { api: { peer } } = apiconfig;
 const columns = [{
-    title: '节点名称',
+    title: intl.get("Node_Name"),
     dataIndex: 'name',
     width: '15%',
     key: 'name',
 }, {
-    title: '节点域名',
+    title: intl.get("Node_Domain"),
     dataIndex: 'location',
     width: '15%',
     key: 'domain',
 }, {
-    title: '组织名',
+    title: intl.get("Org_Name"),
     dataIndex: 'organizationName',
     width: '14%',
     key: 'organizationName',
 }, {
-    title: '通道名',
+    title: intl.get("Channel_Name"),
     key: 'channel',
     width: '16%',
     render: (text, record) => (
@@ -33,7 +40,7 @@ const columns = [{
         })
     )
 }, {
-    title: '节点类型',
+    title: intl.get("Node_Type"),
     key: 'type',
     width: '9%',
     render: (text, record) => (
@@ -42,7 +49,7 @@ const columns = [{
     // sorter: (a, b) => a.type-b.type
 },
 {
-    title: '状态',
+    title: intl.get("Type"),
     width: '9%',
     key: 'status',
     render: (text, record) => (
@@ -55,7 +62,7 @@ const columns = [{
     // }
 },
 {
-    title: 'CPU占用',
+    title: intl.get("CPU_Occupy"),
     width: '11%',
     key: 'cpu',
     render: (text, record) => (
@@ -66,7 +73,7 @@ const columns = [{
     sorter: (a, b) => a.cpu - b.cpu
 },
 {
-    title: '内存占用',
+    title: intl.get("Memory_Occupy"),
     key: 'ram',
     render: (text, record) => (
         <span>
@@ -81,12 +88,13 @@ class PeerManagement extends Component {
         super(props)
         this.state = {
             peerData: [],
-            id: this.props.location.state
+            id: this.props.location.state ? this.props.location.state : localStorage.getItem('_id')
         }
     }
     getPeerData = () => {
         const newApi = sessionStorage.getItem('ConsortiumInfo') ? JSON.parse(sessionStorage.getItem('ConsortiumInfo'))["url"]+"/api/v1":""
-        request().get(`${newApi}${peer.peerDetail.format({ id: this.state.id })}`, {
+        let _id = localStorage.getItem('_id');
+        request().get(`${newApi}${peer.peerDetail.format({ id: this.state.id ? this.state.id : _id })}`, {
             cancelToken: new CancelToken(function executor(c) {
                 // An executor function receives a cancel function as a parameter
                 cancel = c;
@@ -111,6 +119,10 @@ class PeerManagement extends Component {
             }
         })
     }
+    componentWillMount() {
+        const { id } = this.state;
+        localStorage.setItem('_id', id);
+    }
     componentDidMount() {
         this.getPeerData()
     }
@@ -124,15 +136,15 @@ class PeerManagement extends Component {
     }
     CreatePeer = () => {
         this.props.history.push({
-            pathname:'peer/create',
-            state:this.state.id
+            pathname: 'peer/create',
+            state: this.state.id
         });
     }
     render() {
         return (
             <div className="peer_management">
                 <p className="create-organization">
-                    <Button id="create" onClick={this.CreatePeer} className="create-plus">创建节点<Icon type="plus-circle" theme="outlined" /></Button>
+                    <Button id="create" onClick={this.CreatePeer} className="create-plus">{intl.get("Create_Node")}<Icon type="plus-circle" theme="outlined" /></Button>
                 </p>
                 <div className="peer_wrapper">
                     <Spin spinning={this.state.loading}>

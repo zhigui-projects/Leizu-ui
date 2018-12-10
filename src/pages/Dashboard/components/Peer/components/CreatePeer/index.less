@@ -1,3 +1,9 @@
+/*
+Copyright Zhigui.com. All Rights Reserved.
+
+SPDX-License-Identifier: Apache-2.0
+*/
+
 .create-peer {
     position: absolute;
     width: 100%;
@@ -6,11 +12,14 @@
     .create-wrapper {
         height: 100%;
         background: #ffffff;
+        overflow:auto;
         .organization-wrapper {
             overflow: hidden;
-            min-height: 476px;
+            min-height: 400px;
             background: #ffffff;
             .organization-name {
+                display: inline-block;
+                width: 120px;
                 font-size: 14px;
                 color: #888888;
                 margin-left: 40px;
@@ -27,14 +36,14 @@
                     position: absolute;
                     top: 35px;
                     color: #f5222d;
-                    left: 155px;
+                    left: 175px;
                     font-size: 12px;
                 }
             }
             .wrapper-peer {
                 margin-top: 28px;
                 .peer {
-                    margin-left: 32px;
+                    margin-left: 18px;
                     font-size: 14px;
                     color: #152935;
                 }
@@ -50,12 +59,15 @@
             .chaincode-mark {
                 margin-top: 28px;
                 .mark {
+                    display: inline-block;
+                    width: 120px;
                     margin-left: 40px;
                     font-size: 14px;
                     color: #888888;
                 }
                 .form-wrapper {
-                    margin-left: 156px;
+                    margin-left: 176px;
+                    min-width: 890px;
                     margin-right: 99px;
                     position: relative;
                     margin-top: -12px;
@@ -68,18 +80,19 @@
                     .title {
                         margin: 20px 16px 0;
                         span {
-                            width: 50px;
+                            display: inline-block;
+                            width: 100px;
                             &:nth-child(1) {
                                 margin-left: -5px;
                             }
                             &:nth-child(2) {
-                                margin-left: 61px;
+                                margin-left: 19px;
                             }
                             &:nth-child(3) {
-                                margin-left: 242px;
+                                margin-left: 181px;
                             }
                             &:nth-child(4) {
-                                margin-left: 69px;
+                                margin-left: 40px;
                             }
                         }
                     }
@@ -137,37 +150,46 @@
                         margin-left: 10px;
                         margin-top: 15px;
                         padding-bottom: 20px;
-                        color: #3d70b1;
                         font-size: 14px;
-                        cursor: pointer;
-                        width: 230px;
+                        width: 300px;
                         .icon {
                             background: #3d70b1;
                             border: none;
                             color: #ffffff;
                             margin-right: 8px;
+                            cursor: pointer;
                         }
                         span {
-                            color: rgba(53, 64, 82, 0.5);
-                            margin-left: 13px;
+                            color: #3d70b1;
+                            margin-left: 5px;
+                            margin-right: 20px;
                             font-size: 14px;
+                            cursor: pointer;
                         }
                     }
                 }
                 .peer-desc {
-                    span {
-                        font-size: 12px;
-                        color: #888888;
-                        margin-left: 157px;
-                    }
+                    padding-bottom:100px;
+                    padding-left: 177px;
+                    font-size: 12px;
+                    color: #888888;
                 }
             }
         }
         .confirm-wrapper {
-            height: 70px;
+            height: 80px;
             line-height: 70px;
-            margin-bottom: 24px;
-            background: #ffffff;
+            position: absolute;
+            bottom: -24px;
+            width: 100%;
+            overflow: hidden;
+            background: #f0f2f5;
+            .ant-form-item-control {
+                margin-top: 20px;
+                padding-bottom: 30px;
+                padding-top: 10px;
+                background: #ffffff;
+            }
             .confirm-btn {
                 width: 96px;
                 height: 31px;
@@ -177,7 +199,7 @@
                 color: #ffffff;
                 letter-spacing: normal;
                 border: none;
-                margin-left: 157px;
+                margin-left: 177px;
             }
             .cancel-btn {
                 width: 96px;
@@ -200,12 +222,15 @@
         margin-bottom: 0px;
         .create-wrapper {
             height: 100%;
+            overflow:auto;
             background: #ffffff;
             .organization-wrapper {
                 overflow: hidden;
                 min-height: 476px;
                 background: #ffffff;
                 .organization-name {
+                    display: inline-block;
+                    width: 100px;
                     font-size: 14px;
                     color: #888888;
                     margin-left: 40px;
@@ -221,7 +246,7 @@
                 .wrapper-peer {
                     margin-top: 28px;
                     .peer {
-                        margin-left: 32px;
+                        margin-left: 18px;
                         font-size: 14px;
                         color: #152935;
                     }
@@ -237,12 +262,15 @@
                 .chaincode-mark {
                     margin-top: 28px;
                     .mark {
+                        display: inline-block;
+                        width: 100px;
                         margin-left: 40px;
                         font-size: 14px;
                         color: #888888;
                     }
                     .form-wrapper {
                         margin-left: 156px;
+                        min-width: 750px;
                         margin-right: 49px;
                         position: relative;
                         margin-top: -12px;
@@ -252,18 +280,19 @@
                         .title {
                             margin: 20px 16px 0;
                             span {
-                                width: 50px;
+                                display: inline-block;
+                                width: 100px;
                                 &:nth-child(1) {
                                     margin-left: -5px;
                                 }
                                 &:nth-child(2) {
-                                    margin-left: 41px;
+                                    margin-left: -3px;
                                 }
                                 &:nth-child(3) {
-                                    margin-left: 182px;
+                                    margin-left: 124px;
                                 }
                                 &:nth-child(4) {
-                                    margin-left: 59px;
+                                    margin-left: 29px;
                                 }
                             }
                         }
@@ -314,10 +343,8 @@
                             margin-left: 10px;
                             margin-top: 15px;
                             padding-bottom: 20px;
-                            color: #3d70b1;
                             font-size: 14px;
-                            cursor: pointer;
-                            width: 230px;
+                            width: 300px;
                             .icon {
                                 background: #3d70b1;
                                 border: none;
@@ -325,19 +352,35 @@
                                 margin-right: 8px;
                             }
                             span {
-                                color: rgba(53, 64, 82, 0.5);
+                                color: #3d70b1;
+                                cursor: pointer;
                                 margin-left: 13px;
                                 font-size: 14px;
                             }
                         }
                     }
+                    .peer-desc {
+                        padding-bottom:100px;
+                        padding-left: 156px;
+                        color: #888888;
+                        font-size: 12px;
+                    }
                 }
             }
             .confirm-wrapper {
-                height: 70px;
+                height: 80px;
                 line-height: 70px;
-                margin-bottom: 24px;
-                background: #ffffff;
+                position: absolute;
+                bottom: -24px;
+                width: 100%;
+                overflow: hidden;
+                background: #f0f2f5;
+                .ant-form-item-control {
+                    margin-top: 20px;
+                    padding-bottom: 30px;
+                    padding-top: 10px;
+                    background: #ffffff;
+                }
                 .confirm-btn {
                     width: 96px;
                     height: 31px;

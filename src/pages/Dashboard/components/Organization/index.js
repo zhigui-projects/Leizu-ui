@@ -1,5 +1,12 @@
+/*
+Copyright Zhigui.com. All Rights Reserved.
+
+SPDX-License-Identifier: Apache-2.0
+*/
+
 import React, { Component } from 'react';
 import { Table, Form, Spin, Button, Icon } from 'antd';
+import intl from 'react-intl-universal'
 import request from '../../../../Utils/Axios';
 import axios from 'axios';
 import apiconfig from '../../../../Utils/apiconfig';
@@ -69,21 +76,21 @@ class OrgaManagement extends Component {
     }
     render() {
         const columns = [{
-            title: '组织名',
+            title: intl.get("Org_Name"),
             dataIndex: 'name',
             width: '43%',
             key: 'name',
         }, {
-            title: '节点数量',
+            title: intl.get("Node_Count"),
             dataIndex: 'peer_count',
             width: '28%',
             key: 'number',
         }, {
-            title: '操作',
+            title: intl.get("Operation"),
             dataIndex: 'operation',
             key: 'operation',
             render: (text, record) => (
-                <span onClick={this.handlePeer.bind(this, record)} style={{ color: '#3d70b1', cursor: 'pointer' }}>节点管理</span>
+                <span onClick={this.handlePeer.bind(this, record)} style={{ color: '#3d70b1', cursor: 'pointer' }}>{intl.get("Node_Manage")}</span>
             )
         }];
         // const { getFieldDecorator } = this.props.form;
@@ -101,7 +108,7 @@ class OrgaManagement extends Component {
             <div className="organization-management">
                 <div className="organization-wrapper">
                     <p className="create-organization">
-                        <Button id="create" onClick={this.createOrganization} className="create-plus">创建组织<Icon type="plus-circle" theme="outlined" /></Button>
+                        <Button id="create" onClick={this.createOrganization} className="create-plus">{intl.get("Create_Org")}<Icon type="plus-circle" theme="outlined" /></Button>
                     </p>
                     <Spin spinning={this.state.loading}>
 

@@ -1,4 +1,11 @@
+/*
+Copyright Zhigui.com. All Rights Reserved.
+
+SPDX-License-Identifier: Apache-2.0
+*/
+
 import React, { Component } from 'react';
+import intl from 'react-intl-universal'
 import { Layout, Menu, Breadcrumb, Icon, Modal,Popover,Form,Input, Spin } from 'antd';
 import { Switch, Redirect, Route , Link} from 'react-router-dom';
 import Loadable from 'react-loadable';
@@ -148,7 +155,7 @@ class Dashboard extends Component {
         if(getFieldValue('newPassword')){
             if (value && value !== getFieldValue('newPassword')) {
                 this.setState({
-                    passConfirmTip:"两次输入密码必须一致"
+                    passConfirmTip: intl.get("Password_Must_Match")
                 })
             }else{
                 this.setState({
@@ -215,7 +222,7 @@ class Dashboard extends Component {
                 passTip:""
             })
         }else if(pwd.length <6){
-            callback("密码不能小于6位")
+            callback(intl.get("Password_Cannot_Be_Less_Than_6"))
             _this.setState({
                 passTip:""
             })
@@ -234,7 +241,7 @@ class Dashboard extends Component {
                     Lcolor=L_color;
                     Mcolor=Hcolor=Dfault_color;
                     _this.setState({
-                        passTip:"密码强度：弱 请尝试添加符号（！＃@）和字母（AZ）"
+                        passTip: intl.get("Password_Weak")
                     })
                     break;
                 case 2:
@@ -242,7 +249,7 @@ class Dashboard extends Component {
                     Mcolor=M_color;
                     Hcolor=Dfault_color;
                     _this.setState({
-                        passTip:"密码强度：中  请尝试添加符号（！＃@）和字母（AZ）"
+                        passTip: intl.get("Password_Medium")
                     })
                     break;
                 default:
@@ -250,7 +257,7 @@ class Dashboard extends Component {
                     Mcolor=M_color
                     Hcolor=H_color;
                     _this.setState({
-                        passTip:"密码强度：强"
+                        passTip: intl.get("Password_Strong")
                     })
             }
             callback()
@@ -259,7 +266,7 @@ class Dashboard extends Component {
             if(getFieldValue('confirmPassword')){
                 if (pwd && pwd !== getFieldValue('confirmPassword')) {
                     this.setState({
-                        passConfirmTip:"两次输入密码必须一致"
+                        passConfirmTip: intl.get("Password_Must_Match")
                     })
                 }else{
                     this.setState({
@@ -353,9 +360,9 @@ class Dashboard extends Component {
         })
         confirm({
             getContainer:()=>document.getElementById("dom_dashboard"),
-            title: "确认退出登录吗",
-            okText: "确认退出",
-            cancelText: "我再想想",
+            title: intl.get("Logout_Title"),
+            okText: intl.get("Logout_Confirm"),
+            cancelText: intl.get("Logout_Cancel"),
             className: "creatModalConfirm",
             width: '380px',
             onOk() {
@@ -376,7 +383,7 @@ class Dashboard extends Component {
             if(!err){
                 if(getFieldValue('newPassword') !== getFieldValue('confirmPassword')) {
                     this.setState({
-                        passConfirmTip: "两次输入密码必须一致"
+                        passConfirmTip: intl.get("Password_Must_Match")
                     })
                 }else{
                     const newApi = sessionStorage.getItem('ConsortiumInfo') ? JSON.parse(sessionStorage.getItem('ConsortiumInfo'))["url"]+"/api/v1":""
@@ -394,7 +401,7 @@ class Dashboard extends Component {
                                         passConfirmTip:"",
                                         passTip:"",
                                     })
-                                    message.success("密码修改成功,请重新登录",1)
+                                    message.success(intl.get("Password_Modify_Successfully"), 1)
                                     setTimeout(()=>{
                                         _this.okloginOut()
                                     },1000)
@@ -402,7 +409,7 @@ class Dashboard extends Component {
                                 case 401:
                                     let code = response.data.code
                                     if(code){
-                                        code === 10002 ? message.error("重置密码失败，旧密码输入不正确") : ""
+                                        code === 10002 ? message.error(intl.get("Password_Reset_Failed")) : ""
                                     }else{
                                         Cookies.remove('token');
                                         Cookies.remove('userNameInfo');
@@ -414,7 +421,7 @@ class Dashboard extends Component {
                                     }
                                     break;
                                 case 500:
-                                    message.error("网络出错")
+                                    message.error(intl.get("Network_Error"))
                                     _this.setState({
                                         resetPasswordVisible:false,
                                         passConfirmTip:"",
@@ -423,7 +430,7 @@ class Dashboard extends Component {
                                     })
                                     break;
                                 default:
-                                    message.error("密码修改失败")
+                                    message.error(intl.get("Password_Modify_Failed"))
                                     _this.setState({
                                         resetPasswordVisible:false,
                                         passConfirmTip:"",
@@ -443,8 +450,8 @@ class Dashboard extends Component {
     renderDropdown = () => {
         return  (
             <ul style={{minWidth: 60 }}>
-                <li key='dash' className='drop-item'><a onClick={this.resetPasswordVisibleFn}>修改密码</a></li>
-                <li key='loginout' className='drop-item'><a onClick={this.logoutTip}>注销</a></li>
+                <li key='dash' className='drop-item'><a onClick={this.resetPasswordVisibleFn}>{intl.get("Change_Password")}</a></li>
+                <li key='loginout' className='drop-item'><a onClick={this.logoutTip}>{intl.get("Logout")}</a></li>
             </ul>
         )
     }
@@ -473,7 +480,9 @@ class Dashboard extends Component {
 
         })
     }
-
+    componentDidMount(){
+        console.log(intl.options)
+    }
     render() {
         let pathArr = this.props.location.pathname.split('/');
         let path = pathArr[2];
@@ -499,19 +508,20 @@ class Dashboard extends Component {
             },
         };
         const breadcrumbNameMap={
-            '/dashboard':"控制台",
-            '/dashboard/overview':"概览",
+            '/dashboard':intl.get("Dashboard"),
+            '/dashboard/overview': intl.get("Overview"),
             '/dashboard/blockchain_browser':"区块链浏览器",
-            '/dashboard/channel_management':"通道管理",
-            '/dashboard/peer_management':"节点管理",
+            '/dashboard/channel_management': intl.get("Channel_Management"),
+            '/dashboard/peer_management': intl.get("Node_Management"),
             '/dashboard/chaincode_management':"链码管理",
-            '/dashboard/log_management':"日志管理",
-            '/dashboard/organization_management':"组织管理",
-            '/dashboard/organization_management/peer':"节点信息",
-            '/dashboard/channel_management/org':"组织信息",
-            '/dashboard/organization_management/create':"新建组织",
-            '/dashboard/peer_management/create':"新建节点",
-            '/dashboard/organization_management/peer/create':'新建节点'
+            '/dashboard/log_management': intl.get("Log_Management"),
+            '/dashboard/organization_management': intl.get("Orgnization_Management"),
+            '/dashboard/organization_management/peer':intl.get("Node_Info"),
+            '/dashboard/channel_management/org': intl.get("Org_Info"),
+            '/dashboard/channel_management/create_channel':intl.get("New_Channel"),
+            '/dashboard/organization_management/create':intl.get("New_Org"),
+            '/dashboard/peer_management/create':intl.get("New_Node"),
+            '/dashboard/organization_management/peer/create':intl.get("New_Node")
         }
         let breadcrumbItems = null
         const location = this.props.location || window.location;
@@ -532,15 +542,19 @@ class Dashboard extends Component {
         }
 
         if(window.location.search.indexOf("?") !== -1){
-            console.log(config)
             let request = new Object();
             const search = window.location.search.substr(1).split("&")
             for (var i = 0; i < search.length; i++) {
-                request[search[i].split("=")[0]] = this.decode(search[i].split("=")[1]);
+                if(i<2){
+                    request[search[i].split("=")[0]] = this.decode(search[i].split("=")[1]);
+                }else{
+                    request[search[i].split("=")[0]] = search[i].split("=")[1];
+                }
+
             }
             config.newAPI = request["url"]
-            console.log(config)
             sessionStorage.setItem('ConsortiumInfo', JSON.stringify(request));
+            Cookies.set("lang", request["local"] === "zh" ? "zh-CN" : request["local"] === "en" ? "en-US" :"", { expires: 7 });
         }
         return (
                 <Layout className="dashboard_layout" >
@@ -558,18 +572,18 @@ class Dashboard extends Component {
                                     </li>
                                 )
                                 :
-                                (
+                                    intl.options.currentLocale === "zh-CN" ? (
                                     <li className="logo">
                                         <img src={require('../../images/logo.svg')} alt="" />
                                     </li>
                                 )
+                                :
+                                (
+                                    <li className="logo">
+                                        <img src={require('../../images/logo_en.svg')} alt="" />
+                                    </li>
+                                )
                             }
-                            
-                            {/* <NavLink className="logo" to='/index' target="_blank">
-                            {
-                                this.props.intl.locale === "en" ? <img src={require('../../images/logo_en_dash.svg')} alt="" /> : <img src={logo} alt="" />
-                            }
-                        </NavLink> */}
                             <Menu
                                 className="List"
                                 theme="dark"
@@ -580,7 +594,7 @@ class Dashboard extends Component {
                                 <Menu.Item className="list-item" key="overview">
                                     <p className="fill-in" style={{visibility:path==="overview"?"":"hidden"}}></p>
                                     <img src={path==="overview"?overview:unoverview} alt=" " />
-                                    <span style={{ opacity: (this.state.collapsed ? 0 : 1) }}>概览</span>
+                                    <span style={{ opacity: (this.state.collapsed ? 0 : 1) }}>{intl.get("Overview")}</span>
                                 </Menu.Item>
                                 {/* <Menu.Item className="list-item" key="blockchain_browser">
                                     <p className="fill-in" style={{visibility:path==="blockchain_browser"?"":"hidden"}}></p>
@@ -590,17 +604,17 @@ class Dashboard extends Component {
                                 <Menu.Item className="list-item" key="organization_management">
                                     <p className="fill-in" style={{visibility:(path==="organization"||path==="organization_management")?"":"hidden"}}></p>
                                     <img src={(path==="organization"||path==="organization_management")?organization:unorganization} alt=" " />
-                                    <span style={{ opacity: (this.state.collapsed ? 0 : 1) }}>组织管理</span>
+                                    <span style={{ opacity: (this.state.collapsed ? 0 : 1) }}>{intl.get("Orgnization_Management")}</span>
                                 </Menu.Item>
                                 <Menu.Item className="list-item" key="channel_management">
                                     <p className="fill-in" style={{visibility:path==="channel_management"?"":"hidden"}}></p>
                                     <img src={path==="channel_management"?channel:unchannel} alt=" " />
-                                    <span style={{ opacity: (this.state.collapsed ? 0 : 1) }}>通道管理</span>
+                                    <span style={{ opacity: (this.state.collapsed ? 0 : 1) }}>{intl.get("Channel_Management")}</span>
                                 </Menu.Item>
                                 <Menu.Item className="list-item" key="peer_management">
                                     <p className="fill-in" style={{visibility:path==="peer_management"?"":"hidden"}}></p>
                                     <img src={path==="peer_management"?peer:unpeer} alt=" " />
-                                    <span style={{ opacity: (this.state.collapsed ? 0 : 1) }}>节点管理</span>
+                                    <span style={{ opacity: (this.state.collapsed ? 0 : 1) }}>{intl.get("Node_Management")}</span>
                                 </Menu.Item>
                                 {/* <Menu.Item className="list-item" key="chaincode_management">
                                     <p className="fill-in" style={{visibility:path==="chaincode_management"?"":"hidden"}}></p>
@@ -610,7 +624,7 @@ class Dashboard extends Component {
                                 <Menu.Item className="list-item" key="log_management">
                                     <p className="fill-in" style={{visibility:path==="log_management"?"":"hidden"}}></p>
                                     <img src={path==="log_management"?log:unlog} alt=" " />
-                                    <span style={{ opacity: (this.state.collapsed ? 0 : 1) }}>日志管理</span>
+                                    <span style={{ opacity: (this.state.collapsed ? 0 : 1) }}>{intl.get("Log_Management")}</span>
                                 </Menu.Item>
                             </Menu>
                         </Sider>
@@ -623,20 +637,31 @@ class Dashboard extends Component {
                                         onClick={this.toggle}
                                     />
                                     <div className="header-list">
-                                        {/* <div className="language-box">
-                                            <div className="language-box" ref="languageBox">
-                                                <Popover
-                                                    placement="bottom"
-                                                    content={this.renderLang()}
-                                                    trigger="hover"
-                                                    // getPopupContainer={() => this.refs.navBox}
-                                                    mouseLeaveDelay={0.3}
-                                                >
-                                                    <span className='current-lang'>{this.defaultLang}</span><Icon type="down" />
-                                                </Popover>
-                                            </div>
-                                        </div> */}
-                                        {/*<div className="consortiumJump"><NavLink to="/project" style={{cursor:"pointer"}}>我的联盟</NavLink></div>*/}
+                                        <div className="language-box" ref="languageBox">
+                                            <Popover
+                                                placement="bottom"
+                                                content={this.renderLang()}
+                                                trigger="hover"
+                                                // getPopupContainer={() => this.refs.navBox}
+                                                mouseLeaveDelay={0.3}
+                                            >
+                                                <span className='current-lang'>{this.defaultLang}</span><Icon type="down" />
+                                            </Popover>
+                                        </div>
+                                        {/*<div className="consortiumJump"><NavLink to="/project" style={{cursor:"pointer"}}>{intl.get("My_League")}</NavLink></div>*/}
+                                        {/*<div className='user-name-box dropDown-link'>*/}
+                                            {/*<Popover*/}
+                                                {/*visible={this.state.visible}*/}
+                                                {/*onVisibleChange={this.changeVisible}*/}
+                                                {/*placement="bottom"*/}
+                                                {/*content={this.renderDropdown()}*/}
+                                                {/*trigger="hover"*/}
+                                                {/*overlayClassName='user-name-drop'*/}
+                                                {/*mouseLeaveDelay={0.3}*/}
+                                            {/*>*/}
+                                                {/*<span style={{marginRight:'8px',cursor:"pointer"}}><img style={{marginRight:"8px"}} src={require("../../images/ic-user.svg")} alt=""/>{userName}</span><Icon type="down" />*/}
+                                            {/*</Popover>*/}
+                                        {/*</div>*/}
                                     </div>
                                 </Header>
                                 <div className="breadcrumb">
@@ -652,7 +677,7 @@ class Dashboard extends Component {
                                         <Route exact path="/dashboard/organization_management" component={Organization} />
                                         <Route exact path="/dashboard/channel_management" component={Channel} />
                                         <Route path="/dashboard/channel_management/org" component={ChannelOrg} />
-                                        <Route path="/dashboard/channel_management/createChannel" component={CreateChannel} />
+                                        <Route path="/dashboard/channel_management/create_channel" component={CreateChannel} />
                                         <Route exact path="/dashboard/peer_management" component={Peer} />
                                         <Route exact path="/dashboard/organization_management/peer" component={PeerManagement} />
                                         <Route path="/dashboard/organization_management/peer/create" component={createPeer} />
@@ -668,12 +693,12 @@ class Dashboard extends Component {
                                     this.state.resetPasswordVisible ? <Modal
                                         centered={true}
                                         getContainer={()=>document.getElementById("dom_dashboard")}
-                                        title={<h1 className="delectContractTit">修改密码</h1>}
+                                        title={<h1 className="delectContractTit">{intl.get("Change_Password")}</h1>}
                                         visible={this.state.resetPasswordVisible}
                                         onOk={this.okResetPassword}
                                         onCancel={this.CancelResetPassword}
-                                        okText="确认"
-                                        cancelText="取消"
+                                        okText={intl.get("Confirm")}
+                                        cancelText={intl.get("Cancel")}
                                         bodyStyle={{textAlign:'center',fontSize:'16px',color:"#354052"}}
                                         width='521px'
                                     >
@@ -682,23 +707,23 @@ class Dashboard extends Component {
                                             onSubmit={this.okResetPassword}
                                             hideRequiredMark={true}
                                         >
-                                            <FormItem label="旧密码" {...formItemLayout} style={{marginBottom:"0px"}} className="resetPassFormItem">
+                                            <FormItem label={intl.get("Old_Password")} {...formItemLayout} style={{marginBottom:"0px"}} className="resetPassFormItem">
                                                 {getFieldDecorator('password', {
                                                     rules: [
                                                         {
                                                             required: true,
-                                                            message:"请输入旧密码",
+                                                            message: intl.get("Please_Input_Old_Password"),
 
                                                         },
                                                         {
                                                             validator: this.inputPassword,
                                                         }
                                                     ],
-                                                })(<Input type="password" placeholder="请输入旧密码" size="large"/>)}
+                                                })(<Input type="password" placeholder={intl.get("Please_Input_Old_Password")} size="large"/>)}
                                             </FormItem>
                                             <code style={{top:"0px"}}>{this.state.passErrorTip}</code>
                                             <FormItem
-                                                label="新密码"
+                                                label={intl.get("New_Password")}
                                                 {...formItemLayout}
                                                 className="resetPassFormItem"
                                                 style={{marginBottom:"20px"}}
@@ -706,13 +731,13 @@ class Dashboard extends Component {
                                                 {getFieldDecorator('newPassword', {
                                                     rules: [
                                                         {
-                                                            required: true, message:"请输入新密码",
+                                                            required: true, message: intl.get("Please_Input_New_Password"),
                                                         },
                                                         {
                                                             validator: this.pwStrength,
                                                         }],
                                                 })(
-                                                    <Input type="password" placeholder="请输入新密码" size="large"/>
+                                                    <Input type="password" placeholder={intl.get("Please_Input_New_Password")} size="large"/>
                                                 )}
                                                 <div className="passCaptchaBox" style={{display:this.state.passVisible}}>
                                                     <span style={{flex:"1"}} id="strength_L"> </span>
@@ -723,18 +748,18 @@ class Dashboard extends Component {
                                             </FormItem>
                                             <FormItem
                                                 {...formItemLayout}
-                                                label="重复密码"
+                                                label={intl.get("Confirm_New_Password")}
                                                 className="resetPassFormItem"
                                                 style={{marginBottom:"0px"}}
                                             >
                                                 {getFieldDecorator('confirmPassword', {
                                                     rules: [{
-                                                        required: true, message: "请输入新密码",
+                                                        required: true, message: intl.get("Please_Input_New_Password"),
                                                     }, {
                                                         validator: this.validateConfirmPassword,
                                                     }],
                                                 })(
-                                                    <Input type="password" placeholder="请确认新密码" size="large"/>
+                                                    <Input type="password" placeholder={intl.get("Please_Input_New_Password")} size="large"/>
                                                 )}
                                             </FormItem>
                                             <code style={{top:"-9px"}}>{this.state.passConfirmTip}</code>
