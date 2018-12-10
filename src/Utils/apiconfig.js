@@ -15,22 +15,22 @@ module.exports = {
             resetPassword: `/user/password/reset`,
             logout: `/user/logout`
         },
-        channel: `/channel`,
+        channel: `/channel/{id}`,
         channelJoin: `/channel/join`,
         chain: {
             chainList: `/consortium`,
             container:`/container`
         },
         peer:{
-            peerList:`/peer`,
+            peerList:`/peer/{id}`,
             peerDetail:`/peer?organizationId={id}`
         },
         organization:{
-            orgList:`/organization`,
-            createOrg:`/channel/update`
+            orgList:`/organization/{id}`,
+            createOrg:`/channel/update/{id}`
         },
         organize: {
-            organization: `/organization`
+            organization: `/organization/{id}`
         },
         consortium: {
             overview: `/consortium/{consortiumId}`

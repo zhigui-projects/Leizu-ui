@@ -39,13 +39,14 @@ class CreateOrganization extends Component {
                     'password': values.sshpassword,
                     'consortiumId': consortiumId,
                 }
+                let id = sessionStorage.getItem('ConsortiumInfo') ? JSON.parse(sessionStorage.getItem('ConsortiumInfo'))._id : ""
                 const newApi = sessionStorage.getItem('ConsortiumInfo') ? JSON.parse(sessionStorage.getItem('ConsortiumInfo'))["url"]+"/api/v1":""
-                request().post(`${newApi}${orgList}`, obj).then((res) => {
+                request().post(`${newApi}${orgList.format({id:id})}`, obj).then((res) => {
                     if (res) {
                         let options = {};
                         options.channelType = 1;
                         options.organizationId = res.data.data._id;
-                        request().post(createOrg, options).then((res) => {
+                        request().post(createOrg.format({id:id}), options).then((res) => {
                             if (res) {
                                 this.setState({ loading: false });
                                 switch (res.status) {

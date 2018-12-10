@@ -35,8 +35,9 @@ class CreateChannelContent extends Component {
                 // let [id, consortiumId] = ['','']
                 // [id, consortiumId] = values.consortiumId.split('_')
                 let id = values.id
+                let chianId = sessionStorage.getItem('ConsortiumInfo') ? JSON.parse(sessionStorage.getItem('ConsortiumInfo'))._id : ""
                 const newApi = sessionStorage.getItem('ConsortiumInfo') ? JSON.parse(sessionStorage.getItem('ConsortiumInfo'))["url"]+"/api/v1":""
-                request().post(`${newApi}${channel}`, {
+                request().post(`${newApi}${channel.format({id:chianId})}`, {
                     name: values.name,
                     // consortiumId: consortiumId,
                     organizationIds: [values.id]
@@ -99,8 +100,9 @@ class CreateChannelContent extends Component {
         });
     }
     getOrgList = () => {
+        let id = sessionStorage.getItem('ConsortiumInfo') ? JSON.parse(sessionStorage.getItem('ConsortiumInfo'))._id : ""
         const newApi = sessionStorage.getItem('ConsortiumInfo') ? JSON.parse(sessionStorage.getItem('ConsortiumInfo'))["url"]+"/api/v1":""
-        request().get(`${newApi}${organization.orgList}`,{
+        request().get(`${newApi}${organization.orgList.format({id:id})}`,{
             cancelToken: new CancelToken(function executor(c) {
                 // An executor function receives a cancel function as a parameter
                 cancel2 = c;

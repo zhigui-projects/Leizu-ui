@@ -87,8 +87,9 @@ class CreateOrganization extends Component {
                 let options = {};
                 options.organizationId = this.state.id;
                 options.peers = ray;
+                let id = sessionStorage.getItem('ConsortiumInfo') ? JSON.parse(sessionStorage.getItem('ConsortiumInfo'))._id : ""
                 const newApi = sessionStorage.getItem('ConsortiumInfo') ? JSON.parse(sessionStorage.getItem('ConsortiumInfo'))["url"]+"/api/v1":""
-                request().post(`${newApi}${peerList}`, options).then((res) => {
+                request().post(`${newApi}${peerList.format({id:id})}`, options).then((res) => {
                     if (res) {
                         switch (res.status) {
                             case 200:
