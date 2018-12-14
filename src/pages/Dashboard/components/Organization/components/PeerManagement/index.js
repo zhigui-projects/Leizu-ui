@@ -4,13 +4,14 @@ Copyright Zhigui.com. All Rights Reserved.
 SPDX-License-Identifier: Apache-2.0
 */
 
-import React, { Component } from 'react';
-import { Table, Badge, Progress, Spin, Button, Icon } from 'antd';
+import React, {Component} from 'react';
+import {Badge, Button, Icon, Progress, Spin, Table} from 'antd';
 import intl from 'react-intl-universal'
 import apiconfig from '../../../../../../Utils/apiconfig';
 import request from '../../../../../../Utils/Axios';
 import axios from 'axios'
 import Cookies from 'js-cookie'
+
 const CancelToken = axios.CancelToken;
 let cancel;
 
@@ -91,9 +92,11 @@ class PeerManagement extends Component {
             id: this.props.location.state ? this.props.location.state : localStorage.getItem('_id')
         }
     }
-    getPeerData = () => {
-        let _id = localStorage.getItem('_id');
-        request().get(`${peer.peerDetail.format({ id: this.state.id ? this.state.id : _id })}`, {
+    getPeerData = (consortiumId) => {
+        request().get(`${peer.peerDetail.format({consortiumId: consortiumId})}`, {
+            params: {
+                id: this.state.id ? this.state.id : localStorage.getItem('_id')
+            },
             cancelToken: new CancelToken(function executor(c) {
                 // An executor function receives a cancel function as a parameter
                 cancel = c;
@@ -123,7 +126,11 @@ class PeerManagement extends Component {
         localStorage.setItem('_id', id);
     }
     componentDidMount() {
-        this.getPeerData()
+        let temp = sessionStorage.getItem('ConsortiumInfo')
+        if(temp){
+            temp = JSON.parse(temp)
+            this.getPeerData(temp._id)
+        }
     }
     componentWillUnmount() {
         if (cancel) {

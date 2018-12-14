@@ -173,7 +173,16 @@ class Log extends Component {
         };
     }
     componentDidMount() {
+        let temp = sessionStorage.getItem('ConsortiumInfo')
+        let consortiumId;
+        if(temp) {
+            temp = JSON.parse(temp)
+            consortiumId = temp._id;
+        }
         request().get(chain.container,{
+            params: {
+                consortiumId: consortiumId
+            },
             cancelToken: new CancelToken(function executor(c) {
                 // An executor function receives a cancel function as a parameter
                 cancel = c;

@@ -34,8 +34,8 @@ class OrgaManagement extends Component {
             state: record.id
         });
     }
-    getOrgData = () => {
-        request().get(orgList, {
+    getOrgData = (id) => {
+        request().get(orgList.format({consortiumId: id}), {
             cancelToken: new CancelToken(function executor(c) {
                 // An executor function receives a cancel function as a parameter
                 cancel = c;
@@ -62,7 +62,11 @@ class OrgaManagement extends Component {
         })
     }
     componentDidMount() {
-        this.getOrgData()
+        let temp = sessionStorage.getItem('ConsortiumInfo')
+        if(temp){
+            temp = JSON.parse(temp)
+            this.getOrgData(temp._id)
+        }
     }
     componentWillUnmount() {
         if (cancel) {

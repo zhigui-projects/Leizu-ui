@@ -92,8 +92,8 @@ class Peer extends Component {
             loading: true
         }
     }
-    getPeerData = () => {
-        request().get(peerList, {
+    getPeerData = (id) => {
+        request().get(peerList.format({consortiumId: id}), {
             cancelToken: new CancelToken(function executor(c) {
                 // An executor function receives a cancel function as a parameter
                 cancel = c;
@@ -120,7 +120,11 @@ class Peer extends Component {
         })
     }
     componentDidMount() {
-        this.getPeerData()
+        let temp = sessionStorage.getItem('ConsortiumInfo')
+        if(temp) {
+            temp = JSON.parse(temp)
+            this.getPeerData(temp._id)
+        }
     }
     componentWillUnmount() {
         if (cancel) {

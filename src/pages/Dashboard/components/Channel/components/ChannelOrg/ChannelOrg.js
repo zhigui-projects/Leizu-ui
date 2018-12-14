@@ -21,7 +21,7 @@ let cancel;
 class ChannelOrg extends Component {
     constructor(props) {
         super(props);
-        this.state = {  
+        this.state = {
             tableArr: [],
             loading: true
         }
@@ -31,25 +31,24 @@ class ChannelOrg extends Component {
             title: intl.get("Org_Name"),
             dataIndex: 'name',
             key: 'name',
-        }, 
+        },
         // {
             //     title: '组织数量',
             //     dataIndex: 'orgs',
             //     key: 'orgs',
             //     render: arr => arr.length
-            // }, 
+            // },
         {
             title: intl.get("Node_Count"),
             dataIndex: 'peer_count',
             key: 'peer_count',
         }
     ]
-    getData = (id)=>{
-        request().get(organize.organization,{
+    getData = (consortiumId, channelId)=>{
+        request().get(organize.organization.format({consortiumId: consortiumId}), {
             params: {
-                channelId: id
-            }
-        },{
+                channelId: channelId
+            },
             cancelToken: new CancelToken(function executor(c) {
                 // An executor function receives a cancel function as a parameter
                 cancel = c;
@@ -57,27 +56,30 @@ class ChannelOrg extends Component {
         }).then(res=>{
             if(res){
                 switch(res.status){
-                    case 200: 
+                    case 200:
                         this.setState({
                             tableArr: res.data.data,
                             loading: false
                         })
                         break;
-                    case 401: 
+                    case 401:
                         Cookies.remove('userNameInfo')
                         Cookies.remove('token')
                         this.props.history.push('/login')
                         break;
-                    default: 
+                    default:
                         return ''
                 }
-                
+
             }
         })
     }
     componentDidMount(){
-        // console.log(this.props)
-        this.getData(this.props.location.query)
+        let temp = sessionStorage.getItem('ConsortiumInfo')
+        if(temp) {
+            temp = JSON.parse(temp)
+            this.getData(temp._id, this.props.location.query)
+        }
     }
     componentWillUnmount() {
         if (cancel) {
@@ -87,12 +89,12 @@ class ChannelOrg extends Component {
             return;
         };
     }
-    render() { 
-        return (  
+    render() {
+        return (
             <div className='channel-org-page'>
                 <div className="table-box">
                     <Spin spinning={this.state.loading}>
-                        <Table 
+                        <Table
                             columns= {this.columns}
                             dataSource = {this.state.tableArr}
                             rowKey = {record=>record.id}
@@ -107,5 +109,5 @@ class ChannelOrg extends Component {
         );
     }
 }
- 
+
 export default ChannelOrg;

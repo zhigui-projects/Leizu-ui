@@ -57,9 +57,9 @@ class Channel extends Component{
             ),
         }
     ]
-    
-    getData = ()=>{
-        request().get(channel,{
+
+    getData = (id)=>{
+        request().get(channel.format({consortiumId: id}),{
             cancelToken: new CancelToken(function executor(c) {
                 // An executor function receives a cancel function as a parameter
                 cancel = c;
@@ -74,7 +74,7 @@ class Channel extends Component{
                             loading: false
                         })
                         break;
-                    case 401: 
+                    case 401:
                         Cookies.remove('userNameInfo')
                         Cookies.remove('token')
                         this.props.history.push('/login')
@@ -93,7 +93,11 @@ class Channel extends Component{
         this.props.history.push('/dashboard/channel_management/create_channel')
     }
     componentDidMount(){
-        this.getData();
+        let temp = sessionStorage.getItem('ConsortiumInfo')
+        if(temp){
+            temp = JSON.parse(temp)
+            this.getData(temp._id)
+        }
     }
     componentWillUnmount() {
         if (cancel) {
@@ -113,7 +117,7 @@ class Channel extends Component{
                 </div>
                 <div className="table-box">
                     <Spin spinning={this.state.loading}>
-                        <Table 
+                        <Table
                             columns= {this.columns}
                             dataSource = {this.state.tableArr}
                             rowKey = {record=>record.uuid}
