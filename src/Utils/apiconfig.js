@@ -28,7 +28,7 @@ module.exports = {
             creatPeer:`/peer`
         },
         organization:{
-            orgList:`/organization/{id}`,
+            orgList:`/organization/{id}?type=0`,
             createOrg:`/channel/update/{id}`,
             peerCheck:`/peer/check`,
             creatOrg:`/organization`

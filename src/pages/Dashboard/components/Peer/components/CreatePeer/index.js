@@ -132,6 +132,7 @@ class CreateOrganization extends Component {
         let id = sessionStorage.getItem('ConsortiumInfo') ? JSON.parse(sessionStorage.getItem('ConsortiumInfo'))._id : ""
         const newApi = sessionStorage.getItem('ConsortiumInfo') ? JSON.parse(sessionStorage.getItem('ConsortiumInfo'))["url"]+"/api/v1":""
         request().get(`${newApi}${orgList.format({id:id})}`).then((res) => {
+            console.log(res);
             if (res.data.code == 200) {
                 let dataOptions = res.data.data;
                 this.setState({

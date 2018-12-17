@@ -41,6 +41,7 @@ class Project extends Component {
         })
         request().get(chain.chainList).then((chainListRes)=>{
             if(chainListRes){
+                console.log(chainListRes)
                 switch(chainListRes.status){
                     case 200:
                         this.setState({
