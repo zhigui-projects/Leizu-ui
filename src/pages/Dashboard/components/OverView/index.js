@@ -39,7 +39,7 @@ class OverView extends Component{
             // console.log(res)
             if(res){
                 switch(res.status){
-                    case 200: 
+                    case 200:
                         this.setState({
                             basicInfo: [
                                 {
@@ -68,7 +68,7 @@ class OverView extends Component{
                                 },
                                 {
                                     title: intl.get("Status"),
-                                    desc: intl.get("Blockchain_Create_Time"),
+                                    desc: intl.get("Blockchain_Operating_Status"),
                                     text: res.data.data.status === 0 ? intl.get("Stop_Running") : intl.get("Operating_Normally"),
                                     display: true
                                 }
