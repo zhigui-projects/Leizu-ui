@@ -4,18 +4,17 @@ Copyright Zhigui.com. All Rights Reserved.
 SPDX-License-Identifier: Apache-2.0
 */
 
-import React, { Component } from 'react';
-import { Form, Icon, Input, Button, Select, message } from 'antd'
+import React, {Component} from 'react';
+import {Button, Form, Input, message, Select} from 'antd'
 import intl from 'react-intl-universal'
 import Cookies from 'js-cookie'
 import axios from 'axios'
 
 import request from '../../../../../../Utils/Axios'
-import { test } from '../../../../../../Utils/Axios'
 import apiconfig from '../../../../../../Utils/apiconfig'
 import './createChannel.less'
 
-const { api: { organization, channel, channelJoin } } = apiconfig;
+const { api: { organization, createChannel, channelJoin } } = apiconfig;
 
 const CancelToken = axios.CancelToken;
 let cancel1;
@@ -41,7 +40,7 @@ class CreateChannelContent extends Component {
                 })
                 console.log('Received values of form: ', values);
                 let id = values.id
-                request().post(channel, {
+                request().post(createChannel, {
                     name: values.name,
                     organizationIds: [values.id]
                 }, {
@@ -104,8 +103,8 @@ class CreateChannelContent extends Component {
             }
         });
     }
-    getOrgList = () => {
-        request().get(organization.orgList, {
+    getOrgList = (id) => {
+        request().get(organization.orgList.format({consortiumId: id}), {
             cancelToken: new CancelToken(function executor(c) {
                 // An executor function receives a cancel function as a parameter
                 cancel2 = c;
@@ -136,7 +135,7 @@ class CreateChannelContent extends Component {
         this.props.history.push('/dashboard/channel_management')
     }
     componentDidMount() {
-        this.getOrgList();
+        this.getOrgList(JSON.parse(sessionStorage.getItem('ConsortiumInfo'))._id);
     }
     componentWillUnmount() {
         if (cancel1) {

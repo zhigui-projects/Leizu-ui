@@ -8,12 +8,10 @@ import React, { Component } from 'react';
 import { Button, Input, Form, Icon, Select, message } from 'antd';
 import intl from 'react-intl-universal'
 import request from '../../../../../../../Utils/Axios';
-import axios from 'axios';
 import apiconfig from '../../../../../../../Utils/apiconfig';
 import Cookies from 'js-cookie';
 const FormItem = Form.Item;
-const Option = Select.Option;
-const { api: { peer: { peerList } } } = apiconfig;
+const { api: { peer: { createPeer } } } = apiconfig;
 
 class CreateOrganization extends Component {
     constructor(props) {
@@ -95,7 +93,7 @@ class CreateOrganization extends Component {
                 let options = {};
                 options.organizationId = this.state.id;
                 options.peers = ray;
-                request().post(peerList, options).then((res) => {
+                request().post(createPeer, options).then((res) => {
                     if (res) {
                         switch (res.status) {
                             case 200:

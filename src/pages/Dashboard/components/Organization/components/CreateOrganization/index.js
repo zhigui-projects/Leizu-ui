@@ -9,10 +9,9 @@ import { Button, Input, Form, Icon, message } from 'antd';
 import intl from 'react-intl-universal'
 import apiconfig from '../../../../../../Utils/apiconfig';
 import request from '../../../../../../Utils/Axios';
-import axios from 'axios';
 import Cookies from 'js-cookie';
 const FormItem = Form.Item;
-const { api: { organization: { orgList, createOrg, peerCheck } } } = apiconfig;
+const { api: { organization: { createOrg, updateChannel, peerCheck } } } = apiconfig;
 
 class CreateOrganization extends Component {
     constructor(props) {
@@ -59,12 +58,12 @@ class CreateOrganization extends Component {
                                     'password': values.sshpassword,
                                     'consortiumId': consortiumId,
                                 }
-                                request().post(orgList, obj).then((res) => {
+                                request().post(createOrg, obj).then((res) => {
                                     if (res.status == 200) {
                                         let options = {};
                                         options.channelType = 1;
                                         options.organizationId = res.data.data._id;
-                                        request().post(createOrg, options).then((res) => {
+                                        request().post(updateChannel, options).then((res) => {
                                             if (res) {
                                                 this.setState({ loading: false });
                                                 switch (res.status) {

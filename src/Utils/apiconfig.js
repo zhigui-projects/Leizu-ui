@@ -18,6 +18,7 @@ module.exports = {
             logout: `${API}/user/logout`
         },
         channel: `${API}/channel/{consortiumId}`,
+        createChannel: `${API}/channel`,
         channelJoin: `${API}/channel/join`,
         chain: {
             chainList: `${API}/consortium`,
@@ -25,11 +26,13 @@ module.exports = {
         },
         peer:{
             peerList:`${API}/peer/{consortiumId}`,
+            createPeer:`${API}/peer`,
             peerDetail:`${API}/peer/{consortiumId}`
         },
         organization:{
             orgList:`${API}/organization/{consortiumId}`,
-            createOrg:`${API}/channel/update`,
+            createOrg:`${API}/organization`,
+            updateChannel:`${API}/channel/update`,
             peerCheck:`${API}/peer/check`
         },
         organize: {
