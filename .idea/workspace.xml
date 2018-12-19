@@ -1,82 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ef641249-c161-4818-b0e9-8782c104bcdd" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.env.dev" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/LICENSE" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/license.txt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/markdown-license.txt" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change beforePath="$PROJECT_DIR$/.idea/dashboard-ui.iml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" afterPath="$PROJECT_DIR$/Dockerfile" />
-      <change beforePath="$PROJECT_DIR$/Makefile" afterPath="$PROJECT_DIR$/Makefile" />
-      <change beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change beforePath="$PROJECT_DIR$/config/env.js" afterPath="$PROJECT_DIR$/config/env.js" />
-      <change beforePath="$PROJECT_DIR$/config/jest/cssTransform.js" afterPath="$PROJECT_DIR$/config/jest/cssTransform.js" />
-      <change beforePath="$PROJECT_DIR$/config/jest/fileTransform.js" afterPath="$PROJECT_DIR$/config/jest/fileTransform.js" />
-      <change beforePath="$PROJECT_DIR$/config/paths.js" afterPath="$PROJECT_DIR$/config/paths.js" />
-      <change beforePath="$PROJECT_DIR$/config/polyfills.js" afterPath="$PROJECT_DIR$/config/polyfills.js" />
-      <change beforePath="$PROJECT_DIR$/config/webpack.config.dev.js" afterPath="$PROJECT_DIR$/config/webpack.config.dev.js" />
-      <change beforePath="$PROJECT_DIR$/config/webpack.config.prod.js" afterPath="$PROJECT_DIR$/config/webpack.config.prod.js" />
-      <change beforePath="$PROJECT_DIR$/config/webpackDevServer.config.js" afterPath="$PROJECT_DIR$/config/webpackDevServer.config.js" />
-      <change beforePath="$PROJECT_DIR$/nginx/nginx.conf" afterPath="$PROJECT_DIR$/nginx/nginx.conf" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" afterPath="$PROJECT_DIR$/package-lock.json" />
-      <change beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" afterPath="$PROJECT_DIR$/public/index.html" />
-      <change beforePath="$PROJECT_DIR$/scripts/build.js" afterPath="$PROJECT_DIR$/scripts/build.js" />
-      <change beforePath="$PROJECT_DIR$/scripts/start.js" afterPath="$PROJECT_DIR$/scripts/start.js" />
-      <change beforePath="$PROJECT_DIR$/scripts/test.js" afterPath="$PROJECT_DIR$/scripts/test.js" />
-      <change beforePath="$PROJECT_DIR$/src/App.test.js" afterPath="$PROJECT_DIR$/src/App.test.js" />
-      <change beforePath="$PROJECT_DIR$/src/Router/App.js" afterPath="$PROJECT_DIR$/src/Router/App.js" />
-      <change beforePath="$PROJECT_DIR$/src/Utils/Axios.js" afterPath="$PROJECT_DIR$/src/Utils/Axios.js" />
-      <change beforePath="$PROJECT_DIR$/src/Utils/Tip.js" afterPath="$PROJECT_DIR$/src/Utils/Tip.js" />
-      <change beforePath="$PROJECT_DIR$/src/Utils/apiconfig.js" afterPath="$PROJECT_DIR$/src/Utils/apiconfig.js" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" afterPath="$PROJECT_DIR$/src/index.js" />
-      <change beforePath="$PROJECT_DIR$/src/index.less" afterPath="$PROJECT_DIR$/src/index.less" />
-      <change beforePath="$PROJECT_DIR$/src/locales/en_US.json" afterPath="$PROJECT_DIR$/src/locales/en_US.json" />
-      <change beforePath="$PROJECT_DIR$/src/locales/zh_CN.json" afterPath="$PROJECT_DIR$/src/locales/zh_CN.json" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Dashboard/basicLayout.js" afterPath="$PROJECT_DIR$/src/pages/Dashboard/basicLayout.js" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Dashboard/basicLayout.less" afterPath="$PROJECT_DIR$/src/pages/Dashboard/basicLayout.less" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Dashboard/components/BlockChain/index.js" afterPath="$PROJECT_DIR$/src/pages/Dashboard/components/BlockChain/index.js" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Dashboard/components/BlockChain/index.less" afterPath="$PROJECT_DIR$/src/pages/Dashboard/components/BlockChain/index.less" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Dashboard/components/ChainCode/index.js" afterPath="$PROJECT_DIR$/src/pages/Dashboard/components/ChainCode/index.js" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Dashboard/components/ChainCode/index.less" afterPath="$PROJECT_DIR$/src/pages/Dashboard/components/ChainCode/index.less" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Dashboard/components/Channel/components/ChannelOrg/ChannelOrg.js" afterPath="$PROJECT_DIR$/src/pages/Dashboard/components/Channel/components/ChannelOrg/ChannelOrg.js" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Dashboard/components/Channel/components/ChannelOrg/channelOrg.less" afterPath="$PROJECT_DIR$/src/pages/Dashboard/components/Channel/components/ChannelOrg/channelOrg.less" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Dashboard/components/Channel/components/CreateChannel/CreateChannel.js" afterPath="$PROJECT_DIR$/src/pages/Dashboard/components/Channel/components/CreateChannel/CreateChannel.js" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Dashboard/components/Channel/components/CreateChannel/createChannel.less" afterPath="$PROJECT_DIR$/src/pages/Dashboard/components/Channel/components/CreateChannel/createChannel.less" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Dashboard/components/Channel/index.js" afterPath="$PROJECT_DIR$/src/pages/Dashboard/components/Channel/index.js" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Dashboard/components/Channel/index.less" afterPath="$PROJECT_DIR$/src/pages/Dashboard/components/Channel/index.less" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Dashboard/components/Log/index.js" afterPath="$PROJECT_DIR$/src/pages/Dashboard/components/Log/index.js" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Dashboard/components/Log/index.less" afterPath="$PROJECT_DIR$/src/pages/Dashboard/components/Log/index.less" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Dashboard/components/Lost/Lost.js" afterPath="$PROJECT_DIR$/src/pages/Dashboard/components/Lost/Lost.js" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Dashboard/components/Lost/Lost.less" afterPath="$PROJECT_DIR$/src/pages/Dashboard/components/Lost/Lost.less" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Dashboard/components/Organization/components/CreateOrganization/index.js" afterPath="$PROJECT_DIR$/src/pages/Dashboard/components/Organization/components/CreateOrganization/index.js" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Dashboard/components/Organization/components/CreateOrganization/index.less" afterPath="$PROJECT_DIR$/src/pages/Dashboard/components/Organization/components/CreateOrganization/index.less" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Dashboard/components/Organization/components/PeerManagement/createPeer/createPeer.js" afterPath="$PROJECT_DIR$/src/pages/Dashboard/components/Organization/components/PeerManagement/createPeer/createPeer.js" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Dashboard/components/Organization/components/PeerManagement/createPeer/createPeer.less" afterPath="$PROJECT_DIR$/src/pages/Dashboard/components/Organization/components/PeerManagement/createPeer/createPeer.less" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Dashboard/components/Organization/components/PeerManagement/index.js" afterPath="$PROJECT_DIR$/src/pages/Dashboard/components/Organization/components/PeerManagement/index.js" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Dashboard/components/Organization/components/PeerManagement/index.less" afterPath="$PROJECT_DIR$/src/pages/Dashboard/components/Organization/components/PeerManagement/index.less" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Dashboard/components/Organization/index.js" afterPath="$PROJECT_DIR$/src/pages/Dashboard/components/Organization/index.js" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Dashboard/components/Organization/index.less" afterPath="$PROJECT_DIR$/src/pages/Dashboard/components/Organization/index.less" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Dashboard/components/OverView/index.js" afterPath="$PROJECT_DIR$/src/pages/Dashboard/components/OverView/index.js" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Dashboard/components/OverView/index.less" afterPath="$PROJECT_DIR$/src/pages/Dashboard/components/OverView/index.less" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Dashboard/components/Peer/components/CreatePeer/index.js" afterPath="$PROJECT_DIR$/src/pages/Dashboard/components/Peer/components/CreatePeer/index.js" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Dashboard/components/Peer/components/CreatePeer/index.less" afterPath="$PROJECT_DIR$/src/pages/Dashboard/components/Peer/components/CreatePeer/index.less" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Dashboard/components/Peer/index.js" afterPath="$PROJECT_DIR$/src/pages/Dashboard/components/Peer/index.js" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Dashboard/components/Peer/index.less" afterPath="$PROJECT_DIR$/src/pages/Dashboard/components/Peer/index.less" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Login/login.js" afterPath="$PROJECT_DIR$/src/pages/Login/login.js" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Login/login.less" afterPath="$PROJECT_DIR$/src/pages/Login/login.less" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Project/index.js" afterPath="$PROJECT_DIR$/src/pages/Project/index.js" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Project/index.less" afterPath="$PROJECT_DIR$/src/pages/Project/index.less" />
-      <change beforePath="$PROJECT_DIR$/src/registerServiceWorker.js" afterPath="$PROJECT_DIR$/src/registerServiceWorker.js" />
-      <change beforePath="$PROJECT_DIR$/src/styles/reset.less" afterPath="$PROJECT_DIR$/src/styles/reset.less" />
-    </list>
+    <list default="true" id="ef641249-c161-4818-b0e9-8782c104bcdd" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -92,18 +17,42 @@
       <file leaf-file-name="apiconfig.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Utils/apiconfig.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="8" lean-forward="true" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
+            <state relative-caret-position="313">
+              <caret line="25" column="22" lean-forward="false" selection-start-line="25" selection-start-column="22" selection-end-line="25" selection-end-column="22" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="basicLayout.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="basicLayout.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/Dashboard/basicLayout.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="219">
-              <caret line="538" column="15" lean-forward="true" selection-start-line="538" selection-start-column="15" selection-end-line="538" selection-end-column="15" />
+            <state relative-caret-position="752">
+              <caret line="554" column="32" lean-forward="false" selection-start-line="554" selection-start-column="32" selection-end-line="554" selection-end-column="32" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pages/Dashboard/components/BlockChain/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="21" column="26" lean-forward="false" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="26" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/pages/Dashboard/components/ChainCode/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="16" column="15" lean-forward="false" selection-start-line="16" selection-start-column="15" selection-end-line="16" selection-end-column="15" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -114,8 +63,8 @@
       <file leaf-file-name="CreateChannel.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/Dashboard/components/Channel/components/CreateChannel/CreateChannel.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="854">
-              <caret line="96" column="73" lean-forward="false" selection-start-line="96" selection-start-column="60" selection-end-line="96" selection-end-column="73" />
+            <state relative-caret-position="281">
+              <caret line="58" column="55" lean-forward="false" selection-start-line="58" selection-start-column="55" selection-end-line="58" selection-end-column="55" />
               <folding />
             </state>
           </provider>
@@ -124,8 +73,8 @@
       <file leaf-file-name="createPeer.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/Dashboard/components/Organization/components/PeerManagement/createPeer/createPeer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="93" column="33" lean-forward="true" selection-start-line="93" selection-start-column="33" selection-end-line="93" selection-end-column="33" />
+            <state relative-caret-position="795">
+              <caret line="93" column="33" lean-forward="false" selection-start-line="93" selection-start-column="33" selection-end-line="93" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -166,7 +115,7 @@
         <entry file="file://$PROJECT_DIR$/src/pages/Dashboard/components/Peer/components/CreatePeer/index.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="223">
-              <caret line="95" column="70" lean-forward="true" selection-start-line="95" selection-start-column="70" selection-end-line="95" selection-end-column="70" />
+              <caret line="95" column="70" lean-forward="false" selection-start-line="95" selection-start-column="70" selection-end-line="95" selection-end-column="70" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <marker date="1544431810612" expanded="true" signature="5545:15549" ph="..." />
@@ -204,10 +153,14 @@
       <find>channel</find>
       <find>peerList</find>
       <find>orgList</find>
-      <find>defaultLang</find>
-      <find>peerCheck</find>
       <find>lang</find>
+      <find>peerCheck</find>
+      <find>defaultLang</find>
+      <find>request</find>
     </findStrings>
+    <dirStrings>
+      <dir>$PROJECT_DIR$/src/pages/Dashboard/components</dir>
+    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -299,13 +252,16 @@
               <item name="pages" type="462c0819:PsiDirectoryNode" />
               <item name="Dashboard" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="Organization" type="462c0819:PsiDirectoryNode" />
+              <item name="BlockChain" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="dashboard-ui" type="b2602c69:ProjectViewProjectNode" />
               <item name="dashboard-ui" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Utils" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="Dashboard" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="ChainCode" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -348,12 +304,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1544429412402</updated>
-      <workItem from="1544429414114" duration="4172000" />
+      <workItem from="1544429414114" duration="5852000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4172000" />
+    <option name="totallyTimeSpent" value="5852000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="1" />
@@ -390,30 +346,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/pages/Dashboard/components/Organization/components/PeerManagement/createPeer/createPeer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="93" column="33" lean-forward="true" selection-start-line="93" selection-start-column="33" selection-end-line="93" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/Dashboard/components/Channel/components/CreateChannel/CreateChannel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="854">
-          <caret line="96" column="73" lean-forward="false" selection-start-line="96" selection-start-column="60" selection-end-line="96" selection-end-column="73" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Utils/apiconfig.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="8" lean-forward="true" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/Dashboard/components/Organization/components/CreateOrganization/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-441">
@@ -446,7 +378,7 @@
     <entry file="file://$PROJECT_DIR$/src/pages/Dashboard/components/Peer/components/CreatePeer/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="223">
-          <caret line="95" column="70" lean-forward="true" selection-start-line="95" selection-start-column="70" selection-end-line="95" selection-end-column="70" />
+          <caret line="95" column="70" lean-forward="false" selection-start-line="95" selection-start-column="70" selection-end-line="95" selection-end-column="70" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <marker date="1544431810612" expanded="true" signature="5545:15549" ph="..." />
@@ -475,10 +407,54 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/Dashboard/components/Channel/components/CreateChannel/CreateChannel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="58" column="55" lean-forward="false" selection-start-line="58" selection-start-column="55" selection-end-line="58" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Utils/apiconfig.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="313">
+          <caret line="25" column="22" lean-forward="false" selection-start-line="25" selection-start-column="22" selection-end-line="25" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/Dashboard/components/Organization/components/PeerManagement/createPeer/createPeer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="795">
+          <caret line="93" column="33" lean-forward="false" selection-start-line="93" selection-start-column="33" selection-end-line="93" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/Dashboard/basicLayout.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="538" column="15" lean-forward="true" selection-start-line="538" selection-start-column="15" selection-end-line="538" selection-end-column="15" />
+        <state relative-caret-position="752">
+          <caret line="554" column="32" lean-forward="false" selection-start-line="554" selection-start-column="32" selection-end-line="554" selection-end-column="32" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/Dashboard/components/BlockChain/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="26" lean-forward="false" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="26" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/Dashboard/components/ChainCode/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="15" lean-forward="false" selection-start-line="16" selection-start-column="15" selection-end-line="16" selection-end-column="15" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
