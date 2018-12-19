@@ -24,11 +24,11 @@ module.exports = {
         },
         peer:{
             peerList:`/peer/{id}`,
-            peerDetail:`/peer?organizationId={id}`,
+            peerDetail:`/peer/{id}/{peerId}`,
             creatPeer:`/peer`
         },
         organization:{
-            orgList:`/organization/{id}`,
+            orgList:`/organization/{id}?type=0`,
             createOrg:`/channel/update/{id}`,
             peerCheck:`/peer/check`,
             creatOrg:`/organization`

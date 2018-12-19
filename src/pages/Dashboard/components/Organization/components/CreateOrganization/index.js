@@ -12,7 +12,7 @@ import request from '../../../../../../Utils/Axios';
 import axios from 'axios';
 import Cookies from 'js-cookie';
 const FormItem = Form.Item;
-const { api: { organization: { orgList, createOrg, peerCheck,creatOrg } } } = apiconfig;
+const { api: { organization: { orgList, createOrg, peerCheck } } } = apiconfig;
 
 class CreateOrganization extends Component {
     constructor(props) {
@@ -41,10 +41,10 @@ class CreateOrganization extends Component {
                 'password': values.sshpassword
             }
             const newApi = sessionStorage.getItem('ConsortiumInfo') ? JSON.parse(sessionStorage.getItem('ConsortiumInfo'))["url"]+"/api/v1":""
-            // request().post(`${newApi}${peerCheck}`, check).then((res) => {
-            //     if (res) {
-            //         switch (res.status) {
-            //             case 200:
+            request().post(`${newApi}${peerCheck}`, check).then((res) => {
+                if (res) {
+                    switch (res.status) {
+                        case 200:
                             this.setState({ checkResult: intl.get("Node_Detection_Passed"), paas: true });
                             if (!orgName) {
                                 this.setState({ display: true });
@@ -62,18 +62,19 @@ class CreateOrganization extends Component {
                                 }
                                 let id = sessionStorage.getItem('ConsortiumInfo') ? JSON.parse(sessionStorage.getItem('ConsortiumInfo'))._id : ""
                                 const newApi = sessionStorage.getItem('ConsortiumInfo') ? JSON.parse(sessionStorage.getItem('ConsortiumInfo'))["url"]+"/api/v1":""
-                                request().post(`${newApi}${creatOrg}`, obj).then((res) => {
+                                request().post(`${newApi}${orgList}`, obj).then((res) => {
                                     if (res.status == 200) {
                                         let options = {};
                                         options.channelType = 1;
                                         options.organizationId = res.data.data._id;
-                                        request().post(createOrg, options).then((res) => {
+                                        request().post(`${newApi}${createOrg}`, options).then((res) => {
                                             if (res) {
                                                 this.setState({ loading: false });
                                                 switch (res.status) {
                                                     case 200:
                                                         message.success(intl.get("Org_Created_Successfully"));
-                                                        this.setState({ loading: false })
+                                                        this.setState({ loading: false });
+                                                        this.props.history.push('/dashboard/organization_management');
                                                         break;
                                                     case 400:
                                                         message.error(intl.get("Create_Failed"));
@@ -107,23 +108,23 @@ class CreateOrganization extends Component {
                                     }
                                 })
                             }
-                //             break;
-                //         case 400:
-                //             this.setState({ checkResult: intl.get("Not_Pass_Input_Again"), loading: false, paas: false });
-                //             break;
-                //         case 401:
-                //             Cookies.remove('token');
-                //             Cookies.remove('userNameInfo');
-                //             sessionStorage.removeItem('projectData');
-                //             sessionStorage.removeItem('consortiumType');
-                //             this.props.history.push({
-                //                 pathname: "/login"
-                //             })
-                //             break;
-                //     }
-                // }
+                            break;
+                        case 400:
+                            this.setState({ checkResult: intl.get("Not_Pass_Input_Again"), loading: false, paas: false });
+                            break;
+                        case 401:
+                            Cookies.remove('token');
+                            Cookies.remove('userNameInfo');
+                            sessionStorage.removeItem('projectData');
+                            sessionStorage.removeItem('consortiumType');
+                            this.props.history.push({
+                                pathname: "/login"
+                            })
+                            break;
+                    }
+                }
 
-            // })
+            })
 
         })
     }
@@ -173,7 +174,7 @@ class CreateOrganization extends Component {
                                             </div>
                                         )}
                                     </FormItem>
-                                    <span className='dot'>·</span>
+                                    <span className='dot first-child'>·</span>
                                     <FormItem className="ip-peer" >
                                         {getFieldDecorator('ippeer2', {
                                             rules: [{

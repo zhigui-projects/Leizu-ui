@@ -51,7 +51,7 @@ class CreateOrganization extends Component {
             pattern: '',
             validator: ''
         }
-        if (count <= 4) {
+        if (count <= 3) {
             formArr.push(newData);
             this.setState({
                 formArr,
@@ -99,6 +99,7 @@ class CreateOrganization extends Component {
                         switch (res.status) {
                             case 200:
                                 message.success(intl.get("Create_Node_Successfully"));
+                                this.props.history.push('/dashboard/peer_management');
                                 break;
                             case 400:
                                 message.warning(intl.get("Have_Already_Created_Node"))
@@ -132,6 +133,7 @@ class CreateOrganization extends Component {
         let id = sessionStorage.getItem('ConsortiumInfo') ? JSON.parse(sessionStorage.getItem('ConsortiumInfo'))._id : ""
         const newApi = sessionStorage.getItem('ConsortiumInfo') ? JSON.parse(sessionStorage.getItem('ConsortiumInfo'))["url"]+"/api/v1":""
         request().get(`${newApi}${orgList.format({id:id})}`).then((res) => {
+            console.log(res);
             if (res.data.code == 200) {
                 let dataOptions = res.data.data;
                 this.setState({
@@ -253,7 +255,7 @@ class CreateOrganization extends Component {
                                                     {getFieldDecorator(item.id3, {
                                                         rules: [{
                                                             required: true,
-                                                            message: intl.get("Number_Letter_Char"),
+                                                            message: intl.get("Number_Letter_User"),
                                                         }],
                                                     })(
                                                         <Input />
@@ -263,7 +265,7 @@ class CreateOrganization extends Component {
                                                     {getFieldDecorator(item.id4, {
                                                         rules: [{
                                                             required: true,
-                                                            message: intl.get("Number_Letter_Char"),
+                                                            message: intl.get("Number_Letter_Password"),
                                                         }],
                                                     })(
                                                         <Input />

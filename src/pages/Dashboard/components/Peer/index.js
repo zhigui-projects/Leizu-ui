@@ -29,12 +29,12 @@ const columns = [{
 }, {
     title: intl.get("Org_Name"),
     dataIndex: 'organizationName',
-    width: '14%',
+    width: '12%',
     key: 'organization',
 }, {
     title: intl.get("Channel_Name"),
     key: 'channel',
-    width: '16%',
+    width: '14%',
     render: (text, record) => (
         record.channelNames.map((item, index) => {
             return <p key={index}>{item}</p>
@@ -64,7 +64,7 @@ const columns = [{
 },
 {
     title: intl.get("CPU_Occupy"),
-    width: '11%',
+    width: '9%',
     key: 'cpu',
     render: (text, record) => (
         <span>
@@ -75,6 +75,7 @@ const columns = [{
 },
 {
     title: intl.get("Memory_Occupy"),
+    width:'9%',
     key: 'ram',
     render: (text, record) => (
         <span>
@@ -101,6 +102,7 @@ class Peer extends Component {
                 cancel = c;
             })
         }).then(res => {
+            console.log(res);
             if (res) {
                 switch (res.status) {
                     case 200:

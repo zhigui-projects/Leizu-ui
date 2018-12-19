@@ -92,14 +92,16 @@ class PeerManagement extends Component {
         }
     }
     getPeerData = () => {
+        let id = sessionStorage.getItem('ConsortiumInfo') ? JSON.parse(sessionStorage.getItem('ConsortiumInfo'))._id : ""
         const newApi = sessionStorage.getItem('ConsortiumInfo') ? JSON.parse(sessionStorage.getItem('ConsortiumInfo'))["url"]+"/api/v1":""
         let _id = localStorage.getItem('_id');
-        request().get(`${newApi}${peer.peerDetail.format({ id: this.state.id ? this.state.id : _id })}`, {
+        request().get(`${newApi}${peer.peerDetail.format({ id:id,peerId: this.state.id ? this.state.id : _id })}`, {
             cancelToken: new CancelToken(function executor(c) {
                 // An executor function receives a cancel function as a parameter
                 cancel = c;
             })
         }).then(res => {
+            console.log(res);
             if (res) {
                 switch (res.status) {
                     case 200:
