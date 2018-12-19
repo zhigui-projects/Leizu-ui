@@ -28,6 +28,7 @@ class OrgaManagement extends Component {
         this.props.history.push('organization_management/create');
     }
     handlePeer = (record) => {
+        console.log(record);
         localStorage.setItem('orgName',record.name);
         this.props.history.push({
             pathname: 'organization_management/peer',
