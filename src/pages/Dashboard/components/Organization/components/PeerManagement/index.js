@@ -104,7 +104,6 @@ class PeerManagement extends Component {
                 cancel = c;
             })
         }).then(res => {
-            console.log(res);
             if (res) {
                 switch (res.status) {
                     case 200:
@@ -127,7 +126,6 @@ class PeerManagement extends Component {
     componentWillMount() {
         const { consortiumInfo } = this.state;
         localStorage.setItem('consortiumInfo', JSON.stringify(consortiumInfo));
-        console.log(localStorage.getItem('consortiumInfo'));
     }
     componentDidMount() {
         this.getPeerData()
