@@ -58,19 +58,20 @@ class Log extends Component {
                 body: {
                     sort: [{
                         "@timestamp": "desc"
-                    }],
-                    query: {
-                        bool: {
-                            must: [
-                                {
-                                    query_string: {
-                                        fields : ["docker.container.name"],
-                                        query: `*${containerId}*`
-                                    }
-                                }
-                            ]
-                        }
-                    }
+                    }]
+                    ,
+                    // query: {
+                    //     bool: {
+                    //         must: [
+                    //             {
+                    //                 query_string: {
+                    //                     // fields : ["docker.container.name"],
+                    //                     // query: `*${containerId}*`
+                    //                 }
+                    //             }
+                    //         ]
+                    //     }
+                    // }
                 },
             }).then(function (resp) {
                 let {lastTimestamp} = _that.state;
@@ -118,16 +119,17 @@ class Log extends Component {
                 body: {
                     sort: [{
                         "@timestamp": "desc"
-                    }],
+                    }]
+                    ,
                     query: {
                         bool: {
                             must: [
-                                {
-                                    query_string: {
-                                        // fields : ["source"],
-                                        query: `*${containerId}*`
-                                    }
-                                },
+                                // {
+                                //     query_string: {
+                                //         // fields : ["source"],
+                                //         query: `*${containerId}*`
+                                //     }
+                                // },
                                 {
                                     range: {
                                         "@timestamp": {
@@ -174,7 +176,8 @@ class Log extends Component {
     }
     componentDidMount() {
         const newApi = sessionStorage.getItem('ConsortiumInfo') ? JSON.parse(sessionStorage.getItem('ConsortiumInfo'))["url"]+"/api/v1":""
-        request().get(`${newApi}${chain.container}`,{
+        let id = sessionStorage.getItem('ConsortiumInfo') ? JSON.parse(sessionStorage.getItem('ConsortiumInfo'))._id : ""
+        request().get(`${newApi}${chain.container}?consortiumId=${id}`,{
             cancelToken: new CancelToken(function executor(c) {
                 // An executor function receives a cancel function as a parameter
                 cancel = c;
