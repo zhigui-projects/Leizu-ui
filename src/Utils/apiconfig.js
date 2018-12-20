@@ -29,7 +29,7 @@ module.exports = {
         },
         organization:{
             orgList:`/organization/{id}?type=0`,
-            createOrg:`/channel/update/{id}`,
+            createOrg:`/channel/update`,
             peerCheck:`/peer/check`,
             creatOrg:`/organization`
         },

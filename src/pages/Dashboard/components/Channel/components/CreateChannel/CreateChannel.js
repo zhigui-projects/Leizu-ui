@@ -5,13 +5,12 @@ SPDX-License-Identifier: Apache-2.0
 */
 
 import React, { Component } from 'react';
-import { Form, Icon, Input, Button, Select, message } from 'antd'
+import { Form, Icon, Input, Button, message, Table } from 'antd'
 import intl from 'react-intl-universal'
 import Cookies from 'js-cookie'
 import axios from 'axios'
 
 import request from '../../../../../../Utils/Axios'
-import { test } from '../../../../../../Utils/Axios'
 import apiconfig from '../../../../../../Utils/apiconfig'
 import './createChannel.less'
 
@@ -23,7 +22,8 @@ let cancel2;
 let cancel3;
 
 const FormItem = Form.Item;
-const Option = Select.Option;
+
+
 class CreateChannelContent extends Component {
     constructor(props) {
         super(props);
@@ -34,6 +34,10 @@ class CreateChannelContent extends Component {
     }
     handleSubmit = (e) => {
         e.preventDefault();
+        if(this.arr.length===0){
+            message.error(intl.get("Please_Select_Org"))
+            return ''
+        }
         this.props.form.validateFields((err, values) => {
             if (!err) {
                 this.setState({
@@ -44,13 +48,14 @@ class CreateChannelContent extends Component {
                 const newApi = sessionStorage.getItem('ConsortiumInfo') ? JSON.parse(sessionStorage.getItem('ConsortiumInfo'))["url"]+"/api/v1":""
                 request().post(`${newApi}${creatChannel.format({id:chianId})}`, {
                     name: values.name,
-                    organizationIds: [values.id]
+                    organizationIds: this.arr
                 },{
                     cancelToken: new CancelToken(function executor(c) {
                         // An executor function receives a cancel function as a parameter
                         cancel1 = c;
                     })
                 }).then(res=>{
+                    console.log(res)
                     if(res){
                         switch(res.status){
                             case 200:
@@ -150,6 +155,61 @@ class CreateChannelContent extends Component {
             cancel3()
         }
     }
+    
+    items = [
+        {
+            consortium_id: "5c18d764c48c07001134cdd9",
+            id: "5c18d76dc48c07001134cdda",
+            name: "peer-org1",
+            peer_count: 2,
+            type: 0
+        },
+        {
+            consortium_id: "5c18d764c48c07001134cdd9",
+            id: "5c18d76dc48c07001134cddb",
+            name: "peer-org2",
+            peer_count: 2,
+            type: 0
+        },
+        {
+            consortium_id: "5c18d764c48c07001134cdd9",
+            id: "5c18d76dc48c07001134cddc",
+            name: "peer-org3",
+            peer_count: 2,
+            type: 0
+        },
+        {
+            consortium_id: "5c18d764c48c07001134cdd9",
+            id: "5c18d76dc48c07001134cddd",
+            name: "peer-org4",
+            peer_count: 2,
+            type: 0
+        },
+        {
+            consortium_id: "5c18d764c48c07001134cdd9",
+            id: "5c18d76dc48c07001134cdde",
+            name: "peer-org5",
+            peer_count: 2,
+            type: 0
+        },
+        {
+            consortium_id: "5c18d764c48c07001134cdd9",
+            id: "5c18d76dc48c07001134cddf",
+            name: "peer-org6",
+            peer_count: 2,
+            type: 0
+        }
+    ]
+    columns = [{
+        title: intl.get("Org_Name"),
+        dataIndex: 'name'
+    }]
+    arr = []
+    rowSelection = {
+        onChange: (selectedRowKeys, selectedRows) => {
+            this.arr = selectedRowKeys
+        }
+    }
     render() {
         const { getFieldDecorator } = this.props.form;
         return (
@@ -168,24 +228,19 @@ class CreateChannelContent extends Component {
                             )}
                         </FormItem>
                         <FormItem
-                            label={intl.get("Select_Org")}
+                            label={<span className="lable-before">{intl.get("Select_Org")}</span>}
                             labelCol={{ span: 3 }}
                             wrapperCol={{ span: 8 }}
                         >
-                            {getFieldDecorator('id', {
-                                rules: [{ required: true, message: intl.get("Please_Select_Org") }],
-                            })(
-                                <Select
-                                    placeholder="Select a option and change input text above"
-                                    onChange={this.handleSelectChange}
-                                >
-                                    {
-                                        this.state.orgList.map((item, index) => {
-                                            return <Option key={item.id} >{item.name}</Option>
-                                        })
-                                    }
-                                </Select>
-                            )}
+                            <div className='select-box'>
+                                <Table 
+                                    rowSelection={this.rowSelection} 
+                                    columns={this.columns} 
+                                    dataSource={this.state.orgList} 
+                                    rowKey={record=>record.id}
+                                    pagination={false}
+                                />
+                            </div>
                         </FormItem>
                     </Form>
                 </div>
