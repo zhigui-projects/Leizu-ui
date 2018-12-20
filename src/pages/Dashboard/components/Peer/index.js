@@ -19,7 +19,7 @@ const { api: { peer: { peerList } } } = apiconfig;
 const columns = [{
     title: intl.get("Node_Name"),
     dataIndex: 'name',
-    width: '15%',
+    width: '9%',
     key: 'name',
 }, {
     title: intl.get("Node_Domain"),
@@ -34,7 +34,7 @@ const columns = [{
 }, {
     title: intl.get("Channel_Name"),
     key: 'channel',
-    width: '14%',
+    width: '12%',
     render: (text, record) => (
         record.channelNames.map((item, index) => {
             return <p key={index}>{item}</p>
@@ -102,8 +102,8 @@ class Peer extends Component {
                 cancel = c;
             })
         }).then(res => {
-            console.log(res);
             if (res) {
+                console.log(res);
                 switch (res.status) {
                     case 200:
                         this.setState({

@@ -554,8 +554,6 @@ class Dashboard extends Component {
             }
             config.newAPI = request["url"]
             sessionStorage.setItem('ConsortiumInfo', JSON.stringify(request));
-            console.log(request);
-            console.log(sessionStorage.getItem('ConsortiumInfo'));
             Cookies.set("lang", request["local"] === "zh" ? "zh-CN" : request["local"] === "en" ? "en-US" :"", { expires: 7 });
         }
         return (

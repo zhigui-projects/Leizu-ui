@@ -14,7 +14,7 @@ import Cookies from 'js-cookie'
 const CancelToken = axios.CancelToken;
 let cancel;
 
-const { api: { peer } } = apiconfig;
+const { api: { peer:{peerList} } } = apiconfig;
 const columns = [{
     title: intl.get("Node_Name"),
     dataIndex: 'name',
@@ -95,7 +95,7 @@ class PeerManagement extends Component {
         let id = sessionStorage.getItem('ConsortiumInfo') ? JSON.parse(sessionStorage.getItem('ConsortiumInfo'))._id : ""
         const newApi = sessionStorage.getItem('ConsortiumInfo') ? JSON.parse(sessionStorage.getItem('ConsortiumInfo'))["url"]+"/api/v1":""
         let _id = localStorage.getItem('_id');
-        request().get(`${newApi}${peer.peerDetail.format({ id:id,peerId: this.state.id ? this.state.id : _id })}`, {
+        request().get(`${newApi}${peerList.format({ id:id })}`, {
             cancelToken: new CancelToken(function executor(c) {
                 // An executor function receives a cancel function as a parameter
                 cancel = c;
