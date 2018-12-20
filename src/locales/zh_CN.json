@@ -10,7 +10,7 @@
     "Network_Configuration": "网络配置",
     "Name": "名称",
     "Blockchain_Name": "区块链名称",
-    "Type": "类型",
+    "Type": "状态",
     "Blockchain_Type": "区块链类型",
     "Algorithm": "算法",
     "Consencus_Algorithm": "共识算法",

@@ -25,7 +25,8 @@ module.exports = {
         peer:{
             peerList:`/peer/{id}`,
             peerDetail:`/peer/{id}/{peerId}`,
-            creatPeer:`/peer`
+            creatPeer:`/peer`,
+            organizationPeer:`/peer/{id}?organizationId={orgId}`
         },
         organization:{
             orgList:`/organization/{id}?type=0`,

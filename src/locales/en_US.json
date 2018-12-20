@@ -10,7 +10,7 @@
     "Network_Configuration": "Network Configuration",
     "Name": "Name",
     "Blockchain_Name": "blockchain name",
-    "Type": "Type",
+    "Type": "Status",
     "Blockchain_Type": "blockchain type",
     "Algorithm": "Algorithm",
     "Consencus_Algorithm": "consencus algorithm",
