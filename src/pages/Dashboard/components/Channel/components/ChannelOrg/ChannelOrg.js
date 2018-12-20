@@ -44,12 +44,12 @@ class ChannelOrg extends Component {
             key: 'peer_count',
         }
     ]
-    getData = (id)=>{
+    getData = (obj)=>{
         // let id = sessionStorage.getItem('ConsortiumInfo') ? JSON.parse(sessionStorage.getItem('ConsortiumInfo'))._id : ""
         const newApi = sessionStorage.getItem('ConsortiumInfo') ? JSON.parse(sessionStorage.getItem('ConsortiumInfo'))["url"]+"/api/v1":""
-        request().get(`${newApi}${organize.organization.format({id:id})}`,{
+        request().get(`${newApi}${organize.organization.format({id:obj.consortiumId})}`,{
             params: {
-                channelId: id
+                channelId: obj.id
             }
         },{
             cancelToken: new CancelToken(function executor(c) {
@@ -78,7 +78,9 @@ class ChannelOrg extends Component {
         })
     }
     componentDidMount(){
-        this.getData(this.props.location.query)
+        if(this.props.location.state){
+            this.getData(this.props.location.state)
+        }
     }
     componentWillUnmount() {
         if (cancel) {

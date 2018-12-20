@@ -481,7 +481,7 @@ class Dashboard extends Component {
         })
     }
     componentDidMount(){
-        console.log(intl.options)
+
     }
     render() {
         let pathArr = this.props.location.pathname.split('/');

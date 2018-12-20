@@ -114,5 +114,6 @@
     "Log_Loading_Failed": "网络错误,日志加载失败",
     "Node_Info": "节点信息",
     "Org_Info": "组织信息",
-    "Please_Input_Org":"请输入组织名称"
+    "Please_Input_Org":"请输入组织名称",
+    "Create_Successfully": "创建成功"
 }
