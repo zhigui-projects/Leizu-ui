@@ -10,7 +10,7 @@
     "Network_Configuration": "Network Configuration",
     "Name": "Name",
     "Blockchain_Name": "blockchain name",
-    "Type": "Type",
+    "Type": "Status",
     "Blockchain_Type": "blockchain type",
     "Algorithm": "Algorithm",
     "Consencus_Algorithm": "consencus algorithm",
@@ -114,5 +114,6 @@
     "Log_Loading_Failed": "Network error, log loading failed",
     "Node_Info": "Node Info",
     "Org_Info": "Org Info",
-    "Please_Input_Org":"Please input Org name"
+    "Please_Input_Org":"Please input Org name",
+    "Create_Successfully": "Created successfully"
 }

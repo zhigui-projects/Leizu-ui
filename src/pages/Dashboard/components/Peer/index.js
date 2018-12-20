@@ -19,12 +19,12 @@ const { api: { peer: { peerList } } } = apiconfig;
 const columns = [{
     title: intl.get("Node_Name"),
     dataIndex: 'name',
-    width: '9%',
+    width: '13%',
     key: 'name',
 }, {
     title: intl.get("Node_Domain"),
     dataIndex: 'location',
-    width: '15%',
+    width: '20%',
     key: 'domain',
 }, {
     title: intl.get("Org_Name"),
@@ -43,7 +43,7 @@ const columns = [{
 }, {
     title: intl.get("Node_Type"),
     key: 'type',
-    width: '9%',
+    width: '10%',
     render: (text, record) => (
         <span>{record.type === 0 ? "peer" : (record.type === 1 ? "orderer" : "")}</span>
     ),
@@ -51,7 +51,7 @@ const columns = [{
 },
 {
     title: intl.get("Type"),
-    width: '9%',
+    width: '11%',
     key: 'status',
     render: (text, record) => (
         <span>
@@ -64,7 +64,7 @@ const columns = [{
 },
 {
     title: intl.get("CPU_Occupy"),
-    width: '9%',
+    width: '11%',
     key: 'cpu',
     render: (text, record) => (
         <span>
@@ -75,7 +75,7 @@ const columns = [{
 },
 {
     title: intl.get("Memory_Occupy"),
-    width:'9%',
+    width:'11%',
     key: 'ram',
     render: (text, record) => (
         <span>

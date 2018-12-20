@@ -147,6 +147,7 @@ class CreateOrganization extends Component {
                                 break;
                             case 400:
                                 message.warning(intl.get("Have_Already_Created_Node"));
+                                this.setState({loading:false});
                                 break;
                             case 401:
                                 Cookies.remove('token');

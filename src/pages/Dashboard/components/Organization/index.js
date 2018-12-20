@@ -12,7 +12,7 @@ import axios from 'axios';
 import apiconfig from '../../../../Utils/apiconfig';
 import Cookies from 'js-cookie'
 // const FormItem = Form.Item;
-const { api: { organization: { orgList } } } = apiconfig;
+const { api: { organization: { orgList },organize:{organization} } } = apiconfig;
 const CancelToken = axios.CancelToken;
 let cancel;
 
@@ -28,17 +28,16 @@ class OrgaManagement extends Component {
         this.props.history.push('organization_management/create');
     }
     handlePeer = (record) => {
-        console.log(record);
         localStorage.setItem('orgName',record.name);
         this.props.history.push({
             pathname: 'organization_management/peer',
-            state: record.id
+            state: record
         });
     }
     getOrgData = () => {
         let id = sessionStorage.getItem('ConsortiumInfo') ? JSON.parse(sessionStorage.getItem('ConsortiumInfo'))._id : ""
         const newApi = sessionStorage.getItem('ConsortiumInfo') ? JSON.parse(sessionStorage.getItem('ConsortiumInfo'))["url"]+"/api/v1":""
-        request().get(`${newApi}${orgList.format({id:id})}`, {
+        request().get(`${newApi}${organization.format({id:id})}`, {
             cancelToken: new CancelToken(function executor(c) {
                 // An executor function receives a cancel function as a parameter
                 cancel = c;

@@ -10,7 +10,7 @@
     "Network_Configuration": "网络配置",
     "Name": "名称",
     "Blockchain_Name": "区块链名称",
-    "Type": "类型",
+    "Type": "状态",
     "Blockchain_Type": "区块链类型",
     "Algorithm": "算法",
     "Consencus_Algorithm": "共识算法",
@@ -114,5 +114,6 @@
     "Log_Loading_Failed": "网络错误,日志加载失败",
     "Node_Info": "节点信息",
     "Org_Info": "组织信息",
-    "Please_Input_Org":"请输入组织名称"
+    "Please_Input_Org":"请输入组织名称",
+    "Create_Successfully": "创建成功"
 }
