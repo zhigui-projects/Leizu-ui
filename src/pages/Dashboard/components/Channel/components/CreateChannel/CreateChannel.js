@@ -62,7 +62,7 @@ class CreateChannelContent extends Component {
                                 // message.info(res.data.msg)
                                 const newApi = sessionStorage.getItem('ConsortiumInfo') ? JSON.parse(sessionStorage.getItem('ConsortiumInfo'))["url"]+"/api/v1":""
                                 request().post(`${newApi}${channelJoin}`, {
-                                    organizationId: id,
+                                    organizationIds: this.arr,
                                     channelId: res.data.data._id
                                 },{
                                     cancelToken: new CancelToken(function executor(c) {
@@ -76,8 +76,10 @@ class CreateChannelContent extends Component {
                                             if (res) {
                                                 switch (res.status) {
                                                     case 200:
-                                                        // message.info("创建成功")
-                                                        this.props.history.push("/dashboard/channel_management")
+                                                        message.success(intl.get("Create_Successfully"),1,()=>{
+
+                                                            this.props.history.push("/dashboard/channel_management")
+                                                        })
                                                         break;
                                                     case 401:
                                                         Cookies.remove('userNameInfo')
