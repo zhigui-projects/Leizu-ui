@@ -12,7 +12,7 @@ import request from '../../../../../../Utils/Axios';
 import axios from 'axios';
 import Cookies from 'js-cookie';
 const FormItem = Form.Item;
-const { api: { organization: { orgList, createOrg, peerCheck } } } = apiconfig;
+const { api: { organization: { orgList, createOrg,creatOrg, peerCheck } } } = apiconfig;
 
 class CreateOrganization extends Component {
     constructor(props) {
@@ -62,7 +62,7 @@ class CreateOrganization extends Component {
                                 }
                                 let id = sessionStorage.getItem('ConsortiumInfo') ? JSON.parse(sessionStorage.getItem('ConsortiumInfo'))._id : ""
                                 const newApi = sessionStorage.getItem('ConsortiumInfo') ? JSON.parse(sessionStorage.getItem('ConsortiumInfo'))["url"]+"/api/v1":""
-                                request().post(`${newApi}${orgList}`, obj).then((res) => {
+                                request().post(`${newApi}${creatOrg}`, obj).then((res) => {
                                     if (res.status == 200) {
                                         let options = {};
                                         options.channelType = 1;
@@ -141,7 +141,7 @@ class CreateOrganization extends Component {
             <div className="create-organization">
                 <div className="create-wrapper">
                     <div className="organization-wrapper">
-                        <p className="wrapper-input"><span className="organization-name">{intl.get("Org_Name")}</span><Input onChange={this.handleChange} id="org-name" className="organization-input" /><span style={{ display: display ? '' : 'none' }} className="tip">请输入组织名称</span></p>
+                        <p className="wrapper-input"><span className="organization-name">{intl.get("Org_Name")}</span><Input onChange={this.handleChange} id="org-name" className="organization-input" /><span style={{ display: display ? '' : 'none' }} className="tip">{intl.get('Please_Input_Org')}</span></p>
                         <p className="wrapper-peer"><span className="organization-name">{intl.get("New_Node_Node_Type")}</span><span className="peer">peer</span></p>
                         <div className="chaincode-mark">
                             <span className="mark">{intl.get("Add_Node")}</span>

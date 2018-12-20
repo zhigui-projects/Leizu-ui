@@ -26,6 +26,7 @@
     "Blockchain_Node": "blockchain node",
     "Create_Org": "Create Org",
     "Org_Name": "Org Name",
+    "Channel_Org":"Channel Select",
     "Org_Name_Long": "Org Name",
     "Node_Count": "Node Count",
     "Operation": "Operation",
@@ -42,6 +43,7 @@
     "Create_Node": "Create Node",
     "New_Node": "New Node",
     "Please_Select_Org": "Please Select Org",
+    "Please_Select_Channel":"Please Select Channel",
     "New_Node_Node_Type": "Node Type",
     "Add_Node": "Add Node",
     "Peer_Node": "Peer Node",
@@ -104,12 +106,13 @@
     "Test_Result": "Test result",
     "Create_Node_Successfully": "Create node successfully",
     "Have_Already_Created_Node": "You have already created node",
-    "Number_Letter_Char": "Number, letter or combination of characters",
+    "Number_Letter_Char": "Please input node name",
     "Number_Letter_User": "Please input username",
     "Number_Letter_Password": "please input password",
     "Node_Docker_Https": "The node is provided by the user to the external network node, and the docker needs to be installed on the node and supports the Https call.",
     "Please_Input_Name": "Please input name",
     "Log_Loading_Failed": "Network error, log loading failed",
     "Node_Info": "Node Info",
-    "Org_Info": "Org Info"
+    "Org_Info": "Org Info",
+    "Please_Input_Org":"Please input Org name"
 }
