@@ -25,10 +25,13 @@ class Channel extends Component{
             loading: true
         }
     }
-    toOrganization = (id)=>{
+    toOrganization = (id, consortium_id)=>{
         this.props.history.push({
             pathname: "channel_management/org",
-            query: id
+            state: {
+                id: id,
+                consortiumId: consortium_id
+            }
         })
     }
     columns = [
@@ -51,7 +54,7 @@ class Channel extends Component{
             dataIndex: '_id',
             key: '_id',
             render: (text,record) => (
-                <span onClick={()=>this.toOrganization(text)} className='table-item-btn'>
+                <span onClick={() => this.toOrganization(text, record.consortium_id)} className='table-item-btn'>
                     {intl.get("Org_Manage")}
                 </span>
             ),
