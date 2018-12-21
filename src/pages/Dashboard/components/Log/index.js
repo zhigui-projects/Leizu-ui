@@ -60,18 +60,18 @@ class Log extends Component {
                         "@timestamp": "desc"
                     }]
                     ,
-                    // query: {
-                    //     bool: {
-                    //         must: [
-                    //             {
-                    //                 query_string: {
-                    //                     // fields : ["docker.container.name"],
-                    //                     // query: `*${containerId}*`
-                    //                 }
-                    //             }
-                    //         ]
-                    //     }
-                    // }
+                    query: {
+                        bool: {
+                            must: [
+                                {
+                                    query_string: {
+                                        // fields : ["docker.container.name"],
+                                        query: `*${containerId}*`
+                                    }
+                                }
+                            ]
+                        }
+                    }
                 },
             }).then(function (resp) {
                 let {lastTimestamp} = _that.state;
@@ -104,7 +104,7 @@ class Log extends Component {
             if(log.length === 0 && window.location.pathname === "/dashboard/log_management"){
                 message.error(intl.get("Log_Loading_Failed"))
             }
-        },5000)
+        },8000)
 
     }
     queryLog = () => {
@@ -124,12 +124,12 @@ class Log extends Component {
                     query: {
                         bool: {
                             must: [
-                                // {
-                                //     query_string: {
-                                //         // fields : ["source"],
-                                //         query: `*${containerId}*`
-                                //     }
-                                // },
+                                {
+                                    query_string: {
+                                        // fields : ["source"],
+                                        query: `*${containerId}*`
+                                    }
+                                },
                                 {
                                     range: {
                                         "@timestamp": {
