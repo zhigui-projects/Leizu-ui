@@ -139,7 +139,6 @@ class CreateOrganization extends Component {
                 const newApi = sessionStorage.getItem('ConsortiumInfo') ? JSON.parse(sessionStorage.getItem('ConsortiumInfo'))["url"]+"/api/v1":""
                 request().post(`${newApi}${creatPeer}`, options).then((res) => {
                     if (res) {
-                        console.log(res);
                         switch (res.status) {
                             case 200:
                                 message.success(intl.get("Create_Node_Successfully"));

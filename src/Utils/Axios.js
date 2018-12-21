@@ -22,9 +22,9 @@ function getData(){
         // Do something with response data
         return response;
     }, (err) => {
-        console.log(err)
+        // console.log(err)
         const res = JSON.parse(JSON.stringify(err));
-        console.log(res)
+        // console.log(res)
         return res.response;
     });
     return fetch
