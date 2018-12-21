@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ef641249-c161-4818-b0e9-8782c104bcdd" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Dashboard/components/Log/index.js" afterPath="$PROJECT_DIR$/src/pages/Dashboard/components/Log/index.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -26,7 +27,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="basicLayout.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="basicLayout.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/Dashboard/basicLayout.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="362">
@@ -74,11 +75,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/pages/Dashboard/components/Log/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="439">
-              <caret line="132" column="33" lean-forward="false" selection-start-line="132" selection-start-column="33" selection-end-line="132" selection-end-column="33" />
+            <state relative-caret-position="119">
+              <caret line="75" column="37" lean-forward="true" selection-start-line="75" selection-start-column="37" selection-end-line="75" selection-end-column="37" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="e#87#128#0" expanded="true" />
@@ -156,10 +157,10 @@
               <caret line="105" column="70" lean-forward="false" selection-start-line="105" selection-start-column="70" selection-end-line="105" selection-end-column="70" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
-                <marker date="1545298004143" expanded="true" signature="18688:18894" ph="..." />
-                <marker date="1545298004143" expanded="true" signature="18688:18921" ph="..." />
-                <marker date="1545298004143" expanded="true" signature="18688:18944" ph="..." />
-                <marker date="1545298004143" expanded="true" signature="18688:18963" ph="..." />
+                <marker date="1545359758555" expanded="true" signature="18667:18873" ph="..." />
+                <marker date="1545359758555" expanded="true" signature="18667:18900" ph="..." />
+                <marker date="1545359758555" expanded="true" signature="18667:18923" ph="..." />
+                <marker date="1545359758555" expanded="true" signature="18667:18942" ph="..." />
               </folding>
             </state>
           </provider>
@@ -176,13 +177,13 @@
       <find>lang</find>
       <find>elasticSearchUrl</find>
       <find>container</find>
-      <find>defaultLang</find>
       <find>stringify</find>
       <find>format</find>
       <find>request</find>
       <find>chain.container</find>
-      <find>getContainerLog</find>
       <find>peerCheck</find>
+      <find>defaultLang</find>
+      <find>getContainerLog</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/src/pages/Dashboard/components</dir>
@@ -270,6 +271,23 @@
               <item name="dashboard-ui" type="b2602c69:ProjectViewProjectNode" />
               <item name="dashboard-ui" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="Dashboard" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dashboard-ui" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dashboard-ui" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="Dashboard" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="Log" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dashboard-ui" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dashboard-ui" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Utils" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -313,12 +331,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1544429412402</updated>
-      <workItem from="1544429414114" duration="9624000" />
+      <workItem from="1544429414114" duration="11280000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9624000" />
+    <option name="totallyTimeSpent" value="11280000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -387,10 +405,10 @@
           <caret line="105" column="70" lean-forward="false" selection-start-line="105" selection-start-column="70" selection-end-line="105" selection-end-column="70" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <marker date="1545298004143" expanded="true" signature="18688:18894" ph="..." />
-            <marker date="1545298004143" expanded="true" signature="18688:18921" ph="..." />
-            <marker date="1545298004143" expanded="true" signature="18688:18944" ph="..." />
-            <marker date="1545298004143" expanded="true" signature="18688:18963" ph="..." />
+            <marker date="1545359758555" expanded="true" signature="18667:18873" ph="..." />
+            <marker date="1545359758555" expanded="true" signature="18667:18900" ph="..." />
+            <marker date="1545359758555" expanded="true" signature="18667:18923" ph="..." />
+            <marker date="1545359758555" expanded="true" signature="18667:18942" ph="..." />
           </folding>
         </state>
       </provider>
@@ -454,18 +472,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/Dashboard/components/Log/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="439">
-          <caret line="132" column="33" lean-forward="false" selection-start-line="132" selection-start-column="33" selection-end-line="132" selection-end-column="33" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#87#128#0" expanded="true" />
-            <element signature="e#333#354#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Utils/apiconfig.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -480,6 +486,18 @@
           <caret line="528" column="42" lean-forward="false" selection-start-line="528" selection-start-column="42" selection-end-line="528" selection-end-column="42" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/Dashboard/components/Log/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="75" column="37" lean-forward="true" selection-start-line="75" selection-start-column="37" selection-end-line="75" selection-end-column="37" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#87#128#0" expanded="true" />
+            <element signature="e#333#354#0" expanded="true" />
           </folding>
         </state>
       </provider>
