@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ef641249-c161-4818-b0e9-8782c104bcdd" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Dashboard/components/Log/index.js" afterPath="$PROJECT_DIR$/src/pages/Dashboard/components/Log/index.js" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" afterPath="$PROJECT_DIR$/public/index.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -16,157 +15,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="apiconfig.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Utils/apiconfig.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="19" column="22" lean-forward="false" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="basicLayout.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pages/Dashboard/basicLayout.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="362">
-              <caret line="528" column="42" lean-forward="false" selection-start-line="528" selection-start-column="42" selection-end-line="528" selection-end-column="42" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pages/Dashboard/components/Channel/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="194">
-              <caret line="64" column="121" lean-forward="false" selection-start-line="64" selection-start-column="121" selection-end-line="64" selection-end-column="121" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pages/Dashboard/components/BlockChain/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" column="26" lean-forward="false" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="26" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pages/Dashboard/components/ChainCode/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" column="25" lean-forward="false" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/pages/Dashboard/components/Log/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="75" column="37" lean-forward="true" selection-start-line="75" selection-start-column="37" selection-end-line="75" selection-end-column="37" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-                <element signature="e#87#128#0" expanded="true" />
-                <element signature="e#333#354#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CreateChannel.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pages/Dashboard/components/Channel/components/CreateChannel/CreateChannel.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="63" column="55" lean-forward="false" selection-start-line="63" selection-start-column="55" selection-end-line="63" selection-end-column="55" />
-              <folding>
-                <marker date="1545298004140" expanded="true" signature="4894:4988" ph="{...}" />
-                <marker date="1545298004140" expanded="true" signature="5460:5661" ph="{...}" />
-                <marker date="1545298004140" expanded="true" signature="5806:5931" ph="{&quot;orgList&quot;: res.data.data...}" />
-                <marker date="1545298004140" expanded="true" signature="6677:6865" ph="{&quot;id&quot;: &quot;5c18d76dc48c07001134cdda&quot;...}" />
-                <marker date="1545298004140" expanded="true" signature="6875:7063" ph="{&quot;id&quot;: &quot;5c18d76dc48c07001134cddb&quot;...}" />
-                <marker date="1545298004140" expanded="true" signature="7073:7261" ph="{&quot;id&quot;: &quot;5c18d76dc48c07001134cddc&quot;...}" />
-                <marker date="1545298004140" expanded="true" signature="7271:7459" ph="{&quot;id&quot;: &quot;5c18d76dc48c07001134cddd&quot;...}" />
-                <marker date="1545298004140" expanded="true" signature="7469:7657" ph="{&quot;id&quot;: &quot;5c18d76dc48c07001134cdde&quot;...}" />
-                <marker date="1545298004140" expanded="true" signature="7667:7855" ph="{&quot;id&quot;: &quot;5c18d76dc48c07001134cddf&quot;...}" />
-                <marker date="1545298004140" expanded="true" signature="7877:7947" ph="{&quot;dataIndex&quot;: 'name'...}" />
-                <marker date="1545298004140" expanded="true" signature="7981:8092" ph="{...}" />
-                <marker date="1545298004140" expanded="true" signature="8642:8774" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="createPeer.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pages/Dashboard/components/Organization/components/PeerManagement/createPeer/createPeer.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1380">
-              <caret line="132" column="33" lean-forward="false" selection-start-line="132" selection-start-column="33" selection-end-line="132" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pages/Dashboard/components/Organization/components/CreateOrganization/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-441">
-              <caret line="14" column="69" lean-forward="false" selection-start-line="14" selection-start-column="69" selection-end-line="14" selection-end-column="69" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-                <marker date="1545295248911" expanded="true" signature="9827:14613" ph="..." />
-                <marker date="1545295248911" expanded="true" signature="9827:14648" ph="..." />
-                <marker date="1545295248911" expanded="true" signature="9827:14679" ph="..." />
-                <marker date="1545295248911" expanded="true" signature="9827:15068" ph="..." />
-                <marker date="1545295248911" expanded="true" signature="9827:15092" ph="..." />
-                <marker date="1545295248911" expanded="true" signature="9827:15111" ph="..." />
-                <marker date="1545295248911" expanded="true" signature="9903:10756" ph="..." />
-                <marker date="1545295248911" expanded="true" signature="10556:10665" ph="..." />
-                <marker date="1545295248911" expanded="true" signature="10890:11743" ph="..." />
-                <marker date="1545295248911" expanded="true" signature="11543:11652" ph="..." />
-                <marker date="1545295248911" expanded="true" signature="11877:12730" ph="..." />
-                <marker date="1545295248911" expanded="true" signature="12530:12639" ph="..." />
-                <marker date="1545295248911" expanded="true" signature="12830:13477" ph="..." />
-                <marker date="1545295248911" expanded="true" signature="13582:14233" ph="..." />
-                <marker date="1545295248911" expanded="true" signature="14280:14573" ph="..." />
-                <marker date="1545295248911" expanded="true" signature="14742:15041" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pages/Dashboard/components/Peer/components/CreatePeer/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="373">
-              <caret line="105" column="70" lean-forward="false" selection-start-line="105" selection-start-column="70" selection-end-line="105" selection-end-column="70" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-                <marker date="1545359758555" expanded="true" signature="18667:18873" ph="..." />
-                <marker date="1545359758555" expanded="true" signature="18667:18900" ph="..." />
-                <marker date="1545359758555" expanded="true" signature="18667:18923" ph="..." />
-                <marker date="1545359758555" expanded="true" signature="18667:18942" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -181,9 +30,10 @@
       <find>format</find>
       <find>request</find>
       <find>chain.container</find>
-      <find>peerCheck</find>
-      <find>defaultLang</find>
       <find>getContainerLog</find>
+      <find>intervalTime</find>
+      <find>defaultLang</find>
+      <find>peerCheck</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/src/pages/Dashboard/components</dir>
@@ -203,6 +53,7 @@
         <option value="$PROJECT_DIR$/src/pages/Dashboard/basicLayout.js" />
         <option value="$PROJECT_DIR$/src/Utils/apiconfig.js" />
         <option value="$PROJECT_DIR$/src/pages/Dashboard/components/Log/index.js" />
+        <option value="$PROJECT_DIR$/public/index.html" />
       </list>
     </option>
   </component>
@@ -217,7 +68,7 @@
   <component name="NodeModulesDirectoryManager">
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
+  <component name="ProjectFrameBounds" extendedState="1">
     <option name="y" value="23" />
     <option name="width" value="1440" />
     <option name="height" value="877" />
@@ -247,11 +98,6 @@
             <path>
               <item name="dashboard-ui" type="b2602c69:ProjectViewProjectNode" />
               <item name="dashboard-ui" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dashboard-ui" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dashboard-ui" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -274,15 +120,6 @@
               <item name="pages" type="462c0819:PsiDirectoryNode" />
               <item name="Dashboard" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dashboard-ui" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dashboard-ui" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="Dashboard" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="Log" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="dashboard-ui" type="b2602c69:ProjectViewProjectNode" />
@@ -331,18 +168,17 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1544429412402</updated>
-      <workItem from="1544429414114" duration="11280000" />
+      <workItem from="1544429414114" duration="12170000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11280000" />
+    <option name="totallyTimeSpent" value="12170000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
+    <frame x="0" y="23" width="1440" height="877" extended-state="1" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17899929" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17899929" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
@@ -378,7 +214,7 @@
         <state relative-caret-position="-441">
           <caret line="14" column="69" lean-forward="false" selection-start-line="14" selection-start-column="69" selection-end-line="14" selection-end-column="69" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
             <marker date="1545295248911" expanded="true" signature="9827:14613" ph="..." />
             <marker date="1545295248911" expanded="true" signature="9827:14648" ph="..." />
             <marker date="1545295248911" expanded="true" signature="9827:14679" ph="..." />
@@ -421,36 +257,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/Dashboard/components/BlockChain/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="26" lean-forward="false" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="26" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/Dashboard/components/Channel/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="64" column="121" lean-forward="false" selection-start-line="64" selection-start-column="121" selection-end-line="64" selection-end-column="121" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/Dashboard/components/ChainCode/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="25" lean-forward="false" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/Dashboard/components/Channel/components/CreateChannel/CreateChannel.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
@@ -472,11 +278,53 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Utils/apiconfig.js">
+    <entry file="file://$PROJECT_DIR$/public/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="22" lean-forward="false" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
+        <state relative-caret-position="316">
+          <caret line="29" column="12" lean-forward="true" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="12" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/Dashboard/components/Log/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="75" column="37" lean-forward="true" selection-start-line="75" selection-start-column="37" selection-end-line="75" selection-end-column="37" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#87#128#0" expanded="true" />
+            <element signature="e#333#354#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/Dashboard/components/ChainCode/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="25" lean-forward="false" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/Dashboard/components/BlockChain/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="26" lean-forward="false" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="26" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/Dashboard/components/Channel/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="64" column="121" lean-forward="false" selection-start-line="64" selection-start-column="121" selection-end-line="64" selection-end-column="121" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -490,15 +338,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/Dashboard/components/Log/index.js">
+    <entry file="file://$PROJECT_DIR$/src/Utils/apiconfig.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="75" column="37" lean-forward="true" selection-start-line="75" selection-start-column="37" selection-end-line="75" selection-end-column="37" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#87#128#0" expanded="true" />
-            <element signature="e#333#354#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="285">
+          <caret line="19" column="22" lean-forward="false" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
+          <folding />
         </state>
       </provider>
     </entry>

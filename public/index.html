@@ -27,6 +27,25 @@ SPDX-License-Identifier: Apache-2.0
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>区块链管理平台</title>
+    <script>
+        function getCookie(name) { // 获取一个cookie
+            var strCookie = document.cookie;
+            var arr = strCookie.split(';');
+            for (var i = 0; i < arr.length; i++) {
+                var t = arr[i].split("=");
+                if(t[0].trim() === name) {
+                    return t[1].trim();
+                }
+            };
+            return null;
+        }
+        if(getCookie("lang") === "en-US"){
+            document.getElementsByTagName("title")[0].innerText = 'Blockchain governance platform';
+        }else{
+            document.getElementsByTagName("title")[0].innerText = '区块链管理平台';
+        }
+
+    </script>
   </head>
   <body>
     <noscript>
