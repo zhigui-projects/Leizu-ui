@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="ef641249-c161-4818-b0e9-8782c104bcdd" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/Utils/apiconfig.js" afterPath="$PROJECT_DIR$/src/Utils/apiconfig.js" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Dashboard/components/Log/index.js" afterPath="$PROJECT_DIR$/src/pages/Dashboard/components/Log/index.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -18,7 +16,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="apiconfig.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="apiconfig.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Utils/apiconfig.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="285">
@@ -28,11 +26,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="basicLayout.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="basicLayout.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/pages/Dashboard/basicLayout.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="752">
-              <caret line="554" column="32" lean-forward="false" selection-start-line="554" selection-start-column="32" selection-end-line="554" selection-end-column="32" />
+            <state relative-caret-position="362">
+              <caret line="528" column="42" lean-forward="false" selection-start-line="528" selection-start-column="42" selection-end-line="528" selection-end-column="42" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -44,7 +42,7 @@
         <entry file="file://$PROJECT_DIR$/src/pages/Dashboard/components/Channel/index.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="194">
-              <caret line="64" column="121" lean-forward="true" selection-start-line="64" selection-start-column="121" selection-end-line="64" selection-end-column="121" />
+              <caret line="64" column="121" lean-forward="false" selection-start-line="64" selection-start-column="121" selection-end-line="64" selection-end-column="121" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -80,7 +78,7 @@
         <entry file="file://$PROJECT_DIR$/src/pages/Dashboard/components/Log/index.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="439">
-              <caret line="132" column="33" lean-forward="true" selection-start-line="132" selection-start-column="33" selection-end-line="132" selection-end-column="33" />
+              <caret line="132" column="33" lean-forward="false" selection-start-line="132" selection-start-column="33" selection-end-line="132" selection-end-column="33" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="e#87#128#0" expanded="true" />
@@ -95,7 +93,20 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="476">
               <caret line="63" column="55" lean-forward="false" selection-start-line="63" selection-start-column="55" selection-end-line="63" selection-end-column="55" />
-              <folding />
+              <folding>
+                <marker date="1545298004140" expanded="true" signature="4894:4988" ph="{...}" />
+                <marker date="1545298004140" expanded="true" signature="5460:5661" ph="{...}" />
+                <marker date="1545298004140" expanded="true" signature="5806:5931" ph="{&quot;orgList&quot;: res.data.data...}" />
+                <marker date="1545298004140" expanded="true" signature="6677:6865" ph="{&quot;id&quot;: &quot;5c18d76dc48c07001134cdda&quot;...}" />
+                <marker date="1545298004140" expanded="true" signature="6875:7063" ph="{&quot;id&quot;: &quot;5c18d76dc48c07001134cddb&quot;...}" />
+                <marker date="1545298004140" expanded="true" signature="7073:7261" ph="{&quot;id&quot;: &quot;5c18d76dc48c07001134cddc&quot;...}" />
+                <marker date="1545298004140" expanded="true" signature="7271:7459" ph="{&quot;id&quot;: &quot;5c18d76dc48c07001134cddd&quot;...}" />
+                <marker date="1545298004140" expanded="true" signature="7469:7657" ph="{&quot;id&quot;: &quot;5c18d76dc48c07001134cdde&quot;...}" />
+                <marker date="1545298004140" expanded="true" signature="7667:7855" ph="{&quot;id&quot;: &quot;5c18d76dc48c07001134cddf&quot;...}" />
+                <marker date="1545298004140" expanded="true" signature="7877:7947" ph="{&quot;dataIndex&quot;: 'name'...}" />
+                <marker date="1545298004140" expanded="true" signature="7981:8092" ph="{...}" />
+                <marker date="1545298004140" expanded="true" signature="8642:8774" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -145,10 +156,10 @@
               <caret line="105" column="70" lean-forward="false" selection-start-line="105" selection-start-column="70" selection-end-line="105" selection-end-column="70" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
-                <marker date="1545295248914" expanded="true" signature="18624:18830" ph="..." />
-                <marker date="1545295248914" expanded="true" signature="18624:18857" ph="..." />
-                <marker date="1545295248914" expanded="true" signature="18624:18880" ph="..." />
-                <marker date="1545295248914" expanded="true" signature="18624:18899" ph="..." />
+                <marker date="1545298004143" expanded="true" signature="18688:18894" ph="..." />
+                <marker date="1545298004143" expanded="true" signature="18688:18921" ph="..." />
+                <marker date="1545298004143" expanded="true" signature="18688:18944" ph="..." />
+                <marker date="1545298004143" expanded="true" signature="18688:18963" ph="..." />
               </folding>
             </state>
           </provider>
@@ -170,8 +181,8 @@
       <find>format</find>
       <find>request</find>
       <find>chain.container</find>
-      <find>peerCheck</find>
       <find>getContainerLog</find>
+      <find>peerCheck</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/src/pages/Dashboard/components</dir>
@@ -259,53 +270,6 @@
               <item name="dashboard-ui" type="b2602c69:ProjectViewProjectNode" />
               <item name="dashboard-ui" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="Dashboard" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dashboard-ui" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dashboard-ui" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="Dashboard" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="Channel" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dashboard-ui" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dashboard-ui" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="Dashboard" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="Channel" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dashboard-ui" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dashboard-ui" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="Dashboard" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="Channel" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="ChannelOrg" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dashboard-ui" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dashboard-ui" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="Dashboard" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="Log" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dashboard-ui" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dashboard-ui" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Utils" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -349,12 +313,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1544429412402</updated>
-      <workItem from="1544429414114" duration="8319000" />
+      <workItem from="1544429414114" duration="9624000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8319000" />
+    <option name="totallyTimeSpent" value="9624000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -423,10 +387,10 @@
           <caret line="105" column="70" lean-forward="false" selection-start-line="105" selection-start-column="70" selection-end-line="105" selection-end-column="70" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <marker date="1545295248914" expanded="true" signature="18624:18830" ph="..." />
-            <marker date="1545295248914" expanded="true" signature="18624:18857" ph="..." />
-            <marker date="1545295248914" expanded="true" signature="18624:18880" ph="..." />
-            <marker date="1545295248914" expanded="true" signature="18624:18899" ph="..." />
+            <marker date="1545298004143" expanded="true" signature="18688:18894" ph="..." />
+            <marker date="1545298004143" expanded="true" signature="18688:18921" ph="..." />
+            <marker date="1545298004143" expanded="true" signature="18688:18944" ph="..." />
+            <marker date="1545298004143" expanded="true" signature="18688:18963" ph="..." />
           </folding>
         </state>
       </provider>
@@ -449,20 +413,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/Dashboard/basicLayout.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="752">
-          <caret line="554" column="32" lean-forward="false" selection-start-line="554" selection-start-column="32" selection-end-line="554" selection-end-column="32" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/Dashboard/components/Channel/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="194">
-          <caret line="64" column="121" lean-forward="true" selection-start-line="64" selection-start-column="121" selection-end-line="64" selection-end-column="121" />
+          <caret line="64" column="121" lean-forward="false" selection-start-line="64" selection-start-column="121" selection-end-line="64" selection-end-column="121" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
@@ -483,14 +437,27 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
           <caret line="63" column="55" lean-forward="false" selection-start-line="63" selection-start-column="55" selection-end-line="63" selection-end-column="55" />
-          <folding />
+          <folding>
+            <marker date="1545298004140" expanded="true" signature="4894:4988" ph="{...}" />
+            <marker date="1545298004140" expanded="true" signature="5460:5661" ph="{...}" />
+            <marker date="1545298004140" expanded="true" signature="5806:5931" ph="{&quot;orgList&quot;: res.data.data...}" />
+            <marker date="1545298004140" expanded="true" signature="6677:6865" ph="{&quot;id&quot;: &quot;5c18d76dc48c07001134cdda&quot;...}" />
+            <marker date="1545298004140" expanded="true" signature="6875:7063" ph="{&quot;id&quot;: &quot;5c18d76dc48c07001134cddb&quot;...}" />
+            <marker date="1545298004140" expanded="true" signature="7073:7261" ph="{&quot;id&quot;: &quot;5c18d76dc48c07001134cddc&quot;...}" />
+            <marker date="1545298004140" expanded="true" signature="7271:7459" ph="{&quot;id&quot;: &quot;5c18d76dc48c07001134cddd&quot;...}" />
+            <marker date="1545298004140" expanded="true" signature="7469:7657" ph="{&quot;id&quot;: &quot;5c18d76dc48c07001134cdde&quot;...}" />
+            <marker date="1545298004140" expanded="true" signature="7667:7855" ph="{&quot;id&quot;: &quot;5c18d76dc48c07001134cddf&quot;...}" />
+            <marker date="1545298004140" expanded="true" signature="7877:7947" ph="{&quot;dataIndex&quot;: 'name'...}" />
+            <marker date="1545298004140" expanded="true" signature="7981:8092" ph="{...}" />
+            <marker date="1545298004140" expanded="true" signature="8642:8774" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/Dashboard/components/Log/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="439">
-          <caret line="132" column="33" lean-forward="true" selection-start-line="132" selection-start-column="33" selection-end-line="132" selection-end-column="33" />
+          <caret line="132" column="33" lean-forward="false" selection-start-line="132" selection-start-column="33" selection-end-line="132" selection-end-column="33" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="e#87#128#0" expanded="true" />
@@ -504,6 +471,16 @@
         <state relative-caret-position="285">
           <caret line="19" column="22" lean-forward="false" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/Dashboard/basicLayout.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="362">
+          <caret line="528" column="42" lean-forward="false" selection-start-line="528" selection-start-column="42" selection-end-line="528" selection-end-column="42" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
