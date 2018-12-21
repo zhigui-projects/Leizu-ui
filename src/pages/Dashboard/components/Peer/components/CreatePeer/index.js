@@ -113,7 +113,7 @@ class CreateOrganization extends Component {
                                 this.props.history.push('/dashboard/peer_management');
                                 break;
                             case 400:
-                                message.warning(intl.get("Have_Already_Created_Node"))
+                                message.warning(res.data.msg,10);
                                 this.setState({loading:false});
                                 break;
                             case 401:
