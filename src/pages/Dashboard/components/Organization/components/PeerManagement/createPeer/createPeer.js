@@ -146,7 +146,7 @@ class CreateOrganization extends Component {
                                 this.setState({loading:false});
                                 break;
                             case 400:
-                                message.warning(res.data.msg,10);
+                                message.warning("节点名称不能输入中文");
                                 this.setState({loading:false});
                                 break;
                             case 401:
@@ -199,7 +199,8 @@ class CreateOrganization extends Component {
                                                     {getFieldDecorator(item.id1, {
                                                         rules: [{
                                                             required: true,
-                                                            message: intl.get("Number_Letter_Char"),
+                                                            pattern:/^[^\u4e00-\u9fa5]+$/,
+                                                            message: intl.get("Wrong_Format"),
                                                         }, {
                                                             validator: this.handleAddress
                                                         }],
