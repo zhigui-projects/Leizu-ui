@@ -34,6 +34,10 @@ class CreateOrganization extends Component {
         e.preventDefault();
         this.props.form.validateFieldsAndScroll((err, values) => {
             let orgName = document.getElementById('org-name').value;
+            let reg = /^[^\u4e00-\u9fa5]+$/;
+            if(!reg.test(orgName)){
+                
+            }
             let ip = values.ippeer1 + '.' + values.ippeer2 + '.' + values.ippeer3 + '.' + values.ippeer4;
             let check = {
                 'host': ip,
@@ -103,7 +107,7 @@ class CreateOrganization extends Component {
                                             pathname: "/login"
                                         })
                                     } else {
-                                        message.warning(res.data.msg);
+                                        message.warning(intl.get('Chinese_Input_tip'));
                                         this.setState({ loading: false });
                                     }
                                 })
@@ -151,7 +155,8 @@ class CreateOrganization extends Component {
                                         {getFieldDecorator('capeer', {
                                             rules: [{
                                                 required: true,
-                                                message: intl.get("Please_Input_Node_Name"),
+                                                pattern:/^[^\u4e00-\u9fa5]+$/,
+                                                message: intl.get("Wrong_Format"),
                                             }, {
                                                 validator: this.handlePeer
                                             }],

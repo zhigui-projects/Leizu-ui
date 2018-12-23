@@ -1,6 +1,6 @@
 const API = 'http://39.106.198.16:8080/api/v1';
 const newAPI = sessionStorage.getItem('ConsortiumInfo') ? JSON.parse(sessionStorage.getItem('ConsortiumInfo'))["url"]+"/api/v1" : "";
-console.log(newAPI)
+// console.log(newAPI)
 // 192.168.2.38:8080
 const elasticSearchUrl = "http://39.105.67.252/query"
 const format = require('string-format');

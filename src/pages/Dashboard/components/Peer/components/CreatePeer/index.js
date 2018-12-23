@@ -69,10 +69,13 @@ class CreateOrganization extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         this.props.form.validateFieldsAndScroll((err, values) => {
-            if (this.state.organizationId == ''&&this.state.channelId == '') {
-                this.setState({ display: true,Display:true });
+            if (this.state.channelId == '') {
+                this.setState({ Display:true });
             }
-            else if (!err && this.state.organizationId !== ''&&this.state.channelId!=='') {
+            if(this.state.organizationId==''){
+                this.setState({display:true});
+            }
+            if (!err && this.state.organizationId !== ''&&this.state.channelId!=='') {
                 this.setState({loading:true});
                 let obj = {
                     ...values
@@ -228,7 +231,8 @@ class CreateOrganization extends Component {
                                                     {getFieldDecorator(item.id1, {
                                                         rules: [{
                                                             required: true,
-                                                            message: intl.get("Number_Letter_Char"),
+                                                            pattern:/^[^\u4e00-\u9fa5]+$/,
+                                                            message: intl.get("Wrong_Format"),
                                                         }],
                                                     })(
                                                         <Input onChange={(value) => {

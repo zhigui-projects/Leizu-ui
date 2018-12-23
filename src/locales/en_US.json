@@ -115,5 +115,6 @@
     "Node_Info": "Node Info",
     "Org_Info": "Org Info",
     "Please_Input_Org":"Please input Org name",
-    "Create_Successfully": "Created successfully"
+    "Create_Successfully": "Created successfully",
+    "Chinese_Input_tip":"Organization name cannot be Chinese"
 }
