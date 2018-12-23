@@ -98,13 +98,14 @@ class Log extends Component {
                 })
             }, function (err) {
                 console.error(err.message);
+                message.error(intl.get("Log_Loading_Failed"))
             });
         }
-        setTimeout(function(){
-            if(log.length === 0 && window.location.pathname === "/dashboard/log_management"){
-                message.error(intl.get("Log_Loading_Failed"))
-            }
-        },8000)
+        // setTimeout(function(){
+        //     if(log.length === 0 && window.location.pathname === "/dashboard/log_management"){
+        //         message.error(intl.get("Log_Loading_Failed"))
+        //     }
+        // },10000)
 
     }
     queryLog = () => {

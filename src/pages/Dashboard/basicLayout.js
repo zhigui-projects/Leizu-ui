@@ -568,19 +568,19 @@ class Dashboard extends Component {
                                 ?
                                 (
                                     <li className="logo-side">
-                                        <img src={require('../../images/logo_side.svg')} alt="" />
+                                        <img src={require('../../images/dashboard_img.svg')} alt="" />
                                     </li>
                                 )
                                 :
                                     intl.options.currentLocale === "zh-CN" ? (
                                     <li className="logo">
-                                        <img src={require('../../images/logo.svg')} alt="" />
+                                        <img src={require('../../images/dashboard_white_zh.svg')} alt="" />
                                     </li>
                                 )
                                 :
                                 (
                                     <li className="logo">
-                                        <img src={require('../../images/logo_en.svg')} alt="" />
+                                        <img src={require('../../images/dashboard_white_en.svg')} alt="" />
                                     </li>
                                 )
                             }
