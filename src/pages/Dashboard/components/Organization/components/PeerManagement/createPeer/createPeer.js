@@ -40,7 +40,11 @@ class CreateOrganization extends Component {
             Display:false,
             channelOptions:[],
             id: this.props.location.state,
-            loading:false
+            loading:false,
+            ip1:'',
+            ip2:'',
+            ip3:'',
+            ip4:''
         }
     }
     addPeer = () => {
@@ -143,10 +147,13 @@ class CreateOrganization extends Component {
                             case 200:
                                 message.success(intl.get("Create_Node_Successfully"));
                                 this.props.history.push('/dashboard/peer_management');
+                                if (window._hmt) {
+                                    window._hmt.push(["_trackEvent", "创建节点", res.status]);
+                                }
                                 this.setState({loading:false});
                                 break;
                             case 400:
-                                message.warning("节点名称不能输入中文");
+                                message.warning(res.data.msg,10);
                                 this.setState({loading:false});
                                 break;
                             case 401:
@@ -177,6 +184,39 @@ class CreateOrganization extends Component {
     handleBack = () => {
         window.history.go(-1);
     }
+    onChange1=(e)=>{
+        const ip1 = e.target.value;
+        this.setState({
+            ip1:ip1
+        })
+        this.trigger
+    }
+    onChange2=(e)=>{
+        const ip2 = e.target.value;
+        this.setState({
+            ip2:ip2
+        })
+    }
+    onChange3=(e)=>{
+        const ip3 =e.target.value;
+        this.setState({
+            ip3:ip3
+        })
+    }
+    onChange4=(e)=>{
+        const ip4= e.target.value;
+        this.setState({
+            ip4:ip4
+        })
+    }
+    triggerChange = (changedValue) => {
+        // Should provide an event to pass value to Form.
+        const onChange = this.props.onChange;
+        const leastIpValue = new Object()
+        if (onChange) {
+            onChange(Object.assign({}, this.state, changedValue));
+        }
+    }
     render() {
         const { getFieldDecorator } = this.props.form;
         const {channelOptions} =this.state;
@@ -205,9 +245,7 @@ class CreateOrganization extends Component {
                                                             validator: this.handleAddress
                                                         }],
                                                     })(
-                                                        <Input onChange={(value) => {
-                                                            this.setState({ a: value })
-                                                        }} />
+                                                        <Input  />
                                                     )}
                                                 </FormItem>
                                                 <FormItem className="ip-peer">
@@ -221,7 +259,7 @@ class CreateOrganization extends Component {
                                                         }],
                                                     })(
                                                         <div>
-                                                            <Input />
+                                                            <Input onChange={this.onChange1}/>
                                                         </div>
                                                     )}
                                                 </FormItem>
@@ -237,7 +275,7 @@ class CreateOrganization extends Component {
                                                         }],
                                                     })(
                                                         <div>
-                                                            <Input />
+                                                            <Input onChange={this.onChange2}/>
                                                         </div>
                                                     )}
                                                 </FormItem>
@@ -253,7 +291,7 @@ class CreateOrganization extends Component {
                                                         }],
                                                     })(
                                                         <div>
-                                                            <Input />
+                                                            <Input onChange={this.onChange3}/>
                                                         </div>
                                                     )}
                                                 </FormItem>
@@ -269,7 +307,7 @@ class CreateOrganization extends Component {
                                                         }],
                                                     })(
                                                         <div>
-                                                            <Input />
+                                                            <Input onChange={this.onChange4}/>
                                                         </div>
                                                     )}
                                                 </FormItem>
@@ -305,7 +343,7 @@ class CreateOrganization extends Component {
                                         )
                                     })
                                 }
-                                <p className="icon-plus" onClick={this.addPeer}><Icon className="icon" type="plus-square" /><span>{intl.get("Add_Peer_Node")}</span>{intl.get("Add_Up_To_5_More")}</p>
+                                <p className="icon-plus"><Icon  onClick={this.addPeer} className="icon" type="plus-square" /><span  onClick={this.addPeer}>{intl.get("Add_Peer_Node")}</span>{intl.get("Add_Up_To_5_More")}</p>
                             </div>
                             <p className="peer-desc">{intl.get("Node_Docker_Https")}</p>
                         </div>

@@ -78,10 +78,13 @@ class CreateOrganization extends Component {
                                                     case 200:
                                                         message.success(intl.get("Org_Created_Successfully"));
                                                         this.setState({ loading: false });
+                                                        if (window._hmt) {
+                                                            window._hmt.push(["_trackEvent", "创建组织", res.status]);
+                                                        }
                                                         this.props.history.push('/dashboard/organization_management');
                                                         break;
                                                     case 400:
-                                                        message.error(intl.get("Create_Failed"));
+                                                        message.error(res.data.msg,10);
                                                         this.setState({ loading: false })
                                                         break;
                                                     case 401:
@@ -107,7 +110,7 @@ class CreateOrganization extends Component {
                                             pathname: "/login"
                                         })
                                     } else {
-                                        message.warning(intl.get('Chinese_Input_tip'));
+                                        message.warning(res.data.msg);
                                         this.setState({ loading: false });
                                     }
                                 })

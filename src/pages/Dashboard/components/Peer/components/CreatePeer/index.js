@@ -113,6 +113,9 @@ class CreateOrganization extends Component {
                             case 200:
                                 message.success(intl.get("Create_Node_Successfully"));
                                 this.setState({loading:false});
+                                if (window._hmt) {
+                                    window._hmt.push(["_trackEvent", "创建节点", res.status]);
+                                }
                                 this.props.history.push('/dashboard/peer_management');
                                 break;
                             case 400:
@@ -320,7 +323,7 @@ class CreateOrganization extends Component {
                                         )
                                     })
                                 }
-                                <p className="icon-plus" onClick={this.addPeer} ><Icon className="icon" type="plus-square" /><span>{intl.get("Add_Peer_Node")}</span>{intl.get("Add_Up_To_5_More")}</p>
+                                <p className="icon-plus"  ><Icon onClick={this.addPeer} className="icon" type="plus-square" /><span onClick={this.addPeer}>{intl.get("Add_Peer_Node")}</span>{intl.get("Add_Up_To_5_More")}</p>
                             </div>
                             <p className="peer-desc">{intl.get("New_Node_Tip_Text")}</p>
                         </div>

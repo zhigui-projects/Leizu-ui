@@ -224,7 +224,11 @@ class CreateChannelContent extends Component {
                             wrapperCol={{ span: 4 }}
                         >
                             {getFieldDecorator('name', {
-                                rules: [{ required: true, message: intl.get("Please_Input_Name") }],
+                                rules: [{ 
+                                    required: true, 
+                                    pattern:/^[a-z][a-z0-9.-]*$/,
+                                    message: intl.get("Please_Input_Name"),
+                                }],
                             })(
                                 <Input />
                             )}
