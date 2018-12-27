@@ -98,6 +98,24 @@ class Dashboard extends Component {
         this.defaultLang = ''
     }
 
+    // base64转字符串
+    decode = (base64) =>{
+        // 对base64转编码
+        let decode = atob(base64);
+        // 编码转字符串
+        let str = decodeURI(decode);
+        return str;
+    }
+
+    // 字符串转base64
+    encode = (str) =>{
+        // 对字符串进行编码
+        let encode = encodeURI(str);
+        // 对编码的字符串转化base64
+        let base64 = btoa(encode);
+        return base64;
+    }
+
     componentWillMount() {
         if (!Cookies.get('lang')) {
             let lang = window.navigator.language;
@@ -309,7 +327,8 @@ class Dashboard extends Component {
     }
 
     okloginOut = ()=>{
-        request().post(user.logout).then((response)=>{
+        const newApi = sessionStorage.getItem('ConsortiumInfo') ? JSON.parse(sessionStorage.getItem('ConsortiumInfo'))["url"]+"/api/v1":""
+        request().post(`${newApi}${user.logout}`).then((response)=>{
             if(response){
                 switch(response.status){
                     case 200:
@@ -367,7 +386,8 @@ class Dashboard extends Component {
                         passConfirmTip: intl.get("Password_Must_Match")
                     })
                 }else{
-                    request().post(user.resetPassword,{
+                    const newApi = sessionStorage.getItem('ConsortiumInfo') ? JSON.parse(sessionStorage.getItem('ConsortiumInfo'))["url"]+"/api/v1":""
+                    request().post(`${newApi}${user.resetPassword}`,{
                         "username": userName,
                         "password": values.password,
                         "newPassword": values.newPassword
@@ -461,15 +481,15 @@ class Dashboard extends Component {
         })
     }
     componentDidMount(){
-        console.log(intl.options)
+
     }
     render() {
         let pathArr = this.props.location.pathname.split('/');
         let path = pathArr[2];
-        const userName = Cookies.get('userNameInfo')
-        if (!sessionStorage.getItem('ConsortiumInfo')) {
-            this.props.history.push('/project')
-        }
+        // const userName = Cookies.get('userNameInfo')
+        // if (!sessionStorage.getItem('ConsortiumInfo')) {
+        //     this.props.history.push('/project')
+        // }
         const {form: {getFieldDecorator}} = this.props;
         const formItemLayout = {
             labelCol: {
@@ -505,6 +525,7 @@ class Dashboard extends Component {
         }
         let breadcrumbItems = null
         const location = this.props.location || window.location;
+        const userName = Cookies.get('userNameInfo')
         if (location && location.pathname) {
             const pathSnippets = location.pathname.split('/').filter(i => i);
             const extraBreadcrumbItems = pathSnippets.map((_, index) => {
@@ -520,6 +541,22 @@ class Dashboard extends Component {
 
             breadcrumbItems = [].concat(extraBreadcrumbItems);
         }
+
+        if(window.location.search.indexOf("?") !== -1){
+            let request = new Object();
+            const search = window.location.search.substr(1).split("&")
+            for (var i = 0; i < search.length; i++) {
+                if(i<2){
+                    request[search[i].split("=")[0]] = this.decode(search[i].split("=")[1]);
+                }else{
+                    request[search[i].split("=")[0]] = search[i].split("=")[1];
+                }
+
+            }
+            config.newAPI = request["url"]
+            sessionStorage.setItem('ConsortiumInfo', JSON.stringify(request));
+            Cookies.set("lang", request["local"] === "zh" ? "zh-CN" : request["local"] === "en" ? "en-US" :"", { expires: 7 });
+        }
         return (
                 <Layout className="dashboard_layout" >
                         <Sider className="slider"
@@ -532,19 +569,19 @@ class Dashboard extends Component {
                                 ?
                                 (
                                     <li className="logo-side">
-                                        <img src={require('../../images/logo_side.svg')} alt="" />
+                                        <img src={require('../../images/dashboard_img.svg')} alt="" />
                                     </li>
                                 )
                                 :
                                     intl.options.currentLocale === "zh-CN" ? (
                                     <li className="logo">
-                                        <img src={require('../../images/logo.svg')} alt="" />
+                                        <img src={require('../../images/dashboard_white_zh.svg')} alt="" />
                                     </li>
                                 )
                                 :
                                 (
                                     <li className="logo">
-                                        <img src={require('../../images/logo_en.svg')} alt="" />
+                                        <img src={require('../../images/dashboard_white_en.svg')} alt="" />
                                     </li>
                                 )
                             }

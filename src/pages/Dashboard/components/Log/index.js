@@ -58,13 +58,14 @@ class Log extends Component {
                 body: {
                     sort: [{
                         "@timestamp": "desc"
-                    }],
+                    }]
+                    ,
                     query: {
                         bool: {
                             must: [
                                 {
                                     query_string: {
-                                        fields : ["docker.container.name"],
+                                        // fields : ["docker.container.name"],
                                         query: `*${containerId}*`
                                     }
                                 }
@@ -97,13 +98,14 @@ class Log extends Component {
                 })
             }, function (err) {
                 console.error(err.message);
+                message.error(intl.get("Log_Loading_Failed"))
             });
         }
-        setTimeout(function(){
-            if(log.length === 0 && window.location.pathname === "/dashboard/log_management"){
-                message.error(intl.get("Log_Loading_Failed"))
-            }
-        },5000)
+        // setTimeout(function(){
+        //     if(log.length === 0 && window.location.pathname === "/dashboard/log_management"){
+        //         message.error(intl.get("Log_Loading_Failed"))
+        //     }
+        // },10000)
 
     }
     queryLog = () => {
@@ -118,7 +120,8 @@ class Log extends Component {
                 body: {
                     sort: [{
                         "@timestamp": "desc"
-                    }],
+                    }]
+                    ,
                     query: {
                         bool: {
                             must: [
@@ -179,10 +182,8 @@ class Log extends Component {
             temp = JSON.parse(temp)
             consortiumId = temp._id;
         }
-        request().get(chain.container,{
-            params: {
-                consortiumId: consortiumId
-            },
+        let id = sessionStorage.getItem('ConsortiumInfo') ? JSON.parse(sessionStorage.getItem('ConsortiumInfo'))._id : ""
+        request().get(`${chain.container}?consortiumId=${consortiumId}`,{
             cancelToken: new CancelToken(function executor(c) {
                 // An executor function receives a cancel function as a parameter
                 cancel = c;

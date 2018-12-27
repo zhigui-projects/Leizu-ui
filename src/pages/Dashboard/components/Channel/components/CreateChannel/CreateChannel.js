@@ -3,9 +3,8 @@ Copyright Zhigui.com. All Rights Reserved.
 
 SPDX-License-Identifier: Apache-2.0
 */
-
-import React, {Component} from 'react';
-import {Button, Form, Input, message, Select} from 'antd'
+import React, { Component } from 'react';
+import { Form, Icon, Input, Button, message, Table, Select } from 'antd'
 import intl from 'react-intl-universal'
 import Cookies from 'js-cookie'
 import axios from 'axios'
@@ -14,7 +13,7 @@ import request from '../../../../../../Utils/Axios'
 import apiconfig from '../../../../../../Utils/apiconfig'
 import './createChannel.less'
 
-const { api: { organization, createChannel, channelJoin } } = apiconfig;
+const { api: { organization, channel, channelJoin,creatChannel,createChannel } } = apiconfig;
 
 const CancelToken = axios.CancelToken;
 let cancel1;
@@ -22,7 +21,8 @@ let cancel2;
 let cancel3;
 
 const FormItem = Form.Item;
-const Option = Select.Option;
+
+
 class CreateChannelContent extends Component {
     constructor(props) {
         super(props);
@@ -33,45 +33,50 @@ class CreateChannelContent extends Component {
     }
     handleSubmit = (e) => {
         e.preventDefault();
+        if(this.arr.length===0){
+            message.error(intl.get("Please_Select_Org"))
+            return ''
+        }
         this.props.form.validateFields((err, values) => {
             if (!err) {
                 this.setState({
                     loading: true
                 })
-                console.log('Received values of form: ', values);
                 let id = values.id
-                request().post(createChannel, {
+                let chianId = sessionStorage.getItem('ConsortiumInfo') ? JSON.parse(sessionStorage.getItem('ConsortiumInfo'))._id : ""
+                request().post(`${creatChannel.format({id:chianId})}`, {
                     name: values.name,
-                    organizationIds: [values.id]
-                }, {
-                        cancelToken: new CancelToken(function executor(c) {
-                            // An executor function receives a cancel function as a parameter
-                            cancel1 = c;
-                        })
-                    }).then(res => {
-                        console.log(res)
-                        if (res) {
-                            switch (res.status) {
-                                case 200:
-                                    // message.info(res.data.msg)
-                                    request().post(channelJoin, {
-                                        organizationId: id,
-                                        channelId: res.data.data._id
-                                    }, {
-                                            cancelToken: new CancelToken(function executor(c) {
-                                                // An executor function receives a cancel function as a parameter
-                                                cancel3 = c;
-                                            })
-                                        }).then(res => {
-                                            console.log(res)
+                    organizationIds: this.arr
+                },{
+                    cancelToken: new CancelToken(function executor(c) {
+                        // An executor function receives a cancel function as a parameter
+                        cancel1 = c;
+                    })
+                }).then(res=>{
+                    console.log(res)
+                    if(res){
+                        switch(res.status){
+                            case 200:
+                                // message.info(res.data.msg)
+                                request().post(`${channelJoin}`, {
+                                    organizationIds: this.arr,
+                                    channelId: res.data.data._id
+                                },{
+                                    cancelToken: new CancelToken(function executor(c) {
+                                        // An executor function receives a cancel function as a parameter
+                                        cancel3 = c;
+                                    })
+                                }).then(res=>{
                                             this.setState({
                                                 loading: false
                                             })
                                             if (res) {
                                                 switch (res.status) {
                                                     case 200:
-                                                        // message.info("创建成功")
-                                                        this.props.history.push("/dashboard/channel_management")
+                                                        message.success(intl.get("Create_Successfully"),1,()=>{
+
+                                                            this.props.history.push("/dashboard/channel_management")
+                                                        })
                                                         break;
                                                     case 401:
                                                         Cookies.remove('userNameInfo')
@@ -103,15 +108,15 @@ class CreateChannelContent extends Component {
             }
         });
     }
+
     getOrgList = (id) => {
-        request().get(organization.orgList.format({consortiumId: id}), {
+        request().get(`${organization.orgList.format({id:id})}`,{
             cancelToken: new CancelToken(function executor(c) {
                 // An executor function receives a cancel function as a parameter
                 cancel2 = c;
             })
         }).then(res => {
             if (res) {
-                console.log(res)
                 switch (res.status) {
                     case 200:
                         this.setState({
@@ -148,6 +153,61 @@ class CreateChannelContent extends Component {
             cancel3()
         }
     }
+    
+    items = [
+        {
+            consortium_id: "5c18d764c48c07001134cdd9",
+            id: "5c18d76dc48c07001134cdda",
+            name: "peer-org1",
+            peer_count: 2,
+            type: 0
+        },
+        {
+            consortium_id: "5c18d764c48c07001134cdd9",
+            id: "5c18d76dc48c07001134cddb",
+            name: "peer-org2",
+            peer_count: 2,
+            type: 0
+        },
+        {
+            consortium_id: "5c18d764c48c07001134cdd9",
+            id: "5c18d76dc48c07001134cddc",
+            name: "peer-org3",
+            peer_count: 2,
+            type: 0
+        },
+        {
+            consortium_id: "5c18d764c48c07001134cdd9",
+            id: "5c18d76dc48c07001134cddd",
+            name: "peer-org4",
+            peer_count: 2,
+            type: 0
+        },
+        {
+            consortium_id: "5c18d764c48c07001134cdd9",
+            id: "5c18d76dc48c07001134cdde",
+            name: "peer-org5",
+            peer_count: 2,
+            type: 0
+        },
+        {
+            consortium_id: "5c18d764c48c07001134cdd9",
+            id: "5c18d76dc48c07001134cddf",
+            name: "peer-org6",
+            peer_count: 2,
+            type: 0
+        }
+    ]
+    columns = [{
+        title: intl.get("Org_Name"),
+        dataIndex: 'name'
+    }]
+    arr = []
+    rowSelection = {
+        onChange: (selectedRowKeys, selectedRows) => {
+            this.arr = selectedRowKeys
+        }
+    }
     render() {
         const { getFieldDecorator } = this.props.form;
         return (
@@ -160,30 +220,29 @@ class CreateChannelContent extends Component {
                             wrapperCol={{ span: 4 }}
                         >
                             {getFieldDecorator('name', {
-                                rules: [{ required: true, message: intl.get("Please_Input_Name") }],
+                                rules: [{ 
+                                    required: true, 
+                                    pattern:/^[a-z][a-z0-9.-]*$/,
+                                    message: intl.get("Please_Input_Name"),
+                                }],
                             })(
                                 <Input />
                             )}
                         </FormItem>
                         <FormItem
-                            label={intl.get("Select_Org")}
+                            label={<span className="lable-before">{intl.get("Select_Org")}</span>}
                             labelCol={{ span: 3 }}
                             wrapperCol={{ span: 8 }}
                         >
-                            {getFieldDecorator('id', {
-                                rules: [{ required: true, message: intl.get("Please_Select_Org") }],
-                            })(
-                                <Select
-                                    placeholder="Select a option and change input text above"
-                                    onChange={this.handleSelectChange}
-                                >
-                                    {
-                                        this.state.orgList.map((item, index) => {
-                                            return <Option key={item.id} >{item.name}</Option>
-                                        })
-                                    }
-                                </Select>
-                            )}
+                            <div className='select-box'>
+                                <Table 
+                                    rowSelection={this.rowSelection} 
+                                    columns={this.columns} 
+                                    dataSource={this.state.orgList} 
+                                    rowKey={record=>record.id}
+                                    pagination={false}
+                                />
+                            </div>
                         </FormItem>
                     </Form>
                 </div>

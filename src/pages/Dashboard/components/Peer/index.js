@@ -19,22 +19,22 @@ const { api: { peer: { peerList } } } = apiconfig;
 const columns = [{
     title: intl.get("Node_Name"),
     dataIndex: 'name',
-    width: '15%',
+    width: '13%',
     key: 'name',
 }, {
     title: intl.get("Node_Domain"),
     dataIndex: 'location',
-    width: '15%',
+    width: '20%',
     key: 'domain',
 }, {
     title: intl.get("Org_Name"),
     dataIndex: 'organizationName',
-    width: '14%',
+    width: '12%',
     key: 'organization',
 }, {
     title: intl.get("Channel_Name"),
     key: 'channel',
-    width: '16%',
+    width: '12%',
     render: (text, record) => (
         record.channelNames.map((item, index) => {
             return <p key={index}>{item}</p>
@@ -43,7 +43,7 @@ const columns = [{
 }, {
     title: intl.get("Node_Type"),
     key: 'type',
-    width: '9%',
+    width: '10%',
     render: (text, record) => (
         <span>{record.type === 0 ? "peer" : (record.type === 1 ? "orderer" : "")}</span>
     ),
@@ -51,7 +51,7 @@ const columns = [{
 },
 {
     title: intl.get("Type"),
-    width: '9%',
+    width: '11%',
     key: 'status',
     render: (text, record) => (
         <span>
@@ -75,6 +75,7 @@ const columns = [{
 },
 {
     title: intl.get("Memory_Occupy"),
+    width:'11%',
     key: 'ram',
     render: (text, record) => (
         <span>
@@ -93,7 +94,7 @@ class Peer extends Component {
         }
     }
     getPeerData = (id) => {
-        request().get(peerList.format({consortiumId: id}), {
+        request().get(`${peerList.format({id:id})}`, {
             cancelToken: new CancelToken(function executor(c) {
                 // An executor function receives a cancel function as a parameter
                 cancel = c;

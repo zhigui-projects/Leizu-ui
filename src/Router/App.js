@@ -34,6 +34,7 @@ const Dashboard = Loadable({
     loader: () => import('../pages/Dashboard/basicLayout'),
     loading: MyLoadingComponent
 })
+
 const Login = Loadable({
     loader: () => import('../pages/Login/login'),
     loading: MyLoadingComponent
@@ -42,6 +43,7 @@ const Project = Loadable({
     loader: () => import('../pages/Project/index'),
     loading: MyLoadingComponent
 })
+
 //universal国际化文件
 const intl_locales = {
     "en-US": require("../locales/en_US.json"),

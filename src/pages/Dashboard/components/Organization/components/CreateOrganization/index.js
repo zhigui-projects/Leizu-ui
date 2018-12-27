@@ -11,7 +11,8 @@ import apiconfig from '../../../../../../Utils/apiconfig';
 import request from '../../../../../../Utils/Axios';
 import Cookies from 'js-cookie';
 const FormItem = Form.Item;
-const { api: { organization: { createOrg, updateChannel, peerCheck } } } = apiconfig;
+
+const { api: { organization: { orgList, createOrg,creatOrg, peerCheck } } } = apiconfig;
 
 class CreateOrganization extends Component {
     constructor(props) {
@@ -33,13 +34,17 @@ class CreateOrganization extends Component {
         e.preventDefault();
         this.props.form.validateFieldsAndScroll((err, values) => {
             let orgName = document.getElementById('org-name').value;
+            let reg = /^[^\u4e00-\u9fa5]+$/;
+            if(!reg.test(orgName)){
+                
+            }
             let ip = values.ippeer1 + '.' + values.ippeer2 + '.' + values.ippeer3 + '.' + values.ippeer4;
             let check = {
                 'host': ip,
                 'username': values.sshuser,
                 'password': values.sshpassword
             }
-            request().post(peerCheck, check).then((res) => {
+            request().post(`${peerCheck}`, check).then((res) => {
                 if (res) {
                     switch (res.status) {
                         case 200:
@@ -58,21 +63,26 @@ class CreateOrganization extends Component {
                                     'password': values.sshpassword,
                                     'consortiumId': consortiumId,
                                 }
-                                request().post(createOrg, obj).then((res) => {
+
+                                request().post(`${creatOrg}`, obj).then((res) => {
                                     if (res.status == 200) {
                                         let options = {};
                                         options.channelType = 1;
                                         options.organizationId = res.data.data._id;
-                                        request().post(updateChannel, options).then((res) => {
+                                        request().post(`${createOrg}`, options).then((res) => {
                                             if (res) {
                                                 this.setState({ loading: false });
                                                 switch (res.status) {
                                                     case 200:
                                                         message.success(intl.get("Org_Created_Successfully"));
-                                                        this.setState({ loading: false })
+                                                        this.setState({ loading: false });
+                                                        if (window._hmt) {
+                                                            window._hmt.push(["_trackEvent", "创建组织", res.status]);
+                                                        }
+                                                        this.props.history.push('/dashboard/organization_management');
                                                         break;
                                                     case 400:
-                                                        message.error(intl.get("Create_Failed"));
+                                                        message.error(res.data.msg,10);
                                                         this.setState({ loading: false })
                                                         break;
                                                     case 401:
@@ -136,7 +146,7 @@ class CreateOrganization extends Component {
             <div className="create-organization">
                 <div className="create-wrapper">
                     <div className="organization-wrapper">
-                        <p className="wrapper-input"><span className="organization-name">{intl.get("Org_Name")}</span><Input onChange={this.handleChange} id="org-name" className="organization-input" /><span style={{ display: display ? '' : 'none' }} className="tip">请输入组织名称</span></p>
+                        <p className="wrapper-input"><span className="organization-name">{intl.get("Org_Name")}</span><Input onChange={this.handleChange} id="org-name" className="organization-input" /><span style={{ display: display ? '' : 'none' }} className="tip">{intl.get('Please_Input_Org')}</span></p>
                         <p className="wrapper-peer"><span className="organization-name">{intl.get("New_Node_Node_Type")}</span><span className="peer">peer</span></p>
                         <div className="chaincode-mark">
                             <span className="mark">{intl.get("Add_Node")}</span>
@@ -146,7 +156,8 @@ class CreateOrganization extends Component {
                                         {getFieldDecorator('capeer', {
                                             rules: [{
                                                 required: true,
-                                                message: intl.get("Please_Input_Node_Name"),
+                                                pattern:/^[^\u4e00-\u9fa5]+$/,
+                                                message: intl.get("Wrong_Format"),
                                             }, {
                                                 validator: this.handlePeer
                                             }],
@@ -169,7 +180,7 @@ class CreateOrganization extends Component {
                                             </div>
                                         )}
                                     </FormItem>
-                                    <span className='dot'>·</span>
+                                    <span className='dot first-child'>·</span>
                                     <FormItem className="ip-peer" >
                                         {getFieldDecorator('ippeer2', {
                                             rules: [{

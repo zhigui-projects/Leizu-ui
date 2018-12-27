@@ -29,14 +29,16 @@ class OverView extends Component{
             badgeType: "success"
         }
     }
-    getData = (id)=>{
-        request().get(consortium.overview.format({consortiumId: id}),{
+    getData = ()=>{
+        let id = sessionStorage.getItem('ConsortiumInfo') ? JSON.parse(sessionStorage.getItem('ConsortiumInfo'))._id : ""
+        const newApi = sessionStorage.getItem('ConsortiumInfo') ? JSON.parse(sessionStorage.getItem('ConsortiumInfo'))["url"]+"/api/v1":""
+        request().get(`${consortium.overview.format({consortiumId: id})}`,{
             cancelToken: new CancelToken(function executor(c) {
                 // An executor function receives a cancel function as a parameter
                 cancel = c;
             })
         }).then(res=>{
-            // console.log(res)
+            console.log(res);
             if(res){
                 switch(res.status){
                     case 200:
@@ -95,9 +97,9 @@ class OverView extends Component{
                         })
                         break;
                     case 401:
-                        Cookies.remove('userNameInfo')
-                        Cookies.remove('token')
-                        this.props.history.push('/login')
+                        // Cookies.remove('userNameInfo')
+                        // Cookies.remove('token')
+                        // this.props.history.push('/login')
                         break;
                     default:
                         this.setState({
@@ -112,7 +114,7 @@ class OverView extends Component{
         let temp = sessionStorage.getItem('ConsortiumInfo')
         if(temp){
             temp = JSON.parse(temp)
-            this.getData(temp._id)
+            this.getData()
         }
     }
     componentWillUnmount() {

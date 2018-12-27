@@ -13,8 +13,11 @@ import axios from 'axios';
 import Cookies from 'js-cookie';
 const FormItem = Form.Item;
 const Option = Select.Option;
-const { api: { peer: { peerList } } } = apiconfig;
+const { api: { peer: { peerList, creatPeer },channel } } = apiconfig;
 const { api: { organization: { orgList } } } = apiconfig;
+const CancelToken = axios.CancelToken;
+let cancel;
+
 class CreateOrganization extends Component {
     constructor(props) {
         super(props)
@@ -35,7 +38,11 @@ class CreateOrganization extends Component {
             count: 0,
             dataOptions: [],
             organizationId: '',
-            display: false
+            channelId:'',
+            display: false,
+            Display:false,
+            channelOptions:[],
+            loading:false
         }
     }
     addPeer = () => {
@@ -51,7 +58,7 @@ class CreateOrganization extends Component {
             pattern: '',
             validator: ''
         }
-        if (count <= 4) {
+        if (count <= 3) {
             formArr.push(newData);
             this.setState({
                 formArr,
@@ -62,10 +69,14 @@ class CreateOrganization extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         this.props.form.validateFieldsAndScroll((err, values) => {
-            if (this.state.organizationId == '') {
-                this.setState({ display: true });
+            if (this.state.channelId == '') {
+                this.setState({ Display:true });
             }
-            else if (!err && this.state.organizationId !== '') {
+            if(this.state.organizationId==''){
+                this.setState({display:true});
+            }
+            if (!err && this.state.organizationId !== ''&&this.state.channelId!=='') {
+                this.setState({loading:true});
                 let obj = {
                     ...values
                 }
@@ -89,17 +100,25 @@ class CreateOrganization extends Component {
                 }).filter(ele => ele !== null);
                 ray = arr1;
                 let orgId = this.state.organizationId;
+                let channelId = this.state.channelId;
                 let options = {};
                 options.organizationId = orgId;
+                options.channelId = channelId;
                 options.peers = ray;
-                request().post(peerList, options).then((res) => {
+                request().post(`${creatPeer}`, options).then((res) => {
                     if (res) {
                         switch (res.status) {
                             case 200:
                                 message.success(intl.get("Create_Node_Successfully"));
+                                this.setState({loading:false});
+                                if (window._hmt) {
+                                    window._hmt.push(["_trackEvent", "创建节点", res.status]);
+                                }
+                                this.props.history.push('/dashboard/peer_management');
                                 break;
                             case 400:
-                                message.warning(intl.get("Have_Already_Created_Node"))
+                                message.warning(res.data.msg,10);
+                                this.setState({loading:false});
                                 break;
                             case 401:
                                 Cookies.remove('token');
@@ -127,7 +146,9 @@ class CreateOrganization extends Component {
         })
     }
     componentDidMount() {
-        request().get(orgList).then((res) => {
+        this.getData();
+        let id = sessionStorage.getItem('ConsortiumInfo') ? JSON.parse(sessionStorage.getItem('ConsortiumInfo'))._id : ""
+        request().get(`${orgList.format({ id: id })}`).then((res) => {
             if (res.data.code == 200) {
                 let dataOptions = res.data.data;
                 this.setState({
@@ -136,12 +157,39 @@ class CreateOrganization extends Component {
             }
         })
     }
+    getData = ()=>{
+        let id = sessionStorage.getItem('ConsortiumInfo') ? JSON.parse(sessionStorage.getItem('ConsortiumInfo'))._id : ""
+        request().get(`${channel.format({id:id})}`,{
+            cancelToken: new CancelToken(function executor(c) {
+                // An executor function receives a cancel function as a parameter
+                cancel = c;
+            })
+        }).then(res => {
+            if (res) {
+                switch (res.status) {
+                    case 200:
+                        this.setState({
+                            channelOptions: res.data.data,
+                        })
+                        break;
+                    case 401: 
+                        Cookies.remove('userNameInfo')
+                        Cookies.remove('token')
+                        this.props.history.push('/login')
+                        break;
+                    default:
+                        return ''
+
+                }
+            }
+        })
+    }
     handleBack = () => {
         window.history.go(-1);
     }
     render() {
         const { getFieldDecorator } = this.props.form;
-        const { dataOptions, organizationId } = this.state;
+        const { dataOptions, organizationId,channelOptions } = this.state;
         return (
             <div className="create-peer">
                 <div className="create-wrapper">
@@ -182,7 +230,8 @@ class CreateOrganization extends Component {
                                                     {getFieldDecorator(item.id1, {
                                                         rules: [{
                                                             required: true,
-                                                            message: intl.get("Number_Letter_Char"),
+                                                            pattern:/^[^\u4e00-\u9fa5]+$/,
+                                                            message: intl.get("Wrong_Format"),
                                                         }],
                                                     })(
                                                         <Input onChange={(value) => {
@@ -249,7 +298,7 @@ class CreateOrganization extends Component {
                                                     {getFieldDecorator(item.id3, {
                                                         rules: [{
                                                             required: true,
-                                                            message: intl.get("Number_Letter_Char"),
+                                                            message: intl.get("Number_Letter_User"),
                                                         }],
                                                     })(
                                                         <Input />
@@ -259,7 +308,7 @@ class CreateOrganization extends Component {
                                                     {getFieldDecorator(item.id4, {
                                                         rules: [{
                                                             required: true,
-                                                            message: intl.get("Number_Letter_Char"),
+                                                            message: intl.get("Number_Letter_Password"),
                                                         }],
                                                     })(
                                                         <Input />
@@ -270,14 +319,37 @@ class CreateOrganization extends Component {
                                         )
                                     })
                                 }
-                                <p className="icon-plus" onClick={this.addPeer} ><Icon className="icon"  type="plus-square" /><span>{intl.get("Add_Peer_Node")}</span>{intl.get("Add_Up_To_5_More")}</p>
+                                <p className="icon-plus"  ><Icon onClick={this.addPeer} className="icon" type="plus-square" /><span onClick={this.addPeer}>{intl.get("Add_Peer_Node")}</span>{intl.get("Add_Up_To_5_More")}</p>
                             </div>
                             <p className="peer-desc">{intl.get("New_Node_Tip_Text")}</p>
+                        </div>
+                        <div className="channel-input" id="wrapper-input"><span className="organization-name">{intl.get("Channel_Org")}</span>
+                            <span ref="selectBox">
+                                <Select
+                                    showSearch
+                                    getPopupContainer={() => this.refs.selectBox}
+                                    style={{ width: 192, height: 32, marginLeft: 18 }}
+                                    placeholder={intl.get("Please_Select_Channel")}
+                                    optionFilterProp="children"
+                                    onSelect={(value) => this.setState({
+                                        channelId: value,
+                                        Display:false
+                                    })}
+                                    filterOption={(input, option) => option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}
+                                >
+                                    {
+                                        channelOptions.length > 0 && channelOptions.map((item, index) => {
+                                            return <Option value={item._id} key={index}>{item.name}</Option>
+                                        })
+                                    }
+                                </Select>
+                            </span>
+                            <span style={{ display: this.state.Display ? '' : 'none' }} className="tip">{intl.get("Please_Select_Channel")}</span>
                         </div>
                     </div>
                     <div className="confirm-wrapper">
                         <FormItem>
-                            <Button onClick={this.handleSubmit} className="confirm-btn">{intl.get("Confirm")}</Button>
+                            <Button onClick={this.handleSubmit} loading={this.state.loading} className="confirm-btn">{intl.get("Confirm")}</Button>
                             <Button onClick={this.handleBack} className="cancel-btn">{intl.get("Cancel")}</Button>
                         </FormItem>
                     </div>

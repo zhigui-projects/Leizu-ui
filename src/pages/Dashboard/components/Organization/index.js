@@ -12,7 +12,7 @@ import axios from 'axios';
 import apiconfig from '../../../../Utils/apiconfig';
 import Cookies from 'js-cookie'
 // const FormItem = Form.Item;
-const { api: { organization: { orgList } } } = apiconfig;
+const { api: { organization: { orgList },organize:{organization} } } = apiconfig;
 const CancelToken = axios.CancelToken;
 let cancel;
 
@@ -31,21 +31,23 @@ class OrgaManagement extends Component {
         localStorage.setItem('orgName',record.name);
         this.props.history.push({
             pathname: 'organization_management/peer',
-            state: record.id
+            state: record
         });
     }
+
     getOrgData = (id) => {
-        request().get(orgList.format({consortiumId: id}), {
+        request().get(`${organization.format({id:id})}`, {
             cancelToken: new CancelToken(function executor(c) {
                 // An executor function receives a cancel function as a parameter
                 cancel = c;
             })
         }).then(res => {
+            console.log(res)
             if (res) {
                 switch (res.status) {
                     case 200:
                         this.setState({
-                            orgData: res.data.data,
+                            orgData: res.data.data != null ? res.data.data : [],
                             loading: false
                         })
                         break;
@@ -116,7 +118,7 @@ class OrgaManagement extends Component {
 
                         <Table
                             columns={columns}
-                            dataSource={this.state.orgData}
+                            dataSource={this.state.orgData || []}
                             rowKey={record => record.id}
                         />
                     </Spin>

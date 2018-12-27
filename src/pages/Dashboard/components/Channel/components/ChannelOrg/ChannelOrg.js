@@ -44,11 +44,13 @@ class ChannelOrg extends Component {
             key: 'peer_count',
         }
     ]
-    getData = (consortiumId, channelId)=>{
-        request().get(organize.organization.format({consortiumId: consortiumId}), {
+    getData = (consortiumId,obj)=>{
+        // let id = sessionStorage.getItem('ConsortiumInfo') ? JSON.parse(sessionStorage.getItem('ConsortiumInfo'))._id : ""
+        request().get(`${organize.organization.format({id:obj.consortiumId})}`,{
             params: {
-                channelId: channelId
-            },
+                channelId: obj.id
+            }
+        },{
             cancelToken: new CancelToken(function executor(c) {
                 // An executor function receives a cancel function as a parameter
                 cancel = c;
@@ -78,7 +80,9 @@ class ChannelOrg extends Component {
         let temp = sessionStorage.getItem('ConsortiumInfo')
         if(temp) {
             temp = JSON.parse(temp)
-            this.getData(temp._id, this.props.location.query)
+        }
+        if(this.props.location.state){
+            this.getData(temp._id,this.props.location.state)
         }
     }
     componentWillUnmount() {

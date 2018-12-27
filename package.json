@@ -112,7 +112,7 @@
     "babel-preset-env": "^1.7.0",
     "less": "^3.8.1",
     "less-loader": "^4.1.0",
-    "license-check-and-add": "^2.3.6"
+    "license-check-and-add": "^2.3.5"
   },
   "license-check-and-add-config": {
     "folder": ".",

@@ -15,26 +15,26 @@ import Cookies from 'js-cookie'
 const CancelToken = axios.CancelToken;
 let cancel;
 
-const { api: { peer } } = apiconfig;
+const { api: { peer: { peerList ,organizationPeer} } } = apiconfig;
 const columns = [{
     title: intl.get("Node_Name"),
     dataIndex: 'name',
-    width: '15%',
+    width: '13%',
     key: 'name',
 }, {
     title: intl.get("Node_Domain"),
     dataIndex: 'location',
-    width: '15%',
+    width: '20%',
     key: 'domain',
 }, {
     title: intl.get("Org_Name"),
     dataIndex: 'organizationName',
-    width: '14%',
+    width: '12%',
     key: 'organizationName',
 }, {
     title: intl.get("Channel_Name"),
     key: 'channel',
-    width: '16%',
+    width: '12%',
     render: (text, record) => (
         record.channelNames.map((item, index) => {
             return <p key={index}>{item}</p>
@@ -43,7 +43,7 @@ const columns = [{
 }, {
     title: intl.get("Node_Type"),
     key: 'type',
-    width: '9%',
+    width: '10%',
     render: (text, record) => (
         <span>{record.type === 0 ? "peer" : (record.type === 1 ? "orderer" : "")}</span>
     ),
@@ -51,7 +51,7 @@ const columns = [{
 },
 {
     title: intl.get("Type"),
-    width: '9%',
+    width: '11%',
     key: 'status',
     render: (text, record) => (
         <span>
@@ -75,6 +75,7 @@ const columns = [{
 },
 {
     title: intl.get("Memory_Occupy"),
+    width:"11%",
     key: 'ram',
     render: (text, record) => (
         <span>
@@ -89,14 +90,20 @@ class PeerManagement extends Component {
         super(props)
         this.state = {
             peerData: [],
-            id: this.props.location.state ? this.props.location.state : localStorage.getItem('_id')
+            consortiumInfo:this.props.location.state,
+            id: this.props.location.state ? this.props.location.state.id : (JSON.parse(localStorage.getItem('consortiumInfo')).id),
+            type: this.props.location.state? this.props.location.state.type: (JSON.parse(localStorage.getItem('consortiumInfo')).type)
         }
     }
-    getPeerData = (consortiumId) => {
-        request().get(`${peer.peerDetail.format({consortiumId: consortiumId})}`, {
-            params: {
-                id: this.state.id ? this.state.id : localStorage.getItem('_id')
-            },
+    // getPeerData = (consortiumId) => {
+    //     request().get(`${peer.peerDetail.format({consortiumId: consortiumId})}`, {
+    //         params: {
+    //             id: this.state.id ? this.state.id : localStorage.getItem('_id')
+    //         },
+    getPeerData = (id) => {
+        // let id = sessionStorage.getItem('ConsortiumInfo') ? JSON.parse(sessionStorage.getItem('ConsortiumInfo'))._id : ""
+        let _id = localStorage.getItem('_id');
+        request().get(`${organizationPeer.format({ id: id,orgId:this.state.id })}`, {
             cancelToken: new CancelToken(function executor(c) {
                 // An executor function receives a cancel function as a parameter
                 cancel = c;
@@ -122,8 +129,8 @@ class PeerManagement extends Component {
         })
     }
     componentWillMount() {
-        const { id } = this.state;
-        localStorage.setItem('_id', id);
+        const { consortiumInfo } = this.state;
+        localStorage.setItem('consortiumInfo', JSON.stringify(consortiumInfo));
     }
     componentDidMount() {
         let temp = sessionStorage.getItem('ConsortiumInfo')
@@ -150,7 +157,7 @@ class PeerManagement extends Component {
         return (
             <div className="peer_management">
                 <p className="create-organization">
-                    <Button id="create" onClick={this.CreatePeer} className="create-plus">{intl.get("Create_Node")}<Icon type="plus-circle" theme="outlined" /></Button>
+                    <Button style={{ display: this.state.type === 1 ? "none" : "" }} id="create" onClick={this.CreatePeer} className="create-plus">{intl.get("Create_Node")}<Icon type="plus-circle" theme="outlined" /></Button>
                 </p>
                 <div className="peer_wrapper">
                     <Spin spinning={this.state.loading}>

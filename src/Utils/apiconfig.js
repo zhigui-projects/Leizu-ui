@@ -1,10 +1,9 @@
-/*
-Copyright Zhigui.com. All Rights Reserved.
-
-SPDX-License-Identifier: Apache-2.0
-*/
+// const API = 'http://39.106.198.16:8080/api/v1';
+// 192.168.2.38:8080
 const API = process.env.REACT_APP_API || '';
 const elasticSearchUrl = process.env.REACT_APP_ELK_URL || '';
+
+// const elasticSearchUrl = "http://39.105.67.252/query"
 const format = require('string-format');
 format.extend(String.prototype);
 
@@ -17,30 +16,32 @@ module.exports = {
             resetPassword: `${API}/user/password/reset`,
             logout: `${API}/user/logout`
         },
-        channel: `${API}/channel/{consortiumId}`,
-        createChannel: `${API}/channel`,
+        channel: `${API}/channel/{id}`,
+        creatChannel:`${API}/channel`,
         channelJoin: `${API}/channel/join`,
         chain: {
             chainList: `${API}/consortium`,
             container:`${API}/container`
         },
         peer:{
-            peerList:`${API}/peer/{consortiumId}`,
-            createPeer:`${API}/peer`,
-            peerDetail:`${API}/peer/{consortiumId}`
+            peerList:`${API}/peer/{id}`,
+            peerDetail:`${API}/peer/{id}/{peerId}`,
+            creatPeer:`${API}/peer`,
+            organizationPeer:`${API}/peer/{id}?organizationId={orgId}`
         },
         organization:{
-            orgList:`${API}/organization/{consortiumId}`,
-            createOrg:`${API}/organization`,
-            updateChannel:`${API}/channel/update`,
-            peerCheck:`${API}/peer/check`
+            orgList:`${API}/organization/{id}?type=0`,
+            createOrg:`${API}/channel/update`,
+            peerCheck:`${API}/peer/check`,
+            creatOrg:`${API}/organization`
         },
         organize: {
-            organization: `${API}/organization/{consortiumId}`
+            organization: `${API}/organization/{id}`
         },
         consortium: {
             overview: `${API}/consortium/{consortiumId}`
 
         }
     },
+    newAPI:""
 }
