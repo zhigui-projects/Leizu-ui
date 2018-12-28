@@ -116,7 +116,7 @@ class App extends Component {
                         <Route path="/dashboard" component={Dashboard} />
                         <Route path="/project" component={Project} />
                         <Route path="/login" component={Login} />
-                        <Route path="/*" render={(props) => <Redirect to='/project' />} />
+                        <Route path="/*" render={(props) => <Redirect to='/login' />} />
                     </Switch>
                 </Router>
             </LocaleProvider>
