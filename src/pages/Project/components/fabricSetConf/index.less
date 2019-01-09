@@ -1,0 +1,615 @@
+.page-part-fabric{
+  background: #ffffff;
+  .ant-input{
+    border-color: #e6eaee;
+  }
+  .channel-item-actived{
+    box-shadow: 0 0 8px #1890ff;
+  }
+  .channel-item-list{
+    display: flex;
+    flex-wrap: wrap;
+    li{
+      width: 135px;
+      height: 32px;
+      border-radius: 3px;
+      border: solid 1px #e6eaee;
+      background-color: #ffffff;
+      padding-left: 10px;
+      line-height: 32px;
+      font-size: 12px;
+      color: #7f8fa4;
+      margin-right: 12px;
+      margin-bottom: 12px;
+      cursor: pointer;
+
+    }
+  }
+  .configPartFabric form .ant-form-explain{
+    text-align: left;
+    margin-top: -4px;
+  }
+  .ul-item{
+    display:flex;
+    height:38px;
+    margin-bottom: 15px;
+  }
+  .ant-form-inline .ant-form-item{
+    margin: 0 3px;
+  }
+  .IpInput{
+    display: flex;
+    span{
+      line-height: 32px;
+    }
+  }
+  .cover{
+    width: 100%;
+    height:100%;
+    z-index: 20;
+    position: fixed;
+    background: rgba(0,0,0,.4);
+    left: 0;
+    top: 0;
+  }
+  .coverHidd{
+    display: none;
+  }
+  .tip-form{
+    width: 480px;
+    position: fixed;
+    left: 50%;
+    top:50%;
+    margin-top: -118px;
+    margin-left: -240px;
+    background: #ffffff;
+    z-index: 25;
+    padding: 0 10px 20px 10px;
+    h1{
+      font-size: 24px;
+      font-weight: 500;
+      color: rgba(0, 0, 0, 0.85);
+      text-align: center;
+      margin: 45px 0 16px 0;
+    }
+    p{
+      font-size: 14px;
+      text-align: center;
+      color: rgba(0, 0, 0, 0.45);
+      margin-bottom: 45px;
+    }
+    .tip-form-btn{
+      display: flex;
+      justify-content: center;
+      button{
+        width: 88px;
+        height: 32px;
+      }
+    }
+  }
+  .configPublicItem:hover{
+    box-shadow: 0 0 4px #4285f4;
+  }
+  .input-mid{
+    width: 100px;
+  }
+  .input-len{
+    width: 135px;
+  }
+  .input-short{
+    width: 54px;
+  }
+  .tip-peer{
+    font-size: 12px;
+    color: #7f8fa4;
+  }
+  .peer-group-close{
+    z-index: 20;
+    position: absolute;
+    top:17px ;
+    right:17px;
+  }
+  .add-close{
+    position: absolute;
+    right: 17px;
+  }
+  .add-peer-btn{
+    height: 32px;
+    padding: 7px 15px;
+    border-color:#cbd0d5 ;
+    color:#4285f4;
+    font-size: 12px;
+  }
+  .fabric-kafka-tab{
+    position: relative;
+    padding:16px ;
+    margin-bottom:16px ;
+    .channel-peers-label{
+      color: rgba(0, 0, 0, 0.85);
+      text-align: right;
+    }
+    .channel-peers-label::after{
+      content: ":";
+      margin: 0 8px 0 2px;
+      position: relative;
+      top: -0.5px;
+    }
+    .channel-peers-part{
+      display: flex;
+      height: 80px;
+    }
+    .channel-peers{
+      flex: 1;
+      display: flex;
+      flex-wrap: wrap;
+      .channel-peers-li{
+        margin-right:12px ;
+        margin-bottom: 0px;
+      }
+    }
+    .test-peer{
+      font-size: 12px;
+      color: #49b116;
+    }
+    .test-peer-default{
+      color: #7f8fa4;
+    }
+    .test-peer-init{
+      color:#4285f4;
+    }
+    .test-peer-error{
+      color: #fa4747;
+    }
+    .test-peer-success{
+      color:#49b116;
+    }
+    ul{
+      display:flex;
+      height:38px;
+      padding-right: 15px;
+    }
+    ul .peer-name{
+      width:20%;
+      height: 100%;
+      margin-bottom: 0px;
+      min-width: 120px;
+      max-width: 150px;
+      text-align:left
+    }
+    ul .peer-ip{
+      width:30%;
+      height: 100%;
+      max-width: 300px;
+      text-align:left;
+      .ant-form-item-control-wrapper{
+        height: 40px;
+      }
+      .ant-form-item-control .has-error{
+        height: 40px;
+      }
+      .ant-form-explain{
+        margin-top: -28px !important;
+      }
+
+    }
+    ul .ssh-username{
+      width:23%;
+      height: 100%;
+      margin-bottom: 0px;
+      min-width: 132px;
+      max-width:200px ;
+      text-align:left
+    }
+    ul .test-peer-item{
+      width:9%;
+      min-width: 132px;
+      max-width:140px ;
+      text-align:left
+    }
+    .add-order-tip-same{
+      width: 100%;
+      height: 30px;
+      font-size: 12px;
+      .sameIpTip{
+        float: right;
+        color: #fa4747;
+      }
+    }
+    .add-order-tip{
+      font-size: 12px;
+      color: #7f8fa4;
+      .add-order-btn{
+        color: #4285f4;
+        cursor: pointer;
+      }
+      .sameIpTip{
+        float: right;
+        color: #fa4747;
+      }
+    }
+  }
+
+  .add-peer-part{
+    margin-top:16px ;
+  }
+}
+
+.IRISnetItem{
+  .getInvitionCode{
+    font-size: 14px;
+    color: #4285f4;
+    cursor: pointer;
+  }
+  .ant-form-item-label{
+    text-align: center;
+  }
+
+}
+.ethereumbtnMiddle{
+  margin-top: 42px;
+}
+.configCard:hover{
+  box-shadow: 0 0 4px #4285f4;
+}
+.editable-row .ant-form-explain {
+  position: absolute;
+  font-size: 12px;
+  margin-top: -4px;
+}
+
+.configCard{
+  margin-bottom:10px ;
+  position: relative;
+  padding-left: 68px;
+  height: 80px;
+  span{
+    display: inline-block;
+    width: 52px;
+    height: 52px;
+    position: absolute;
+    left:11px ;
+    top: 14px;
+  }
+  h3{
+    color: #354052;
+    font-size: 16px;
+  }
+  p{
+    color: #7f8fa4;
+    font-size: 12px;
+  }
+}
+.configActCard{
+  box-shadow: 0 0 4px #4285f4;
+  h3{
+    color: #4285f4;
+  }
+
+}
+.configPartFabric{
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow:hidden;
+  height: 100%;
+  background:#ffffff;
+  min-height:550px;
+  .fabric-config-card{
+    width: 800px;
+    display: flex;
+    justify-content: space-between;
+    margin:48px auto 40px auto ;
+    img{
+      width:77px ;
+      height: 75px;
+    }
+    dt{
+      width: 643px;
+      h5{
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 1.44;
+        color: #333333;
+      }
+      p{
+        font-size: 14px;
+        line-height: 1.86;
+        color: #333333;
+        margin: 10px 0 20px 0;
+      }
+      ul{
+        font-size: 14px;
+        line-height: 1.86;
+        color: #333333;
+        list-style-type: disc;
+        list-style-position: inside;
+      }
+      button{
+        margin-top: 30px;
+        border-radius: unset;
+        color: #ffffff;
+        font-size: 14px;
+        width: 140px;
+        height: 38px;
+      }
+    }
+  }
+  .fabric-config-tit{
+    text-align: center;
+  }
+  .send_success{
+      transform:scale(.5);
+      text-align:center;
+      margin-top:-40px;
+  }
+  .apply-success{
+      font-size:18px;
+      color:#354052;
+      text-align:center;
+      margin-bottom:12px;
+      margin-top:-90px;
+  }
+  .chat-baas{
+      font-size:16px;
+      color:#354052;
+      opacity:0.6;
+      text-align:center;
+  }
+  .return-mine{
+      text-align:center;
+      margin-top:32px;
+    .finished-return{
+        width:250px;
+        height:38px;
+        text-align:center;
+        background:#4285f4;
+        border:none;
+        border-radius:3px;
+        color:#ffffff;
+        font-size:14px;
+    }
+  }
+  h1{
+    text-align: center;
+    color: #354052;
+    font-size: 26px;
+    margin: 48px 0 20px 0;
+  }
+  .cooperate{
+      margin:3% 0 8px 0;
+  }
+  .partner-desc{
+      width:600px;
+      font-size:14px;
+      color:#4f5f82;
+      text-align:center;
+      margin:0 auto;
+      line-height:normal;
+  }
+  .dashed-line{
+      width:600px;
+      margin:25px auto;
+  }
+  .ipfs{
+      label{
+          color:#8f8f8f;
+          font-weight:300;
+      }
+      input{
+          margin-left:15px;
+          background:#f3f7fb;
+          border:1px solid #e6eaee;
+          box-shadow: none;
+          color:#4285f4;
+          font-size:12px;
+          font-weight:400;
+      }
+      .ipfsBtn{
+          margin-top:12%;
+      }
+      .ant-form-item-control{
+          text-align:center;
+          code{
+            color:red;
+            text-align:center;
+            width:100%;
+            font-size:12px;
+            margin-top:10px;
+        }
+      }
+  }
+  .confirmation{
+    .ant-form-explain{
+        margin-top:-5px;
+    }
+      .ant-row{
+          margin-bottom:16px;
+      }
+  }
+  button{
+    font-size: 14px;
+  }
+  h2{
+    font-size: 12px;
+    text-align: center;
+    color: #354052;
+    margin-top: 30px;
+  }
+  form{
+    .ant-form-explain{
+      text-align: center;
+      font-size: 12px;
+      color: #f13640;
+      margin-top: 5px;
+    }
+  }
+}
+
+.completedBthZigPrev,.completedBthZigNext,.completedBthZigNextLoadding{
+  width: 100%;
+  height: 40px;
+  border-radius: 4px;
+  outline: none;
+  cursor: pointer;
+}
+.completedBthZigPrev{
+  background: #f3f7fb;
+  color: #59677e;
+  border: 1px solid #e6eaee;
+}
+.completedBthZigNext,.completedBthZigNextLoadding{
+  color: #fff;
+  background: #4285f4;
+  border: none;
+  span{
+    display: none;
+  }
+}
+.completedBthZigNext{
+  i{
+    display: none;
+  }
+}
+.completedBthZigNextLoadding{
+  opacity: .35;
+  position: relative;
+  padding-left: 22%;
+  i{
+    display: inline-block;
+    position: absolute;
+    z-index: 10;
+    font-size: 20px;
+    left: 20%;
+    top:10px ;
+  }
+}
+
+.configShow{
+  .ant-form-explain{
+    display: none;
+  }
+}
+
+.EthCardItem{
+  border-radius:3px;
+  margin-bottom:15px;
+  height:99px;
+  h4{
+    font-size: 16px;
+    color: #354052;
+    margin-bottom: 10px;
+  }
+  p{
+    font-size:12px ;
+    color:#7f8fa4;
+  }
+  p:nth-of-type(1){
+    margin-bottom: 5px;
+  }
+  .ant-card-body{
+    padding:12px 0 ;
+    padding-left: 98px;
+  }
+}
+
+.EthCardItemAct{
+  box-shadow: 0 0 4px #4285f4;
+  h4{
+    color: #4285f4;
+  }
+}
+
+.ethereumListItem code{
+  text-align: center;
+  font-size: 12px;
+  color: #f13640;
+  margin-top: 5px;
+}
+.configSelect code{
+  position: absolute;
+  bottom: 0px;
+  height: 15px;
+  width:100%;
+  left: 0;
+}
+.ethereumTipNoSelect{
+  display: none;
+}
+
+@media screen and (max-height: 800px) {
+  .EthCardItem h4{
+    font-size: 14px;
+  }
+  .configPartFabric h1{
+    margin:50px 0 30px 0;
+    font-size:24px ;
+  }
+  .configPartFabric {
+    .cooperate{
+        margin:2% 0 8px 0;
+    }
+      .confirmation{
+        .ant-row{
+            margin-bottom:8px;
+        }
+      }
+    .dashed-line{
+        width:600px;
+        margin:20px auto;
+    }
+  }
+  .ethereumbtnMiddle{
+    margin-top: 10px;
+  }
+  .EthCardItem{
+    height: 90px;
+  }
+  .configCard{
+    height: 80px;
+    .ant-card-body{
+      padding: 15px;
+    }
+  }
+  .selectServicePart h1{
+    margin-top: 50px;
+  }
+  .selectServicePart ul li h2{
+    margin:24px 0 8px 0 ;
+  }
+  .page-part-fabric{
+    min-height: 570px;
+  }
+
+}
+
+@media screen and (max-width: 992px){
+  .IRISnetItem{
+    .ant-form-explain{
+      padding-right: 15.625%;
+    }
+  }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1200px){
+  .IRISnetItem{
+    .ant-form-explain{
+      padding-right: 26.416%;
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) and (max-width: 1600px){
+  .IRISnetItem{
+    .ant-form-explain{
+      padding-right: 25.4%;
+    }
+  }
+}
+
+@media screen and (min-width: 1600px){
+  .IRISnetItem{
+    .ant-form-explain{
+      padding-right: 25.4%;
+    }
+  }
+}

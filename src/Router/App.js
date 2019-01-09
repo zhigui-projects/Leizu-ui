@@ -10,9 +10,7 @@ import { LocaleProvider, Spin } from 'antd'
 import Tip from '../Utils/Tip'
 import Loadable from 'react-loadable';
 import Cookies from 'js-cookie'
-// import Dashboard from '../pages/Dashboard/basicLayout';
-// import Login from '../pages/Login/login'
-// import Project from '../pages/Project/index'
+
 
 // react-intl-universal国际化配置
 import intl from "react-intl-universal";
@@ -41,6 +39,11 @@ const Login = Loadable({
 })
 const Project = Loadable({
     loader: () => import('../pages/Project/index'),
+    loading: MyLoadingComponent
+})
+
+const FabricSetConfModal = Loadable({
+    loader: () => import('../pages/Project/components/fabricSetConf/index'),
     loading: MyLoadingComponent
 })
 
@@ -88,6 +91,7 @@ class App extends Component {
         }
         this.loadLocales();
     }
+
     loadLocales = () => {
         const lang = Cookies.get("lang");
         // init method will load CLDR locale data according to currentLocale
@@ -109,11 +113,13 @@ class App extends Component {
     render() {
         const antd_locale = Cookies.get("lang").replace("-", "_");
         const locale = antd_locales[antd_locale];
+
         return <div className="App">
             < LocaleProvider locale={locale}>
                 <Router>
                     <Switch>
                         <Route path="/dashboard" component={Dashboard} />
+                        <Route path="/project/create_fabric" component={FabricSetConfModal} />
                         <Route path="/project" component={Project} />
                         <Route path="/login" component={Login} />
                         <Route path="/*" render={(props) => <Redirect to='/login' />} />

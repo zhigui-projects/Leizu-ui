@@ -116,5 +116,143 @@
     "Org_Info": "组织信息",
     "Please_Input_Org":"请输入组织名称",
     "Create_Successfully": "创建成功",
-    "Chinese_Input_tip":"组织名不能是中文"
+    "Chinese_Input_tip":"组织名不能是中文",
+
+
+
+
+    "service_selectService_Ropsten":"测试网络-Ropsten",
+    "service_selectService_Ropsten_netPro":"以太坊官方测试网络，采用POW共识机制，挖矿难度较低。",
+    "service_selectService_Ropsten_browser":"区块链浏览器：",
+    "service_selectService_Rinkeby":"测试网络-Rinkeby",
+    "service_selectService_Rinkeby_netpro":"以太坊官方测试网络，采用POA共识机制。",
+    "service_selectService_Kovan":"测试网络-Kovan",
+    "creatChain_apply_fabric_tip":"您创建Fabric企业级链的数量达到上限,如有需要请联系客服扩充上限。",
+    "service_model_update_500": "网络错误,请稍后再试",
+    "service_selectService_selectConfiguration":"请选择链配置",
+    "service_selectService_fabric_tip":"试用版仅支持申请一条Fabric，请释放当前链后再尝试申请。",
+    "service_selectService_deployedFail":"创建失败,已存在同名区块链,请修改名称",
+    "service_chain_resources": "链资源不足，请尝试申请其他配置或使用云应用版",
+    "service_chain_creatFail": "创建失败",
+    "IRISnet_creatIRISnet_default":"创建失败",
+    "chain_create_enterprise_success":"创建Fabric企业级链成功",
+    "creatChain_creat_node_oderer_up":"oderer节点最多添加至五个",
+    "creatChain_creat_peer_up":"peer节点最多添加至五个",
+    "creatChain_creat_node_peer_up":"peer组织最多添加至五个",
+    "creatChain_creat_enter_node_ip":"请输入节点ip",
+    "creatChain_enter_name":"请输入名称",
+    "creatChain_enter_ssh_username_name":"请输入SSH用户名",
+    "creatChain_enter_ssh_username_pass":"请输入SSH密码",
+
+
+    "creatChain_service_project_Fabric_tit":"Fabric开发版",
+    "creatChain_service_project_Fabric_doc":"Fabric开发版是Z-BaaS面向开发者提供的区块链构建服务，适用于区块链应用前期开发与调试验证，可选择两种通用配置秒级构建区块链网络，支持免费试用48小时，到期后自动释放。",
+    "creatChain_service_project_Fabric_doc_item1":"免费体验区块链网络搭建服务",
+    "creatChain_service_project_Fabric_doc_item2":"快速构建区块链网络",
+    "creatChain_service_project_Fabric_doc_item3":"48小时试用，到期自动释放",
+    "creatChain_service_project_Fabric_btn_doc":"开始使用",
+    "creatChain_service_project_enterprise_tit":"Fabric企业版",
+    "creatChain_service_project_enterprise_doc":"Fabric企业版是Z-BaaS面向企业级客户提供的一站式区块链构建服务，适用于产品级应用的迭代开发与长期部署，支持客户按需设置网络配置，付费使用，长期有效。",
+    "creatChain_service_project_enterprise_item1":"自动化部署企业级区块链网络",
+    "creatChain_service_project_enterprise_item2":"可视化控制台，动态管理网络及成员配置",
+    "creatChain_service_project_enterprise_item3":"付费使用，长期有效",
+    "creatChain_service_project_Fabric_nav":"根据您对平台支撑规模、架构方案的不同要求，为您提供两种选择",
+    "creatChain_creat_version":"Fabric版本",
+    "creatChain_creat_Method":"账本数据存储方式",
+    "creatChain_creat_Strategy":"共识策略",
+    "creatChain_creat_node_type":"节点类型",
+    "creatChain_creat_node_name":"节点名",
+    "creatChain_creat_node_ip":"节点IP",
+    "creatChain_creat_SSH_username":"SSH用户名",
+    "creatChain_creat_SSH_password":"SSH密码",
+    "creatChain_creat_check_result":"检测结果",
+    "creatChain_creat_check_Detect":"节点检测",
+    "creatChain_creat_check_Detect_fail":"节点检测失败",
+    "creatChain_creat_check_Detect_success":"节点检测成功",
+    "creatChain_creat_ip_enter_tip":"节点由用户提供外网节点，需要在节点上安装docker并支持Https调用,同类型的节点IP不能相同",
+    "creatChain_creat_new_orderer":"新增Orderer组织",
+    "creatChain_creat_node_orderer":"添加orderer节点",
+    "creatChain_creat_add_up":"最多添加四个",
+    "creatChain_creat_new_peer":"添加peer节点组织",
+    "creatChain_creat_new_channel":"新增通道",
+    "creatChain_Choose_Peer_Organization":"选择Peer节点组织",
+    "creatChain_creat_done":"完成",
+    "creatChain_enter_channel_name":"只能输入小写字母或数字",
+    "creatChain_creat_new_peer_Organization":"新增peer组织",
+    "creatChain_creat_CA_node_name":"CA节点名",
+    "creatChain_creat_Oderer_node_name":"Oderer节点名",
+    "creatChain_creat_Peer_node_name":"Peer节点名",
+    "creatChain_creat_development_version":"开发版",
+    "creatChain_creat_enterprise_version":"企业版",
+    "login_tit":"登录 Z-BaaS",
+    "login_nav_jump_home":"纸贵BaaS首页",
+    "creatChain_creat_apply_form":"申请公测",
+    "creatChain_creat_apply_form_no":"抱歉，您还未进行公测申请，暂时不能使用企业级区块链功能。",
+    "creatChain_creat_apply_form_go_apply":"去申请",
+    "creatChain_creat_apply_form_pending":"您的公测申请正在审批中，审批通过后会有邮件通知您，请耐心等待",
+    "creatChain_creat_apply_fail":"申请失败",
+    "creatChain_creat_apply_submit":"提交申请",
+    "creatChain_creat_peer_detection":"检测中...",
+    "creatChain_service_project_Zigledger_tit":"Z-Ledger开发版",
+    "creatChain_service_project_Zigledger_doc":"Z-Ledger开发版是Z-BaaS面向开发者提供的区块链构建服务，适用于区块链应用前期开发与调试验证，可选择两种通用配置秒级构建区块链网络，支持免费试用48小时，到期后自动释放。",
+    "creatChain_service_project_Zigledger_enterprise_tit":"Z-Ledger企业版",
+    "creatChain_service_project_Zigledger_enterprise_doc":"Z-Ledger企业版是Z-BaaS面向企业级客户提供的一站式区块链构建服务，适用于产品级应用的迭代开发与长期部署，支持客户按需设置网络配置，付费使用，长期有效。",
+    "Yet_Login_Tip":"请先登录",
+    "creatChain_apply_zigledger_tip":"您创建Z-Ledger企业级链的数量达到上限,如有需要请联系客服扩充上限。",
+    "creatChain_creat_zig_version":"Z-Ledger版本",
+    "chain_enterprise_release_time_tip":"释放时间",
+    "chain_create_kafka_check_enter":"请输入正确的Kafka节点",
+    "chain_create_kafka_check_tip":"请检测Kafka节点",
+    "chain_create_zookeeper_check_enter":"请输入正确的Zookeeper节点",
+    "chain_create_zookeeper_check_tip":"请检测Zookeeper节点",
+    "chain_create_Oderer_ca_check_enter":"请输入正确的Oderer组织CA节点",
+    "chain_create_Oderer_ca_check_tip":"请检测Oderer组织的CA节点",
+    "chain_create_Oderer_check_enter":"请输入正确的Oderer节点",
+    "chain_create_Oderer_check_tip":"请检测Oderer节点",
+    "chain_create_Peer_ca_check_enter":"请输入正确的Peer组织CA节点",
+    "chain_create_Peer_ca_check_tip":"请检测Peer组织CA节点",
+    "chain_create_Peer_check_enter":"请输入正确的Peer节点",
+    "chain_create_Peer_check_tip":"请检测Peer节点",
+    "chain_create_fabric_conf_tip":"企业级Fabric链",
+    "creatChain_creat_node_peer":"添加Peer节点",
+    "Production_fees":"费用",
+    "Learn_More": "了解更多",
+    "Hot": "热门",
+    "Coming_Soon": "敬请期待",
+    "See_Detail": "查看详情",
+    "Watch_Us_Please":"关注我们",
+    "Send_Email_Failed":"发送失败",
+    "service_selectService_Kovan_netPro":"由以太坊钱包Parity开发团队发起，采用POA共识机制。",
+    "service_modal_detail_name": "名称",
+    "service_enter_chain_name": "请输入联盟链名称",
+    "service_enter_chain_name_tip": "请输入链名称",
+    "service_back": "取消",
+    "service_finish": "完成"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

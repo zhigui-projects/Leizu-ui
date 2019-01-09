@@ -40,8 +40,12 @@ module.exports = {
         },
         consortium: {
             overview: `${API}/consortium/{consortiumId}`
-
-        }
+        },
+        enterpriseChain: {
+            checkPeer: `${API}/peer/check`,
+            createChain:`${API}/request`,
+            releaseEnterprise: `${API}/enterprise-chain/release/{id}`
+        },
     },
     newAPI:""
 }

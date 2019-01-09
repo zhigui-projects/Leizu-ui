@@ -8,7 +8,7 @@ import React, { Component } from 'react';
 // import './index.less';
 import moment from "moment"
 // import '../../styles/reset.less'
-import { Icon,Breadcrumb, Modal,Form,Input,message, Popover,Card, Avatar,List,Spin } from 'antd';
+import { Icon,Breadcrumb, Modal,Form,Input,message, Popover,Card, Avatar,List,Spin, Button } from 'antd';
 import Cookies from 'js-cookie'
 import { NavLink } from 'react-router-dom';
 import intl from 'react-intl-universal'
@@ -40,6 +40,7 @@ class Project extends Component {
             chainListLoading:true
         })
         request().get(chain.chainList).then((chainListRes)=>{
+            console.log(chainListRes)
             if(chainListRes){
                 console.log(chainListRes)
                 switch(chainListRes.status){
@@ -364,6 +365,10 @@ class Project extends Component {
             pathname:"/dashboard"
         })
     }
+
+    clickAddChainFn = () =>{
+        this.props.history.push("/project/create_fabric")
+    }
     render() {
         const userName = Cookies.get('userNameInfo')
         const {chainlistArr,chainListLoading} = this.state
@@ -417,11 +422,16 @@ class Project extends Component {
 
                 <div className="servicePart">
                     { chainListLoading && <Spin className="chainCodeListSpin" size="large"> </Spin>}
+                    <div className="addCardItem">
+                        <Button onClick={this.clickAddChainFn} className="newButton" border="none">
+                            <Icon type="plus" />添加项目
+                        </Button>
+                    </div>
                     <List
-                        style={{width:"100%"}}
+                        style={{width:"100%",float:"left"}}
                         grid={{ gutter: 24, xs: 1, sm: 2, md: 2, lg: 2, xl: 3, xxl: 4 }}
                         dataSource={chainlistArr || []}
-                        renderItem={item => (
+                        renderItem={(item) => (
                             <List.Item>
                                 <Card
                                     className="chainliatItem"

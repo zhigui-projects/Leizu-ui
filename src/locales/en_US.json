@@ -116,5 +116,136 @@
     "Org_Info": "Org Info",
     "Please_Input_Org":"Please input Org name",
     "Create_Successfully": "Created successfully",
-    "Chinese_Input_tip":"Organization name cannot be Chinese"
+    "Chinese_Input_tip":"Organization name cannot be Chinese",
+
+
+
+    "service_selectService_Ropsten":"Testnet-Ropsten",
+    "service_selectService_Ropsten_netPro":"Official testnet of Ethereum based on POW consensus.",
+    "service_selectService_Ropsten_browser":"Blockchain Explorer：",
+    "service_selectService_Rinkeby":"Testnet-Rinkeby",
+    "service_selectService_Rinkeby_netpro":"Official testnet of Ethereum based on POA consensus.",
+    "service_selectService_Kovan":"Testnet-Kovan",
+    "creatChain_apply_fabric_tip":"The number of Fabric enterprise-level chains you create has reached the upper limit. Please contact the customer service to extend the upper limit.",
+    "service_model_update_500": "Network error, please try again later",
+    "service_selectService_selectConfiguration":"Please select the blockchain configuration",
+    "service_selectService_fabric_tip":"The trial version only supports application for one Fabric. Please release the current blockchain and apply again.",
+    "service_selectService_deployedFail":"Deployed failed, a blockchain with the same name already exists",
+    "service_chain_resources": "Insufficient blockchain resources, please request for other configurations or use the cloud app version",
+    "service_chain_creatFail": "Deployed failed",
+    "IRISnet_creatIRISnet_default":"Creation failed",
+    "chain_create_enterprise_success":"Creating Fabric Enterprise Chain Successfully",
+    "creatChain_creat_node_oderer_up":"The oderer node can be added to up to five.",
+    "creatChain_creat_peer_up":"The peer node can be added to up to five.",
+    "creatChain_creat_node_peer_up":"The peer organization can be added to up to five.",
+    "creatChain_creat_enter_node_ip":"Please enter the node IP",
+    "creatChain_enter_name":"Please enter name",
+    "creatChain_enter_ssh_username_name":"Please enter SSH User Name",
+    "creatChain_enter_ssh_username_pass":"Please enter SSH Password",
+
+
+    "creatChain_service_project_Fabric_tit":"Fabric Development Version",
+    "creatChain_service_project_Fabric_doc":"Fabric development version is a blockchain construction service provided by Z-BaaS for developers. It is suitable for pre-development and debugging verification of blockchain applications. It can choose two common configuration to build a blockchain network and support free trial for 48 hours. Automatically released after expiration.",
+    "creatChain_service_project_Fabric_doc_item1":"Free experience of blockchain network building service",
+    "creatChain_service_project_Fabric_doc_item2":"Quickly build a blockchain network",
+    "creatChain_service_project_Fabric_doc_item3":"48 hours free trial, automatic release upon expiration",
+    "creatChain_service_project_Fabric_btn_doc":"Start Using",
+    "creatChain_service_project_enterprise_tit":"Fabric Enterprise version",
+    "creatChain_service_project_enterprise_doc":"Fabric enterprise version is a one-stop blockchain construction service provided by Z-BaaS for enterprise customers. It is suitable for iterative development and long-term deployment of product-level applications. It supports customers to set network configuration on demand, pay for and use for a long time.",
+    "creatChain_service_project_enterprise_item1":"Automated deployment of enterprise-level blockchain network",
+    "creatChain_service_project_enterprise_item2":"Visual console, dynamic management of network and member configuration",
+    "creatChain_service_project_enterprise_item3":"Paid use, long term effective",
+    "creatChain_service_project_Fabric_nav":"According to your different requirements for platform support scale and architecture plan, we offer you two options",
+    "creatChain_creat_version":"Fabric Version",
+    "creatChain_creat_Method":"Ledger Data Storage Method",
+    "creatChain_creat_Strategy":"Consensus Strategy",
+    "creatChain_creat_node_type":"Node Type",
+    "creatChain_creat_node_name":"Node Name",
+    "creatChain_creat_node_ip":"Node IP",
+    "creatChain_creat_SSH_username":"SSH User Name",
+    "creatChain_creat_SSH_password":"SSH Password",
+    "creatChain_creat_check_result":"Detection result",
+    "creatChain_creat_check_Detect":"Node Detect",
+    "creatChain_creat_check_Detect_fail":"Detection Failed",
+    "creatChain_creat_check_Detect_success":"Successful Detection",
+    "creatChain_creat_ip_enter_tip":"The node is provided by the user, which should support docker and Https call. Nodes with same type can’t use the same IP",
+    "creatChain_creat_new_orderer":"New Orderer Organization",
+    "creatChain_creat_node_orderer":"Add Orderer Node",
+    "creatChain_creat_add_up":"add up to 4",
+    "creatChain_creat_new_peer":"Add Peer Organization",
+    "creatChain_creat_new_channel":"New Channel",
+    "creatChain_Choose_Peer_Organization":"Choose Peer Organization",
+    "creatChain_creat_done":"Done",
+    "creatChain_enter_channel_name":"Can only enter lowercase letters or numbers",
+    "creatChain_creat_new_peer_Organization":"New Peer Organization",
+    "creatChain_creat_CA_node_name":"CA Node Name",
+    "creatChain_enter_name":"Please enter name",
+    "creatChain_enter_ssh_username_name":"Please enter SSH User Name",
+    "creatChain_enter_ssh_username_pass":"Please enter SSH Password",
+    "creatChain_creat_Oderer_node_name":"Oderer Node Name",
+    "creatChain_creat_Peer_node_name":"Peer Node Name",
+    "creatChain_creat_development_version":"Development Version",
+    "creatChain_creat_enterprise_version":"Enterprise version",
+    "login_tit":"Login Z-BaaS",
+    "login_nav_jump_home":"Z-BaaS Home",
+    "creatChain_creat_apply_form":"Apply for public beta",
+    "creatChain_creat_apply_form_no":"Sorry, you can't use the enterprise blockchain feature before applying for a beta.",
+    "creatChain_creat_apply_form_go_apply":"Apply",
+    "creatChain_creat_apply_form_pending":"Your public beta application is under review. You will be notified by email after the approval is passed. Thank you for your patience.",
+    "creatChain_creat_apply_fail":"Application failure",
+    "creatChain_creat_apply_submit":"Submit application",
+    "creatChain_creat_peer_detection":"In detection...",
+    "creatChain_service_project_Zigledger_tit":"Z-Ledger Development Version",
+    "creatChain_service_project_Zigledger_doc":"Z-Ledger development version is a blockchain construction service provided by Z-BaaS for developers. It is suitable for pre-development and debugging verification of blockchain applications. It can choose two common configuration to build a blockchain network and support free trial for 48 hours. Automatically released after expiration.",
+    "creatChain_service_project_Zigledger_enterprise_tit":"Z-Ledger Enterprise version",
+    "creatChain_service_project_Zigledger_enterprise_doc":"Z-Ledger enterprise version is a one-stop blockchain construction service provided by Z-BaaS for enterprise customers. It is suitable for iterative development and long-term deployment of product-level applications. It supports customers to set network configuration on demand, pay for and use for a long time.",
+    "Yet_Login_Tip":"Please login first",
+    "creatChain_apply_zigledger_tip":"The number of Z-Ledger enterprise-level chains you create has reached the upper limit. Please contact the customer service to extend the upper limit.",
+    "creatChain_creat_zig_version":"Z-Ledger Version",
+    "chain_enterprise_release_time_tip":"Release time",
+    "chain_create_kafka_check_enter":"Please enter the correct Kafka node",
+    "chain_create_kafka_check_tip":"Check the Kafka node",
+    "chain_create_zookeeper_check_enter":"Enter the correct Zookeeper node",
+    "chain_create_zookeeper_check_tip":"Check the Zookeeper node",
+    "chain_create_Oderer_ca_check_enter":"Enter the correct Oderer organizational CA node",
+    "chain_create_Oderer_ca_check_tip":"Please check the Oderer organization CA node",
+    "chain_create_Oderer_check_enter":"Please enter the correct Oderer node",
+    "chain_create_Oderer_check_tip":"Check the Oderer node",
+    "chain_create_Peer_ca_check_enter":"Enter the correct Peer Organization CA node",
+    "chain_create_Peer_ca_check_tip":"Check the Peer Organization CA node",
+    "chain_create_Peer_check_enter":"Please enter the correct Peer node",
+    "chain_create_Peer_check_tip":"Check the Peer node",
+    "chain_create_fabric_conf_tip":"Enterprise Fabric Chain",
+    "creatChain_creat_node_peer":"Add Peer Node",
+    "Production_fees":"Fee",
+    "Learn_More": "Learn more",
+    "Hot": "Hot",
+    "Coming_Soon": "Coming soon",
+    "See_Detail": "See detail",
+    "Watch_Us_Please":"Follow Us",
+    "Send_Email_Failed":"Failed to send!",
+    "service_selectService_Kovan_netPro":"Testnet of Ethereum based on POA consensus.",
+    "service_modal_detail_name": "Name",
+    "service_enter_chain_name": "Please enter the name of blockchain",
+    "service_enter_chain_name_tip": "Please enter the chain name",
+    "service_back": "Cancel",
+    "service_finish": "Complete"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
