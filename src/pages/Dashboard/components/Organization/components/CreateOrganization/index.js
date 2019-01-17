@@ -36,7 +36,7 @@ class CreateOrganization extends Component {
             let orgName = document.getElementById('org-name').value;
             let reg = /^[^\u4e00-\u9fa5]+$/;
             if(!reg.test(orgName)){
-                
+
             }
             let ip = values.ippeer1 + '.' + values.ippeer2 + '.' + values.ippeer3 + '.' + values.ippeer4;
             let check = {
@@ -249,7 +249,7 @@ class CreateOrganization extends Component {
                                                 validator: this.handleAddress
                                             }],
                                         })(
-                                            <Input />
+                                            <Input type="password" />
                                         )}
                                     </FormItem>
                                     <FormItem

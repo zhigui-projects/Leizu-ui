@@ -91,7 +91,7 @@ class CreateOrganization extends Component {
                             channelOptions: res.data.data,
                         })
                         break;
-                    case 401: 
+                    case 401:
                         Cookies.remove('userNameInfo')
                         Cookies.remove('token')
                         this.props.history.push('/login')
@@ -330,7 +330,7 @@ class CreateOrganization extends Component {
                                                             validator: this.handleAddress
                                                         }],
                                                     })(
-                                                        <Input />
+                                                        <Input type="password" />
                                                     )}
                                                 </FormItem>
                                                 {/* <FormItem>

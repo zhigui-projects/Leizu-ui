@@ -172,7 +172,7 @@ class CreateOrganization extends Component {
                             channelOptions: res.data.data,
                         })
                         break;
-                    case 401: 
+                    case 401:
                         Cookies.remove('userNameInfo')
                         Cookies.remove('token')
                         this.props.history.push('/login')
@@ -311,7 +311,7 @@ class CreateOrganization extends Component {
                                                             message: intl.get("Number_Letter_Password"),
                                                         }],
                                                     })(
-                                                        <Input />
+                                                        <Input type="password" />
                                                     )}
                                                 </FormItem>
                                                 <Icon style={{ display: index === 0 ? 'none' : '' }} className="close" onClick={this.deletePeer.bind(this, index)} type="close" />

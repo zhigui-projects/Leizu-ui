@@ -1105,7 +1105,7 @@ class FabricSetConfModal extends Component {
                                 },],
                             })(
                                 <div>
-                                    <Input onBlur={()=>{this.ordererOrgPeerCheckFn([`ordererOrg_peer_${item.id}_ip`,`ordererOrg_peer_${item.id}_sshUsername`,`ordererOrg_peer_${item.id}_sshPassword`,`ordererOrg_peer_${item.id}_name`],i)}}
+                                    <Input type="password" onBlur={()=>{this.ordererOrgPeerCheckFn([`ordererOrg_peer_${item.id}_ip`,`ordererOrg_peer_${item.id}_sshUsername`,`ordererOrg_peer_${item.id}_sshPassword`,`ordererOrg_peer_${item.id}_name`],i)}}
                                            className="input-len" onChange={()=>{this.changeOdererPeerCheckFn(item)}}/>
                                 </div>
                             )}
@@ -1159,7 +1159,7 @@ class FabricSetConfModal extends Component {
                             ],
                         })(
                             <div>
-                                <Input onBlur={()=>{this.kafkaCheckAutoFn([`Kafka_${item.id}_ip`,`Kafka_${item.id}_sshUsername`,`Kafka_${item.id}_sshPassword`],i)}} onChange={()=>{this.changeKafkaCheckFn(item)}} style={{width:"132px"}} />
+                                <Input type="password"  onBlur={()=>{this.kafkaCheckAutoFn([`Kafka_${item.id}_ip`,`Kafka_${item.id}_sshUsername`,`Kafka_${item.id}_sshPassword`],i)}} onChange={()=>{this.changeKafkaCheckFn(item)}} style={{width:"132px"}} />
                             </div>
                         )}
                     </FormItem>
@@ -1205,7 +1205,7 @@ class FabricSetConfModal extends Component {
                             },],
                         })(
                             <div>
-                                <Input onBlur={()=>{this.zookcheckPeerFn([`Zookeeper_${item.id}_ip`,`Zookeeper_${item.id}_sshUsername`,`Zookeeper_${item.id}_sshPassword`],i)}} onChange={()=>{this.changeZookeeperCheckFn(item)}} style={{width:"132px"}} />
+                                <Input type="password"  onBlur={()=>{this.zookcheckPeerFn([`Zookeeper_${item.id}_ip`,`Zookeeper_${item.id}_sshUsername`,`Zookeeper_${item.id}_sshPassword`],i)}} onChange={()=>{this.changeZookeeperCheckFn(item)}} style={{width:"132px"}} />
                             </div>
                         )}
                     </FormItem>
@@ -1418,7 +1418,7 @@ class FabricSetConfModal extends Component {
                                                     },],
                                                 })(
                                                     <div>
-                                                        <Input onBlur={()=>{this.OdererCApeerCheckFn(["ordererOrg_ca_ip","ordererOrg_ca_sshUsername","ordererOrg_ca_sshPassword",'ordererOrg_ca_name'])}} onChange={()=>{this.changeOdererCACheckFn()}} style={{width:"132px"}} />
+                                                        <Input type="password"  onBlur={()=>{this.OdererCApeerCheckFn(["ordererOrg_ca_ip","ordererOrg_ca_sshUsername","ordererOrg_ca_sshPassword",'ordererOrg_ca_name'])}} onChange={()=>{this.changeOdererCACheckFn()}} style={{width:"132px"}} />
                                                     </div>
                                                 )}
                                             </FormItem>
@@ -1538,7 +1538,7 @@ class FabricSetConfModal extends Component {
                                                                 },],
                                                             })(
                                                                 <div>
-                                                                    <Input onBlur={()=>{this.peerOrgsCACheckFn([`peerOrgs_${i+1}_ca_ip`,`peerOrgs_${i+1}_ca_sshUsername`,`peerOrgs_${i+1}_ca_sshPassword`,`peerOrgs_${i+1}_ca_name`],i)}} onChange={()=>{this.changePeerCACheckFn(item)}} style={{width:"132px"}} />
+                                                                    <Input type="password"  onBlur={()=>{this.peerOrgsCACheckFn([`peerOrgs_${i+1}_ca_ip`,`peerOrgs_${i+1}_ca_sshUsername`,`peerOrgs_${i+1}_ca_sshPassword`,`peerOrgs_${i+1}_ca_name`],i)}} onChange={()=>{this.changePeerCACheckFn(item)}} style={{width:"132px"}} />
                                                                 </div>
                                                             )}
                                                         </FormItem>
@@ -1609,7 +1609,7 @@ class FabricSetConfModal extends Component {
                                                                         },],
                                                                     })(
                                                                         <div>
-                                                                            <Input onBlur={()=>{this.PeerInnercheckFn([`peerOrgs_${i+1}_peers_${k+1}_ip`,`peerOrgs_${i+1}_peers_${k+1}_sshUsername`,`peerOrgs_${i+1}_peers_${k+1}_sshPassword`,`peerOrgs_${i+1}_peers_${k+1}_name`],k,i)}} onChange={()=>{this.changePeerCheckFn(item,peerItem)}} className="input-len"/>
+                                                                            <Input type="password"  onBlur={()=>{this.PeerInnercheckFn([`peerOrgs_${i+1}_peers_${k+1}_ip`,`peerOrgs_${i+1}_peers_${k+1}_sshUsername`,`peerOrgs_${i+1}_peers_${k+1}_sshPassword`,`peerOrgs_${i+1}_peers_${k+1}_name`],k,i)}} onChange={()=>{this.changePeerCheckFn(item,peerItem)}} className="input-len"/>
                                                                         </div>
                                                                     )}
                                                                 </FormItem>
